@@ -1,0 +1,91 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header title={SITE_TITLE} />
+    <main>
+      <p>
+        Hello 👋
+      </p>
+
+      <p>
+        I'm <a rel="me" href="https://mastodon.social/@sambreed" title="Follow me on Mastodon!">@sambreed</a> and this is my modest personal website.
+      </p>
+
+      <p>
+        I am a developer, designer, and investor who helps make websites faster, products better, and teams smarter.
+      </p>
+
+      <p>When I'm not doing that, I'm usually trail running somewhere around Mt Tam. I also collect records, enjoy riding motorcycles, and building things in my shop.</p>
+
+      <section>
+        <h2>Writing</h2>
+        <ul style={{ listStyleType: 'circle' }}>
+          <li><a href="/writing/links-august-2022.html">Links, August 2022</a></li>
+          <li><a href="/writing/twitter.html">So I'm thinking about getting off Twitter</a></li>
+          <li><a href="/writing/links-part-one.html">Links, continued</a></li>
+          <li><a href="/writing/16-open-tabs.html">I have 16 open tabs right now</a></li>
+          <li><a href="/writing/books.html">Bookshelf</a></li>
+          <li><a href="/writing/2017-reading-list.html">2017 reading list</a></li>
+          <li><a href="/writing/2007.html">What the fuck happened in 2007</a></li>
+          <li><a href="/writing/static-sites-with-next-js.html">How to make a static website with Next.js</a></li>
+          <li><a href="/writing/tragic-design-is.html">Tragic design is...</a></li>
+          <li>
+            <a href="/writing/2016-reading-list.html">2016 reading list</a>
+            &nbsp;&middot;&nbsp;
+            <a href="/writing/what-I-read-in-2016.html">Why I read what I read in 2016</a>
+          </li>
+          <li>
+            <a href="/writing/protect-your-history.html">Protect your DNS history with DNSCrypt</a>
+          </li>
+          <li><a href="/writing/lessons-from-the-jerk.html">Lessons from The Jerk (1978)</a></li>
+          <li><a href="/writing/picking-up-the-pieces.html">Picking up the pieces; or How I learned to stop worrying and embrace weird metaphors</a></li>
+          <li><a href="/writing/making-things-for-fun.html">Making things for fun</a></li>
+          <li><a href="https://medium.com/@sambreed/2015-books-504cb79ac5c0#.f8izs5mpq">2015 reading list</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Ephemera</h2>
+        <ul>
+          <li>
+            <a href="/cv.html">Peruse my C.V.</a>
+          </li>
+          <li>
+            social media presences: <a href="https://mastodon.social/@sambreed">mastodon</a>, <a href="https://twitter.com/sambreed">twitter</a>, <a href="https://instagram.com/wookiehangover">instagram</a>
+          </li>
+          <li>
+            code, etc: <a href="https://github.com/wookiehangover?tab=repositories">github</a>
+          </li>
+          <li>
+            side projects:
+            <ul>
+              <li><a href="https://twitter.com/pantone_colors">every pantone color</a> twitter bot</li>
+              <li>
+                <a href="https://obliquestrategies.website/">obliquestrategies.website</a>
+                <ul>
+                  <li><a href="https://chrome.google.com/webstore/detail/oblique-strategies-tab/mgmdhihgmkhangpfokjdhfhjaiadpopd">chrome extension</a></li>
+                  <li><a href="https://twitter.com/ObliqueBot/status/886236405118062592">twitter bot</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="https://chrome.google.com/webstore/detail/%CA%8D-wikipedia/icfadkjhpjekoifngfldhkkjakifokln">ʍ-wikipedia</a> chrome extension
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <p>Or if none of that is enough (word, really?) or you have some other unanswered questions, <a href="mailto:sam@destroy.email">send me an email</a> or use one of the links below.</p>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>
