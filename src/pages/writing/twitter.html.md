@@ -3,7 +3,12 @@ title: Twitter
 slug: twitter
 description: Leaving Twitter
 layout: "../../layouts/BlogPost.astro"
+pubDate: "Jul 18 2022"
+heroImage: "/img/d107c44c-bd10-4128-a703-da86feaa2176.png"
+heroAlt: Ghibli style a lonely house in mountain landscape at dusk orange and pink sky - Stable Diffusion v1.5
 ---
+
+**Update: I left the site in early November 2022 and locked my account. A searchable copy of my bad tweets is available at [hellsite.sambreed.dev](https://hellsite.sambreed.dev).**
 
 So I'm thinking about getting off twitter.
 

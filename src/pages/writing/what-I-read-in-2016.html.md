@@ -2,6 +2,7 @@
 title: Why I Read What I Read in 2016
 slug: why-I-read-what-I-read-in-2016.html
 layout: "../../layouts/BlogPost.astro"
+pubDate: "Jan 1 2017"
 ---
 
 ## Why I Read What I Read in 2016

@@ -3,6 +3,7 @@ title: 16 open tabs
 slug: 16-open-tabs
 description: I have 16 open browser tabs RIGHT NOW
 layout: "../../layouts/BlogPost.astro"
+pubDate: "Aug 12 2019"
 ---
 
 Right now, I have 16 open tabs in my browser.

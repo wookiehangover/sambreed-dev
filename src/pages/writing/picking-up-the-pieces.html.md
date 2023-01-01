@@ -3,6 +3,7 @@ title: Picking up the pieces
 slug: picking-up-the-pieces.html
 description: A story about how I've come to embrace odd metaphors to color language
 layout: "../../layouts/BlogPost.astro"
+pubDate: "Sep 13 2016"
 ---
 
 ## Picking up the pieces; or How I learned to stop worrying and embrace weird metaphors

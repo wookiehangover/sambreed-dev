@@ -2,6 +2,7 @@
 title: Lessons from The Jerk (1978)
 slug: lessons-from-the-jerk.html
 layout: "../../layouts/BlogPost.astro"
+pubDate: "Nov 26 2016"
 ---
 
 ## Lessons from The Jerk (1978)

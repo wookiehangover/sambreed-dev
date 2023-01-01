@@ -3,6 +3,7 @@ title: Links Blog
 slug: links-part-one
 description: Links! more links to things I've had open
 layout: "../../layouts/BlogPost.astro"
+pubDate: "Jul 13 2022"
 ---
 
 another link dump, some of these have been open for months and need to be closed or forgotten. It's healthy to pay down the tab debt at least once a quarter.

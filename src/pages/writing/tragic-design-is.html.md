@@ -2,6 +2,7 @@
 title: Tragic Design is...
 slug: tragic-design-is.html
 layout: "../../layouts/BlogPost.astro"
+pubDate: "Aug 6 2017"
 ---
 
 ## Tragic Design is...

@@ -3,6 +3,10 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
+
+const posts = (await Astro.glob('./writing/*.{md,mdx}')).sort(
+	(a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
+).slice(0,4);
 ---
 
 <!DOCTYPE html>
@@ -30,27 +34,12 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
       <section>
         <h2>Writing</h2>
         <ul style={{ listStyleType: 'circle' }}>
-          <li><a href="/writing/links-august-2022.html">Links, August 2022</a></li>
-          <li><a href="/writing/twitter.html">So I'm thinking about getting off Twitter</a></li>
-          <li><a href="/writing/links-part-one.html">Links, continued</a></li>
-          <li><a href="/writing/16-open-tabs.html">I have 16 open tabs right now</a></li>
-          <li><a href="/writing/books.html">Bookshelf</a></li>
-          <li><a href="/writing/2017-reading-list.html">2017 reading list</a></li>
-          <li><a href="/writing/2007.html">What the fuck happened in 2007</a></li>
-          <li><a href="/writing/static-sites-with-next-js.html">How to make a static website with Next.js</a></li>
-          <li><a href="/writing/tragic-design-is.html">Tragic design is...</a></li>
-          <li>
-            <a href="/writing/2016-reading-list.html">2016 reading list</a>
-            &nbsp;&middot;&nbsp;
-            <a href="/writing/what-I-read-in-2016.html">Why I read what I read in 2016</a>
-          </li>
-          <li>
-            <a href="/writing/protect-your-history.html">Protect your DNS history with DNSCrypt</a>
-          </li>
-          <li><a href="/writing/lessons-from-the-jerk.html">Lessons from The Jerk (1978)</a></li>
-          <li><a href="/writing/picking-up-the-pieces.html">Picking up the pieces; or How I learned to stop worrying and embrace weird metaphors</a></li>
-          <li><a href="/writing/making-things-for-fun.html">Making things for fun</a></li>
-          <li><a href="https://medium.com/@sambreed/2015-books-504cb79ac5c0#.f8izs5mpq">2015 reading list</a></li>
+          {posts.map((post) => (
+            <li>
+              <a href={post.url}>{post.frontmatter.title}</a>
+            </li>
+          ))}
+          <li><a href="/writing">more...</a></li>
         </ul>
       </section>
 

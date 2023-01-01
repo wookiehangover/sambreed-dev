@@ -4,6 +4,7 @@ slug: links-august-2022
 description: Links! more links to things I've had open for most of August 2022
 layout: "../../layouts/BlogPost.astro"
 heroImage: "/img/0411fe02-021e-4f3a-b45a-591907eea8a9.png"
+pubDate: "Aug 30 2022"
 ---
 
 I've committed to blogging more while also paying down my open tab debt. Once a month, I'll use the Session Buddy extension to export my current tabs on my personal computer.
