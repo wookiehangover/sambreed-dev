@@ -7,6 +7,7 @@
 :root {
   --background-color: #fff;
   --text-color: #444;
+  --text-dim: rgb(127,124,127);
   --bold-color: #222;
   --link-color: #3273dc;
   --code-background-color: #f2f2f2;
@@ -19,6 +20,7 @@
   :root {
     --background-color: #222;
     --text-color: #eee;
+    --text-dim: rgb(181,180,181);
     --bold-color: #c678e2;
     --link-color: #32d4dc;
     --code-background-color: #444;
@@ -104,6 +106,14 @@ blockquote {
 hr {
   border-top: 1px solid var(--hr-border-color);
   margin: 1rem 0;
+}
+
+li > p {
+  color: var(--text-dim);
+  transition: color 200ms;
+}
+li:hover > p {
+  color: var(--text-color);
 }
 
 /* Dark mode */
