@@ -29,7 +29,7 @@ const posts = (await Astro.glob('./writing/*.{md,mdx}')).sort(
         I am a developer, designer, and investor who helps make websites faster, products better, and teams smarter.
       </p>
 
-      <p>When I'm not doing that, you can find me trail running somewhere around Mt Tam. I also collect records, enjoy riding motorcycles, and building things in my shop.</p>
+      <p>When I'm not doing that, you can usually find me trail running somewhere around <a href="https://alertca.live/cam-console/2192" title="Mt Tam Trail Camera">Mt Tam</a>. I also collect records, enjoy riding motorcycles, and I like building things in my shop.</p>
 
       <section>
         <h2>Writing</h2>
@@ -50,10 +50,24 @@ const posts = (await Astro.glob('./writing/*.{md,mdx}')).sort(
             <a href="/cv.html">Peruse my C.V.</a>
           </li>
           <li>
-            social platforms: <a href="https://mastodon.social/@sambreed">mastodon</a>, <a href="https://hellsite.sambreed.dev">twitter archive</a>, <a href="https://instagram.com/wookiehangover">instagram</a>, <a href="https://www.strava.com/athletes/3256286">strava</a>
-          </li>
-          <li>
-            code: <a href="https://github.com/wookiehangover?tab=repositories">github</a>
+            social platforms:
+            <ul>
+              <li>
+                <a href="https://mastodon.social/@sambreed">mastodon</a>
+              </li>
+              <li>
+                <a href="https://hellsite.sambreed.dev">twitter archive</a>
+              </li>
+              <li>
+                <a href="https://instagram.com/wookiehangover">instagram</a>
+              </li>
+              <li>
+                <a href="https://www.strava.com/athletes/3256286">strava</a>
+              </li>
+              <li>
+                <a href="https://github.com/wookiehangover?tab=repositories">github</a>
+              </li>
+            </ul>
           </li>
           <li>
             side projects:
@@ -69,6 +83,9 @@ const posts = (await Astro.glob('./writing/*.{md,mdx}')).sort(
               <li>
                 <a href="https://chrome.google.com/webstore/detail/%CA%8D-wikipedia/icfadkjhpjekoifngfldhkkjakifokln">ʍ-wikipedia</a> chrome extension
               </li>
+              <li>
+                <a href="https://prompty.design/">prompty.design</a> (a prompt scratch pad for GPT-3 and Stable Diffusion)
+              </li>
             </ul>
           </li>
         </ul>
@@ -78,3 +95,20 @@ const posts = (await Astro.glob('./writing/*.{md,mdx}')).sort(
     <Footer />
   </body>
 </html>
+
+<script>
+  // external links should open in a new tab
+  document.addEventListener("DOMContentLoaded", function() {
+    const links = document.querySelectorAll("a");
+  
+    links.forEach((link) => {
+      const href = link.getAttribute("href");
+      const isExternal = href.startsWith("http") && !location.hostname.includes(href);
+  
+      if (isExternal) {
+        link.setAttribute("target", "_blank");
+        link.setAttribute("rel", "noopener noreferrer");
+      }
+    });
+  });
+</script>
