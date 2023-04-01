@@ -54,33 +54,40 @@ Yes, I had all of these tabs open.
 * [Systems design explains the world: volume 1 - apenwarr](https://apenwarr.ca/log/20201227)
 * [Looking Back at Postgres [pdf]](https://arxiv.org/pdf/1901.01973.pdf)
 
-## Blogs & Newsletters
-
-* [Writing – Eric Bailey](https://ericwbailey.design/published/)
-* [The End of the English Major | The New Yorker](https://www.newyorker.com/magazine/2023/03/06/the-end-of-the-english-major)
-* [Pentiment - by Adrian Hon - Have You Played?](https://adrianhon.substack.com/p/pentiment)
-* [[SC 2.4.4] If you are so inclined • Buttondown](https://buttondown.email/ericwbailey/archive/sc-244/)
-
 ## Tech
 * [You're Missing the Point of Promises](https://blog.domenic.me/youre-missing-the-point-of-promises/)
 * [The Missing Semester of Your CS Education](https://missing.csail.mit.edu/)
 * [Sentry’s Frontend Tests: Migrating from Enzyme to React Testing Library](https://blog.sentry.io/2023/02/23/sentrys-frontend-tests-migrating-from-enzyme-to-react-testing-library/)
 * [Defer: Zero infrastructure Node.js background jobs.](https://docs.defer.run/platform/executions/)
-* [tloen/llama-int8: Quantized inference code for LLaMA models](https://github.com/tloen/llama-int8)
-* [I doubled-down on RSS – Eric Bailey](https://ericwbailey.website/published/i-doubled-down-on-rss/)
 * [TypeScript's Migration to Modules - TypeScript](https://devblogs.microsoft.com/typescript/typescripts-migration-to-modules/)
 * [Reflecting on my first failed product](https://mcarter.me/posts/my-first-failed-product)
 * [You Broke Reddit: The Pi-Day Outage](https://www.reddit.com/r/RedditEng/comments/11xx5o0/you_broke_reddit_the_piday_outage/)
+
+
+## Blogs & Newsletters
+
+* [Writing – Eric Bailey](https://ericwbailey.design/published/)
+  * Specifically [I doubled-down on RSS](https://ericwbailey.website/published/i-doubled-down-on-rss/). Me too! This was really helpful. [(See below)](#rss)
+  * And also [[SC 2.4.4] If you are so inclined • Buttondown](https://buttondown.email/ericwbailey/archive/sc-244/). Favorite new extremely online person to read.
+* [The End of the English Major | The New Yorker](https://www.newyorker.com/magazine/2023/03/06/the-end-of-the-english-major)
+* [Pentiment - by Adrian Hon - Have You Played?](https://adrianhon.substack.com/p/pentiment)
 
 ## Misc
 * [How to use the en dash, em dash and hyphen (also ndash, mdash)](https://www.punctuationmatters.com/en-dash-em-dash-hyphen/)
 * [Whom to Follow | Find New Fediverse Accounts](https://whomtofollow.com/?account=sambreed%40mastodon.social)
 
+<a name="rss"></a>
 ## RSS
 
-Much has been written about the resurgence of RSS. I used RSS quite a bit from 2008 - 2012 but my usage fell off as my consultancy grew and more and more of my time was devoted to working on client projects instead of working on my RSS backlog. When Google Reader was killed, I was relieved. I had tens of thousands of unreads in an uncurated heap. That incarnation kept me away from RSS readers almost entirely for a decade. But seasons change and in 2022 my media habits were shifting yet again, this time away from Twitter. RSS was still there and still worked better than ever. I found a good reader in Feedbin and got to work building up a _well curated_ list of blogs, newsletters, and Twitter feeds.
+Much has been written about the resurgence of RSS. Here's my story:
 
-* [Twitter OPML Export](https://opml.glitch.me/)
+I used RSS quite a bit from 2008 - 2012 but my usage fell off as my consultancy grew and more and more of my time was devoted to working on client projects instead of working on my RSS backlog. When Google Reader was killed, I was relieved. I had tens of thousands of unreads in an uncurated heap. That incarnation kept me away from RSS readers almost entirely for a decade.
+
+But time passes and seasons change, and in 2022 my media habits were shifting yet again, this time away from Twitter and newspapers. RSS was still there and still worked better than ever. I found a good reader in Feedbin and got to work building up a _well curated_ list of blogs, newsletters, and Twitter feeds.
+
+Here's the shotgun-blast of one tool and all of the things I starred in feedbin. RIP to the ability to follow twitter feeds there.
+
+* [Twitter OPML Export](https://opml.glitch.me/) - Recommended by Eric Bailey in the posts linked above, this is a tool for helping shake the good RSS feeds out of your twitter follows.
 * https://twitter.com/cramforce/status/1640820365378338816
 * https://stratechery.com/2023/chatgpt-learns-computing/
 * https://www.jarretthousenorth.com/2023/03/21/old-mix-faith-and-blues/
