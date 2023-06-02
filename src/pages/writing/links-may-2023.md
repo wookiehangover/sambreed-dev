@@ -14,7 +14,7 @@ Since the high of the marathon last month I have fully recovered and started a n
 
 Meanwhile, the tabs collected. No individual-link hot takes this month, but the AI content is unrelenting and difficult to absorb and reflect on.
 
-Ok, maybe just one 🔥: the [AI Cannon](https://a16z.com/2023/05/25/ai-canon/) post from a16z has tens of hours of reading, which may or may not be required (_essential?_) to understand the nature of the current boom. They last boom they hyped was [quite hollow](https://davekarpf.substack.com/p/web3s-fake-version-of-the-history), but that shouldn't discount the [insights they are sharing](https://twitter.com/illscience/status/1661045161328263170) about the AI canard.
+Ok, maybe just one 🔥. The [AI Cannon](https://a16z.com/2023/05/25/ai-canon/) post from a16z has tens of hours of reading, which may or may not be required (_essential?_) to understand the nature of the current boom. They last boom they hyped was [quite hollow](https://davekarpf.substack.com/p/web3s-fake-version-of-the-history), but that shouldn't discount the [insights they are sharing](https://twitter.com/illscience/status/1661045161328263170) about the AI canard.
 
 ## Dev
 * [Advanced Character Physics](https://www.cs.cmu.edu/afs/cs/academic/class/15462-s13/www/lec_slides/Jakobsen.pdf)
