@@ -10,7 +10,7 @@ pubDate: "May 31 2023"
 
 All the wet weather this winter has indeed brought May flowers in Northern California.
 
-Since the high of the marathon last month I have fully recovered and started a new training cycle for my first [Dipsea](https://www.dipsea.org) on June 11. The dipsea is an 8 mile elevation-heavy trail race from downtown Mill Valley to Stinson Beach and is the oldest organized trail race in the US. It's limited to 1500 people and berths go first to previous participants before opening to new races, so I feel very lucky to have been accepted on my first try. I'll drop a race report when it's done.
+Since the high of the marathon last month I have fully recovered and started a new training cycle for my first [Dipsea](https://www.dipsea.org) on June 11. The Dipsea is an 8 mile elevation-heavy trail race from downtown Mill Valley to Stinson Beach and is the oldest organized trail race in the US. It's limited to 1500 people and berths go first to previous participants before opening to new racers, so I feel very lucky to have been accepted on my first try. I'll drop a race report when it's done.
 
 Meanwhile, the tabs collected. No individual-link hot takes this month, but the AI content is unrelenting and difficult to absorb and reflect on.
 
