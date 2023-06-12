@@ -125,6 +125,14 @@ li:hover > p {
   color: var(--text-color);
 }
 
+figure {
+  width: 100%;
+  margin-left: 0;
+}
+figcaption {
+  font-size: 0.75em;
+}
+
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
   body {
