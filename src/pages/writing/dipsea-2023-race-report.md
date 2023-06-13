@@ -8,6 +8,8 @@ heroAlt: me, in my Henry Rollins "Search & Destroy" hoodie at the start line.
 pubDate: "June 12 2023"
 ---
 
+> [The Dipsea Race](https://www.dipsea.org) is a 7.4 mile trail race from Mill Valley to Stinson Beach. It was first run in 1905 and has a unique handicapping system that makes it competative for runners of all ages. 2023 was my first year participating, after almost 9 years of living in Mill Valley and 4 years of running.
+
 I woke up early before my alarm went off. It's near the height of summer so it was already light out before 6am. I made breakfast, found my kit (ready from the night before) and dressed, then stretched out on the yoga mat. I had very little prep left to do and was out the door by 7, leaving at jog to wind through the neighborhood to get downtown.
 
 I was at the bag check-in by 7:15 but wasn't ready to ditch my hoodie yet, I still had lots of time to mill around the start area and stay warm. I waited through the line for the bathroom a few times, and jogged up and down the block a few times, but stayed close to the corral. I bumped into a former co-worker from Credit Karma. We exchanged pleasantries before separating into the crowd.
