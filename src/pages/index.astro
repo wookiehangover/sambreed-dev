@@ -6,7 +6,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 
 const posts = (await Astro.glob("./writing/*.{md,mdx}"))
   .sort((a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf())
-  .slice(0, 5);
+  .slice(0, 6);
 ---
 
 <!DOCTYPE html>
@@ -37,7 +37,7 @@ const posts = (await Astro.glob("./writing/*.{md,mdx}"))
 
       <section>
         <h2>Writing</h2>
-        <ul style={{ listStyleType: "circle" }}>
+        <ul style={{ listStyleType: "number" }}>
           {
             posts.map((post) => (
               <li>
@@ -45,60 +45,66 @@ const posts = (await Astro.glob("./writing/*.{md,mdx}"))
               </li>
             ))
           }
-          <li><a href="/writing">more...</a></li>
+          <li style={{ listStyleType: "circle" }}><a href="/writing">more...</a></li>
         </ul>
       </section>
 
-      <section>
-        <h2>Elsewhere</h2>
-        <ul>
-          <li>
-            <a href="https://mastodon.social/@sambreed">Mastodon</a>
-          </li>
-          <li>
-            <a href="https://www.strava.com/athletes/3256286">Strava</a>
-          </li>
-          <li>
-            <a href="https://github.com/wookiehangover">GitHub</a>
-          </li>
-          <li>
-            <a href="https://instagram.com/wookiehangover">Instagram</a>
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/samuel-breed/">LinkedIn</a>
-          </li>
-          <li>
-            <a href="https://hellsite.sambreed.dev">Twitter Archive</a> 🪦
-          </li>
-        </ul>
-      </section>
-      <h2>Side Projects</h2>
-      <ul>
-        <li>
-          <a href="https://0x01.ai">0x01.ai</a> - a flow builder for LLMs. Like Yahoo Pipes, but for AI.
-        </li>
-        <li>
-          <a href="https://prompty.design/">Prompty</a> - collaborative prompt scratch pad for GPT-3 and Stable
-          Diffusion
-        </li>
-        <li>
-          <a href="https://twitter.com/pantone_colors">Every Pantone Color</a> Twitter bot 🪦
-        </li>
-        <li>
-          <a href="https://obliquestrategies.website/"> obliquestrategies.website</a>
+      <div class="flex flex-col md:flex-row">
+        <section class="shrink-0 w-1/2">
+          <h2>Elsewhere On-line</h2>
           <ul>
             <li>
-              <a
-                href="https://chrome.google.com/webstore/detail/oblique-strategies-tab/mgmdhihgmkhangpfokjdhfhjaiadpopd"
-                >Chrome Extension</a
-              >
+              <a href="https://mastodon.social/@sambreed">Mastodon</a>
             </li>
             <li>
-              <a href="https://twitter.com/ObliqueBot/status/886236405118062592">Twitter Bot</a> 🪦
+              <a href="https://www.strava.com/athletes/3256286">Strava</a>
+            </li>
+            <li>
+              <a href="https://github.com/wookiehangover">GitHub</a>
+            </li>
+            <li>
+              <a href="https://instagram.com/wookiehangover">Instagram</a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/samuel-breed/">LinkedIn</a>
+            </li>
+            <li>
+              <a href="https://hellsite.sambreed.dev">Twitter Archive</a> 🪦
             </li>
           </ul>
-        </li>
-      </ul>
+        </section>
+
+        <section>
+          <h2>Side Projects</h2>
+          <ul>
+            <li>
+              <a href="https://0x01.ai">0x01.ai</a> - a flow builder for LLMs. Like Yahoo Pipes, but for AI.
+            </li>
+            <li>
+              <a href="https://prompty.design/">Prompty</a> - collaborative prompt scratch pad for GPT-3 and Stable
+              Diffusion
+            </li>
+            <li>
+              <a href="https://twitter.com/pantone_colors">Every Pantone Color</a> Twitter bot 🪦
+            </li>
+            <li>
+              <a href="https://obliquestrategies.website/"> obliquestrategies.website</a>
+              <ul>
+                <li>
+                  <a
+                    href="https://chrome.google.com/webstore/detail/oblique-strategies-tab/mgmdhihgmkhangpfokjdhfhjaiadpopd"
+                    >Chrome Extension</a
+                  >
+                </li>
+                <li>
+                  <a href="https://twitter.com/ObliqueBot/status/886236405118062592">Twitter Bot</a> 🪦
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+      </div>
+
       <p>
         If none of that is enough (word, really?) or you have some other unanswered questions, <a
           href="mailto:sam@destroy.email">send me an email</a
