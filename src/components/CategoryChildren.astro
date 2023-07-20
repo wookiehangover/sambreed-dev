@@ -1,0 +1,23 @@
+---
+import Category from './Category.astro'
+import type { WikiCategory } from '../types/wiki';
+
+export interface Props {
+  value: WikiCategory
+}
+
+const { value } = Astro.props
+---
+
+<ul>
+  {value.children.map((child) => (
+    <Category value={child} />
+  ))}
+</ul>
+<style>
+  ul {
+    list-style: none;
+    padding: 0 0 0 1em;
+    margin: 0;
+  }
+</style>

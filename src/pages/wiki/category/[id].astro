@@ -1,0 +1,22 @@
+---
+import { getCollection } from "astro:content"
+import WikiEntryLayout from "../../../layouts/WikiEntry.astro";
+import kebabCase from "just-kebab-case"
+const { id } = Astro.params;
+
+if (id === undefined) {
+  throw new Error("Slug is required");
+}
+
+const entries = await getCollection("wiki", ({ data, ...rest }) => {
+  return data.categories.find((category) => kebabCase(category) === id)
+})
+---
+
+<WikiEntryLayout content={{ title: id }}>
+  <ul>
+    {entries.map(({ data, slug }) => (
+      <li><a href={`/wiki/${slug}`} title={data.title}>{data.title}</a></li>
+    ))}
+  </ul>
+</WikiEntryLayout>

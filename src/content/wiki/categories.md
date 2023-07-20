@@ -3,6 +3,7 @@ title: "Categories"
 description: "The map is the destination"
 createdAt: 2023-07-18
 categories: []
+type: 'list'
 ---
 
 "I'm starting a wiki, because it's never been done before." - me

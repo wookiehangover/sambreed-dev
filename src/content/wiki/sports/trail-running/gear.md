@@ -3,15 +3,16 @@ title: "Trail Running Gear"
 description: "All of my gear"
 createdAt: 2023-07-18
 categories: ["Sports", "Trail Running"]
+type: 'note'
 ---
 
 # Gear
 
 ## Kits
 
-Satisfy
+Satisfy - 
 
-Tracksmith
+[Tracksmith](https://www.tracksmith.com/) - Everything I have from Tracksmith is fantastic.
 
 Ciele
 
@@ -21,7 +22,7 @@ Ciele
 
 _Active_
 
-1080 - This is my main shoe. I vow to put at least 500 miles on every pair before retirement.
+[Fresh Foam 1080v12](https://www.newbalance.com/pd/fresh-foam-x-1080v12/M1080V12-MPS.html) - This is my main shoe. I vow to put at least 500 miles on every pair before retirement.
 
 SuperComp Trainer - This is my _other_ main shoe. It's speedier and springy-er than the 1080.
 

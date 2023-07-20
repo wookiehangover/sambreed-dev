@@ -3,51 +3,26 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { getCollection } from "astro:content"
+import Category from '../components/Category.astro';
+import getAllCategories from '../utils/get-all-categories';
 
 export interface Props {
 	content: {
 		title: string;
 		description?: string;
-		createdAt: Date;
+		createdAt?: Date;
 		updatedAt?: Date;
-		categories: string[]
+		categories?: string[]
 		tags?: string[]
+		all_categories?: string[]
 	};
 }
 
 const wikiEntries = await getCollection("wiki")
-
-type WikiCategory = { label: string, children: WikiCategory[] }
-
-// const categories = wikiEntries.reduce((acc, entry) => {
-// 	for (const [index, category] of entry.data.categories.entries())	{
-
-// 		const existingCategory = acc.find((c) => c.label === category)
-
-// 		if (index === 0) {
-// 			if (!existingCategory) {
-// 				acc.push({ label: category, children: [] })
-// 			}
-// 		} else {
-// 			const parentCategoryLabel = entry.data.categories[index - 1]
-// 			if (parentCategoryLabel) {
-// 				const parentCategory = acc.find((c) => c.label === parentCategoryLabel)
-// 				if (parentCategory) {
-// 					parentCategory.children.push({ label: category, children: [] })
-// 				} else {
-// 					acc.push({ label: parentCategoryLabel, children: [{ label: category, children: [] }] })
-// 				}
-// 			}
-// 		}
-// 	}
-
-// 	return acc
-// }, [] as WikiCategory[])
-
-console.log(categories)
+const all_categories = getAllCategories(wikiEntries)
 
 const {
-	content: { title, description, createdAt, updatedAt },
+	content: { title, description, createdAt, updatedAt  },
 } = Astro.props;
 ---
 
@@ -63,18 +38,29 @@ const {
 	</head>
 
 	<body>
+		<nav class="categories">
+			{all_categories.map((category) => (
+				<Category value={category} />
+			))}
+		</nav>
 		<Header />
 		<main>
 			<article>
 				<h1 class="title">{title}</h1>
-				{createdAt && <time>{createdAt.toLocaleDateString()}</time>}
-				{
-					updatedAt && (
+				<aside class="text-xs flex flex-col justify-end">
+					{createdAt && (
 						<div>
-							Last updated on <time>{updatedAt.toLocaleDateString()}</time>
+							First posted on <time>{createdAt.toLocaleDateString()}</time>
 						</div>
-					)
-				}
+					)}
+					{
+						updatedAt && (
+							<div>
+								Last updated on <time>{updatedAt.toLocaleDateString()}</time>
+							</div>
+						)
+					}
+					</aside>
 				<hr />
 				<slot />
 			</article>
@@ -98,4 +84,13 @@ const {
 			}
 		});
 	});
-	</script>
+</script>
+
+<style>
+	nav.categories {
+		position: fixed;
+		left: 1rem;
+		top: 4rem;
+		font-size: 0.8rem;
+	}
+</style>

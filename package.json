@@ -16,7 +16,8 @@
     "@astrojs/mdx": "^0.11.6",
     "@astrojs/rss": "^2.4.3",
     "@astrojs/sitemap": "^1.0.0",
-    "astro": "^2.8.3"
+    "astro": "^2.8.3",
+    "just-kebab-case": "^4.2.0"
   },
   "prettier": {
     "printWidth": 120

@@ -3,6 +3,7 @@ title: "Training Plans"
 description: "Training plans for trail running."
 createdAt: 2023-07-17
 categories: ["Sports", "Trail Running"]
+type: 'note'
 ---
 
 Here's what I've learned about trail running in the last 8 months of working with a coach and training for my first 50k.
