@@ -189,6 +189,27 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"wiki": {
+"categories.md": {
+	id: "categories.md";
+  slug: "categories";
+  body: string;
+  collection: "wiki";
+  data: InferEntrySchema<"wiki">
+} & { render(): Render[".md"] };
+"computers/web-development/front-end/new-css.md": {
+	id: "computers/web-development/front-end/new-css.md";
+  slug: "computers/web-development/front-end/new-css";
+  body: string;
+  collection: "wiki";
+  data: InferEntrySchema<"wiki">
+} & { render(): Render[".md"] };
+"sports/trail-running/gear.md": {
+	id: "sports/trail-running/gear.md";
+  slug: "sports/trail-running/gear";
+  body: string;
+  collection: "wiki";
+  data: InferEntrySchema<"wiki">
+} & { render(): Render[".md"] };
 "sports/trail-running/training-plans.md": {
 	id: "sports/trail-running/training-plans.md";
   slug: "sports/trail-running/training-plans";
