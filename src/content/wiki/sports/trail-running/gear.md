@@ -2,6 +2,7 @@
 title: "Trail Running Gear"
 description: "All of my gear"
 createdAt: 2023-07-18
+updatedAt: 2023-07-21
 categories: ["Sports", "Trail Running"]
 type: 'note'
 ---

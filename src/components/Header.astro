@@ -1,11 +1,18 @@
 ---
 import HeaderLink from './HeaderLink.astro';
 import { SITE_TITLE } from '../config';
+
+export interface Props {
+	label?: string;
+}
+
+const { label = "website" } = Astro.props
+
 ---
 
 <header>
 	<h2>
-		<a href="/">Sam Breed's</a> modest personal website.
+		<a href="/">Sam Breed's</a> modest personal {label}.
 	</h2>
 </header>
 <style>
@@ -26,6 +33,8 @@ import { SITE_TITLE } from '../config';
 		}
 		header h2 {
 			border: none;
+			padding-bottom: 0;
+			margin-bottom: 0;
 		}
 	}
 </style>

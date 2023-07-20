@@ -2,8 +2,9 @@ import type { CollectionEntry } from "astro:content";
 import type { WikiCategory } from "../types/wiki";
 import kebabCase from "just-kebab-case";
 
-export default function getAllCategories(wikiEntries: CollectionEntry<"wiki">[]) {
-  return wikiEntries.reduce((acc, entry) => {
+export default function getAllCategories(wikiEntries: CollectionEntry<"wiki">[]): { tree: WikiCategory[]; map: Map<string, WikiCategory> } {
+  const map = new Map<string, WikiCategory>();
+  const tree = wikiEntries.reduce((acc, entry) => {
     if (entry.data.categories.length === 0) {
       return acc;
     }
@@ -16,6 +17,8 @@ export default function getAllCategories(wikiEntries: CollectionEntry<"wiki">[])
     if (existingRoot) {
       root = existingRoot;
     } else {
+      map.set(root.path, root)
+      map.set(root.label, root)
       acc.push(root);
     }
     let previousRoot;
@@ -32,10 +35,14 @@ export default function getAllCategories(wikiEntries: CollectionEntry<"wiki">[])
       previousRoot = { label, path: kebabCase(label), children: [] };
 
       if (parent) {
+        map.set(previousRoot.path, previousRoot)
+        map.set(previousRoot.label, previousRoot)
         parent.children.push(previousRoot);
       }
     }
 
     return acc;
   }, [] as WikiCategory[]);
+
+  return { tree, map }
 }

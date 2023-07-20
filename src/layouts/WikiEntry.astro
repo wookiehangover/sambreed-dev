@@ -19,10 +19,10 @@ export interface Props {
 }
 
 const wikiEntries = await getCollection("wiki")
-const all_categories = getAllCategories(wikiEntries)
+const { tree, map } = getAllCategories(wikiEntries)
 
 const {
-	content: { title, description, createdAt, updatedAt  },
+	content: { title, description, createdAt, updatedAt, categories  },
 } = Astro.props;
 ---
 
@@ -38,30 +38,39 @@ const {
 	</head>
 
 	<body>
+		<Header label="wiki" />
 		<nav class="categories">
-			{all_categories.map((category) => (
+			{tree.map((category) => (
 				<Category value={category} />
 			))}
 		</nav>
-		<Header />
 		<main>
 			<article>
-				<h1 class="title">{title}</h1>
-				<aside class="text-xs flex flex-col justify-end">
-					{createdAt && (
+				<header>
+					<h1 class="title">{title}</h1>
+					{description && <p>{description}</p>}
+					<aside class="text-xs">
 						<div>
-							First posted on <time>{createdAt.toLocaleDateString()}</time>
+							{createdAt && (
+								<div>
+									First posted on <time>{createdAt.toLocaleDateString()}</time>
+								</div>
+							)}
+							{
+								updatedAt && (
+									<div>
+										Last updated on <time>{updatedAt.toLocaleDateString()}</time>
+									</div>
+								)
+							}
 						</div>
-					)}
-					{
-						updatedAt && (
-							<div>
-								Last updated on <time>{updatedAt.toLocaleDateString()}</time>
-							</div>
-						)
-					}
+						<nav>
+							{categories?.map((category) => (
+								<a href={`/wiki/category/${map.get(category)?.path}`}>{category}</a>
+							))}
+						</nav>
 					</aside>
-				<hr />
+				</header>
 				<slot />
 			</article>
 		</main>
@@ -87,10 +96,38 @@ const {
 </script>
 
 <style>
+	body {
+		display: flex;
+		flex-direction: column;
+	}
+	body > main {
+		flex: 1;
+	}
+	body > footer {
+		margin-top: auto;
+	}
 	nav.categories {
 		position: fixed;
 		left: 1rem;
 		top: 4rem;
 		font-size: 0.8rem;
+		padding-bottom: 1rem;
+	}
+	article > header > p {
+		margin: 0;
+		color: var(--text-dim);
+	}
+	article > header > aside {
+		padding-top: 1rem;
+		margin: 1rem 0 2rem;
+		display: grid;
+		grid-template-columns: 1fr auto;
+		border-top: 1px solid var(--hr-border-color);
+	}
+	@media screen and (max-width: 960px) {
+		nav.categories {
+			position: static;
+			order: 1;
+		}
 	}
 </style>
