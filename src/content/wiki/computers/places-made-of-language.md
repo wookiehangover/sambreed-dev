@@ -1,9 +1,9 @@
 ---
 title: "Places made of language"
-description: "Jorge Arango"
-createdAt: 2023-07-20
-categories: []
-type: 'note'
+description: "from Jorge Arango"
+createdAt: 2023-07-21
+categories: ["Computers"]
+type: 'quote'
 ---
 
 from [Jorge Arango's blog](https://jarango.com/)

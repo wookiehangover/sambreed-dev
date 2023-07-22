@@ -224,6 +224,13 @@ declare module 'astro:content' {
   collection: "wiki";
   data: InferEntrySchema<"wiki">
 } & { render(): Render[".md"] };
+"library/fiction/dhalgren.md": {
+	id: "library/fiction/dhalgren.md";
+  slug: "library/fiction/dhalgren";
+  body: string;
+  collection: "wiki";
+  data: InferEntrySchema<"wiki">
+} & { render(): Render[".md"] };
 "library/non-fiction/a-thousand-brains.md": {
 	id: "library/non-fiction/a-thousand-brains.md";
   slug: "library/non-fiction/a-thousand-brains";

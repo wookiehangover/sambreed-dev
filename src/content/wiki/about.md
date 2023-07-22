@@ -1,7 +1,8 @@
 ---
 title: "About"
-description: "The map is the destination"
+description: "A modest personal wiki"
 createdAt: 2023-07-20
+updatedAt: 2023-07-21
 categories: []
 type: 'note'
 ---
