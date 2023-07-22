@@ -16,4 +16,4 @@ Here's what I've learned about trail running in the last 8 months of working wit
 
 *Train slow, race fast.* Continuing the theme, the best time to give full effort is during a race, preferably in the second half. I started training so I could learn how to race bigger distances without blowing up, after having a 10km where I very nearly puked at the halfway point.
 
-*Strides* are short bursts of speed, usually 20-30 seconds, where you run at a pace that is faster than your 5k pace. The goal is to get your heart rate up to 90% of your max. I do 4-6 strides at the end of every run, and I've found that they help me recover faster and feel better the next day.
+*Strides* are short bursts of speed, usually 20-30 seconds, where you run at a 7/8ths of your max pace.

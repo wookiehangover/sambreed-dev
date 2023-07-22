@@ -1,0 +1,13 @@
+---
+title: "Places made of language"
+description: "Jorge Arango"
+createdAt: 2023-07-20
+categories: []
+type: 'note'
+---
+
+from [Jorge Arango's blog](https://jarango.com/)
+
+> "I often joke that my job entails designing places made of language. Most websites, apps, and other digital product UIs are primarily collections of words and phrases arranged in particular ways to allow you to do or learn specific things."
+
+__places made of language__ struck a chord with me

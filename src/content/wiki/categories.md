@@ -1,12 +1,14 @@
 ---
 title: "Categories"
-description: "The map is the destination"
+description: "An outlandish, aspirational list of categories"
 createdAt: 2023-07-18
 categories: []
 type: 'list'
 ---
 
 "I'm starting a wiki, because it's never been done before." - me
+
+This is a big, aspirational list of categories.
 
 - Computers
   - Web Development

@@ -25,10 +25,12 @@ export default function getAllCategories(wikiEntries: CollectionEntry<"wiki">[])
 
     for (let index = 1; index < entry.data.categories.length; index++) {
       const label = entry.data.categories[index];
+      const parent: WikiCategory = previousRoot ?? root;
 
-      const parent = previousRoot ? previousRoot : root;
+      const existingChild = parent.children.find((c) => c.label === label);
 
-      if (parent.children.find((c) => c.label === label)) {
+      if (existingChild) {
+        previousRoot = existingChild
         continue;
       }
 

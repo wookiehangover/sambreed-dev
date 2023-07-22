@@ -189,9 +189,30 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"wiki": {
+"about.md": {
+	id: "about.md";
+  slug: "about";
+  body: string;
+  collection: "wiki";
+  data: InferEntrySchema<"wiki">
+} & { render(): Render[".md"] };
 "categories.md": {
 	id: "categories.md";
   slug: "categories";
+  body: string;
+  collection: "wiki";
+  data: InferEntrySchema<"wiki">
+} & { render(): Render[".md"] };
+"computers/places-made-of-language.md": {
+	id: "computers/places-made-of-language.md";
+  slug: "computers/places-made-of-language";
+  body: string;
+  collection: "wiki";
+  data: InferEntrySchema<"wiki">
+} & { render(): Render[".md"] };
+"computers/web-development/building-this-wiki.md": {
+	id: "computers/web-development/building-this-wiki.md";
+  slug: "computers/web-development/building-this-wiki";
   body: string;
   collection: "wiki";
   data: InferEntrySchema<"wiki">
@@ -203,9 +224,9 @@ declare module 'astro:content' {
   collection: "wiki";
   data: InferEntrySchema<"wiki">
 } & { render(): Render[".md"] };
-"library/a-thousand-brains.md": {
-	id: "library/a-thousand-brains.md";
-  slug: "library/a-thousand-brains";
+"library/non-fiction/a-thousand-brains.md": {
+	id: "library/non-fiction/a-thousand-brains.md";
+  slug: "library/non-fiction/a-thousand-brains";
   body: string;
   collection: "wiki";
   data: InferEntrySchema<"wiki">

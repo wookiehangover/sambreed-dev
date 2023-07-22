@@ -7,11 +7,9 @@ categories: ["Sports", "Trail Running"]
 type: 'note'
 ---
 
-# Gear
-
 ## Kits
 
-Satisfy - 
+[Satisfy](https://satisfyrunning.com/) - I was a sucker for instagram ads and bought what seemed like a too-expensive t-shirt from them. Then I got hooked. Their cotton hits a combination of soft-light-durable that's very impressive. For a while after college I worked in the backstock of an American Apparel where I dealt with unholy volumes of cotton t-shirts, so I consider myself [somewhat of an expert].
 
 [Tracksmith](https://www.tracksmith.com/) - Everything I have from Tracksmith is fantastic.
 

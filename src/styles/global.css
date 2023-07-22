@@ -19,12 +19,13 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background-color: #222;
-    --text-color: #eee;
+    --text-color: #c5cfdd;
     --text-dim: rgb(181 180 181);
     --bold-color: #c678e2;
     --link-color: #32d4dc;
     --code-background-color: #444;
     --hr-border-color: #444;
+    --blockquote-color: #a7acc1;
     --blockquote-border-color: rgb(255 255 255/0.2);
   }
 }
@@ -108,10 +109,17 @@ pre > code {
 }
 blockquote {
   border: 1px solid var(--blockquote-border-color);
-  color: #222;
-  padding: 2px 0px 2px 20px;
+  color: var(--blockquote-color);
+  padding: 0.75rem 1.5rem;
   margin: 0px;
-  font-style: italic;
+  line-height: 2;
+  border-radius: 0.25rem;
+  transition: all 1s;
+}
+blockquote:hover {
+  background: linear-gradient(180deg, rgb(127 124 127 / 1%) 0%, rgb(127 124 127 / 5%) 100%);
+  border-bottom-style: dashed;
+  border-right-style: dashed;
 }
 hr {
   border-top: 1px solid var(--hr-border-color);
@@ -168,11 +176,6 @@ section.half {
 
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
-  body {
-    background-color: #222;
-    color: #eee;
-  }
-
   h1,
   h2,
   h3,
@@ -180,7 +183,6 @@ section.half {
   h5,
   h6,
   strong,
-  blockquote,
   b {
     color: var(--bold-color);
   }

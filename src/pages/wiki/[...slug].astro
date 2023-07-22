@@ -4,7 +4,7 @@ import WikiEntryLayout from "../../layouts/WikiEntry.astro";
 
 const { slug } = Astro.params;
 if (slug === undefined) {
-  throw new Error("Slug is required");
+  return Astro.redirect("/wiki/about");
 }
 
 const entry = await getEntry("wiki", slug);

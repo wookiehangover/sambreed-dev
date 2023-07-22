@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 import { getCollection } from "astro:content"
 import Category from '../components/Category.astro';
 import getAllCategories from '../utils/get-all-categories';
+import CategoryList from '../components/CategoryList.astro';
 
 export interface Props {
 	content: {
@@ -64,10 +65,8 @@ const {
 								)
 							}
 						</div>
-						<nav>
-							{categories?.map((category) => (
-								<a href={`/wiki/category/${map.get(category)?.path}`}>{category}</a>
-							))}
+						<nav class="text-xs">
+							<CategoryList categories={categories ?? []} map={map} />
 						</nav>
 					</aside>
 				</header>

@@ -8,7 +8,7 @@ const wikiCollection = defineCollection({
     createdAt: z.date(),
     updatedAt: z.date().optional(),
     categories: z.array(z.string()),
-    type: z.enum(['note', 'essay', 'list'])
+    type: z.enum(['note', 'essay', 'list', 'quote', 'book']),
   })
 })
 

@@ -1,0 +1,65 @@
+---
+import CategoryList from "../../components/CategoryList.astro";
+import WikiEntryLayout from "../../layouts/WikiEntry.astro";
+import getAllCategories from '../../utils/get-all-categories';
+import { getCollection } from "astro:content";
+
+const wikiEntries = await getCollection('wiki')
+const { map } = getAllCategories(wikiEntries)
+
+---
+<WikiEntryLayout content={{ title: "Wiki" }}>
+  <ul>
+    {wikiEntries.map((entry) => (
+      <li>
+        <a href={`/wiki/${entry.slug}`}>
+          <span>{entry.data.title}</span>
+          <p>{entry.data.description}</p>
+        </a>
+        <nav class="text-xs">
+          <CategoryList categories={entry.data.categories} map={map} />
+        </nav>
+      </li>
+    ))}
+  </ul>
+</WikiEntryLayout>
+<style>
+  ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+  }
+
+  ul li {
+    margin: 0;
+    border: 1px solid var(--blockquote-border-color);
+    border-radius: 0.25rem;
+    transition: background 0.2s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  ul li > a {
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem 1.25rem 0.5rem;
+    text-decoration: none;
+    height: 4rem;
+  }
+
+  ul li > a > p {
+    color: var(--text-dim);
+    margin: 0;
+    font-size: 0.875rem;
+  }
+
+  ul li:hover {
+    background: rgb(255 255 255 / 5%);
+  }
+
+  ul li > nav {
+    padding: 0 1.25rem 1.25rem;
+  }
+</style>
