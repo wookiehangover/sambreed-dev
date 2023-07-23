@@ -14,6 +14,7 @@
   --blockquote-border-color: #999;
   --blockquote-color: #222;
   --hr-border-color: #ddd;
+  --card-bg-hover: rgb(127 124 127 / 5%);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,12 +22,14 @@
     --background-color: #222;
     --text-color: #c5cfdd;
     --text-dim: rgb(181 180 181);
-    --bold-color: #c678e2;
-    --link-color: #32d4dc;
+    --bold-color: rgb(36, 121, 129);
+    --link-color: rgb(40, 214, 230);
+    --link-color-hover: rgb(180, 245, 249);
     --code-background-color: #444;
     --hr-border-color: #444;
     --blockquote-color: #a7acc1;
     --blockquote-border-color: rgb(255 255 255/0.2);
+    --card-bg-hover: rgb(255 255 255 / 5%);
   }
 }
 
@@ -44,6 +47,7 @@ body {
   color: var(--text-color);
   height: calc(100dvh - 2rem);
 }
+
 h1,
 h2,
 h3,
@@ -53,6 +57,7 @@ h6 {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
     "Helvetica Neue", sans-serif;
 }
+
 h1,
 h2,
 h3,
@@ -65,48 +70,50 @@ b {
   letter-spacing: 0.03em;
   color: var(--bold-color);
 }
+
 a {
   color: var(--link-color);
 }
+
 a:hover {
-  color: var(--bold-color);
+  color: var(--link-color-hover);
 }
-header > h2 > a {
-  color: var(--bold-color);
-}
-header > h2 > a:hover {
-  color: var(--link-color);
-}
-nav a {
-  margin-right: 10px;
-}
+
 textarea {
   width: 100%;
   font-size: 16px;
 }
+
 input {
   font-size: 16px;
 }
+
 content {
   line-height: 1.6;
 }
+
 table {
   width: 100%;
 }
+
 img {
   max-width: 100%;
   height: auto;
 }
+
 code {
   padding: 2px 5px;
   background-color: var(--code-background-color);
 }
+
 pre {
   padding: 1rem;
 }
+
 pre > code {
   all: unset;
 }
+
 blockquote {
   border: 1px solid var(--blockquote-border-color);
   color: var(--blockquote-color);
@@ -116,13 +123,16 @@ blockquote {
   border-radius: 0.25rem;
   transition: all 1s;
 }
+
 blockquote:hover {
   background: linear-gradient(180deg, rgb(127 124 127 / 1%) 0%, rgb(127 124 127 / 5%) 100%);
   border-bottom-style: dashed;
   border-right-style: dashed;
 }
+
 hr {
   border-top: 1px solid var(--hr-border-color);
+  border-color: var(--hr-border-color);
   margin: 1rem 0;
 }
 
@@ -140,12 +150,8 @@ figure {
 figcaption {
   font-size: 0.75em;
 }
-section.half {
-  width: 50%;
-  display: inline-block;
-}
 
-/* Fuck it, DIY tailwind. Maybe I'll add the real thing later? */
+/* Fuck it, DIY tailwind. */
 .text-sm {
   font-size: 0.875rem;
 }
@@ -161,6 +167,15 @@ section.half {
 .flex-row {
   flex-direction: row;
 }
+.gap-1 {
+  gap: 0.5rem;
+}
+.pt-2 {
+  padding-top: 0.5rem;
+}
+.pt-8 {
+  padding-top: 2rem;
+}
 .shrink-0 {
   flex-shrink: 0;
 }
@@ -171,35 +186,5 @@ section.half {
 @media screen and (min-width: 768px) {
   .md\:flex-row {
     flex-direction: row;
-  }
-}
-
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  strong,
-  b {
-    color: var(--bold-color);
-  }
-
-  a {
-    color: var(--link-color);
-  }
-
-  code {
-    background-color: #444;
-  }
-
-  hr {
-    border-color: #444;
-  }
-
-  blockquote {
-    border-color: rgba(255, 255, 255, 0.2);
   }
 }

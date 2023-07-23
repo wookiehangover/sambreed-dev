@@ -13,3 +13,9 @@ const { categories, map } = Astro.props
 {categories?.map((category) => (
   <a href={`/wiki/category/${map.get(category)?.path}`} title={`Category: ${category}`}>{category}</a>
 ))}
+
+<style>
+  a {
+    margin-right: 0.5rem;
+  }
+</style>

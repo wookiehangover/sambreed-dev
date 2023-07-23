@@ -1,132 +1,146 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { getCollection } from "astro:content"
-import Category from '../components/Category.astro';
-import getAllCategories from '../utils/get-all-categories';
-import CategoryList from '../components/CategoryList.astro';
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { getCollection } from "astro:content";
+import Category from "../components/Category.astro";
+import getAllCategories from "../utils/get-all-categories";
+import CategoryList from "../components/CategoryList.astro";
+import Icon, { IconName } from "../components/Icon.astro";
 
 export interface Props {
-	content: {
-		title: string;
-		description?: string;
-		createdAt?: Date;
-		updatedAt?: Date;
-		categories?: string[]
-		tags?: string[]
-		all_categories?: string[]
-	};
+  content: {
+    title: string;
+    description?: string;
+    createdAt?: Date;
+    updatedAt?: Date;
+    categories?: string[];
+    tags?: string[];
+    all_categories?: string[];
+		type?: IconName;
+  };
 }
 
-const wikiEntries = await getCollection("wiki")
-const { tree, map } = getAllCategories(wikiEntries)
+const wikiEntries = await getCollection("wiki");
+const { tree, map } = getAllCategories(wikiEntries);
 
 const {
-	content: { title, description, createdAt, updatedAt, categories  },
+  content: { title, description, createdAt, updatedAt, categories, type },
 } = Astro.props;
 ---
 
 <html lang="en">
-	<head>
-		<BaseHead title={title} description={description ?? `Wiki Entry for ${title}`} />
-		<style>
-			.title {
-				font-size: 2em;
-				margin: 0.25em 0 0;
-			}
-		</style>
-	</head>
+  <head>
+    <BaseHead title={title} description={description ?? `Wiki Entry for ${title}`} />
+  </head>
 
-	<body>
-		<Header label="wiki" />
-		<nav class="categories">
-			{tree.map((category) => (
-				<Category value={category} />
-			))}
-		</nav>
-		<main>
-			<article>
-				<header>
-					<h1 class="title">{title}</h1>
-					{description && <p>{description}</p>}
-					<aside class="text-xs">
-						<div>
-							{createdAt && (
-								<div>
-									First posted on <time>{createdAt.toLocaleDateString()}</time>
-								</div>
-							)}
-							{
-								updatedAt && (
-									<div>
-										Last updated on <time>{updatedAt.toLocaleDateString()}</time>
-									</div>
-								)
-							}
-						</div>
-						<nav class="text-xs">
+  <body>
+    <Header label="wiki" />
+    <nav class="categories">
+			{tree.map((category) => <Category value={category} />)}
+			<div class="flex items-center gap-1 pt-8">
+				<Icon name="bulleted-list"/>
+				<a href={`/wiki`} title={`Index`}>Index</a>
+			</div>
+			<div class="flex items-center gap-1 pt-2">
+				<Icon name="info"/>
+				<a href={`/wiki/about`} title={`About`}>About</a>
+			</div>
+    </nav>
+    <main>
+      <article>
+        <header>
+          <h1 class="title">{title}</h1>
+          {description && <p>{description}</p>}
+          <aside class="text-xs">
+            <div>
+              {
+                createdAt && (
+                  <div>
+                    First posted on <time>{createdAt.toLocaleDateString()}</time>
+                  </div>
+                )
+              }
+              {
+                updatedAt && (
+                  <div>
+                    Last updated on <time>{updatedAt.toLocaleDateString()}</time>
+                  </div>
+                )
+              }
+            </div>
+            <nav class="text-xs">
 							<CategoryList categories={categories ?? []} map={map} />
-						</nav>
-					</aside>
-				</header>
-				<slot />
-			</article>
-		</main>
-		<Footer />
-	</body>
-</html>
+							{type && (
+								<Icon name={type} />
+							)}
+            </nav>
+          </aside>
+        </header>
+        <slot />
+      </article>
+    </main>
+    <Footer />
+  </body><script>
+    // external links should open in a new tab
+    document.addEventListener("DOMContentLoaded", function () {
+      const links = document.querySelectorAll("a");
 
-<script>
-	// external links should open in a new tab
-	document.addEventListener("DOMContentLoaded", function() {
-		const links = document.querySelectorAll("a");
-	
-		links.forEach((link) => {
-			const href = link.getAttribute("href");
-			const isExternal = href?.startsWith("http") && !location.hostname.includes(href);
-	
-			if (isExternal) {
-				link.setAttribute("target", "_blank");
-				link.setAttribute("rel", "noopener noreferrer");
-			}
-		});
-	});
-</script>
+      links.forEach((link) => {
+        const href = link.getAttribute("href");
+        const isExternal = href?.startsWith("http") && !location.hostname.includes(href);
 
-<style>
-	body {
-		display: flex;
-		flex-direction: column;
-	}
-	body > main {
-		flex: 1;
-	}
-	body > footer {
-		margin-top: auto;
-	}
-	nav.categories {
-		position: fixed;
-		left: 1rem;
-		top: 4rem;
-		font-size: 0.8rem;
-		padding-bottom: 1rem;
-	}
-	article > header > p {
-		margin: 0;
-		color: var(--text-dim);
-	}
-	article > header > aside {
-		padding-top: 1rem;
-		margin: 1rem 0 2rem;
-		display: grid;
-		grid-template-columns: 1fr auto;
-		border-top: 1px solid var(--hr-border-color);
-	}
-	@media screen and (max-width: 960px) {
-		nav.categories {
-			position: static;
-			order: 1;
+        if (isExternal) {
+          link.setAttribute("target", "_blank");
+          link.setAttribute("rel", "noopener noreferrer");
+        }
+      });
+    });
+  </script>
+
+  <style>
+    .title {
+      font-size: 2em;
+      margin: 0.25em 0 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+    body > main {
+      flex: 1;
+    }
+    body > footer {
+      margin-top: auto;
+    }
+    nav.categories {
+      position: fixed;
+      left: 1rem;
+      top: 4rem;
+      font-size: 0.8rem;
+      padding-bottom: 1rem;
+    }
+    article > header > p {
+      margin: 0;
+      color: var(--text-dim);
+    }
+    article > header > aside {
+      padding-top: 1rem;
+      margin: 1rem 0 2rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      border-top: 1px solid var(--hr-border-color);
+    }
+		article > header > aside > nav {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
 		}
-	}
-</style>
+    @media screen and (max-width: 960px) {
+      nav.categories {
+        position: static;
+        order: 1;
+      }
+    }
+  </style>
+</html>

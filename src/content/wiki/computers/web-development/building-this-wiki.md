@@ -32,7 +32,7 @@ In the past year, I got inspired to [dump](/writing/links-part-one.html) [my](/w
 
 ## 2. Note taking rules
 
-Astro 2.0 added some interesting content management features. Namely, you can keep standalone directories of markdown files that are logically addressable _but entirely separate_ from routes.
+Astro 2.0 added some interesting content management features. Namely, you can keep standalone directories of markdown files that are logically addressable _but entirely separate_ from routes. Databases are cool and all, but having solid conventions for addressing flat-file content will get you a lot of mileage.
 
 Earlier versions had content and code living together, which made me lean towards editing posts in VS Code, which, well, feels more like coding than writing or taking notes. There's just something about an IDE that makes it hard for me to use it as a writing surface. Too many bells and whistles, not to mention having to switch off Co-Pilot when I'm authoring markdown.
 

@@ -10,7 +10,7 @@ const { value } = Astro.props
 ---
 
 <div>
-  <a href={`/wiki/category/${value.path}`}>{value.label}</a>
+  <a href={`/wiki/category/${value.path}`} title={`Category: ${value.label}`}>{value.label}</a>
   {value.children.length > 0 && (
     <CategoryChildren value={value} />
   )}

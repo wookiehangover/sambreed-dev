@@ -13,7 +13,7 @@ type: 'note'
 
 [Tracksmith](https://www.tracksmith.com/) - Everything I have from Tracksmith is fantastic.
 
-Ciele
+[Ciele Athletics](https://cieleathletics.com/) - As best I can tell, Ciele makes hats that are indestructible. I have only purchased more than one hat from them to try different styles. The original hat I bought 4 years ago still looks bright and unworn, and I've run hundreds and hundreds of miles in it, and running it through a washing machine cycle every time. They are unkillable.
 
 ## Shoes
 

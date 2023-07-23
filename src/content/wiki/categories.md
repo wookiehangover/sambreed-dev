@@ -6,8 +6,6 @@ categories: []
 type: 'list'
 ---
 
-"I'm starting a wiki, because it's never been done before." - me
-
 This is a big, aspirational list of categories.
 
 - Computers
