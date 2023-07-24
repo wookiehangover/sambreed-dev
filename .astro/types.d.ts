@@ -196,13 +196,6 @@ declare module 'astro:content' {
   collection: "wiki";
   data: InferEntrySchema<"wiki">
 } & { render(): Render[".md"] };
-"categories.md": {
-	id: "categories.md";
-  slug: "categories";
-  body: string;
-  collection: "wiki";
-  data: InferEntrySchema<"wiki">
-} & { render(): Render[".md"] };
 "computers/places-made-of-language.md": {
 	id: "computers/places-made-of-language.md";
   slug: "computers/places-made-of-language";
@@ -224,9 +217,23 @@ declare module 'astro:content' {
   collection: "wiki";
   data: InferEntrySchema<"wiki">
 } & { render(): Render[".md"] };
+"computers/what-I-use.md": {
+	id: "computers/what-I-use.md";
+  slug: "computers/what-i-use";
+  body: string;
+  collection: "wiki";
+  data: InferEntrySchema<"wiki">
+} & { render(): Render[".md"] };
 "library/fiction/dhalgren.md": {
 	id: "library/fiction/dhalgren.md";
   slug: "library/fiction/dhalgren";
+  body: string;
+  collection: "wiki";
+  data: InferEntrySchema<"wiki">
+} & { render(): Render[".md"] };
+"library/non-fiction/a-pattern-language.md": {
+	id: "library/non-fiction/a-pattern-language.md";
+  slug: "library/non-fiction/a-pattern-language";
   body: string;
   collection: "wiki";
   data: InferEntrySchema<"wiki">
