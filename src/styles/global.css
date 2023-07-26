@@ -20,7 +20,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background-color: #222;
-    --text-color: #c5cfdd;
+    --text-color: #a5aebb;
     --text-dim: rgb(181 180 181);
     --bold-color: rgb(36, 121, 129);
     --link-color: rgb(40, 214, 230);

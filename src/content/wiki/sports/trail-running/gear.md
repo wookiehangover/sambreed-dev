@@ -2,7 +2,7 @@
 title: "Trail Running Gear"
 description: "All of my gear"
 createdAt: 2023-07-18
-updatedAt: 2023-07-21
+updatedAt: 2023-07-25
 categories: ["Sports", "Trail Running"]
 type: 'note'
 ---
@@ -28,11 +28,21 @@ _Retired_
 - SuperComp Elite - I really wanted to try a super shoe, but they don't come in wide sizes. I took a gamble and lost. I could go fast in them but the upper was just too uncomfortable, so I didn't do the marathon in them.
 -  GS Tam - I really wanted to like these, but they weren't wide enough for me in my size. Another sad shoe-gamble!
 
+## Tech
+
+Apple Ultra Watch. Over time I'm less convinced that this is a "great" option for running. But I don't have a basis for comparison so it is my winner by default.
+
+[Powerbeats Pro](https://www.apple.com/shop/product/MY582LL/A/powerbeats-pro-totally-wireless-earbuds-black). More battery life than I have endurance. Sweatproof. Physical buttons, no touching or tapping.
+
+- Strava
+- Training Peaks
+- [Watchletic](https://www.watchletic.com/) lets me use custom run plans from Training Peaks but still record using Apple HealthKit
+
 ## Misc
 
 Bandanas. Cheap, versatile. They keep you warm in the wind. Get it wet and it cools you down in the sun. Can never go wrong with a classic cotton bandana.
 
 Salomon Adv Skin 12 backpack. I had the medium version for several years and then realized it was a bit too small for me. I have the large version now in red. Holds stuff. Lots of straps and options for water.
 
-Apple Ultra Watch. Over time I'm less convinced that this is a "great" option for running. But I don't have a basis for comparison so it is my winner by default.
+
 

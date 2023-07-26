@@ -2,6 +2,7 @@
 title: "New CSS"
 description: "CSS, the good parts"
 createdAt: 2023-07-18
+updatedAt: 2023-07-25
 categories: ["Computers", "Web Development", "Front-End"]
 type: 'list'
 ---
@@ -14,3 +15,4 @@ The death of Internet Explorer in 2022 finally opened the doors to the era of th
 - `:has()`
 - container queries make things responsive based on the parent container's size instead of the viewport. 
 - variables. I know, I know, these aren't exactly new, but the point is that you can finally use them everywhere without hesitation. Great with responsive design, where media queries set variables as the primary means of overriding styles.
+- layers
