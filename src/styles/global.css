@@ -15,6 +15,7 @@
   --blockquote-color: #222;
   --hr-border-color: #ddd;
   --card-bg-hover: rgb(127 124 127 / 5%);
+  --lightest-text-color: rgb(127 124 127 / 50%);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -30,6 +31,7 @@
     --blockquote-color: #a7acc1;
     --blockquote-border-color: rgb(255 255 255/0.2);
     --card-bg-hover: rgb(255 255 255 / 5%);
+    --lightest-text-color: rgb(255 255 255 / 18%);
   }
 }
 
@@ -183,8 +185,20 @@ figcaption {
   width: 50%;
 }
 
+a.tHeNeT {
+  text-decoration: none;
+  color: var(--lightest-text-color);
+  font-size: 12px;
+  position: fixed;
+  bottom: 0.25rem;
+  right: 0.5rem;
+}
+
 @media screen and (min-width: 768px) {
   .md\:flex-row {
     flex-direction: row;
+  }
+  .md\.w-1\/2 {
+    width: 50%;
   }
 }
