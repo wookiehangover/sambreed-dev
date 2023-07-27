@@ -1,13 +1,9 @@
 ---
-import HeaderLink from './HeaderLink.astro';
-import { SITE_TITLE } from '../config';
-
 export interface Props {
 	label?: string;
 }
 
 const { label = "website" } = Astro.props
-
 ---
 
 <header>

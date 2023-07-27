@@ -10,7 +10,7 @@ if (id === undefined) {
   throw new Error("Slug is required");
 }
 
-const entries = await getCollection("wiki", ({ data, ...rest }) => {
+const entries = await getCollection("wiki", ({ data }) => {
   return data.categories.find((category) => kebabCase(category) === id)
 })
 
