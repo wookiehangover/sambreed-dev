@@ -217,6 +217,20 @@ declare module 'astro:content' {
   collection: "wiki";
   data: InferEntrySchema<"wiki">
 } & { render(): Render[".md"] };
+"computers/web-development/front-end/what-is-front-end-infra.md": {
+	id: "computers/web-development/front-end/what-is-front-end-infra.md";
+  slug: "computers/web-development/front-end/what-is-front-end-infra";
+  body: string;
+  collection: "wiki";
+  data: InferEntrySchema<"wiki">
+} & { render(): Render[".md"] };
+"computers/web-development/product-tracking.md": {
+	id: "computers/web-development/product-tracking.md";
+  slug: "computers/web-development/product-tracking";
+  body: string;
+  collection: "wiki";
+  data: InferEntrySchema<"wiki">
+} & { render(): Render[".md"] };
 "computers/what-I-use.md": {
 	id: "computers/what-I-use.md";
   slug: "computers/what-i-use";

@@ -2,7 +2,7 @@
 title: "Trail Running Gear"
 description: "All of my gear"
 createdAt: 2023-07-18
-updatedAt: 2023-07-25
+updatedAt: 2023-07-27
 categories: ["Sports", "Trail Running"]
 type: 'note'
 ---
@@ -40,9 +40,11 @@ Apple Ultra Watch. Over time I'm less convinced that this is a "great" option fo
 
 ## Misc
 
-Bandanas. Cheap, versatile. They keep you warm in the wind. Get it wet and it cools you down in the sun. Can never go wrong with a classic cotton bandana.
+Bandanas. Cheap, versatile. It keeps you warm in the wind. Get it wet and it cools you down in the sun. Can never go wrong with a classic cotton bandana.
 
-Salomon Adv Skin 12 backpack. I had the medium version for several years and then realized it was a bit too small for me. I have the large version now in red. Holds stuff. Lots of straps and options for water.
+Salomon Adv Skin 12 backpack. I had the medium version for several years and then realized it was a bit too small for me. I have the large version now in red. Holds stuff. Lots of straps and options for water: 2L reservoir and 2x 1L flasks.
+
+Recovery kit: Hoka One One recovery sandals, lacrosse ball, anti-fatigue mat + [standing desk](/wiki/computers/what-i-use#desk), theracane, Yeti 32oz Rambler
 
 
 
