@@ -2,7 +2,7 @@
 title: "Trail Running Gear"
 description: "All of my gear"
 createdAt: 2023-07-18
-updatedAt: 2023-07-27
+updatedAt: 2023-07-31
 categories: ["Sports", "Trail Running"]
 type: 'note'
 ---
@@ -20,7 +20,7 @@ type: 'note'
 _Active_
 
 - New Balance [Fresh Foam 1080v12](https://www.newbalance.com/pd/fresh-foam-x-1080v12/M1080V12-MPS.html) - This is my main shoe. I vow to put at least 500 miles on every pair before retirement.
-- New Balance SuperComp Trainer - This is my _other_ main shoe. It's speedier and springy-er than the 1080.
+- New Balance SuperComp Trainer - This is my _other_ main shoe. It's speedier and springy-er than the 1080 and features a carbon plate. Most importantly, this is a supershoe that comes in wide sizes. My next marathon will be in a pair of these.
 - Hoka One One Speed Goat - This is my go-to trail running shoe. I'm on my 4th pair already. I dabbled around with other wide-sized trail shoes but this is the one that's given me the most comfortable miles.
 
 _Retired_
@@ -30,7 +30,7 @@ _Retired_
 
 ## Tech
 
-Apple Ultra Watch. Over time I'm less convinced that this is a "great" option for running. But I don't have a basis for comparison so it is my winner by default.
+Apple Ultra Watch. Over time I'm less convinced that this is a "great" option for running. But I don't have a basis for comparison, so it is my winner by default.
 
 [Powerbeats Pro](https://www.apple.com/shop/product/MY582LL/A/powerbeats-pro-totally-wireless-earbuds-black). More battery life than I have endurance. Sweatproof. Physical buttons, no touching or tapping.
 

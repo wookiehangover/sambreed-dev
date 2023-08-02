@@ -96,6 +96,18 @@ content {
 
 table {
   width: 100%;
+  width: fit-content;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+table td, table th {
+  border: 1px solid var(--hr-border-color);
+  padding: 0.25rem 0.5rem;
+}
+
+table th {
+  font-size: 0.875rem;
 }
 
 img {

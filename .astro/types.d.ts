@@ -210,6 +210,13 @@ declare module 'astro:content' {
   collection: "wiki";
   data: InferEntrySchema<"wiki">
 } & { render(): Render[".md"] };
+"computers/web-development/front-end/layered-architecture.md": {
+	id: "computers/web-development/front-end/layered-architecture.md";
+  slug: "computers/web-development/front-end/layered-architecture";
+  body: string;
+  collection: "wiki";
+  data: InferEntrySchema<"wiki">
+} & { render(): Render[".md"] };
 "computers/web-development/front-end/new-css.md": {
 	id: "computers/web-development/front-end/new-css.md";
   slug: "computers/web-development/front-end/new-css";

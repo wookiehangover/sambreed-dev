@@ -1,10 +1,13 @@
 ---
 title: "What is Front End Infrastructure?"
 description: "Unpacking the evolution of web app devlopment"
-createdAt: 2023-07-28
+createdAt: 2020-10-10
+updatedAt: 2023-07-31
 categories: ["Computers", "Web Development", "Front-End"]
 type: 'note'
 ---
+
+*Note: This was an unpublished drafted from October 2020 that I wrote as I was winding down my role at [Credit Karma](/cv.html#credit-karma). Part of the motivation for [building this wiki](../building-this-wiki) was to get incomplete thoughts like these into a space where they can grow.*
 
 I was recently asked to give an overview of "Front End Infrastructure" for someone trying to navigate the industry. After giving my typically rambling-but-accurate impromptu answer, I reflected a bit about how to define this pocket of technology that I've been operating in professionally for the last ten years.
 
@@ -85,4 +88,6 @@ The decisions get more important as the size and scope of your front end grows, 
 
 ## Solutions
 
-Thankfully, most of these concerns are covered quite well by the current crop of "last mile" hosting services like Vercel, Netlify, or Fly.io and meta frameworks like Next.js, Remix, and Sveltekit. But the list above can't be addressed by a framework alone, even if it does come with sensible defaults. CSP is a good example of a gap in coverage from the major frameworks, where inevitably CSP needs to be handled with some level of custom code. When security moves away from being declarative
+Thankfully, most of these concerns are covered quite well by the current crop of "last mile" hosting services like Vercel, Netlify, or Fly.io and meta frameworks like Next.js, Remix, and Sveltekit.
+
+But the list above can't be addressed by a framework alone, even if it does come with sensible defaults. CSP is a good example of a gap in coverage from the major frameworks, where inevitably CSP needs to be handled with some level of custom code. When security moves away from being declarative and into something that defined at runtime for each route or class, your surface area for bugs and attacks gets a lot bigger.
