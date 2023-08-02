@@ -44,7 +44,7 @@ Our little table gets bigger! You can very much think of Templates as an outgrow
 
 ## 3. Content Management System
 
-**Layers are cumulative**, and this builds on top of the 2-Layer templated dynamic content system, allowing users to update the content using the website itself.
+Layers are cumulative. Building on the 2-Layer system, the next step is to allow users to update the content using the application itself.
 - Sessions, Authorization, and Authentication come into the picture
 - Basic premise is: 
 - Ruby on Rails, while not a CMS itself, helped popularize techniques for building a 3-Layer application
@@ -83,10 +83,11 @@ Not only are there users and user-created content, but there are self-administer
 
 ## 6. Dynamic templates with Runtime
 
-It is not enough to merely allow users to manage themselves and 
+It is not enough to merely allow users to manage themselves *and* the template *and* the content. The next step is to let users define programming logic and side effects.
 
+* GitHub Actions
 - "No Code" applications fall into this category
-- Yahoo! Pipes is an early example of this.
+- Yahoo! Pipes is an early example
 
 | | Layer |
 | - | - | 
