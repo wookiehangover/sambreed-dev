@@ -1,7 +1,7 @@
 ---
 title: Links, July 2023
 slug: links-july-2023
-description: 
+description: too many tabs, not enough time
 layout: "../../layouts/BlogPost.astro"
 heroImage: "/img/1690248820042-photorealistic-coastal-mountain-range-magic-hour.jpg"
 pubDate: "July 31 2023"
