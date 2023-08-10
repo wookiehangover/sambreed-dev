@@ -2,14 +2,16 @@
 title: "Layered Architecture"
 description: "A Theory of Applications"
 createdAt: 2023-07-31
-updatedAt: 2023-08-02
+updatedAt: 2023-08-09
 categories: ["Computers", "Web Development", "Front-End"]
 type: 'note'
 ---
 
-Applications are made up of layers of abstraction. Layers determine complexity and limit what types of features you can build. Layers pile on top of on another, and each new layer conceals and adapts the layer below. In practice, an application will touch many layers simultaneously to achieve its goal.
+This essay describes a way to categorize software applications that I developed as a consultant and product developer. I started dropping this metaphor without ever laying it out formally. I tuned into common the vibrations and resonances building dozens of applications of different levels of complexity.
 
-The history of computing tracks the accretion of layers of technology: electrical switches and relays gave way to vacuum tubes, which yielded to transistors and solid state devices; programming in binary led to assembly language and hexadecimal, ultimately ceding to the first "high level" languages; stateless machines requiring tedious input on each power cycle drove the need for boot loaders and BIOS, accidentally birthing operating systems in the process. Operating Systems, for a time, became the venue for applications. Web browsers emerged to offer a new delivery vector for software applications, and today, after 30 years of growth, the web touches every business on the planet. "Layer 0" is the computer.
+The starting point is not original: applications are made up of layers of abstraction. Layers determine complexity and limit what types of features you can build. Layers pile on top of on another, and each new layer conceals and adapts the layer below. In practice, an application will touch many layers simultaneously to achieve its goal.
+
+The history of computing follows the accretion of layers of technology: electrical switches and relays gave way to vacuum tubes, which yielded to transistors and solid state devices; programming in binary led to assembly language and hexadecimal, then ceding to the first "high level" languages; machines requiring tedious input on each power cycle drove the need for boot loaders and BIOS, accidentally birthing operating systems in the process. Operating Systems, for a time, became the venue for applications. Web browsers emerged to offer a new delivery vector for software applications, and today, after 30 years of growth, the web touches every business on the planet. "Layer 0" is the computer.
 
 Layer 0 changes over time.
 
@@ -42,13 +44,13 @@ Dynamic content
 ~~A runtime that generates content on each request using fixed templates.~~
 
 - ~~PHP + MySQL are the canonical example of this: Put some text or HTML into a database, then recall that text with a script at runtime to serve a page. The database layer isn't strictly necessary, any runtime that chooses content dynamically. PHPMyAdmin is your admin page.~~
-- Importantly, the templates are static. Editable templates earn you two extra layers (see below.)
-- *How* the content changes is crucially not defined in this setup. This type of application will typically _pull_ data from a source without ever writing data back to it. 
+- Templates do not change dynamically between deploys. Editable templates earn you two extra layers (see below.)
+- *How* the content changes is crucially not defined in this setup. This type of application will _pull_ data from a source without ever writing data back to it. 
 - Certain runtime-driven content can change without a **deployment** but the template that establishes the frame around the content is static, changes require a deployment.
 - Geocities lives here in spirit. It blurred the line between a Layers 2 and 3, but never approached the additional complexity of Layer 4.
 - Statically generated documentation sites are a good example of this: many different articles, stored separately and then used to generate HTML.
 	- There might be a database in the picture, often only accessed once to generate the content. Those familiar with static site generators know this as the "build step."
-- This website.
+- This website is a Layer 2 application.
 
 Our little table gets bigger! You can very much think of Templates as an outgrowth of Static content, so a new cell has been added to the right:
 
