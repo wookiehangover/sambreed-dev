@@ -18,7 +18,7 @@ The death of Internet Explorer in 2022 finally opened the doors to the era of th
 - there's a [big list of functions](https://twitter.com/argyleink/status/1684579433821372418?s=20), a bunch of which I've never used
 	- `var()` ‡
 	- `env()`
-	- `clamp()`
+	- `clamp(min, preferred, max)` - make a value change dynamically with container size
 	- `attr()` ‡
 	- `invert()`
 	- Grid sizing

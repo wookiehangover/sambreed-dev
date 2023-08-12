@@ -7,24 +7,26 @@ categories: ["Computers", "Web Development", "Front-End"]
 type: 'note'
 ---
 
-This essay describes a way to categorize software applications that I developed as a consultant and product developer. I started dropping this metaphor without ever laying it out formally. I tuned into common the vibrations and resonances building dozens of applications of different levels of complexity.
+A better name for this page might be *Types of Frontend Systems*.
+
+This essay describes a way to categorize software applications that I developed as a consultant and developer on product and app platform teams. I started dropping this metaphor without ever laying it out formally, having tuned into common the vibrations and reoccurring patterns across dozens of applications of different levels of complexity.
 
 The starting point is not original: applications are made up of layers of abstraction. Layers determine complexity and limit what types of features you can build. Layers pile on top of on another, and each new layer conceals and adapts the layer below. In practice, an application will touch many layers simultaneously to achieve its goal.
 
-The history of computing follows the accretion of layers of technology: electrical switches and relays gave way to vacuum tubes, which yielded to transistors and solid state devices; programming in binary led to assembly language and hexadecimal, then ceding to the first "high level" languages; machines requiring tedious input on each power cycle drove the need for boot loaders and BIOS, accidentally birthing operating systems in the process. Operating Systems, for a time, became the venue for applications. Web browsers emerged to offer a new delivery vector for software applications, and today, after 30 years of growth, the web touches every business on the planet. "Layer 0" is the computer.
+The history of computing tracks the accretion of layers of technology: electrical switches and relays gave way to vacuum tubes, which yielded to transistors and solid state devices; programming in binary led to assembly language and hexadecimal, ultimately ceding to the first "high level" languages; stateless machines requiring tedious input on each power cycle drove the need for boot loaders and BIOS, accidentally birthing operating systems in the process. Operating Systems, for a time, became the venue for applications. Web browsers emerged to offer a new delivery vector for software applications, and today, after 30 years of growth, the web touches every business on the planet.
 
-Layer 0 changes over time.
+"Layer 0" is the computer. The definition of the computer changes over time.
 
 | When | Layer 0 |
 |-|-|
 | 60 years ago | assembly language |
-| 30 years ago | operating system / PC |
-| Today | web browser / mobile device |
+| 30 years ago | operating systems / PCs |
+| Today | web browsers / mobile devices |
 
 
-## 1. Static
+## Layer 1 - Static Content
 
-Static content, once deployed, doesn't change. The client is the only runtime. With no shortage of hosts offering free or nearly-free options, static hosting has been a commodity for more than a decade.
+Static content, once deployed, doesn't change. The client is the only runtime. With no shortage of hosts offering free or nearly-free options, static hosting has long been a commodity.
 
 - Static websites can _do a lot_ without having to interact with backend services. [Squoosh](https://squoosh.app/) is one of the best examples of something that _feels_ dynamic but isn't.
 - Books are the original technology that best fits this description. Hypertext is not a requirement. Billboards, magazines, graffiti, most Fine Art; all static content.
@@ -37,7 +39,7 @@ Here's a little table to help count the layers. The first layer is obviously sim
 | 1 | Static | Fixed content |
 
 
-## 2. Templates
+## Layer 2 - Templates
 
 Dynamic content
 
@@ -59,7 +61,7 @@ Our little table gets bigger! You can very much think of Templates as an outgrow
 | 1 | Static | Fixed content |
 | 2 | Templates | Dynamic content |
 
-## 3. Content from Database
+## Layer 3 - Content from a Database
 
 Interactive multi-user application, Content Management System, Client <-> Database
 
@@ -70,7 +72,7 @@ This is your standard CRUD app.
 - Sessions, Authorization, and Authentication come into the picture
 - Basic premise is: 
 - Ruby on Rails, while not a CMS itself, helped popularize techniques for building a 3-Layer application
-- You don't typically think of Facebook as a CMS, but prior to the switch to the algorithmic newsfeed in 2012, Facebook was more-or-less a simple content management system.
+- You don't typically think of Facebook as a CMS, but prior to the switch to the algorithmic newsfeed in 2012, Facebook was more-or-less a multi-user content management system.
 	- Same goes for Twitter: take input from a user (your posts), stuff it in a database, and display it in some other context later on.
 	- MySpace had an even more liberal interpretation, allowing any CSS or HTML to be included on your profile page so that you could blast any visitor to your profile with an emo song at full volume.
 
@@ -83,7 +85,7 @@ Another layer added to the table:
 | 3 | Content from DB | Users r/w content | 
 
  
-## 4. Templates from DB
+## Layer 4 - Templates from a DB
 
 Interactive multi-user application with custom presentation, CMS with dynamic templates ("Dynamic CMS")
 
@@ -101,7 +103,7 @@ When a CMS allows a user to define both the content and the layout, you enter th
 | 4 | Templates from DB | Users r/w templates | 
 
 
-## 5. Many Instances
+## Layer 5 - Many Instances
 
 Multi-tenant Dynamic Applications
 
@@ -119,7 +121,7 @@ Not only are there users and user-created content, but there are self-administer
 | 5 | Many Instances | Groups of users & RBAC |
 
 
-## 6. User Programmable
+## Layer 6 - User Programmable
 
 Dynamic templates with Runtime
 
@@ -142,7 +144,7 @@ Our humble table needs to pivot in order to fit it all in:
 | 6 | User Programmable | Logic defined externally |
 
 
-## 7. Dynamic Infrastructure
+## Layer 7 - Dynamic Infrastructure
 
 Multi-tenant Dynamic Infrastructure
 
@@ -151,6 +153,10 @@ The deeper you get into the layered stack, the more you start looking like a hos
 The classic value-proposition of cloud computing goes something like, "tell us what resources you need and we will provision them for you, and don't worry about the details."
 
 With this architecture, Salesforce transformed the scope of its business from CRM to "everything."
+
+Kubernetes, the open source ancestor of [Google's Borg cluster management software](https://dl.acm.org/doi/10.1145/2741948.2741964), provides the framework for building a layer 7 application.
+
+Vercel is building the Frontend Cloud.
 
 | | Layer | Description |
 | - | - | - |
@@ -163,3 +169,6 @@ With this architecture, Salesforce transformed the scope of its business from CR
 | 7 | Dynamic Infrastructure | Congratulations, you are a hosting company |
 
 
+---
+
+https://www.cloudflare.com/learning/ddos/glossary/open-systems-interconnection-model-osi/
