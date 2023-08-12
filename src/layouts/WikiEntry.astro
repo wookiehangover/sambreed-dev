@@ -19,12 +19,14 @@ export interface Props {
     all_categories?: string[];
 		type?: IconName;
   };
+  size?: "prose" | "full"
 }
 
 const wikiEntries = await getCollection("wiki");
 const { tree, map } = getAllCategories(wikiEntries);
 
 const {
+  size,
   content: { title, description, createdAt, updatedAt, categories, type },
 } = Astro.props;
 ---
@@ -48,7 +50,7 @@ const {
 			</div>
     </nav>
     <main>
-      <article>
+      <article class={size === "full" ? "w-full" : "w-prose"}>
         <header>
           <h1 class="title">{title}</h1>
           {description && <p>{description}</p>}
@@ -136,11 +138,17 @@ const {
 			align-items: center;
 			gap: 0.5rem;
 		}
+
+    .w-full {
+      width: 1024px;
+      margin: 0 auto 0 280px;
+    }
     @media screen and (max-width: 960px) {
       nav.categories {
         position: static;
         order: 1;
       }
     }
+
   </style>
 </html>

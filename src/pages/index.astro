@@ -158,6 +158,8 @@ const posts = (await Astro.glob("./writing/*.{md,mdx}"))
   }
   body > main {
     flex: 1;
+    max-width: 65ch;
+    margin: auto;
   }
   body > footer {
     margin-top: auto;

@@ -15,6 +15,10 @@ const posts = (await Astro.glob('./writing/*.{md,mdx}')).sort(
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
+			main {
+				max-width: 65ch;
+				margin: auto;
+			}
 			ul {
 				list-style-type: none;
 				padding: unset;

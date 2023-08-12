@@ -245,6 +245,13 @@ declare module 'astro:content' {
   collection: "wiki";
   data: InferEntrySchema<"wiki">
 } & { render(): Render[".md"] };
+"library/fiction/blood-meridian.md": {
+	id: "library/fiction/blood-meridian.md";
+  slug: "library/fiction/blood-meridian";
+  body: string;
+  collection: "wiki";
+  data: InferEntrySchema<"wiki">
+} & { render(): Render[".md"] };
 "library/fiction/desolation-road.md": {
 	id: "library/fiction/desolation-road.md";
   slug: "library/fiction/desolation-road";

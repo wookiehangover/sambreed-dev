@@ -30,7 +30,7 @@ _Retired_
 
 ## Tech
 
-Apple Ultra Watch. Over time I'm less convinced that this is a "great" option for running. But I don't have a basis for comparison, so it is my winner by default.
+Apple Ultra Watch. Over time I'm less and less convinced that this is a "great" option for running. But I don't have a basis for comparison, so it is my winner by default.
 
 [Powerbeats Pro](https://www.apple.com/shop/product/MY582LL/A/powerbeats-pro-totally-wireless-earbuds-black). More battery life than I have endurance. Sweatproof. Physical buttons, no touching or tapping.
 
