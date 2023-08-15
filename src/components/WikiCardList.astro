@@ -41,7 +41,7 @@ const { entries, map } = Astro.props
 
   ul li {
     margin: 0;
-    border: 1px solid var(--blockquote-border-color);
+    border: 1px solid var(--card-border-color);
     border-radius: 0.5rem;
     transition: all 0.2s ease-in-out;
     display: flex;
@@ -76,7 +76,7 @@ const { entries, map } = Astro.props
 
   ul li:hover {
     /* background: var(--card-bg-hover); */
-    box-shadow: 6px 6px 0px 0px var(--blockquote-border-color);
+    box-shadow: 6px 6px 0px 0px var(--card-border-color);
     /* top: -1px;
     left: -1px; */
   }
@@ -94,7 +94,7 @@ const { entries, map } = Astro.props
     position: absolute;
     top: 0.5rem;
     right: 0.5rem;
-    fill: var(--blockquote-border-color);
+    fill: var(--card-border-color);
     opacity: 0.5;
     transition: all 0.2s ease-in-out;
   }

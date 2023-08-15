@@ -11,9 +11,10 @@
   --bold-color: #222;
   --link-color: #3273dc;
   --code-background-color: #f2f2f2;
-  --blockquote-border-color: #999;
+  --blockquote-border-color: mediumorchid;
   --blockquote-color: #222;
   --hr-border-color: #ddd;
+  --card-border-color: #999;
   --card-bg-hover: rgb(127 124 127 / 5%);
   --lightest-text-color: rgb(127 124 127 / 50%);
 }
@@ -29,7 +30,8 @@
     --code-background-color: #444;
     --hr-border-color: #444;
     --blockquote-color: #a7acc1;
-    --blockquote-border-color: rgb(255 255 255 / 20%);
+    --blockquote-border-color: mediumorchid;
+    --card-border-color: rgb(255 255 255 / 20%);
     --card-bg-hover: rgb(255 255 255 / 5%);
     --lightest-text-color: rgb(255 255 255 / 18%);
   }
@@ -132,18 +134,13 @@ pre > code {
 }
 
 blockquote {
-  border: 1px solid var(--blockquote-border-color);
-  border-radius: 0.5rem;
-  transition: all 0.2s ease-in-out;  border: 1px solid var(--blockquote-border-color);
+  border-left: 2px solid var(--blockquote-border-color);
   color: var(--blockquote-color);
-  padding: 0.25rem 2rem;
-  margin: 0 0 1rem;
-  line-height: 2;
-  box-shadow: 5px 5px 0px 0px var(--card-bg-hover);
-}
-
-blockquote:hover {
-  box-shadow: 6px 6px 0px 0px var(--blockquote-border-color);
+  padding-left: 1.875rem;
+  margin-inline-start: 0;
+  margin-inline-end: 1.875rem;
+  line-height: 1.875;
+  font-size: 1.125rem;
 }
 
 hr {
