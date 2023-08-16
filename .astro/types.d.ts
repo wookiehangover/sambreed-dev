@@ -231,6 +231,13 @@ declare module 'astro:content' {
   collection: "wiki";
   data: InferEntrySchema<"wiki">
 } & { render(): Render[".md"] };
+"computers/web-development/front-end/zen-of-tailwind.md": {
+	id: "computers/web-development/front-end/zen-of-tailwind.md";
+  slug: "computers/web-development/front-end/zen-of-tailwind";
+  body: string;
+  collection: "wiki";
+  data: InferEntrySchema<"wiki">
+} & { render(): Render[".md"] };
 "computers/web-development/product-tracking.md": {
 	id: "computers/web-development/product-tracking.md";
   slug: "computers/web-development/product-tracking";
