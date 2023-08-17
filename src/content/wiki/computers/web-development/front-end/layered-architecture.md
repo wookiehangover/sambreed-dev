@@ -23,6 +23,7 @@ The history of computing tracks the accretion of layers of technology: electrica
 | 30 years ago | operating systems / PCs |
 | Today | web browsers / mobile devices |
 
+## Table of Contents
 
 ## Layer 1 - Static Content
 

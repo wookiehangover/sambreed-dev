@@ -8,7 +8,9 @@ type: 'note'
 
 I've been a happy Tailwind<sup>[1](#none-of-this-is-new)</sup> user for a while now, and have been using the underlying techniques since 2016.
 
-The first thing I discovered when rolling out a similar system was "some people really don't like this." It's not for everyone! Learning CSS is hard enough, so learning a layer of shortcoded indirection on top of CSS steepens an already daunting learning curve. For more seasoned CSS aficionados, the translation between what you know and what you need to write still takes some time to get a hang of. You will be searching the docs frequently for "things you know how to do." 
+The first thing I discovered when rolling out a similar system was "some people really don't like this." It's not for everyone!
+
+Learning CSS is hard enough, so learning a layer of shortcoded indirection on top of CSS steepens an already daunting learning curve. For more seasoned CSS aficionados, the translation between what you know and what you need to write still takes some time to get a hang of. You will be searching the docs frequently for "things you know how to do." 
 
 Fortunately, the payoff is worth it. If you can put up with the downsides, there's a certain Zen that can be unlocked.
 
@@ -17,6 +19,8 @@ Fortunately, the payoff is worth it. If you can put up with the downsides, there
 - CSS bundle sizes are fixed, and do not grow with the size of your application; more variation does not yield more CSS.
 
 But not everyone is convinced (and that's OK, do your thing.)
+
+## Table of Contents
 
 ## Skip the hard parts
 
@@ -46,7 +50,7 @@ Developers have divergent goals
 1. Creating re-usable abstractions
 2. Building user interfaces
 
-## No Design System is Complete
+### No Design System is Complete
 
 Design systems themselves are indefinite and never comprehensive: if every scenario were already planned out, the application would already be complete.
 
@@ -61,6 +65,8 @@ A UI Library is only ever a reference implementation of a Design System. Even if
 Tailwind doesn't prevent you from naming things! You don't have to carry around long strings everywhere. That said, the long lists of classes are rarely a problem.
 
 ## The Maintenance Race
+
+[See also](https://worksinprogress.co/issue/the-maintenance-race)
 
 "Have you ever tried to refactor CSS?"
 
@@ -85,7 +91,11 @@ The point of Atomic CSS is to reduce the *technology space* that your CSS occupi
 
 ## Criticism
 
-People hate it? 
+https://pdx.su/blog/2023-07-26-tailwind-and-the-death-of-craftsmanship/ is quite the screed, and I'm not here to give a point-by-point rebuttal. I'm not terribly convinced by the arguments and turned off by the tone, which is hardly joyful.
+
+The differences between these techniques is overall not all that huge, and arguments like this present an us-vs-them dynamic. Building websites is not a zero sum game, and the tools you choose rarely matter very much in hindsight.
+
+https://thoughtbot.com/blog/tailwind-and-the-femininity-of-css
 
 ## None of this is new
 
