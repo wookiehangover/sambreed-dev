@@ -103,7 +103,8 @@ const {
   <style>
     .title {
       font-size: 2em;
-      margin: 0.25em 0 0;
+      margin: 0;
+      /* margin: 0.25em 0 0; */
     }
     body {
       display: flex;
@@ -118,7 +119,7 @@ const {
     nav.categories {
       position: fixed;
       left: 1rem;
-      top: 4rem;
+      top: 6rem;
       font-size: 0.8rem;
       padding-bottom: 1rem;
     }
@@ -140,15 +141,20 @@ const {
 		}
 
     .w-full {
-      width: 1024px;
+      width: calc(100vw - 320px);
       margin: 0 auto 0 280px;
     }
+
     @media screen and (max-width: 960px) {
+      .w-full {
+        width: 100%;
+        margin: 0;
+      }
+
       nav.categories {
         position: static;
         order: 1;
       }
     }
-
   </style>
 </html>

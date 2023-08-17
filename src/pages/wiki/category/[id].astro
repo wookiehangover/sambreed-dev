@@ -18,7 +18,7 @@ const { map } = getAllCategories(entries)
 const title = map.get(id)?.label ?? id
 ---
 
-<WikiEntryLayout content={{ title }}>
+<WikiEntryLayout content={{ title }} size="full">
   <WikiCardList entries={entries} map={map} />
   </ul>
 </WikiEntryLayout>

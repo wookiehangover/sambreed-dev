@@ -35,8 +35,9 @@ const { entries, map } = Astro.props
     list-style: none;
     padding: 0;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
     gap: 1rem;
+    padding-right: 1rem;
   }
 
   ul li {
@@ -101,11 +102,5 @@ const { entries, map } = Astro.props
 
   ul li:hover .icon {
     opacity: 1;
-  }
-
-  @media screen and (max-width: 768px) {
-    ul {
-      grid-template-columns: 1fr 1fr;
-    }
   }
 </style>
