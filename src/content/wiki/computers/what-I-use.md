@@ -45,3 +45,6 @@ type: 'list'
 	- This is a Ship of Theseus pc build that's been running in some form since 2009. The motherboard, main SSD, and Ubuntu install date back to 2016, the spinning metal is from 2018, and the processor was bought used on ebay in 2019. There's also an optical drive for backing up dvd's and blurays.
 	- I am also stubbornly letting this thing run until it doesn't. It lives to store files, get backed up, and do some light video encoding for plex.
 - Backup NAT: Synology 18tb disk storage
+
+
+[Desk photos from years past](https://hellsite.sambreed.dev/sambreed/status/1300590149382807552/) 
