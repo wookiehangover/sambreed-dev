@@ -82,19 +82,25 @@ Why is CSS so hard to refactor?
 - The "I'll just add this to the bottom of the file" problem, hard to gauge impact of changes
 	- modularization can help with this, but has drawbacks. Typically, modular css is automatically scoped to it's parent element, which makes sharing pri
 
-## Declarative vs Imperative
+## What about arbitrary values?
 
-Ad hoc style declarations are bad actually?
+Arbitrary values were introduced when Tailwind moved to jit compilation. Instead of declaring custom values ahead of time in tailwind.config.js, you can now use any value at runtime using the `[value]` syntax. 
 
-The point of Atomic CSS is to reduce the *technology space* that your CSS occupies
-	- "technology space" is an idea lifted from The Origin of Wealth
+Before Tailwind added arbitrary values, you needed to fall back to css or inline styling for custom properties. In the best case, you take the time to write a well-named non-atomic utility class that is hopefully re-used and easy to discover. In the worst case, you add yet another class to a long and hurried CSS file full of similar one-off classes with mysterious and unfamiliar names. Either way, the "file of one-off's" approach is easy to manage until it exceeds a few hundred lines, but beyond that, good luck.
 
+After Tailwind added arbitrary values, declaring a custom color stop or width or whatever was easy. In the best case, you do this sparingly and the few cases that do need truly custom values are self-documenting and easy to find via global search. In the worst case, you overuse arbitrary values. Your code is hard to read and it's difficult to implement design changes to existing components. The second case is harder to imagine because it cuts so hard against the grain of framework, but I'm sure it's out there.
+
+In all things, the middle way is the best and safest route. Practicing both of the best case options, writing well named utilities and custom CSS and using the occasional arbitrary value, will net the best outcome: smaller CSS payload and better developer experience. Arbitrary values were added because they increase the expressiveness of Tailwind at little cost if deployed sensibly.
+
+Watch for over-use of arbitrary values in code reviews, and encourage extending Tailwind config or writing custom CSS instead of abusing the square brackets. Likewise, adding lots of custom CSS to a Tailwind project should draw additional scrutiny in code review. 
 ## Criticism
 
-https://pdx.su/blog/2023-07-26-tailwind-and-the-death-of-craftsmanship/ is quite the screed, and I'm not here to give a point-by-point rebuttal. I'm not terribly convinced by the arguments and turned off by the tone, which is hardly joyful.
+Tailwind gets a healthy amount of criticism. I'm not here to defend the finer points of the many arguments presented against it. Writing HTML and CSS is a complex discipline worthy of thoughtful criticism.
 
-The differences between these techniques is overall not all that huge, and arguments like this present an us-vs-them dynamic. Building websites is not a zero sum game, and the tools you choose rarely matter very much in hindsight.
+The differences between these techniques is overall not all that huge, and building websites is not a zero sum game. Remember that the tools you choose rarely matter very much in hindsight.
 
+https://pdx.su/blog/2023-07-26-tailwind-and-the-death-of-craftsmanship/ 
+https://johanronsse.be/2020/07/08/why-youll-probably-regret-using-tailwind/
 https://thoughtbot.com/blog/tailwind-and-the-femininity-of-css
 
 ## None of this is new
