@@ -13,9 +13,15 @@ I was recently asked to give an overview of "Front End Infrastructure" for someo
 
 To start, both "front end" and "infrastructure" are loaded terms.
 
+## Table of Contents
+
+## Definitions
+
 "**Front end**" conjures up whatever comprises the UI layer of an application, be it a website or a native app. In a large organization, it is maintained by specialists who conjure up the right incantations for each platform. Platforms are important, and today there are 3 to care about: the web, iOS, and Android.
 
 "**Infrastructure**" is the "thing" that runs the piece of software _which you don't have to care about_. It is the layer of abstraction in the software stack that is manged for you. It could be a group of servers in a network, or a VM instance running on server, or a pod in a Kubernetes cluster, or serverless function behind an API gateway. Infrastructure is the boundary between what you need to know about to build an application and what you don't. Everything responsible for running your code that you don't need to worry about counts as infrastructure. It is prebuilt and generic; fit for myriad use cases, one if which is yours.
+
+## Scope
   
 "**Front End Infrastructure**" can cover:
 
@@ -51,6 +57,8 @@ To start, both "front end" and "infrastructure" are loaded terms.
 
 You only need to consider a fraction of this list if you only have a one front end app. But when you start needing different categories of front end apps (admin tools, marketing sites / blogs, native webviews, SPA's, etc), you'll definitely encounter all of the above.
 
+## Outcomes
+
 Here's a big, dumb list of questions you might be forced to think about at some point:
   
 - How is your Wordpress blog (_not your choice_) going to use  your design system / branding?
@@ -66,19 +74,19 @@ With one app, lots of these are a single decision point. But with many apps, dec
 
 The decisions get more important as the size and scope of your front end grows, with compounding effects on three axes:  **developer productivity**, **performance**, and **reliability**.
 
-### Developer productivity
+## Developer productivity
 
 - **Build tools.** These will either slow you down immensely or fade into the background of your test and release workflows, providing you immense productivity boosts if executed correctly. Slow or unreliable builds create bottlenecks that back up entire production workflows, and navigating the trade-off between insufficient and inefficient testing will make the difference between a smooth release pipeline and a bumpy one.
 - **Preview / test environments.** Safe and effective last mile testing is an essential ingredient to de-risking fast moving front end teams. Due to the constraints of [Test Boundaries](https://www.destroyallsoftware.com/talks/boundaries), there is a limit to how accurate a unit or integration test can be without touching the "rest" of the system. Since the "front end" is typically rendered at (or near) the network edge, the "rest of the system" often means, quite literally, every other database and service that's upstream of your front end servers. Without a way to safely test either in production or in a production-like environment (with identical configuration), it's extremely difficult to achieve high velocity without sacrificing quality.
 - Experimentation. 
   
-### Performance
+## Performance
 
 - Optimal CDN usage: protocol, caching, compression
 - Observability / Tracing
 - Analytics
   
-### Reliability
+## Reliability
 
 - Uptime
 - Error handling

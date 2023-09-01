@@ -23,6 +23,8 @@ Then, I was inspired by:
 
 Conclusion: I'm starting a wiki, [because it's never been done before](https://www.youtube.com/watch?v=ga0ksTIagsg).
 
+## Table of Contents
+
 ## 1. Failing as a blogger
 I have wanted to build a hypertext for a long time. I built my first website around 1996 on Geocities and I have been trying to make [places made of language](../places-made-of-language) ever since.
 
