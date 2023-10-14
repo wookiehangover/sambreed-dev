@@ -275,3 +275,7 @@ a.tHeNeT {
     border: 1px solid red;
   }
 }
+
+nav.categories a:visited {
+  color: rgb(153, 119, 197);
+}

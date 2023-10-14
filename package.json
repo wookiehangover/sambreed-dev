@@ -12,13 +12,13 @@
     "deploy": "npm run build && cd dist && npx wrangler pages publish ."
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^6.6.1",
-    "@astrojs/mdx": "^0.11.6",
-    "@astrojs/rss": "^2.4.3",
-    "@astrojs/sitemap": "^1.0.0",
-    "astro": "^2.8.3",
+    "@astrojs/cloudflare": "^7.5.3",
+    "@astrojs/mdx": "^1.1.2",
+    "@astrojs/rss": "^3.0.0",
+    "@astrojs/sitemap": "^3.0.1",
+    "astro": "^3.3.0",
     "just-kebab-case": "^4.2.0",
-    "remark-toc": "^8.0.1"
+    "remark-toc": "^9.0.0"
   },
   "prettier": {
     "printWidth": 120
