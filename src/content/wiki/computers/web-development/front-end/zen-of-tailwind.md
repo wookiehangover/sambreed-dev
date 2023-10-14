@@ -2,6 +2,7 @@
 title: "The Zen of Tailwind"
 description: "How to not lose your mind with all the strings"
 createdAt: 2023-08-15
+updatedAt: 2023-08-27
 categories: ["Computers", "Web Development", "Front-End"]
 type: 'note'
 ---
