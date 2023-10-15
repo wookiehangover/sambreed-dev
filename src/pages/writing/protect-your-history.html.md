@@ -125,7 +125,7 @@ Then I switched all the dns settings on my phones and computers to point at the 
 <div class="fr-ns w-50-ns w-100 ml3-ns tc tl-ns bonzi-buddy">
   <a href="https://en.wikipedia.org/wiki/BonziBuddy"
     target="__blank" class="none">
-    <img src="/static../img/bonzi-buddy.gif" class="pa1" />
+    <img src="/img/bonzi-buddy.gif" class="pa1" />
   </a>
 </div>
 

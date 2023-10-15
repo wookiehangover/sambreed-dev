@@ -999,7 +999,7 @@ So these days I just say it, whether or not it's a weird comparison. I'm lending
 <h3 id="conclusion">Conclusion</h3>
 <div class="fr-ns w-50-ns w-100 ml3-ns tc tl-ns bonzi-buddy">
   <a href="https://en.wikipedia.org/wiki/BonziBuddy" target="__blank" class="none">
-    <img src="/static../img/bonzi-buddy.gif" class="pa1">
+    <img src="/img/bonzi-buddy.gif" class="pa1">
   </a>
 </div>
 <p>Encrypting DNS is boring, but satisfying.</p>

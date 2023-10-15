@@ -16,6 +16,8 @@
     "@astrojs/mdx": "^1.1.2",
     "@astrojs/rss": "^3.0.0",
     "@astrojs/sitemap": "^3.0.1",
+    "@fontsource/bitter": "^5.0.13",
+    "@fontsource/merriweather": "^5.0.8",
     "astro": "^3.3.0",
     "just-kebab-case": "^4.2.0",
     "remark-toc": "^9.0.0"

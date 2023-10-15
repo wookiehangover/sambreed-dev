@@ -14,5 +14,10 @@ export default defineConfig({
   adapter: cloudflare(),
   markdown: {
     remarkPlugins: [remarkToc]
+  },
+  vite: {
+    ssr: {
+      noExternal: ['@fontsource/merriweather']
+    }
   }
 });

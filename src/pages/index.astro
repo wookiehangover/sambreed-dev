@@ -3,6 +3,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import '@fontsource/merriweather'
 
 const posts = (await Astro.glob("./writing/*.{md,mdx}"))
   .sort((a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf())
@@ -37,22 +38,23 @@ const posts = (await Astro.glob("./writing/*.{md,mdx}"))
         </p>
       </section>
 
-      <section class="writing">
-        <h2>Writing</h2>
-        <ul>
-          {
-            posts.map((post) => (
-              <li>
-                <a href={post.url}>{post.frontmatter.title}</a>
-              </li>
-            ))
-          }
-          <li><a href="/writing">more...</a></li>
-        </ul>
-      </section>
 
-      <div class="other">
-        <section class="shrink-0 md:w-1/2">
+      <section class="works">
+        <div class="writing">
+          <h2>Writing</h2>
+          <ul>
+            {
+              posts.map((post) => (
+                <li>
+                  <a href={post.url}>{post.frontmatter.title}</a>
+                </li>
+              ))
+            }
+            <li><a href="/writing">more...</a></li>
+          </ul>
+        </div>
+
+        <div>
           <h2>Elsewhere On-line</h2>
           <ul>
             <li>
@@ -74,9 +76,9 @@ const posts = (await Astro.glob("./writing/*.{md,mdx}"))
               <a href="https://hellsite.sambreed.dev">Twitter Archive</a> 🪦
             </li>
           </ul>
-        </section>
+        </div>
 
-        <section>
+        <div>
           <h2>Side Projects</h2>
           <ul>
             <li>
@@ -103,14 +105,16 @@ const posts = (await Astro.glob("./writing/*.{md,mdx}"))
               </ul>
             </li>
           </ul>
-        </section>
-      </div>
+        </div>
+      </section>
 
-      <p>
-        If none of that is enough (word, really?) or you have some other unanswered questions, <a
-          href="mailto:sam@destroy.email">send me an email</a
-        > or use one of the links above.
-      </p>
+      <section>
+        <p>
+          If none of that is enough (word, really?) or you have some other unanswered questions, <a
+            href="mailto:sam@destroy.email">send me an email</a
+          > or use one of the links above.
+        </p>
+      </section>
     </main>
     <Footer />
     <script>
@@ -147,19 +151,34 @@ const posts = (await Astro.glob("./writing/*.{md,mdx}"))
   .writing ul li:last-of-type {
     list-style-type: circle;
   }
-  .other {
+  .works {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 100ch;
+    margin: 2rem auto;
+    padding: 2rem;
+    gap: 2rem;
+    border-top: 1px solid var(--lightest-text-color);
+    border-bottom: 1px solid var(--lightest-text-color);
+  }
+  @media (max-width: 768px) {
+    .works {
+      grid-template-columns: 1fr;
+    }
   }
   body {
     display: flex;
     flex-direction: column;
+    font-family: "Merriweather", serif;
+    height: 100vh;
   }
-  body > main {
+
+  main > section:not(.works) {
     flex: 1;
     max-width: 65ch;
     margin: auto;
   }
+
   body > footer {
     margin-top: auto;
   }

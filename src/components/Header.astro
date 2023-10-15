@@ -19,17 +19,17 @@ const { label = "website" } = Astro.props
 		font-weight: normal;
 		padding-bottom: 1rem;
 		border-bottom: 1px solid var(--hr-border-color);
+		padding: 19px 1rem;
+		transition: border 0.3s ease-in-out;
 	}
 
-	@media (min-width: 1296px) {
+	@media (min-width: 1350px) {
 		header {
 			position: fixed;
-			top: 1.2rem;
-			left: 1rem;
+			left: 0;
 		}
 		header h2 {
-			border: none;
-			padding-bottom: 0;
+			border-color: transparent;
 			margin-bottom: 0;
 		}
 	}
