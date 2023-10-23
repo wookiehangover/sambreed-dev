@@ -1,36 +1,70 @@
 ---
+import "@fontsource/rock-salt";
 export interface Props {
-	label?: string;
+  label?: string;
 }
 
-const { label = "website" } = Astro.props
+const { label = "website" } = Astro.props;
 ---
 
 <header>
-	<h2>
-		<a href="/">Sam Breed's</a> modest personal {label}.
-	</h2>
+  <h2>
+    <a href="/">Sam Breed's</a> modest personal {label}.
+  </h2>
+
+  <svg xmlns="//www.w3.org/2000/svg" version="1.1" class="svg-filters" style="display:none;">
+    <defs>
+      <filter id="marker-shape">
+        <feTurbulence type="fractalNoise" baseFrequency="0 0.15" numOctaves="1" result="warp"></feTurbulence>
+        <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="30" in="SourceGraphic" in2="warp"
+        ></feDisplacementMap>
+      </filter>
+    </defs>
+  </svg>
 </header>
 <style>
-	header h2 {
-		color: var(--text-dim);
-		font-size: 1rem;
-		line-height: 1.6;
-		font-weight: normal;
-		padding-bottom: 1rem;
-		border-bottom: 1px solid var(--hr-border-color);
-		padding: 19px 1rem;
-		transition: border 0.3s ease-in-out;
-	}
+  header h2 {
+    font-family: "Rock Salt", sans;
+    color: var(--text-dim);
+    font-size: 1rem;
+    line-height: 1.6;
+    font-weight: normal;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--hr-border-color);
+    padding: 19px 1rem;
+    transition: border 0.3s ease-in-out;
+  }
 
-	@media (min-width: 1350px) {
-		header {
-			position: fixed;
-			left: 0;
-		}
-		header h2 {
-			border-color: transparent;
-			margin-bottom: 0;
-		}
-	}
+  header h2 a {
+    position: relative;
+  }
+
+  header h2 a:hover:before {
+    content: "";
+    background-color: rgb(255 109 183 / 80%);
+    width: 100%;
+    height: 1em;
+    position: absolute;
+    z-index: -1;
+    filter: url(#marker-shape);
+    left: -0.25em;
+    bottom: 0.5em;
+    padding: 0 0.25em;
+	transform: rotate(1deg);
+  }
+
+  header h2 a:hover {
+    text-decoration: none;
+  }
+
+  @media (min-width: 1350px) {
+    header {
+      position: fixed;
+      left: 0;
+    }
+    header h2 {
+      border-color: transparent;
+      margin-bottom: 0;
+    }
+  }
 </style>
