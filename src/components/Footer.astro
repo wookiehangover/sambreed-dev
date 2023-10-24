@@ -4,11 +4,12 @@
 <footer>
 	<a href="/">Sam Breed</a> &middot;
 	<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> <br>
-	<span>silica gel &middot; do not eat</span>
+	<span aria-hidden="true">silica gel &middot; do not eat</span>
 </footer>
 <style>
 	footer {
-		color: #999;
+		color: var(--text-color);
+		opacity: 0.8;
 		padding: 25px;
 		text-align: center;
 		font-size: 0.8em;
@@ -16,11 +17,11 @@
 	}
 
 	footer a {
-		color: #999;
+		color: var(--text-color);
 	}
 
 	footer span {
-		opacity: 0.2;
+		opacity: 0.3;
 		text-transform: uppercase;
 		pointer-events: none;
 	}
