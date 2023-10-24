@@ -7,9 +7,9 @@
 :root {
   --background-color: #fff;
   --text-color: #444;
-  --text-dim: rgb(127 124 127);
-  --bold-color: #222;
-  --link-color: #3273dc;
+  --text-dim: rgb(48 21 59 / 75%);
+  --bold-color: rgb(48 21 59 / 88%);
+  --link-color: rgb(50, 104, 221);
   --code-background-color: #f2f2f2;
   --blockquote-border-color: mediumorchid;
   --blockquote-color: #222;
@@ -43,8 +43,7 @@ body {
     "Helvetica Neue", sans-serif; */
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  /* text-align: left; */
-  text-align: justify;
+  text-align: left;
   hyphens: auto;
   background-color: var(--background-color);
   word-wrap: break-word;
@@ -92,6 +91,10 @@ a:hover {
   color: var(--link-color-hover);
   text-decoration: underline;
   text-underline-offset: 1px;
+}
+
+p {
+  text-align: justify;
 }
 
 textarea {
