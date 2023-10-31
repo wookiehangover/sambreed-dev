@@ -1,6 +1,6 @@
 ---
 title: Twitter
-slug: twitter
+slug: twitter.html
 description: Leaving Twitter
 layout: "../../layouts/BlogPost.astro"
 pubDate: "Jul 18 2022"

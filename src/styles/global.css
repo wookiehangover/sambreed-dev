@@ -97,7 +97,7 @@ a:hover {
 }
 
 p {
-  text-align: justify;
+  text-wrap: pretty;
 }
 
 textarea {

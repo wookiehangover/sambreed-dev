@@ -1,6 +1,6 @@
 ---
 title: Links Blog
-slug: links-part-one
+slug: links-part-one.html
 description: Links! more links to things I've had open
 layout: "../../layouts/BlogPost.astro"
 pubDate: "Jul 13 2022"

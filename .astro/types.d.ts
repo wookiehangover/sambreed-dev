@@ -298,6 +298,197 @@ declare module 'astro:content' {
   data: InferEntrySchema<"wiki">
 } & { render(): Render[".md"] };
 };
+"writing": {
+"16-open-tabs.html.md": {
+	id: "16-open-tabs.html.md";
+  slug: "16-open-tabs.html";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"2007.html.md": {
+	id: "2007.html.md";
+  slug: "2007.html";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"2016-reading-list.html.md": {
+	id: "2016-reading-list.html.md";
+  slug: "2016-reading-list.html";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"2017-reading-list.html.md": {
+	id: "2017-reading-list.html.md";
+  slug: "2017-reading-list.html";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"big-sur-marathon-2023.md": {
+	id: "big-sur-marathon-2023.md";
+  slug: "big-sur-marathon-2023";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"books.html.md": {
+	id: "books.html.md";
+  slug: "books.html";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"dipsea-2023-race-report.md": {
+	id: "dipsea-2023-race-report.md";
+  slug: "dipsea-2023-race-report";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"lessons-from-the-jerk.html.md": {
+	id: "lessons-from-the-jerk.html.md";
+  slug: "lessons-from-the-jerk.html";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"links-april-2023.html.md": {
+	id: "links-april-2023.html.md";
+  slug: "links-april-2023.html";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"links-august-2022.html.md": {
+	id: "links-august-2022.html.md";
+  slug: "links-august-2021.html";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"links-august-2023.md": {
+	id: "links-august-2023.md";
+  slug: "links-august-2023";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"links-december-2022.md": {
+	id: "links-december-2022.md";
+  slug: "links-december-2022";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"links-feb-2023.md": {
+	id: "links-feb-2023.md";
+  slug: "links-feb-2023";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"links-january-2023.md": {
+	id: "links-january-2023.md";
+  slug: "links-january-2023";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"links-july-2023.md": {
+	id: "links-july-2023.md";
+  slug: "links-july-2023";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"links-june-2023.md": {
+	id: "links-june-2023.md";
+  slug: "links-jun-2023";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"links-march-2023.md": {
+	id: "links-march-2023.md";
+  slug: "links-march-2023";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"links-may-2023.md": {
+	id: "links-may-2023.md";
+  slug: "links-may-2023";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"links-part-one.html.md": {
+	id: "links-part-one.html.md";
+  slug: "links-part-one.html";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"links-sept-2023.md": {
+	id: "links-sept-2023.md";
+  slug: "links-sept-2023";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"making-things-for-fun.html.md": {
+	id: "making-things-for-fun.html.md";
+  slug: "making-things-for-fun.html";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"picking-up-the-pieces.html.md": {
+	id: "picking-up-the-pieces.html.md";
+  slug: "picking-up-the-pieces.html";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"protect-your-history.html.md": {
+	id: "protect-your-history.html.md";
+  slug: "protect-your-history.html";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"static-sites-with-next-js.html.md": {
+	id: "static-sites-with-next-js.html.md";
+  slug: "static-sites-with-next-js.html";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"tragic-design-is.html.md": {
+	id: "tragic-design-is.html.md";
+  slug: "tragic-design-is.html";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"twitter.html.md": {
+	id: "twitter.html.md";
+  slug: "twitter.html";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"what-I-read-in-2016.html.md": {
+	id: "what-I-read-in-2016.html.md";
+  slug: "why-I-read-what-I-read-in-2016.html";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+};
 
 	};
 

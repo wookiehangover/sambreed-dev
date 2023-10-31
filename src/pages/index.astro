@@ -4,9 +4,9 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 import '@fontsource/merriweather'
-
-const posts = (await Astro.glob("./writing/*.{md,mdx}"))
-  .sort((a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf())
+import { getCollection } from "astro:content";
+const posts = (await getCollection("writing"))
+  .sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf())
   .slice(0, 6);
 ---
 
@@ -46,7 +46,7 @@ const posts = (await Astro.glob("./writing/*.{md,mdx}"))
             {
               posts.map((post) => (
                 <li>
-                  <a href={post.url}>{post.frontmatter.title}</a>
+                  <a href={`/writing/${post.slug}`}>{post.data.title}</a>
                 </li>
               ))
             }
