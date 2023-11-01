@@ -51,7 +51,7 @@ const posts = (await getCollection("writing"))
 										day: 'numeric',
 									})}
 								</time>
-								<a href={`/posts/${post.slug}`}>{post.data.title}</a>
+								<a href={`/writing/${post.slug}`}>{post.data.title}</a>
 							</li>
 						))
 					}
