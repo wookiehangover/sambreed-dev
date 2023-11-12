@@ -17,6 +17,7 @@
   --card-border-color: #999;
   --card-bg-hover: rgb(127 124 127 / 5%);
   --lightest-text-color: rgb(127 124 127 / 50%);
+  --width: 66ch;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -184,6 +185,14 @@ figure {
   width: 100%;
   margin-left: 0;
 }
+
+figure img {
+  display: block;
+  margin: 1rem auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
 figcaption {
   font-size: 0.75em;
 }
@@ -220,7 +229,7 @@ figcaption {
   width: 50%;
 }
 .w-prose {
-  max-width: 65ch;
+  max-width: var(--width);
   margin: auto;
 }
 

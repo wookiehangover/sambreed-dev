@@ -155,8 +155,8 @@ const posts = (await getCollection("writing"))
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     max-width: 100ch;
-    margin: 2rem auto;
-    padding: 2rem;
+    margin: 4rem auto;
+    padding: 4rem;
     gap-x: 2rem;
     border-top: 1px solid var(--lightest-text-color);
     border-bottom: 1px solid var(--lightest-text-color);
@@ -174,7 +174,7 @@ const posts = (await getCollection("writing"))
 
   main > section:not(.works) {
     flex: 1;
-    max-width: 65ch;
+    max-width: var(--width);
     margin: auto;
   }
 
