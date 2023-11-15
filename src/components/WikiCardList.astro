@@ -31,24 +31,26 @@ const { entries, map } = Astro.props
   ))}
 </ul>
 <style>
+  :root {
+    --radius-blur: 0.1rem;
+  }
   ul {
     list-style: none;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
     gap: 1rem;
     padding-right: 1rem;
   }
 
   ul li {
     margin: 0;
-    border: 1px solid var(--card-border-color);
     border-radius: 0.5rem;
     transition: all 0.2s ease-in-out;
     display: flex;
     flex-direction: column;
     position: relative;
-    box-shadow: 5px 5px 0px 0px var(--card-bg-hover);
+    box-shadow: 0 0 var(--radius-blur) 0 var(--card-bg-hover);
   }
 
   ul li > a {
@@ -76,7 +78,7 @@ const { entries, map } = Astro.props
   }
 
   ul li:hover {
-    box-shadow: 6px 6px 0px 0px var(--card-border-color);
+    --radius-blur: 0.5rem;
   }
 
   ul li:has(a:active) {

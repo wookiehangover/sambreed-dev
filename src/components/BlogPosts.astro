@@ -1,0 +1,39 @@
+---
+export interface Props {
+  exclude?: string;
+}
+import { getCollection } from "astro:content";
+const exclude = Astro.props.exclude ?? "";
+const posts = (await getCollection("writing"))
+  .filter((post) => post.slug !== exclude ?? "")
+  .sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf())
+  .slice(0, 6);
+
+---
+
+<section>
+  <header>
+    <h2>“Blog”<h2>
+  </header>
+  <div>
+    <ul>
+      {
+        posts.map((post) => (
+          <li>
+            <a href={`/writing/${post.slug}`}>{post.data.title}</a>
+          </li>
+        ))
+      }
+      <li><a href="/writing">more...</a></li>
+    </ul>
+  </div>
+</section>
+
+<style>
+  ul {
+    list-style-type: number;
+    & li:last-of-type {
+      list-style-type: circle;
+    }
+  }
+</style>

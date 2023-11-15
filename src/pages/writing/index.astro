@@ -9,37 +9,18 @@ const posts = (await getCollection("writing"))
   .sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf())
 ---
 
-
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			main {
-				max-width: var(--width);
-				margin: auto;
-			}
-			ul {
-				list-style-type: none;
-				padding: unset;
-			}
-			ul li {
-				display: flex;
-			}
-			ul li time {
-				flex: 0 0 130px;
-				font-style: italic;
-				color: #595959;
-			}
-			ul li a:visited {
-				color: #8e32dc;
-			}
-		</style>
 	</head>
 	<body>
 		<Header />
-		<main>
-			<section>
+		<section>
+			<header>
+				<h1>“Blog”</h1>
+			</header>
+			<div>
 				<ul>
 					{
 						posts.map((post) => (
@@ -47,8 +28,8 @@ const posts = (await getCollection("writing"))
 								<time datetime={post.data.pubDate}>
 									{new Date(post.data.pubDate).toLocaleDateString('en-us', {
 										year: 'numeric',
-										month: 'short',
-										day: 'numeric',
+										month: '2-digit',
+										day: '2-digit',
 									})}
 								</time>
 								<a href={`/writing/${post.slug}`}>{post.data.title}</a>
@@ -56,12 +37,34 @@ const posts = (await getCollection("writing"))
 						))
 					}
 					<li>
-						<time>Jan 1, 2016</time>
+						<time>01/01/2016</time>
 						<a href="https://medium.com/@sambreed/2015-books-504cb79ac5c0#.f8izs5mpq">2015 reading list</a>
 					</li>
 				</ul>
-			</section>
-		</main>
+			</div>
+		</section>
 		<Footer />
 	</body>
 </html>
+
+<style>
+	main {
+		max-width: var(--width);
+		margin: auto;
+	}
+	ul {
+		list-style-type: none;
+		padding: unset;
+	}
+	ul li {
+		display: flex;
+	}
+	ul li time {
+		flex: 0 0 130px;
+		font-variant: tabular-nums;
+		color: #595959;
+	}
+	ul li a:visited {
+		color: #8e32dc;
+	}
+</style>

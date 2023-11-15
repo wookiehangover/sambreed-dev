@@ -3,6 +3,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import "@fontsource/bitter"
+import BlogPosts from '../components/BlogPosts.astro';
 
 export interface Props {
 	content: {
@@ -12,11 +13,12 @@ export interface Props {
 		updatedDate?: string;
 		heroImage?: string;
 		heroAlt?: string;
+		slug: string
 	};
 }
 
 const {
-	content: { title, description, pubDate, updatedDate, heroImage, heroAlt },
+	content: { title, description, pubDate, updatedDate, heroImage, heroAlt, slug },
 } = Astro.props;
 ---
 
@@ -33,25 +35,32 @@ const {
 
 	<body>
 		<Header />
-		<main>
+		<section>
+			<header>
+				<h1>{title}</h1>
+				<p>
+					{pubDate && <time>{pubDate}</time>}
+				</p>
+				{
+					updatedDate && (
+						<p>
+							Last updated on <time>{updatedDate}</time>
+						</p>
+					)
+				}
+			</header>
 			<article class="w-prose">
-				<h1 class="title">{title}</h1>
-				{pubDate && <time>{pubDate}</time>}
 				<figure>
 					{heroImage && <img src={heroImage} alt={heroAlt} />}
 					{heroAlt && (<figcaption class="cap">{heroAlt}</figcaption>)}
 				</figure>
-				{
-					updatedDate && (
-						<div>
-							Last updated on <time>{updatedDate}</time>
-						</div>
-					)
-				}
-				<hr />
+
 				<slot />
 			</article>
-		</main>
+		</section>
+
+		<BlogPosts exclude={slug} />
+
 		<Footer />
 	</body>
 </html>
@@ -71,4 +80,4 @@ const {
 			}
 		});
 	});
-	</script>
+</script>

@@ -18,6 +18,10 @@
   --card-bg-hover: rgb(127 124 127 / 5%);
   --lightest-text-color: rgb(127 124 127 / 50%);
   --width: 66ch;
+  --border-dim: rgb(0 0 0 / 10%);
+  --heading-font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+  "Helvetica Neue", sans-serif;
+  --body-font: "Bitter", serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -35,11 +39,12 @@
     --card-border-color: rgb(255 255 255 / 20%);
     --card-bg-hover: rgb(255 255 255 / 5%);
     --lightest-text-color: rgb(255 255 255 / 18%);
+    --border-dim: rgb(255 255 255 / 10%);
   }
 }
 
 body {
-  font-family: "Bitter", serif;
+  font-family: var(--body-font);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   text-align: left;
@@ -64,8 +69,7 @@ h4,
 h5,
 h6 {
   text-wrap: balance;
-  font-family: "Rock Salt", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
-    "Helvetica Neue", sans-serif;
+  font-family: var(--heading-font);
 }
 
 h1,
@@ -189,15 +193,87 @@ figure {
 figure img {
   display: block;
   margin: 1rem auto;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
 }
 
 figcaption {
   font-size: 0.75em;
 }
 
-/* Fuck it, DIY tailwind. */
+/* Page Layout */
+
+section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  &:last-of-type {
+    border-bottom: 1px solid var(--border-dim);
+  }
+}
+
+section > header {
+  padding: 5rem;
+  border-right: 1px solid var(--border-dim);
+  width: 20rem;
+  justify-self: end;
+  transition: width,border,padding-top 0.2s ease-in-out;
+  transition-behavior: allow-discrete;
+
+  & h1,h2 {
+    font-size: 1rem;
+    margin: 1rem 0 0;
+  }
+
+  & p {
+    margin: 0;
+    color: #666;
+    font-size: 0.825rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+      "Helvetica Neue", sans-serif;
+  }
+}
+
+section > div, section > article {
+  padding: 5rem;
+  max-width: 66ch;
+}
+
+@media screen and (max-width: 1440px) {
+  section {
+    grid-template-columns: 40% 1fr;
+  }
+}
+
+@media screen and (max-width: 1168px) {
+  section {
+    grid-template-columns: 30% 1fr;
+  }
+
+  section > header {
+    width: calc(100% - 4rem);
+    padding: 5rem 2rem;
+  }
+}
+
+@media screen and (max-width: 796px) {
+  section {
+    grid-template-columns: 1fr;
+    border-left: 1px solid var(--border-dim);
+    margin-left: 2rem;
+  }
+
+  section > header {
+    border-right: none;
+    border-color: transparent;
+    padding: 2rem;
+    justify-self: start;
+  }
+
+  section > div, section > article {
+    padding: 0 2rem 2rem;
+  }
+}
+
+/* Fuck it, some DIY tailwind. */
 .text-sm {
   font-size: 0.875rem;
 }
@@ -215,6 +291,9 @@ figcaption {
 }
 .gap-1 {
   gap: 0.5rem;
+}
+.gap-2 {
+  gap: 1rem;
 }
 .pt-2 {
   padding-top: 0.5rem;
@@ -256,12 +335,11 @@ a.tHeNeT {
 }
 
 #table-of-contents + ul {
-  position: fixed;
+  position: sticky;
+  top: 1rem;
+  transform: translateX(-200%);
   width: 15rem;
-  left: 1rem;
-  bottom: 1rem;
   font-size: 0.875rem;
-  /* list-style: upper-roman; */
   padding: 0;
   list-style: none;
 }
@@ -282,23 +360,18 @@ a.tHeNeT {
   padding-left: 1.5rem;
 }
 
-@media (max-width: 1196px) or (max-height: 600px) {
+@media (max-width: 1168px) or (max-height: 600px) {
   #table-of-contents {
     display: block;
   }
   #table-of-contents + ul {
     position: static;
     width: auto;
+    transform: none;
   }
   #table-of-contents + ul:before {
     content: "";
     display: none;
-  }
-}
-
-@media (max-height: 600px) {
-  #table-of-contents + ul {
-    border: 1px solid red;
   }
 }
 

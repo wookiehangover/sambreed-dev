@@ -1,6 +1,6 @@
 ---
 layout: "../layouts/Content.astro"
-
+title: "Résumé"
 ---
 
 # Samuel Breed

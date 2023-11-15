@@ -1,5 +1,4 @@
 ---
-import "@fontsource/rock-salt";
 export interface Props {
   label?: string;
 }
@@ -7,72 +6,18 @@ export interface Props {
 const { label = "website" } = Astro.props;
 ---
 
-<header>
-  <h2>
-    <a href="/">Sam Breed's</a>{" "}{label}.
-  </h2>
+<section>
+  <header>
+    <h1>
+      <a href="/">Sam Breed</a>
+    </h1>
+    <p>Product Developer, Investor</p>
+  </header>
+</section>
 
-  <svg xmlns="//www.w3.org/2000/svg" version="1.1" class="svg-filters" style="display:none;">
-    <defs>
-      <filter id="marker-shape">
-        <feTurbulence type="fractalNoise" baseFrequency="0 0.2" numOctaves="1" result="warp"></feTurbulence>
-        <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="30" in="SourceGraphic" in2="warp"
-        ></feDisplacementMap>
-      </filter>
-    </defs>
-  </svg>
-</header>
 <style>
-
-  header {
-    width: 100%;
-    max-width: calc(var(--width) + 2rem);
-    margin: auto;
-  }
-
-  header h2 {
-    font-family: "Rock Salt", sans;
-    color: var(--text-dim);
-    font-size: 1rem;
-    line-height: 1.6;
-    font-weight: 700;
-    padding: 1rem;
-    /* padding-bottom: 1rem; */
-    /* padding: 19px 1rem; */
-  }
-
-  header h2 a {
-    position: relative;
-  }
-
-  header h2 a:hover:before {
-    content: "";
-    background-color: rgb(255 109 183 / 80%);
-    width: 100%;
-    height: 1em;
-    position: absolute;
-    z-index: -1;
-    filter: url(#marker-shape);
-    left: -0.25em;
-    bottom: 0.5em;
-    padding: 0 0.25em;
-    transform: rotate(1deg);
-  }
-
-  header h2 a:hover {
+  a {
     text-decoration: none;
+    color: var(--color-text);
   }
-
-  @media (min-width: 1200px) {
-    header {
-      position: fixed;
-      left: 0rem;
-      top: 0rem;
-      width: fit-content;
-    }
-    header h2 {
-      margin-bottom: 0;
-    }
-  }
-
 </style>

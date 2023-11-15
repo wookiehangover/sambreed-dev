@@ -5,6 +5,7 @@ import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 import '@fontsource/merriweather'
 import { getCollection } from "astro:content";
+import BlogPosts from "../components/BlogPosts.astro";
 const posts = (await getCollection("writing"))
   .sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf())
   .slice(0, 6);
@@ -17,174 +18,112 @@ const posts = (await getCollection("writing"))
   </head>
   <body>
     <Header />
-    <main>
-      <section>
-        <p>Hello 👋</p>
 
+    <section>
+      <header>
+        <h2>Now</h2>
+      </header>
+      <div>
         <p>
-          I'm <a rel="me" href="https://mastodon.social/@sambreed" title="Follow me on Mastodon!">Sam Breed</a> and this is
-          my modest personal website.
-        </p>
-
-        <p>
-          I am a developer, designer, and investor who helps make websites faster, products better, and teams smarter. Currently, I'm a partner at <a href="https://shv.com" title="Sutter Hill Ventures">SHV</a>, working on prototypes and helping build new companies.
+          I'm a partner at <a href="https://shv.com" title="Sutter Hill Ventures">SHV</a>, working on prototypes and helping build new companies.
         </p>
 
         <p>
           When I'm not doing that, you can usually find me trail running somewhere around <a
             href="https://ops.alertcalifornia.org/cam-console/2192"
             title="Mt Tam Trail Camera">Mt Tam</a
-          >. I also collect records, enjoy riding motorcycles, and I like building things in my shop.
+          >. I also collect records, enjoy riding motorcycles, and like to build things in my shop.
         </p>
-      </section>
+      </div>
+    </section>
 
+    <section>
+      <header>
+        <h2>Previously</h2>
+      </header>
+      <div>
+        <p>At <a href="/cv.html#credit-karma">Credit Karma</a>, I built and scaled the front-end and web platform teams from 2015-2020.</p>
+        <p>I founded <a href="/cv.html#quick-left">Quick Left</a> in 2009 to build apps for startups. Sold to Cognizant in 2016.</p>
+      </div>
+    </section>
 
-      <section class="works">
-        <div class="writing">
-          <h2>Writing</h2>
-          <ul>
-            {
-              posts.map((post) => (
-                <li>
-                  <a href={`/writing/${post.slug}`}>{post.data.title}</a>
-                </li>
-              ))
-            }
-            <li><a href="/writing">more...</a></li>
-          </ul>
-        </div>
+    <BlogPosts />
 
-        <div>
-          <h2>On-line</h2>
-          <ul>
-            <li>
-              <a href="https://mastodon.social/@sambreed">Mastodon</a>
-            </li>
-            <li>
-              <a href="https://www.strava.com/athletes/3256286">Strava</a>
-            </li>
-            <li>
-              <a href="https://github.com/wookiehangover">GitHub</a>
-            </li>
-            <li>
-              <a href="https://instagram.com/wookiehangover">Instagram</a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/in/samuel-breed/">LinkedIn</a>
-            </li>
-            <li>
-              <a href="https://hellsite.sambreed.dev">Twitter Archive</a> 🪦
-            </li>
-          </ul>
-        </div>
+    <section>
+      <header>
+        <h2>Elsewhere On-line</h2>
+      </header>
+      <div>
+        <ul>
+          <li>
+            <a href="https://mastodon.social/@sambreed">Mastodon</a>
+          </li>
+          <li>
+            <a href="https://www.strava.com/athletes/3256286">Strava</a>
+          </li>
+          <li>
+            <a href="https://github.com/wookiehangover">GitHub</a>
+          </li>
+          <li>
+            <a href="https://instagram.com/wookiehangover">Instagram</a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/samuel-breed/">LinkedIn</a>
+          </li>
+          <li>
+            <a href="https://hellsite.sambreed.dev">Twitter Archive</a> 🪦
+          </li>
+        </ul>
+      </div>
+    </section>
 
-        <div>
-          <h2>Side Projects</h2>
-          <ul>
-            <li>
-              <a href="/wiki">/wiki</a> - an experimental personal wiki to hold more free-form writing that grows over time.
-            </li>
-            <li>
-              <a href="https://0x01.ai">0x01.ai</a> - a flow builder for LLMs. Like Yahoo Pipes, but for AI.
-            </li>
-            <li>
-              <a href="https://twitter.com/pantone_colors">Every Pantone Color</a> 🪦
-            </li>
-            <li>
-              <a href="https://obliquestrategies.website/"> obliquestrategies.website</a>
-              <ul>
-                <li>
-                  <a
-                    href="https://chrome.google.com/webstore/detail/oblique-strategies-tab/mgmdhihgmkhangpfokjdhfhjaiadpopd"
-                    >Chrome Extension</a
-                  >
-                </li>
-                <li>
-                  <a href="https://twitter.com/ObliqueBot/status/886236405118062592">Twitter Bot</a> 🪦
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </section>
+    <section>
+      <header>
+        <h2>Side Projects</h2>
+      </header>
+      <div>
+        <ul>
+          <li>
+            <a href="/wiki">/wiki</a> - an experimental personal wiki to hold more free-form writing that grows over time.
+          </li>
+          <li>
+            <a href="https://0x01.ai">0x01.ai</a> - a flow builder for LLMs. Like Yahoo Pipes, but for AI.
+          </li>
+          <li>
+            <a href="https://twitter.com/pantone_colors">Every Pantone Color</a> 🪦
+          </li>
+          <li>
+            <a href="https://obliquestrategies.website/"> obliquestrategies.website</a>
+            <ul>
+              <li>
+                <a
+                  href="https://chrome.google.com/webstore/detail/oblique-strategies-tab/mgmdhihgmkhangpfokjdhfhjaiadpopd"
+                  >Chrome Extension</a
+                >
+              </li>
+              <li>
+                <a href="https://twitter.com/ObliqueBot/status/886236405118062592">Twitter Bot</a> 🪦
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </section>
 
-      <section>
+    <section>
+      <header>
+        <h2>Addendum</h2>
+      </header>
+      <div>
         <p>
           If none of that is enough (word, really?) or you have some other unanswered questions, <a
             href="mailto:sam@destroy.email">send me an email</a
           > or use one of the links above.
         </p>
-      </section>
-    </main>
+      </div>
+    </section>
+
     <Footer />
-    <script>
-      // external links should open in a new tab
-      document.addEventListener("DOMContentLoaded", function () {
-        const links = document.querySelectorAll("a");
-
-        links.forEach((link) => {
-          const href = link.getAttribute("href");
-          if (!href) return;
-          const isExternal = href.startsWith("http") && !location.hostname.includes(href);
-
-          if (isExternal) {
-            link.setAttribute("target", "_blank");
-            link.setAttribute("rel", "noopener noreferrer");
-          }
-        });
-
-        setTimeout(() => {
-          const a = document.createElement("a");
-          a.href = "/wiki"; a.title  = "☠️"; a.innerText = "π";
-          a.classList.add("tHeNeT");
-          document.body.appendChild(a)
-        }, 11e3)
-      });
-    </script>
   </body>
 </html>
 
-<style>
-  .writing ul {
-    list-style-type: number;
-  }
-  .writing ul li:last-of-type {
-    list-style-type: circle;
-  }
-  .works {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    max-width: 100ch;
-    margin: 4rem auto;
-    padding: 4rem;
-    gap-x: 2rem;
-    border-top: 1px solid var(--lightest-text-color);
-    border-bottom: 1px solid var(--lightest-text-color);
-  }
-  @media (max-width: 768px) {
-    .works {
-      grid-template-columns: 1fr;
-    }
-  }
-  body {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-  }
-
-  main > section:not(.works) {
-    flex: 1;
-    max-width: var(--width);
-    margin: auto;
-  }
-
-  body > footer {
-    margin-top: auto;
-  }
-
-  @media (max-width: 768px) {
-    .other {
-      display: block;
-    }
-  }
-</style>

@@ -2,41 +2,33 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import "@fontsource/bitter"
 
-// export interface Props {
-// 	content: {
-// 		title: string;
-// 		description: string;
-// 		pubDate?: string;
-// 		updatedDate?: string;
-// 		heroImage?: string;
-// 	};
-// }
+export interface Props {
+	content: {
+		title: string;
+	};
+}
 
-// const {
-// 	content: { title, description, pubDate, updatedDate, heroImage },
-// } = Astro.props;
+const {
+	content: { title },
+} = Astro.props;
 ---
 
 <html lang="en">
 	<head>
 		<BaseHead title="Samuel Breed Resume" description="" />
-		<style>
-			.title {
-				font-size: 2em;
-				margin: 0.25em 0 0;
-			}
-		</style>
 	</head>
 
 	<body>
 		<Header />
-		<main>
+		<section>
+			<header>
+				<h1>{title}</h1>
+			</header>
 			<article class="w-prose">
 				<slot />
 			</article>
-		</main>
+		</section>
 		<Footer />
 	</body>
 </html>

@@ -8,6 +8,6 @@ const wikiEntries = await getCollection('wiki')
 const { map } = getAllCategories(wikiEntries)
 ---
 
-<WikiEntryLayout content={{ title: "Index" }} size="full">
+<WikiEntryLayout content={{ title: "Index" }}>
   <WikiCardList map={map} entries={wikiEntries} />
 </WikiEntryLayout>

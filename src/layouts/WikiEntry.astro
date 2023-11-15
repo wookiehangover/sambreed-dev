@@ -38,123 +38,81 @@ const {
 
   <body>
     <Header label="wiki" />
-    <nav class="categories">
-			{tree.map((category) => <Category value={category} />)}
-			<div class="flex items-center gap-1 pt-8">
-				<Icon name="bulleted-list"/>
-				<a href={`/wiki`} title={`Index`}>Index</a>
-			</div>
-			<div class="flex items-center gap-1 pt-2">
-				<Icon name="info"/>
-				<a href={`/wiki/about`} title={`About`}>About</a>
-			</div>
-    </nav>
-    <main>
-      <article class={size === "full" ? "w-full" : "w-prose"}>
-        <header>
-          <h1 class="title">{title}</h1>
-          {description && <p>{description}</p>}
-          <aside class="text-xs">
-            <div>
-              {
-                createdAt && (
-                  <div>
-                    First posted on <time>{createdAt.toLocaleDateString()}</time>
-                  </div>
-                )
-              }
-              {
-                updatedAt && (
-                  <div>
-                    Last updated on <time>{updatedAt.toLocaleDateString()}</time>
-                  </div>
-                )
-              }
-            </div>
-            <nav class="text-xs">
-							<CategoryList categories={categories ?? []} map={map} />
-							{type && (
-								<Icon name={type} />
-							)}
-            </nav>
-          </aside>
-        </header>
+
+    <section>
+      <header>
+        <h1 class="title">{title}</h1>
+        {description && <p>{description}</p>}
+        <div class="pt-2">
+          {
+            createdAt && (
+              <p>
+                First posted on <time>{createdAt.toLocaleDateString()}</time>
+              </p>
+            )
+          }
+          {
+            updatedAt && (
+              <p>
+                Last updated on <time>{updatedAt.toLocaleDateString()}</time>
+              </p>
+            )
+          }
+        </div>
+        <nav class="text-xs flex flex-col pt-2">
+          <CategoryList categories={categories ?? []} map={map} />
+        </nav>
+      </header>
+
+      <article>
         <slot />
       </article>
-    </main>
+    </section>
+
+    <section>
+      <header>
+        <h2>Categories</h2>
+      </header>
+      <div>
+        <nav>
+          {tree.map((category) => <Category value={category} />)}
+          <div class="flex items-center gap-1 pt-8">
+            <Icon name="bulleted-list"/>
+            <a href={`/wiki`} title={`Index`}>Index</a>
+          </div>
+          <div class="flex items-center gap-1 pt-2">
+            <Icon name="info"/>
+            <a href={`/wiki/about`} title={`About`}>About</a>
+          </div>
+        </nav>
+      </div>
+    </section>
+
     <Footer />
-  </body><script>
-    // external links should open in a new tab
-    document.addEventListener("DOMContentLoaded", function () {
-      const links = document.querySelectorAll("a");
-
-      links.forEach((link) => {
-        const href = link.getAttribute("href");
-        const isExternal = href?.startsWith("http") && !location.hostname.includes(href);
-
-        if (isExternal) {
-          link.setAttribute("target", "_blank");
-          link.setAttribute("rel", "noopener noreferrer");
-        }
-      });
-    });
-  </script>
-
-  <style>
-    .title {
-      font-size: 2em;
-      margin: 0;
-      /* margin: 0.25em 0 0; */
-    }
-    body {
-      display: flex;
-      flex-direction: column;
-    }
-    body > main {
-      flex: 1;
-    }
-    body > footer {
-      margin-top: auto;
-    }
-    nav.categories {
-      position: fixed;
-      left: 1rem;
-      top: 6rem;
-      font-size: 0.8rem;
-      padding-bottom: 1rem;
-    }
-    article > header > p {
-      margin: 0;
-      color: var(--text-dim);
-    }
-    article > header > aside {
-      padding-top: 1rem;
-      margin: 1rem 0 2rem;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      border-top: 1px solid var(--hr-border-color);
-    }
-		article > header > aside > nav {
-			display: flex;
-			align-items: center;
-			gap: 0.5rem;
-		}
-
-    .w-full {
-      width: calc(100vw - 320px);
-      margin: 0 auto 0 280px;
-    }
-
-    @media screen and (max-width: 960px) {
-      .w-full {
-        width: 100%;
-        margin: 0;
-      }
-
-      nav.categories {
-        position: static;
-        order: 1;
-      }
-    }
-  </style>
+  </body>
 </html>
+
+<script>
+  // external links should open in a new tab
+  document.addEventListener("DOMContentLoaded", function () {
+    const links = document.querySelectorAll("a");
+
+    links.forEach((link) => {
+      const href = link.getAttribute("href");
+      const isExternal = href?.startsWith("http") && !location.hostname.includes(href);
+
+      if (isExternal) {
+        link.setAttribute("target", "_blank");
+        link.setAttribute("rel", "noopener noreferrer");
+      }
+    });
+  });
+</script>
+
+<style>
+  .title {
+    font-size: 1.825em;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+  }
+</style>
