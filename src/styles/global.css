@@ -1,6 +1,30 @@
-@import url('./theme.css');
-
 :root {
+  --tint-1: hsla(0, 0%, 100%, 0.1);
+  --shade-8: hsla(0, 0%, 0%, .28);
+  --shade-9: hsla(0, 0%, 0%, .19);
+  --shade-10: hsla(0, 0%, 0%, 0.1);
+  --shade-11: hsla(0, 0%, 0%, 0.035);
+  --slate-gray-1: #1d1d22;
+  --slate-gray-2: #313138;
+  --slate-gray-3: #45444f;
+  --slate-gray-6: #838292;
+  --slate-gray-7: #9a9aa7;
+  --slate-gray-8: #b2b1bb;
+  --slate-gray-10: #e1e0e4;
+  --slate-gray-11: #f8f8f9;
+  --gray-1: #171717;
+  --gray-2: #2f2f2f;
+  --gray-3: #464646;
+  --gray-8: #bababa;
+  --gray-9: #d1d1d1;
+  --gray-11: #ffffff;
+  --blue-5: #1969db;
+  --violet-4: #8424b3;
+  --cyan-7: rgb(40, 214, 230);
+  --cyan-10: rgb(180, 245, 249);
+  --font-family-heading: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --font-family-body: "Bitter", serif;
+
   --background-color:           var(--gray-11);
   --text-color:                 var(--slate-gray-1);
   --text-dim:                   var(--slate-gray-3);
