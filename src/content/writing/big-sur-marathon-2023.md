@@ -4,7 +4,7 @@ slug: big-sur-marathon-2023
 description: Race overview from my very first marathon at Big Sur on April 30, 2023
 layout: "../../layouts/BlogPost.astro"
 heroImage: "/img/big-sur-finish.jpg"
-heroAlt: me, completely spend after sprinting to the finish line
+heroAlt: me, completely spent after sprinting to the finish line
 pubDate: "May 2 2023"
 ---
 
