@@ -8,7 +8,7 @@ heroAlt: "Photo of a golden retriever attentively sitting in front of a vintage 
 pubDate: "October 31 2023"
 ---
 
-October is the longest month Q4. This is somewhat cursed knowledge.
+October is the longest month in Q4. This is somewhat cursed knowledge.
 
 You only know that if you've been on a tight deadline as the end of the year approaches, and if you ever bother to count the work days, excluding the holidays. Close to 20 in October. Less in November and even fewer in December because of the holidays.
 
