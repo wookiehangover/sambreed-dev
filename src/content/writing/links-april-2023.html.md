@@ -2,7 +2,7 @@
 title: Links, April 2023
 slug: links-april-2023.html
 description: Free range tabs
-layout: "../../layouts/BlogPost.astro"
+
 heroImage: "/img/8f023992-44fa-4751-97fc-1c1ab0fd8691.png"
 heroAlt: Landscape photo of big sur, ocean, night, light trails, moon,
 pubDate: "Apr 30 2023"

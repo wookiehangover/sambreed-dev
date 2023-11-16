@@ -321,6 +321,12 @@ section > div, section > article {
   max-width: var(--width);
   margin: auto;
 }
+.sticky {
+  position: sticky;
+}
+.top-1 {
+  top: 0.5rem;
+}
 
 a.tHeNeT {
   text-decoration: none;

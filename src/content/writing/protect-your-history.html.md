@@ -2,7 +2,7 @@
 title: Protect your DNS history with DNSCrypt
 slug: protect-your-history.html
 description: DNSCrypt is a great way to ensure that your browsing history isn't being spyed on. Learn how to set up DNSCrypt to keep your DNS traffic from prying eyes.
-layout: "../../layouts/BlogPost.astro"
+
 pubDate: "Apr 17 2017"
 ---
 ## Protect your DNS history with DNSCrypt

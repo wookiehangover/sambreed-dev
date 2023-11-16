@@ -2,7 +2,7 @@
 title: Books I'm reading
 slug: books.html
 description: A non-exhaustive list of the books I'm reading in <year>
-layout: "../../layouts/BlogPost.astro"
+
 pubDate: "May 28 2018"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Making Things For Fun
 slug: making-things-for-fun.html
-layout: "../../layouts/BlogPost.astro"
+
 pubDate: "Sep 6 2016"
 ---
 ## Making things for fun

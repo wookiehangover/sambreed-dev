@@ -19,7 +19,7 @@ const posts = defineCollection({
     description: z.string().optional(),
     pubDate: z.string(),
     updatedDate: z.string().optional(),
-    layout: z.string(),
+    // layout: z.string(),
     heroImage: z.string().optional(),
     heroAlt: z.string().optional(),
   })

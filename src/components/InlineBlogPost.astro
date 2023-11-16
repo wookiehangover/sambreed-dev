@@ -1,0 +1,39 @@
+---
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("writing"))
+  .sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf())
+const entry = posts[0]
+const { Content } = await entry.render()
+---
+<section>
+  <header>
+    <h2>
+      <a href={`/writing/${entry.slug}`}>{entry.data.title}</a>
+    </h2>
+    <p>
+      {entry.data.pubDate && <time>{entry.data.pubDate}</time>}
+    </p>
+    {
+      entry.data.updatedDate && (
+        <p>
+          Last updated on <time>{entry.data.updatedDate}</time>
+        </p>
+      )
+    }
+  </header>
+  <article>
+    <Content />
+  </article>
+</section>
+
+<style>
+  header h2 a {
+    text-decoration: none;
+    color: var(--bold-color);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+</style>

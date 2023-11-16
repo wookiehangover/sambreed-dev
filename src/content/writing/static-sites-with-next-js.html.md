@@ -2,7 +2,7 @@
 title: How to Make a Static Website with Next.js
 slug: static-sites-with-next-js.html
 description: I recently used Next.js 3 to make a static blog. Learn how I did it!
-layout: "../../layouts/BlogPost.astro"
+
 pubDate: "Aug 15 2017"
 ---
 

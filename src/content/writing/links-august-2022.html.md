@@ -2,7 +2,7 @@
 title: Links Blog August 2022
 slug: links-august-2021.html
 description: Links! more links to things I've had open for most of August 2022
-layout: "../../layouts/BlogPost.astro"
+
 heroImage: "/img/0411fe02-021e-4f3a-b45a-591907eea8a9.png"
 pubDate: "Aug 30 2022"
 ---

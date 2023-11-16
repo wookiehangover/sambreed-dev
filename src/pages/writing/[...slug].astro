@@ -1,5 +1,6 @@
 ---
 import { getEntry } from "astro:content";
+import BlogPost from "../../layouts/BlogPost.astro";
 
 const { slug } = Astro.params;
 if (slug === undefined) {
@@ -14,4 +15,6 @@ if (entry === undefined) {
 const { Content } = await entry.render();
 ---
 
-<Content />
+<BlogPost content={{ ...entry.data, slug }}>
+  <Content />
+</BlogPost>

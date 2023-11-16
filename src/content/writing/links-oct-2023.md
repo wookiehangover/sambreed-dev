@@ -2,7 +2,7 @@
 title: Links, October 2023
 slug: links-oct-2023
 description: shorter days for links
-layout: "../../layouts/BlogPost.astro"
+
 heroImage: "/img/2023-11-04-00.13.36.png"
 heroAlt: "Photo of a golden retriever attentively sitting in front of a vintage personal computer, with BYTE magazine branding at the top. - DALLE 3"
 pubDate: "October 31 2023"

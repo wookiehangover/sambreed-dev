@@ -2,7 +2,7 @@
 title: Twitter
 slug: twitter.html
 description: Leaving Twitter
-layout: "../../layouts/BlogPost.astro"
+
 pubDate: "Jul 18 2022"
 heroImage: "/img/d107c44c-bd10-4128-a703-da86feaa2176.png"
 heroAlt: Ghibli style a lonely house in mountain landscape at dusk orange and pink sky - Stable Diffusion v1.5

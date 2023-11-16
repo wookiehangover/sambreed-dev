@@ -2,7 +2,7 @@
 title: 2016 Reading List
 slug: 2016-reading-list.html
 description: A non-exhaustive list of the books I'm reading in 2016
-layout: "../../layouts/BlogPost.astro"
+
 pubDate: "Dec 31 2016"
 ---
 

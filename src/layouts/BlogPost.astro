@@ -7,7 +7,7 @@ import BlogPosts from '../components/BlogPosts.astro';
 export interface Props {
 	content: {
 		title: string;
-		description: string;
+		description?: string;
 		pubDate?: string;
 		updatedDate?: string;
 		heroImage?: string;
@@ -23,7 +23,7 @@ const {
 
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description} image={heroImage} />
+		<BaseHead title={title} description={description ?? ""} image={heroImage} />
 		<style>
 			.title {
 				font-size: 2em;
@@ -34,19 +34,23 @@ const {
 
 	<body>
 		<Header />
+
 		<section>
 			<header>
-				<h1>{title}</h1>
-				<p>
-					{pubDate && <time>{pubDate}</time>}
-				</p>
-				{
-					updatedDate && (
-						<p>
-							Last updated on <time>{updatedDate}</time>
-						</p>
-					)
-				}
+				<div class="sticky top-1">
+					<h1>{title}</h1>
+					<p>
+						{pubDate && <time>{pubDate}</time>}
+					</p>
+					{
+						updatedDate && (
+							<p>
+								Last updated on <time>{updatedDate}</time>
+							</p>
+						)
+					}
+					{description && <p class="pt-2">{description}</p>}
+				</div>
 			</header>
 			<article class="w-prose">
 				<figure>
