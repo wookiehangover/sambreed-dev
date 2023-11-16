@@ -17,7 +17,7 @@ export default defineConfig({
   },
   vite: {
     ssr: {
-      noExternal: ['@fontsource/merriweather']
+      noExternal: ['@fontsource/bitter']
     }
   }
 });

@@ -233,7 +233,7 @@
   --border-width-2: 2px;
   --border-width-3: 4px;
   --border-width-4: 8px;
-  --font-family-heading: "Rock Salt", serif; /*-apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;*/
+  --font-family-heading: -apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;
   --font-family-body: "Bitter", serif; /*-apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;*/
   --font-family-mono: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace;
   --box-shadow-0: 0px 1px 1px 0px hsla(0, 0%, 0%, 0.035), 0px 2px 2px 0px rgba(0, 0, 0, 0.125), 0px 4px 4px 0px rgba(0, 0, 0, 0.125), 0px 8px 8px 0px rgba(0, 0, 0, 0.125), 0px 16px 16px 0px rgba(0, 0, 0, 0.125);

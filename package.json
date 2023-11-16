@@ -9,16 +9,14 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "deploy": "npm run build && cd dist && npx wrangler pages publish ."
+    "deploy": "npm run build && cd dist && npx wrangler pages deploy ."
   },
   "dependencies": {
     "@astrojs/cloudflare": "^7.5.3",
     "@astrojs/mdx": "^1.1.2",
     "@astrojs/rss": "^3.0.0",
     "@astrojs/sitemap": "^3.0.1",
-    "@fontsource/bitter": "^5.0.13",
     "@fontsource/merriweather": "^5.0.8",
-    "@fontsource/rock-salt": "^5.0.17",
     "astro": "^3.3.0",
     "just-kebab-case": "^4.2.0",
     "rehype-sanitize": "^6.0.0",

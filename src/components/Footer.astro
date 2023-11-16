@@ -1,29 +1,57 @@
 ---
+
 ---
 
 <footer>
-	<a href="/">Sam Breed</a> &middot;
-	<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> <br>
-	<span aria-hidden="true">silica gel &middot; do not eat</span>
+  <nav>
+    <a href="/">Sam Breed</a> &middot;
+    <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+    <br />
+    <span aria-hidden="true">silica gel &middot; do not eat</span>
+  </nav>
 </footer>
 <style>
-	footer {
-		color: var(--text-color);
-		font-family: var(--heading-font);
-		opacity: 0.8;
-		padding: 25px;
-		text-align: center;
-		font-size: 0.8em;
-		margin-top: auto;
-	}
+  footer {
+    display: grid;
+    grid-template-columns: var(--grid-columns);
+    background: linear-gradient(
+			to bottom,
+      transparent 0%,
+      var(--footer-bg) 100%
+    );
+  }
 
-	footer a {
-		color: var(--text-color);
-	}
+  nav {
+    color: var(--text-color);
+    font-family: var(--font-family-heading);
+    width: var(--grid-header-width);
+    padding: var(--grid-header-padding);
+    opacity: 0.8;
+    font-size: 0.8em;
+    margin-top: auto;
+    justify-self: end;
 
-	footer span {
-		opacity: 0.3;
-		text-transform: uppercase;
-		pointer-events: none;
-	}
+    & a {
+      color: var(--text-color);
+    }
+
+    & span {
+      opacity: 0.3;
+      text-transform: uppercase;
+      pointer-events: none;
+    }
+  }
+
+  @media screen and (max-width: 1440px) {
+    footer {
+      text-align: left;
+    }
+  }
+
+  @media screen and (max-width: 796px) {
+    footer {
+      border-left: 1px solid var(--border-dim);
+      margin-left: 2rem;
+    }
+  }
 </style>

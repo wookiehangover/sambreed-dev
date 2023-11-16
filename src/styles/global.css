@@ -1,50 +1,48 @@
-/*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
- */
+@import url('./theme.css');
 
 :root {
-  --background-color: #fff;
-  --text-color: #303030;
-  --text-dim: rgb(48 21 59 / 75%);
-  --bold-color: rgb(48 21 59 / 88%);
-  --link-color: rgb(15, 75, 203);
-  --code-background-color: #f2f2f2;
-  --blockquote-border-color: mediumorchid;
-  --blockquote-color: #222;
-  --hr-border-color: #ddd;
-  --card-border-color: #999;
-  --card-bg-hover: rgb(127 124 127 / 5%);
-  --lightest-text-color: rgb(127 124 127 / 50%);
-  --width: 66ch;
-  --border-dim: rgb(0 0 0 / 10%);
-  --heading-font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
-  "Helvetica Neue", sans-serif;
-  --body-font: "Bitter", serif;
+  --background-color:           var(--gray-11);
+  --text-color:                 var(--slate-gray-1);
+  --text-dim:                   var(--slate-gray-3);
+  --text-very-dim:              var(--slate-gray-6);
+  --bold-color:                 var(--slate-gray-2);
+  --link-color:                 var(--blue-5);
+  --code-background-color:      var(--slate-gray-10);
+  --blockquote-border-color:    var(--violet-4);
+  --blockquote-color:           var(--slate-gray-2);
+  --hr-border-color:            var(--gray-8);
+  --card-border-color:          var(--gray-9);
+  --card-bg-hover:              var(--shade-11);
+  --border-dim:                 var(--shade-10);
+  --width:                      66ch;
+  --grid-columns:               1fr 1fr;
+  --grid-header-width:          20rem;
+  --grid-header-padding:        5rem;
+  --footer-bg:                  var(--slate-gray-11);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background-color: #110b13;
-    --text-color: #a5aebb;
-    --text-dim: rgb(181 180 181);
-    --bold-color: rgb(179, 199, 218);
-    --link-color: rgb(40, 214, 230);
-    --link-color-hover: rgb(180, 245, 249);
-    --code-background-color: #444;
-    --hr-border-color: #444;
-    --blockquote-color: #a7acc1;
-    --blockquote-border-color: mediumorchid;
-    --card-border-color: rgb(255 255 255 / 20%);
-    --card-bg-hover: rgb(255 255 255 / 5%);
-    --lightest-text-color: rgb(255 255 255 / 18%);
-    --border-dim: rgb(255 255 255 / 10%);
+    --background-color:         var(--gray-1);
+    --text-color:               var(--slate-gray-7);
+    --text-dim:                 var(--slate-gray-6);
+    --text-very-dim:            var(--shade-9);
+    --bold-color:               var(--slate-gray-8);
+    --link-color:               var(--cyan-7);
+    --link-color-hover:         var(--cyan-10);
+    --code-background-color:    var(--gray-3);
+    --hr-border-color:          var(--gray-2);
+    --blockquote-color:         var(--slate-gray-10);
+    --blockquote-border-color:  var(--violet-4);
+    --card-border-color:        var(--shade-9);
+    --card-bg-hover:            var(--shade-10);
+    --border-dim:               var(--tint-1);
+    --footer-bg:                var(--shade-8);
   }
 }
 
 body {
-  font-family: var(--body-font);
+  font-family: var(--font-family-body);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   text-align: left;
@@ -62,24 +60,12 @@ main {
   padding: 1rem;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
-  font-family: var(--heading-font);
+  font-family: var(--font-family-heading);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-strong,
-b {
+h1, h2, h3, h4, h5, h6, strong, b {
   font-weight: 600;
   letter-spacing: 0.03em;
   color: var(--bold-color);
@@ -203,7 +189,7 @@ figcaption {
 
 section {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: var(--grid-columns);
 
   &:last-of-type {
     border-bottom: 1px solid var(--border-dim);
@@ -211,9 +197,9 @@ section {
 }
 
 section > header {
-  padding: 5rem;
   border-right: 1px solid var(--border-dim);
-  width: 20rem;
+  width: var(--grid-header-width);
+  padding: var(--grid-header-padding);
   justify-self: end;
   transition: width,border,padding-top 0.2s ease-in-out;
   transition-behavior: allow-discrete;
@@ -238,25 +224,26 @@ section > div, section > article {
 }
 
 @media screen and (max-width: 1440px) {
-  section {
-    grid-template-columns: 40% 1fr;
+  :root {
+    --grid-columns: 40% 1fr;
   }
 }
 
 @media screen and (max-width: 1168px) {
-  section {
-    grid-template-columns: 30% 1fr;
-  }
-
-  section > header {
-    width: calc(100% - 4rem);
-    padding: 5rem 2rem;
+  :root {
+    --grid-columns: 30% 1fr;
+    --grid-header-width: calc(100% - 4rem);
+    --grid-header-padding: 5rem 2rem;
   }
 }
 
 @media screen and (max-width: 796px) {
+  :root {
+    --grid-columns: 1fr;
+    --grid-header-padding: 2rem;
+  }
+
   section {
-    grid-template-columns: 1fr;
     border-left: 1px solid var(--border-dim);
     margin-left: 2rem;
   }
@@ -264,7 +251,6 @@ section > div, section > article {
   section > header {
     border-right: none;
     border-color: transparent;
-    padding: 2rem;
     justify-self: start;
   }
 
@@ -314,7 +300,7 @@ section > div, section > article {
 
 a.tHeNeT {
   text-decoration: none;
-  color: var(--lightest-text-color);
+  color: var(--text-very-dim);
   font-size: 12px;
   position: fixed;
   bottom: 0.25rem;
