@@ -12,12 +12,12 @@
   --slate-gray-8: #b2b1bb;
   --slate-gray-10: #e1e0e4;
   --slate-gray-11: #f8f8f9;
-  --gray-1: #171717;
+  --gray-1: rgb(23 23 23);
   --gray-2: #2f2f2f;
   --gray-3: #464646;
   --gray-8: #bababa;
   --gray-9: #d1d1d1;
-  --gray-11: #ffffff;
+  --gray-11: rgb(255 255 255);
   --blue-5: #1969db;
   --violet-4: #8424b3;
   --cyan-7: rgb(40, 214, 230);
@@ -299,6 +299,9 @@ section > div, section > article {
 .flex-row {
   flex-direction: row;
 }
+.flex-grow {
+  flex-grow: 1;
+}
 .gap-1 {
   gap: 0.5rem;
 }
@@ -307,6 +310,9 @@ section > div, section > article {
 }
 .pt-2 {
   padding-top: 0.5rem;
+}
+.pt-4 {
+  padding-top: 1rem;
 }
 .pt-8 {
   padding-top: 2rem;
@@ -321,20 +327,23 @@ section > div, section > article {
   max-width: var(--width);
   margin: auto;
 }
+.w-full {
+  width: 100%;
+}
 .sticky {
   position: sticky;
 }
 .top-1 {
   top: 0.5rem;
 }
-
-a.tHeNeT {
-  text-decoration: none;
+.items-center {
+  align-items: center;
+}
+.text-dim {
+  color: var(--text-dim);
+}
+.text-very-dim {
   color: var(--text-very-dim);
-  font-size: 12px;
-  position: fixed;
-  bottom: 0.25rem;
-  right: 0.5rem;
 }
 
 @media screen and (min-width: 768px) {

@@ -1,105 +1,117 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import type { WikiCategory } from '../types/wiki';
-import CategoryList from './CategoryList.astro';
-import Icon from './Icon.astro';
+import type { CollectionEntry } from "astro:content";
+import type { WikiCategory } from "../types/wiki";
+import CategoryList from "./CategoryList.astro";
+import Icon, { type IconName } from "./Icon.astro";
+
+type WikiEntry = CollectionEntry<"wiki">;
 
 export interface Props {
-  entries: CollectionEntry<"wiki">[]
-  map: Map<string, WikiCategory>
+  entries: WikiEntry[];
+  map: Map<string, WikiCategory>;
 }
 
-const { entries, map } = Astro.props
+const { entries, map } = Astro.props;
+
+const groups = entries.reduce((acc, entry) => {
+  if (acc.has(entry.data.type)) {
+    acc.get(entry.data.type)?.push(entry);
+  } else {
+    acc.set(entry.data.type, [entry]);
+  }
+  return acc;
+}, new Map<WikiEntry["data"]["type"], WikiEntry[]>());
+
+const COPY: Record<WikiEntry["data"]["type"], { title: string; description: string }> = {
+  note: {
+    title: "Notes",
+    description:
+      "Notes are where wiki entries start. They are as simple as a few lines of text and a title. They might be expanded into a full article later, or just be left small.",
+  },
+  quote: {
+    title: "Quotes",
+    description:
+      "Sometimes, someone else has said it better than you ever could. Quotes are wiki entries that capture those ideas.",
+  },
+  list: {
+    title: "Lists",
+    description:
+      "Text without heirarchy is just a blob. Lists are wiki entries that capture a collection of ideas, and their relationships to each other.",
+  },
+  book: {
+    title: "Books",
+    description:
+      "Some people have a dedicated page for /books, but having a little wiki, I figured I'd just put them here.",
+  },
+  essay: {
+    title: "Essay",
+    description: "",
+  },
+};
 ---
 
-<ul>
-  {entries.map((entry) => (
-    <li>
-      <a href={`/wiki/${entry.slug}`}>
-        <span>{entry.data.title}</span>
-        <p>{entry.data.description}</p>
-      </a>
-      {entry.data.categories.length > 0 && (
-        <nav class="text-xs">
-          <CategoryList categories={entry.data.categories} map={map} />
-        </nav>
-      )}
-      <span class="icon">
-        <Icon name={entry.data.type} />
-      </span>
-    </li>
-  ))}
-</ul>
+{
+  Array.from(groups.entries()).map(([group, entries]) => (
+    <section>
+      <header>
+        <h2 class="flex gap-1 items-center">
+          <Icon name={group as IconName} />
+          <span>{COPY[group].title}</span>
+        </h2>
+        <p class="pt-2">{COPY[group].description}</p>
+      </header>
+      <div>
+        <ul>
+          {entries.map((entry) => (
+            <li>
+              <p>
+                <a href={`/wiki/${entry.slug}`}>{entry.data.title}</a>
+              </p>
+              <p class="text-sm">{entry.data.description}</p>
+              <nav class="text-xs flex gap-1 w-full">
+                <CategoryList categories={entry.data.categories} map={map} />
+              </nav>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  ))
+}
+
 <style>
-  :root {
-    --radius-blur: 0.1rem;
-  }
   ul {
-    list-style: none;
-    padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+    list-style: none;
+    grid-template-columns: 1fr 1fr;
     gap: 1rem;
-    padding-right: 1rem;
+    margin: 0;
+    padding: 0;
   }
 
   ul li {
-    margin: 0;
-    border-radius: 0.5rem;
-    transition: all 0.2s ease-in-out;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 0 1rem;
     display: flex;
     flex-direction: column;
-    position: relative;
-    box-shadow: 0 0 var(--radius-blur) 0 var(--card-bg-hover);
+    transition: background 0.2s ease-in-out;
+
+    &:hover {
+      background: var(--card-bg-hover);
+    }
   }
 
-  ul li > a {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    padding: 1.25rem 1.25rem 1rem;
-    text-decoration: none;
-    height: 4rem;
-    gap: 0.5rem;
+  ul li nav {
+    border-top: 1px solid var(--border-dim);
+    padding: 0.5rem 0;
+    margin-top: auto;
+    flex-wrap: wrap;
   }
 
-  ul li > a:hover {
-    text-decoration: none;
-  }
-
-  ul li > a > span {
-    line-height: 1.4;
-  }
-
-  ul li > a > p {
-    color: var(--text-dim);
-    margin: 0;
-    font-size: 0.875rem;
-  }
-
-  ul li:hover {
-    --radius-blur: 0.5rem;
-  }
-
-  ul li:has(a:active) {
-    top: 0px;
-    left: 0px;
-  }
-
-  ul li > nav {
-    padding: 0 1.25rem 1.25rem;
-  }
-
-  .icon {
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-    fill: var(--card-border-color);
-    opacity: 0.5;
-    transition: all 0.2s ease-in-out;
-  }
-
-  ul li:hover .icon {
-    opacity: 1;
+  @media (max-width: 512px) {
+    ul {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

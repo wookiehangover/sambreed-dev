@@ -1,0 +1,28 @@
+---
+import { getCollection } from "astro:content";
+import getAllCategories from "../utils/get-all-categories";
+import Category from "./Category.astro";
+import Icon from "./Icon.astro";
+
+const wikiEntries = await getCollection("wiki");
+const { tree } = getAllCategories(wikiEntries);
+
+---
+<section>
+  <header>
+    <h2>Categories</h2>
+  </header>
+  <div>
+    <nav class="pt-4">
+      {tree.map((category) => <Category value={category} />)}
+      <div class="flex items-center gap-1 pt-8">
+        <Icon name="bulleted-list"/>
+        <a href={`/wiki`} title={`Index`}>Index</a>
+      </div>
+      <div class="flex items-center gap-1 pt-2">
+        <Icon name="info"/>
+        <a href={`/wiki/about`} title={`About`}>About</a>
+      </div>
+    </nav>
+  </div>
+</section>

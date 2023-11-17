@@ -1,6 +1,9 @@
 ---
+import BaseHead from "../../components/BaseHead.astro";
+import Footer from "../../components/Footer.astro";
+import Header from "../../components/Header.astro";
 import WikiCardList from "../../components/WikiCardList.astro";
-import WikiEntryLayout from "../../layouts/WikiEntry.astro";
+import WikiCategoryList from "../../components/WikiCategoryList.astro";
 import getAllCategories from '../../utils/get-all-categories';
 import { getCollection } from "astro:content";
 
@@ -8,6 +11,18 @@ const wikiEntries = await getCollection('wiki')
 const { map } = getAllCategories(wikiEntries)
 ---
 
-<WikiEntryLayout content={{ title: "Index" }}>
-  <WikiCardList map={map} entries={wikiEntries} />
-</WikiEntryLayout>
+<html lang="en">
+  <head>
+    <BaseHead title="Wiki" description="Wiki Categories" />
+  </head>
+
+  <body>
+    <Header label="wiki" />
+
+    <WikiCardList map={map} entries={wikiEntries} />
+
+    <WikiCategoryList />
+
+    <Footer />
+  </body>
+</html>

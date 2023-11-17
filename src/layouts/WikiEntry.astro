@@ -3,10 +3,10 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { getCollection } from "astro:content";
-import Category from "../components/Category.astro";
 import getAllCategories from "../utils/get-all-categories";
 import CategoryList from "../components/CategoryList.astro";
-import Icon, { type IconName } from "../components/Icon.astro";
+import { type IconName } from "../components/Icon.astro";
+import WikiCategoryList from "../components/WikiCategoryList.astro";
 
 export interface Props {
   content: {
@@ -69,24 +69,7 @@ const {
       </article>
     </section>
 
-    <section>
-      <header>
-        <h2>Categories</h2>
-      </header>
-      <div>
-        <nav>
-          {tree.map((category) => <Category value={category} />)}
-          <div class="flex items-center gap-1 pt-8">
-            <Icon name="bulleted-list"/>
-            <a href={`/wiki`} title={`Index`}>Index</a>
-          </div>
-          <div class="flex items-center gap-1 pt-2">
-            <Icon name="info"/>
-            <a href={`/wiki/about`} title={`About`}>About</a>
-          </div>
-        </nav>
-      </div>
-    </section>
+    <WikiCategoryList />
 
     <Footer />
   </body>

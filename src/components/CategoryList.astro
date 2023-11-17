@@ -12,9 +12,18 @@ const { categories, map } = Astro.props
 {categories?.map((category) => (
   <a href={`/wiki/category/${map.get(category)?.path}`} title={`Category: ${category}`}>{category}</a>
 ))}
+{categories.length === 0 && (
+  <span>Uncategorized</span>
+)}
 
 <style>
-  a {
-    margin-right: 0.5rem;
+  a, span {
+    text-decoration: none;
+    color: var(--text-dim);
+    font-family: var(--font-family-heading);
+  }
+
+  a:hover {
+    color: var(--text-color);
   }
 </style>
