@@ -297,6 +297,13 @@ declare module 'astro:content' {
   collection: "wiki";
   data: InferEntrySchema<"wiki">
 } & { render(): Render[".md"] };
+"the-creative-act.md": {
+	id: "the-creative-act.md";
+  slug: "the-creative-act";
+  body: string;
+  collection: "wiki";
+  data: InferEntrySchema<"wiki">
+} & { render(): Render[".md"] };
 };
 "writing": {
 "16-open-tabs.html.md": {
