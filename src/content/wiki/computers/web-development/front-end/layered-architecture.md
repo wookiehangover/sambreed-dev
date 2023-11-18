@@ -1,10 +1,13 @@
 ---
-title: "Layered Architecture"
-description: "A Theory of Applications"
+title: Layered Architecture
+description: A Theory of Applications
 createdAt: 2023-07-31
 updatedAt: 2023-08-09
-categories: ["Computers", "Web Development", "Front-End"]
-type: 'note'
+categories:
+  - Computers
+  - Web Development
+  - Front-End
+type: essay
 ---
 
 A better name for this page might be *Types of Frontend Systems*.

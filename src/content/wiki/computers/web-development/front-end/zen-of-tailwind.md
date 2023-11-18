@@ -1,10 +1,13 @@
 ---
-title: "The Zen of Tailwind"
-description: "How to not lose your mind with all the strings"
+title: The Zen of Tailwind
+description: How to not lose your mind with all the strings
 createdAt: 2023-08-15
 updatedAt: 2023-08-27
-categories: ["Computers", "Web Development", "Front-End"]
-type: 'note'
+categories:
+  - Computers
+  - Web Development
+  - Front-End
+type: essay
 ---
 
 I've been a happy Tailwind<sup>[1](#none-of-this-is-new)</sup> user for a while now, and have been using the underlying techniques since 2016.
