@@ -182,15 +182,6 @@ article ul > li {
   margin-bottom: 0.25rem;
 }
 
-li > p {
-  color: var(--text-dim);
-  transition: color 200ms;
-}
-
-li:hover > p {
-  color: var(--text-color);
-}
-
 li > p:only-child {
   margin-block: 0;
 }

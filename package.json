@@ -7,7 +7,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
+    "preview": "npx wrangler pages dev ./dist",
     "astro": "astro",
     "deploy": "npm run build && cd dist && npx wrangler pages deploy ."
   },
@@ -18,6 +18,8 @@
     "@astrojs/sitemap": "^3.0.1",
     "@fontsource/bitter": "^5.0.15",
     "astro": "^3.3.0",
+    "autoprefixer": "^10.4.16",
+    "cssnano": "^6.0.1",
     "just-kebab-case": "^4.2.0",
     "rehype-sanitize": "^6.0.0",
     "remark": "^15.0.1",
