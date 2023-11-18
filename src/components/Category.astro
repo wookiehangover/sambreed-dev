@@ -9,9 +9,14 @@ export interface Props {
 const { value } = Astro.props
 ---
 
-<div>
+<li>
   <a href={`/wiki/category/${value.path}`} title={`Category: ${value.label}`}>{value.label}</a>
   {value.children.length > 0 && (
     <CategoryChildren value={value} />
   )}
-</div>
+</li>
+<style>
+  li::before {
+    content: '⌙'
+  }
+</style>
