@@ -19,3 +19,6 @@ pnpm-debug.log*
 .DS_Store
 .obsidian
 .wrangler
+
+public/languages/
+public/themes/

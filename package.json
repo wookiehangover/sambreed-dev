@@ -23,7 +23,8 @@
     "just-kebab-case": "^4.2.0",
     "rehype-sanitize": "^6.0.0",
     "remark": "^15.0.1",
-    "remark-toc": "^9.0.0"
+    "remark-toc": "^9.0.0",
+    "shiki": "^0.14.5"
   },
   "prettier": {
     "printWidth": 120

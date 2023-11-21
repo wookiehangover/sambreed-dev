@@ -1,0 +1,68 @@
+<style is:global>
+  :root {
+    --code-border-radius: 0.25rem
+  }
+  code-block > pre {
+    display: block;
+    border-radius: var(--code-border-radius);
+    tab-size: 2;
+  }
+</style>
+<script>
+  import { BUNDLED_LANGUAGES, getHighlighter, type Highlighter, type Lang } from 'shiki';
+
+  let highlighter: Highlighter;
+
+  const DEFAULT_LANGS = ['javascript', 'python', 'rust', 'java', 'typescript', 'html', 'jsx', 'bash'] satisfies Lang[];
+
+  async function formatCode(text: string, lang: string) {
+    if (!highlighter) {
+      highlighter = await getHighlighter({
+        theme: 'one-dark-pro',
+        langs: DEFAULT_LANGS,
+        paths: {
+          themes: '/themes',
+          languages: '/languages',
+          wasm: '/dist'
+        }
+      });
+    }
+
+    // Check for the loaded languages, and load the language if it's not loaded yet.
+    if (!highlighter.getLoadedLanguages().includes(lang as Lang)) {
+      // Check if the language is supported by Shiki
+      const bundles = BUNDLED_LANGUAGES.filter((bundle) => {
+        // Languages are specified by their id, they can also have aliases (i. e. "js" and "javascript")
+        return bundle.id === lang || bundle.aliases?.includes(lang);
+      });
+      try {
+        if (bundles.length > 0) {
+          await highlighter.loadLanguage(bundles[0]);
+        } else {
+          // Do some error handling or default to another language or...
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    return highlighter.codeToHtml(text, { lang });
+  }
+
+  class CodeEmbed extends HTMLElement {
+    constructor() {
+      super()
+
+      const lang = this.getAttribute('lang') ?? 'javascript'
+
+      formatCode(this.innerText, lang).then((html) => {
+        this.innerHTML = html
+      }).catch((err) => {
+        console.error(err)
+      })
+    }
+  }
+
+  customElements.define('code-block', CodeEmbed)
+
+</script>
