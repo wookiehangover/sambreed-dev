@@ -12,14 +12,41 @@ categories:
 
 The death of Internet Explorer in 2022 finally opened the doors to a new era of web development.  The Year of the Evergreen browser, where we still have a lowest common denominator (hint: it's Safari) but it's a lot less-low than it used to be. This is a list where I'll collect list notes to remember what I'm missing using Tailwind.
 
+Consequently, I've been writing more and more custom CSS without Tailwind. I'm still a big fan of Tailwind, but the web platform keeps getting better and better.
+
+## Table of Contents
+
 ## New New
 
 - `nesting` came from out of nowhere to be completely usable if you only care about targeting modern browsers.
 	- After years of using nesting in Sass and Less but then drifting away when authoring formats moved away from all-in-one preprocessors, it feels like returning to a familiar place.
 	- Nesting makes so sense in practice that it's hard to imagine not using it frequently from now on.
+
+```css
+.nesting {
+	& > .child {
+		/* styles */
+	}
+}
+```
+
 - container queries make things responsive based on the parent container's size instead of the viewport.
 	- 2023-09-05: Finally got around to using container queries on a project, they rock. Of course, I used the [Tailwind](./zen-of-tailwind) flavor in the form a plugin that adds the `@container` class, then a range of modifiers, `@xs:` through `@7xl:`, and the ability to declare your own custom stops (`@[21.5rem]:`).  Styling based on the parent container size is honestly more intuitive, and obviously more expressive, than using the browser viewport.
+
+```css
+.post {
+	container-type: inline-size;
+}
+
+@container (min-width: 640px) {
+	header h1 {
+		font-size: 1rem;
+	}
+}
+```
+
 - `:has()`
+
 - `dvh` units. Because phones have browser chrome that changes size with scroll position, viewport height units are now "dynamic".
 - spaces over commas in CSS colors. `rgb(255 255 255)` instead of `rgb(255, 255, 255)`. also `rgba` and pals are deprecated
 - layers. I hadn't encountered these until [shadcn](https://ui.shadcn.com/) pulled added them to a stylesheet. Definitely another good abstraction to have in the platform, paving a world where interoperability between off-the-shelf web things could be much, much easier than it was in the past.

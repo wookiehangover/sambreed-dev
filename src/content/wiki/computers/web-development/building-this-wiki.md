@@ -54,3 +54,13 @@ My private notebook has become the main place where I think, document, and plan.
 
 In that spirit, I would like to build and maintain a little knowledge graph in public. 
 
+## 4. Build Notes
+
+I switched over the site over to [Astro](https://astro.build) after 5 good years on [Next.js](https://nextjs.org). Astro has been a project that I've been closely tracking since it's early releases. It takes a lot of the best parts of modern frameworks and seeks to tie them together with something approaching a compiler for your website.
+
+In many ways, Astro paved a cowpath that I was already on. In 2017 I used unify, remark, and rehype to create a way in Next.js to author posts directly in markdown. This work presaged things like MDX and used the same toolchain that powers markdown compilation in Astro. I used projects in the unified ecosystem several other times, so having it baked into the framework is a bonus.
+
+### Custom Elements
+
+I hope to make more use of custom elements as time goes on. Here's what's in play:
+- `<code-block>` is a wrapper around the [shiki](https://shiki.matsu.io/) code highlighter. A remark plugin automatically wraps markdown code blocks in wiki posts. The component follows the "light-dom" pattern, adding syntax highlighting to its children. With javascript off, you get a more basic `<pre><code>` without highlighting.
