@@ -36,7 +36,8 @@
   --blockquote-color:           var(--slate-gray-2);
   --hr-border-color:            var(--gray-8);
   --card-border-color:          var(--gray-9);
-  --card-bg-hover:              var(--shade-11);
+  --card-bg-hover:              var(--gray-11);
+  --card-bg:                    var(--shade-11);
   --border-dim:                 var(--shade-10);
   --width:                      66ch;
   --grid-columns:               1fr 1fr;
@@ -59,7 +60,8 @@
     --blockquote-color:         var(--slate-gray-10);
     --blockquote-border-color:  var(--violet-4);
     --card-border-color:        var(--shade-9);
-    --card-bg-hover:            var(--shade-10);
+    --card-bg-hover:            var(--shade-8);
+    --card-bg:                  var(--shade-10);
     --border-dim:               var(--tint-1);
     --footer-bg:                var(--shade-8);
   }
@@ -337,15 +339,6 @@ section > div, section > article {
   color: var(--text-very-dim);
 }
 
-@media screen and (min-width: 768px) {
-  .md\:flex-row {
-    flex-direction: row;
-  }
-  .md\.w-1\/2 {
-    width: 50%;
-  }
-}
-
 #table-of-contents {
   display: none;
 }
@@ -391,6 +384,7 @@ section > div, section > article {
   }
 }
 
-nav.categories a:visited {
-  color: rgb(153, 119, 197);
+iframe {
+  width: 100%;
+  border: 1px solid var(--border-dim);
 }

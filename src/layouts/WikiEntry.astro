@@ -7,6 +7,7 @@ import getAllCategories from "../utils/get-all-categories";
 import CategoryList from "../components/CategoryList.astro";
 import { type IconName } from "../components/Icon.astro";
 import WikiCategoryList from "../components/WikiCategoryList.astro";
+import '../components/CodeBlock.astro';
 
 export interface Props {
   content: {
@@ -42,8 +43,8 @@ const {
     <section>
       <header>
         <h1 class="title">{title}</h1>
-        {description && <p>{description}</p>}
         <div class="pt-2">
+          {description && <p>{description}</p>}
           {
             createdAt && (
               <p>
@@ -96,7 +97,5 @@ const {
   .title {
     font-size: 1.825em;
     line-height: 1.2;
-    /* margin-top: 0.5rem; */
-    /* margin-bottom: 1rem; */
   }
 </style>

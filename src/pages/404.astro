@@ -1,0 +1,31 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import BlogPosts from "../components/BlogPosts.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+
+    <section>
+      <header>
+        <h1>404</h1>
+      </header>
+      <div>
+        <p>Don't know how you got here, but there's not much to look at.</p>
+        <p>Try one of the links below.</p>
+      </div>
+    </section>
+
+    <BlogPosts />
+
+    <Footer />
+  </body>
+</html>
