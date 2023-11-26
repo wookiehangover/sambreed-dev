@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro build && scripts/fix-routes.sh",
     "preview": "npx wrangler pages dev ./dist",
     "astro": "astro",
     "deploy": "npm run build && cd dist && npx wrangler pages deploy ."
