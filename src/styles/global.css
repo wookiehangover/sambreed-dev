@@ -28,7 +28,7 @@
   --font-family-body: "Bitter", serif;
   
   --width:                      66ch;
-  --grid-columns:               1fr 1fr;
+  --grid-columns:               [header] 1fr [main] 1fr;
   --grid-header-width:          20rem;
   --grid-header-padding:        5rem;
 
@@ -85,10 +85,6 @@ body {
   margin: 0;
 }
 
-main {
-  padding: 1rem;
-}
-
 h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
   font-family: var(--font-family-heading);
@@ -107,13 +103,14 @@ a {
 
 section a {
   text-decoration: underline;
-  text-underline-offset: 1px;
+  text-underline-offset: 2px;
+  transition: all 0.1s;
 }
 
 a:hover {
   color: var(--link-color-hover);
   text-decoration: underline;
-  text-underline-offset: 1px;
+  text-underline-offset: 4px;
 }
 
 p {
@@ -127,10 +124,6 @@ textarea {
 
 input {
   font-size: 16px;
-}
-
-content {
-  line-height: 1.6;
 }
 
 table {
@@ -217,24 +210,23 @@ section {
 }
 
 section > header {
-  border-right: 1px solid var(--border-dim);
   width: var(--grid-header-width);
-  padding: var(--grid-header-padding);
   justify-self: end;
+  border-right: 1px solid var(--border-dim);
+  padding: var(--grid-header-padding);
   transition: width,border,padding-top 0.2s ease-in-out;
   transition-behavior: allow-discrete;
 
-  & h1,h2 {
+  & h1, h2 {
     font-size: 1rem;
     margin: 1rem 0 0;
   }
 
   & p {
     margin: 0;
-    color: #666;
+    color: var(--text-dim);
     font-size: 0.825rem;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
-      "Helvetica Neue", sans-serif;
+    font-family: var(--font-family-heading);
   }
 }
 
@@ -245,13 +237,13 @@ section > div, section > article {
 
 @media screen and (max-width: 1440px) {
   :root {
-    --grid-columns: 40% 1fr;
+    --grid-columns: [header] 40% [main] 1fr;
   }
 }
 
 @media screen and (max-width: 1168px) {
   :root {
-    --grid-columns: 30% 1fr;
+    --grid-columns: [header] 30% [main] 1fr;
     --grid-header-width: calc(100% - 4rem);
     --grid-header-padding: 5rem 2rem;
   }
@@ -259,7 +251,7 @@ section > div, section > article {
 
 @media screen and (max-width: 796px) {
   :root {
-    --grid-columns: 1fr;
+    --grid-columns: [main] 1fr;
     --grid-header-padding: 2rem;
   }
 
@@ -342,6 +334,8 @@ section > div, section > article {
   color: var(--text-very-dim);
 }
 
+/* Generated Table of Contents */
+
 #table-of-contents {
   display: none;
 }
@@ -385,9 +379,4 @@ section > div, section > article {
     content: "";
     display: none;
   }
-}
-
-iframe {
-  width: 100%;
-  border: 1px solid var(--border-dim);
 }

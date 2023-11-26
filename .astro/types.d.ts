@@ -192,6 +192,13 @@ declare module 'astro:content' {
   collection: "wiki";
   data: InferEntrySchema<"wiki">
 } & { render(): Render[".md"] };
+"computers/notetaking.md": {
+	id: "computers/notetaking.md";
+  slug: "computers/notetaking";
+  body: string;
+  collection: "wiki";
+  data: InferEntrySchema<"wiki">
+} & { render(): Render[".md"] };
 "computers/places-made-of-language.md": {
 	id: "computers/places-made-of-language.md";
   slug: "computers/places-made-of-language";
