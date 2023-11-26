@@ -13,7 +13,7 @@
 
   let highlighter: Highlighter;
 
-  const DEFAULT_LANGS = ['javascript', 'python', 'rust', 'java', 'typescript', 'html', 'jsx', 'bash'] satisfies Lang[];
+  const DEFAULT_LANGS = ['javascript', 'python', 'typescript', 'html', 'jsx', 'bash'] satisfies Lang[];
 
   async function formatCode(text: string, lang: string) {
     if (!highlighter) {
