@@ -1,6 +1,6 @@
 ---
 title: Links, January 2023
-slug: links-january-2023
+slug: 2023/links-january-2023
 description: what's happening in the world of links
 
 heroImage: "/img/572e05d7-c02a-4e21-b7b9-d52984b79a5a.png"

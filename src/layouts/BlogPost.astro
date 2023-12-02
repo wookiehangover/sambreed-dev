@@ -10,6 +10,7 @@ export interface Props {
 		description?: string;
 		pubDate?: string;
 		updatedDate?: string;
+		heroVideo?: string;
 		heroImage?: string;
 		heroAlt?: string;
 		slug: string
@@ -17,7 +18,7 @@ export interface Props {
 }
 
 const {
-	content: { title, description, pubDate, updatedDate, heroImage, heroAlt, slug },
+	content: { title, description, pubDate, updatedDate, heroImage, heroAlt, slug, heroVideo },
 } = Astro.props;
 ---
 
@@ -47,11 +48,17 @@ const {
 				</div>
 			</header>
 			<article>
-				<figure>
-					{heroImage && <img src={heroImage} alt={heroAlt} />}
-					{heroAlt && (<figcaption class="cap">{heroAlt}</figcaption>)}
-				</figure>
-
+					{heroVideo ? (
+						<figure>
+							<video src={heroVideo} autoplay muted loop />
+							{heroAlt && (<figcaption class="cap">{heroAlt}</figcaption>)}
+						</figure>
+					) : (
+						<figure>
+							{heroImage && <img src={heroImage} alt={heroAlt} />}
+							{heroAlt && (<figcaption class="cap">{heroAlt}</figcaption>)}
+						</figure>
+					)}
 				<slot />
 			</article>
 		</section>

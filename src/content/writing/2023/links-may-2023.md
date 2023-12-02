@@ -1,6 +1,6 @@
 ---
 title: Links, May 2023
-slug: links-may-2023
+slug: 2023/links-may-2023
 description: A bouquet of open tabs
 
 heroImage: "/img/2cec5f5f-86ac-44e6-b236-21c828141ce2.png"

@@ -1,6 +1,6 @@
 ---
 title: Links, September 2023
-slug: links-sept-2023
+slug: 2023/links-sept-2023
 description: faintly falling, falling faintly, fall links
 
 heroImage: "/img/IMG_1162.jpeg"

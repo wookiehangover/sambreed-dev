@@ -1,6 +1,6 @@
 ---
 title: Links, October 2023
-slug: links-oct-2023
+slug: 2023/links-oct-2023
 description: shorter days for links
 
 heroImage: "/img/2023-11-04-00.13.36.png"

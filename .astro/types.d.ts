@@ -348,6 +348,104 @@ declare module 'astro:content' {
   collection: "writing";
   data: InferEntrySchema<"writing">
 } & { render(): Render[".md"] };
+"2022/links-august-2022.html.md": {
+	id: "2022/links-august-2022.html.md";
+  slug: "2022/links-august-2021.html";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"2022/links-december-2022.md": {
+	id: "2022/links-december-2022.md";
+  slug: "2022/links-december-2022";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"2022/links-part-one.html.md": {
+	id: "2022/links-part-one.html.md";
+  slug: "2022/links-part-one.html";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"2023/links-april-2023.html.md": {
+	id: "2023/links-april-2023.html.md";
+  slug: "2023/links-april-2023.html";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"2023/links-august-2023.md": {
+	id: "2023/links-august-2023.md";
+  slug: "2023/links-august-2023";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"2023/links-feb-2023.md": {
+	id: "2023/links-feb-2023.md";
+  slug: "2023/links-feb-2023";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"2023/links-january-2023.md": {
+	id: "2023/links-january-2023.md";
+  slug: "2023/links-january-2023";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"2023/links-july-2023.md": {
+	id: "2023/links-july-2023.md";
+  slug: "2023/links-july-2023";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"2023/links-june-2023.md": {
+	id: "2023/links-june-2023.md";
+  slug: "2023/links-jun-2023";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"2023/links-march-2023.md": {
+	id: "2023/links-march-2023.md";
+  slug: "2023/links-march-2023";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"2023/links-may-2023.md": {
+	id: "2023/links-may-2023.md";
+  slug: "2023/links-may-2023";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"2023/links-november-2023.md": {
+	id: "2023/links-november-2023.md";
+  slug: "2023/links-november-2023";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"2023/links-oct-2023.md": {
+	id: "2023/links-oct-2023.md";
+  slug: "2023/links-oct-2023";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
+"2023/links-sept-2023.md": {
+	id: "2023/links-sept-2023.md";
+  slug: "2023/links-sept-2023";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
 "big-sur-marathon-2023.md": {
 	id: "big-sur-marathon-2023.md";
   slug: "big-sur-marathon-2023";
@@ -372,97 +470,6 @@ declare module 'astro:content' {
 "lessons-from-the-jerk.html.md": {
 	id: "lessons-from-the-jerk.html.md";
   slug: "lessons-from-the-jerk.html";
-  body: string;
-  collection: "writing";
-  data: InferEntrySchema<"writing">
-} & { render(): Render[".md"] };
-"links-april-2023.html.md": {
-	id: "links-april-2023.html.md";
-  slug: "links-april-2023.html";
-  body: string;
-  collection: "writing";
-  data: InferEntrySchema<"writing">
-} & { render(): Render[".md"] };
-"links-august-2022.html.md": {
-	id: "links-august-2022.html.md";
-  slug: "links-august-2021.html";
-  body: string;
-  collection: "writing";
-  data: InferEntrySchema<"writing">
-} & { render(): Render[".md"] };
-"links-august-2023.md": {
-	id: "links-august-2023.md";
-  slug: "links-august-2023";
-  body: string;
-  collection: "writing";
-  data: InferEntrySchema<"writing">
-} & { render(): Render[".md"] };
-"links-december-2022.md": {
-	id: "links-december-2022.md";
-  slug: "links-december-2022";
-  body: string;
-  collection: "writing";
-  data: InferEntrySchema<"writing">
-} & { render(): Render[".md"] };
-"links-feb-2023.md": {
-	id: "links-feb-2023.md";
-  slug: "links-feb-2023";
-  body: string;
-  collection: "writing";
-  data: InferEntrySchema<"writing">
-} & { render(): Render[".md"] };
-"links-january-2023.md": {
-	id: "links-january-2023.md";
-  slug: "links-january-2023";
-  body: string;
-  collection: "writing";
-  data: InferEntrySchema<"writing">
-} & { render(): Render[".md"] };
-"links-july-2023.md": {
-	id: "links-july-2023.md";
-  slug: "links-july-2023";
-  body: string;
-  collection: "writing";
-  data: InferEntrySchema<"writing">
-} & { render(): Render[".md"] };
-"links-june-2023.md": {
-	id: "links-june-2023.md";
-  slug: "links-jun-2023";
-  body: string;
-  collection: "writing";
-  data: InferEntrySchema<"writing">
-} & { render(): Render[".md"] };
-"links-march-2023.md": {
-	id: "links-march-2023.md";
-  slug: "links-march-2023";
-  body: string;
-  collection: "writing";
-  data: InferEntrySchema<"writing">
-} & { render(): Render[".md"] };
-"links-may-2023.md": {
-	id: "links-may-2023.md";
-  slug: "links-may-2023";
-  body: string;
-  collection: "writing";
-  data: InferEntrySchema<"writing">
-} & { render(): Render[".md"] };
-"links-oct-2023.md": {
-	id: "links-oct-2023.md";
-  slug: "links-oct-2023";
-  body: string;
-  collection: "writing";
-  data: InferEntrySchema<"writing">
-} & { render(): Render[".md"] };
-"links-part-one.html.md": {
-	id: "links-part-one.html.md";
-  slug: "links-part-one.html";
-  body: string;
-  collection: "writing";
-  data: InferEntrySchema<"writing">
-} & { render(): Render[".md"] };
-"links-sept-2023.md": {
-	id: "links-sept-2023.md";
-  slug: "links-sept-2023";
   body: string;
   collection: "writing";
   data: InferEntrySchema<"writing">

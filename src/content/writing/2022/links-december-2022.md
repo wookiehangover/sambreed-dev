@@ -1,6 +1,6 @@
 ---
 title: Links, December 2022
-slug: links-december-2022
+slug: 2022/links-december-2022
 description: More links to tabs I've kept open for 4 months
 
 heroImage: "/img/f7d62a45-a2c6-48fb-be8a-1735bf3f2d5f.png"

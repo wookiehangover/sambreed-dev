@@ -32,5 +32,21 @@ export default defineConfig({
     ssr: {
       noExternal: ['@fontsource/bitter']
     }
+  },
+  redirects: {
+    "/writing/links-part-one": "/writing/2022/links-part-one.html",
+    "/writing/links-part-one.html": "/writing/2022/links-part-one.html",
+    "/writing/links-august-2022.html": "/writing/2022/links-august-2022.html",
+    "/writing/links-december-2022": "/writing/2022/links-december-2022",
+    "/writing/links-april-2023.html": "/writing/2023/links-april-2023",
+    "/writing/links-august-2023": "/writing/2023/links-august-2023",
+    "/writing/links-feb-2023": "/writing/2023/links-feb-2023",
+    "/writing/links-january-2023": "/writing/2023/links-january-2023",
+    "/writing/links-july-2023": "/writing/2023/links-july-2023",
+    "/writing/links-june-2023": "/writing/2023/links-june-2023",
+    "/writing/links-march-2023": "/writing/2023/links-march-2023",
+    "/writing/links-may-2023": "/writing/2023/links-may-2023",
+    "/writing/links-oct-2023": "/writing/2023/links-oct-2023",
+    "/writing/links-sept-2023": "/writing/2023/links-sept-2023",
   }
 });

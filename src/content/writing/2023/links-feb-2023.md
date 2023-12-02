@@ -1,6 +1,6 @@
 ---
 title: Links, February 2023
-slug: links-feb-2023
+slug: 2023/links-feb-2023
 description: The link posting will continue until morale improves!
 
 heroImage: "/img/b3629593-a641-497a-b289-7a8c06466605.png"

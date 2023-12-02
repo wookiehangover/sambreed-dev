@@ -1,0 +1,5 @@
+**/.wrangler
+**/.astro
+**/node_modules
+**/dist
+**/functions/[[path]].js

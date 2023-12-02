@@ -18,6 +18,8 @@ Consequently, I've been writing more and more custom CSS without Tailwind. I'm s
 
 ## New New
 
+- `transition-behavior: allow-discrete` h/t to Shop Talk episode ??? for pointing this one out. It is FINALLY possible to animate to an automatic / default values, and specifically `display: none`. [mdn](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-behavior)
+
 - `nesting` came from out of nowhere to be completely usable if you only care about targeting modern browsers.
 	- After years of using nesting in Sass and Less but then drifting away when authoring formats moved away from all-in-one preprocessors, it feels like returning to a familiar place.
 	- Nesting makes so sense in practice that it's hard to imagine not using it frequently from now on.

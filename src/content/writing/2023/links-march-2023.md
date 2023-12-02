@@ -1,6 +1,6 @@
 ---
 title: Links, March 2023
-slug: links-march-2023
+slug: 2023/links-march-2023
 description: The AI Overlords have approved of these links
 
 heroImage: "/img/746fd781-3cbe-4e87-9a8c-4481848b5658.webp"

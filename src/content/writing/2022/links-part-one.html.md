@@ -1,6 +1,6 @@
 ---
 title: Links Blog
-slug: links-part-one.html
+slug: 2022/links-part-one.html
 description: Links! more links to things I've had open
 
 pubDate: "Jul 13 2022"

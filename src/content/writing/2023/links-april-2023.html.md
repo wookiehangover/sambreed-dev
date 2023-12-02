@@ -1,6 +1,6 @@
 ---
 title: Links, April 2023
-slug: links-april-2023.html
+slug: 2023/links-april-2023.html
 description: Free range tabs
 
 heroImage: "/img/8f023992-44fa-4751-97fc-1c1ab0fd8691.png"

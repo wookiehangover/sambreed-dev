@@ -1,6 +1,6 @@
 ---
 title: Links, June 2023
-slug: links-jun-2023
+slug: 2023/links-jun-2023
 description: like a playlist but for my open tabs
 
 heroImage: "/img/2e6dfddd-8124-405f-a98f-09c7c06ca044.png"

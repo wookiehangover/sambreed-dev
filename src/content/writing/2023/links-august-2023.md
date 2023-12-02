@@ -1,6 +1,6 @@
 ---
 title: Links, August 2023
-slug: links-august-2023
+slug: 2023/links-august-2023
 description: shaking out the tabs from the bottom of the bag
 
 heroImage: "/img/967222.jpeg"
