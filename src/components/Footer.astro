@@ -4,13 +4,27 @@
 
 <footer>
   <nav>
-    <a href="/">Sam Breed</a> &middot;
-    <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
-    <br />
-    <span aria-hidden="true">silica gel &middot; do not eat</span>
+    <p>
+      <a href="/">Sam Breed</a> &middot;
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+    </p>
   </nav>
+  <div>
+    <p aria-hidden="true">silica gel &middot; do not eat</p>
+  </div>
 </footer>
+
 <style>
+
+  hr {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 80px;
+    border: none;
+    border-top: 1px solid red;
+  }
+
   footer {
     display: grid;
     grid-template-columns: var(--grid-columns);
@@ -19,14 +33,13 @@
       transparent 0%,
       var(--footer-bg) 100%
     );
+    color: var(--text-color);
   }
 
   nav {
-    color: var(--text-color);
     font-family: var(--font-family-heading);
     width: var(--grid-header-width);
     padding: var(--grid-header-padding);
-    opacity: 0.8;
     font-size: 0.8em;
     margin-top: auto;
     justify-self: end;
@@ -35,25 +48,26 @@
       color: var(--text-color);
     }
 
-    & span {
-      opacity: 0.3;
-      font-variant: small-caps;
-      pointer-events: none;
-      display: inline-block;
-      margin-left: 5px
-    }
   }
 
-  @media screen and (max-width: 1440px) {
-    footer {
-      text-align: left;
-    }
+  footer > div {
+    font-family: var(--font-family-heading);
+    width: var(--grid-header-width);
+    padding: var(--grid-header-padding) 0;
+    /* margin-top: auto; */
+    margin-left: auto;
+    justify-self: end;
+    font-size: 0.8em;
+    opacity: 0.3;
+    font-variant: small-caps;
+    pointer-events: none;
   }
 
   @media screen and (max-width: 796px) {
     footer {
-      border-left: 1px solid var(--border-dim);
-      margin-left: 2rem;
+      display: flex;
+      /* border-left: 1px solid var(--border-dim); */
+      /* margin-left: 2rem; */
     }
   }
 </style>
