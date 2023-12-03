@@ -5,7 +5,7 @@
 <footer>
   <nav>
     <p>
-      <a href="/">Sam Breed</a> &middot;
+      <a href="/" title="Sam Breed's personal website">Sam Breed</a> &middot;
       <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
     </p>
   </nav>
@@ -15,24 +15,10 @@
 </footer>
 
 <style>
-
-  hr {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 80px;
-    border: none;
-    border-top: 1px solid red;
-  }
-
   footer {
     display: grid;
-    grid-template-columns: var(--grid-columns);
-    background: linear-gradient(
-			to bottom,
-      transparent 0%,
-      var(--footer-bg) 100%
-    );
+    grid-template-columns: 1fr 1fr;
+    background: linear-gradient(to bottom, transparent 0%, var(--footer-bg) 100%);
     color: var(--text-color);
   }
 
@@ -45,29 +31,27 @@
     justify-self: end;
 
     & a {
-      color: var(--text-color);
+      color: var(--text-dim);
     }
-
   }
 
   footer > div {
     font-family: var(--font-family-heading);
     width: var(--grid-header-width);
     padding: var(--grid-header-padding) 0;
-    /* margin-top: auto; */
     margin-left: auto;
     justify-self: end;
     font-size: 0.8em;
     opacity: 0.3;
     font-variant: small-caps;
     pointer-events: none;
+    text-align: right;
+    padding-right: 2rem;
   }
 
   @media screen and (max-width: 796px) {
     footer {
       display: flex;
-      /* border-left: 1px solid var(--border-dim); */
-      /* margin-left: 2rem; */
     }
   }
 </style>

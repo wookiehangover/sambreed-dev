@@ -28,9 +28,9 @@
   --font-family-body: "Bitter", serif;
   
   --width:                      66ch;
-  --grid-columns:               [header] 1fr [main] 1fr;
   --grid-header-width:          20rem;
   --grid-header-padding:        5rem;
+  --grid-columns:               [header] 1fr [main] 1fr;
 
   --background-color:           var(--gray-11);
   --text-color:                 var(--slate-gray-1);
@@ -236,7 +236,7 @@ section > header {
 
 section > div, section > article {
   padding: 5rem;
-  max-width: 66ch;
+  max-width: var(--width);
 }
 
 @media screen and (max-width: 1440px) {
