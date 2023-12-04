@@ -1,5 +1,5 @@
 ---
-title: Notetaking
+title: Note Taking
 description: My habits and practices for taking good notes
 createdAt: 2023-11-25
 categories:

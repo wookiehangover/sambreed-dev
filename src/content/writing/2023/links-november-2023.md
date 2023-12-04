@@ -33,9 +33,8 @@ Skeptics may argue that LLMs are neither new nor special, and that the hype arou
 
 ## AI
 
-* [make real, the story so far - by Steve Ruiz - tldraw](https://tldraw.substack.com/p/make-real-the-story-so-far)
-* [Puzzling over the Postgres query planner with LLMs – Jon Udell](https://blog.jonudell.net/2023/11/28/puzzling-over-the-postgres-query-planner-with-llms/)
-* [Stable Diffusion XL](https://huggingface.co/docs/diffusers/using-diffusers/sdxl)
+* [make real, the story so far - by Steve Ruiz - tldraw](https://tldraw.substack.com/p/make-real-the-story-so-far) &middot; Really impressed by what they've built here. It's simple and refreshing, and now getting very powerful AI tools.
+* [Stable Diffusion XL](https://huggingface.co/docs/diffusers/using-diffusers/sdxl) &middot; Image generation is quickly becoming a commodity feature, largely due to Stable Diffusion continuing to release open
 * [An Interactive Guide to CSS Grid](https://www.joshwcomeau.com/css/interactive-guide-to-grid/)
 * [LM Studio - Discover, download, and run local LLMs](https://lmstudio.ai/)
 * [IGF - a Hugging Face Space by dylanebert](https://huggingface.co/spaces/dylanebert/igf)
