@@ -202,6 +202,12 @@ figcaption {
   font-size: 0.75em;
 }
 
+@media (max-width: 500px) {
+  blockquote {
+    margin-left: calc(-2rem - 1px);
+  }
+}
+
 /* Page Layout */
 
 section {
@@ -272,6 +278,8 @@ section > div, section > article {
 
   section > div, section > article {
     padding: 0 2rem 2rem;
+    box-sizing: border-box;
+    max-width: calc(100vw - 3rem);
   }
 }
 
