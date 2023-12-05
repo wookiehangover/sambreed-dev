@@ -19,5 +19,10 @@ const { label = "website" } = Astro.props;
   a {
     text-decoration: none;
     color: var(--color-text);
+    transition: color 0.2s ease-in-out;
+
+    &:hover {
+      color: var(--text-dim);
+    }
   }
 </style>
