@@ -3,7 +3,7 @@ title: Little Web Components
 slug: 2023/lil-web-components
 description: "How I use little Web Components (Custom Elements) to improve my website"
 heroImage: "/img/code-embed.png"
-heroAlt: ""
+heroAlt: "The now-unused <code-block> custom element"
 pubDate: "December 4 2023"
 ---
 

@@ -41,27 +41,29 @@ const {
 
     <section>
       <header>
-        <h1 class="title">{title}</h1>
-        <div class="pt-2">
-          {description && <p>{description}</p>}
-          {
-            createdAt && (
-              <p>
-                First posted on <time>{createdAt.toLocaleDateString()}</time>
-              </p>
-            )
-          }
-          {
-            updatedAt && (
-              <p>
-                Last updated on <time>{updatedAt.toLocaleDateString()}</time>
-              </p>
-            )
-          }
+        <div>
+          <h1 class="title">{title}</h1>
+          {description && <p class="pt-2">{description}</p>}
+          <div class="pt-2">
+            {
+              createdAt && (
+                <p class="text-dim">
+                  First posted on <time>{createdAt.toLocaleDateString()}</time>
+                </p>
+              )
+            }
+            {
+              updatedAt && (
+                <p class="text-dim">
+                  Last updated on <time>{updatedAt.toLocaleDateString()}</time>
+                </p>
+              )
+            }
+          </div>
+          <nav class="text-xs flex flex-col pt-2">
+            <CategoryList categories={categories ?? []} map={map} />
+          </nav>
         </div>
-        <nav class="text-xs flex flex-col pt-2">
-          <CategoryList categories={categories ?? []} map={map} />
-        </nav>
       </header>
 
       <article>
@@ -96,5 +98,18 @@ const {
   .title {
     font-size: 1.825em;
     line-height: 1.2;
+  }
+
+  header > div {
+    position: sticky;
+    top: 0;
+  }
+
+  time { 
+    color: var(--text-color);
+  }
+
+  header:has(+ article > #table-of-contents) > div {
+    position: static;
   }
 </style>

@@ -297,6 +297,13 @@ declare module 'astro:content' {
   collection: "wiki";
   data: InferEntrySchema<"wiki">
 } & { render(): Render[".md"] };
+"library/non-fiction/the-creative-act.md": {
+	id: "library/non-fiction/the-creative-act.md";
+  slug: "library/non-fiction/the-creative-act";
+  body: string;
+  collection: "wiki";
+  data: InferEntrySchema<"wiki">
+} & { render(): Render[".md"] };
 "sports/trail-running/gear.md": {
 	id: "sports/trail-running/gear.md";
   slug: "sports/trail-running/gear";
@@ -307,13 +314,6 @@ declare module 'astro:content' {
 "sports/trail-running/training-plans.md": {
 	id: "sports/trail-running/training-plans.md";
   slug: "sports/trail-running/training-plans";
-  body: string;
-  collection: "wiki";
-  data: InferEntrySchema<"wiki">
-} & { render(): Render[".md"] };
-"the-creative-act.md": {
-	id: "the-creative-act.md";
-  slug: "the-creative-act";
   body: string;
   collection: "wiki";
   data: InferEntrySchema<"wiki">

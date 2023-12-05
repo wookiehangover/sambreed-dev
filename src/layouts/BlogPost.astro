@@ -37,7 +37,7 @@ const {
 			<header>
 				<div class="sticky top-1">
 					<h1>{title}</h1>
-					<p>
+					<p class="text-dim">
 						{pubDate && <time>{pubDate}</time>}
 					</p>
 					{
@@ -54,12 +54,12 @@ const {
 					{heroVideo ? (
 						<figure>
 							<video src={heroVideo} autoplay muted loop />
-							{heroAlt && (<figcaption class="cap">{heroAlt}</figcaption>)}
+							{heroAlt && (<figcaption>{heroAlt}</figcaption>)}
 						</figure>
 					) : (
 						<figure>
 							{heroImage && <img src={heroImage} alt={heroAlt} />}
-							{heroAlt && (<figcaption class="cap">{heroAlt}</figcaption>)}
+							{heroAlt && (<figcaption>{heroAlt}</figcaption>)}
 						</figure>
 					)}
 				<slot />

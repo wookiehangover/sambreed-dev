@@ -2,6 +2,7 @@
 title: AI Coding-ish
 description: Thoughts on new tools
 createdAt: 2023-11-20
+updatedAt: 2023-12-04
 categories:
   - Computers
   - Web Development
@@ -33,4 +34,6 @@ Two notable observations:
 
 ## Chat Recipes
 
-- [Git Explainer](https://chat.0x01.ai/share/FEuWEKM). I know that git subcommands exist but I've never been able to keep them straight beyond the core of my daily get workflow: pull, push, checkout, commit, clone, rebase, stash, & merge are about all I have room for.
+- [Git Explainer](https://chat.0x01.ai/share/FEuWEKM) &middot; I know that git subcommands exist but I've never been able to keep them straight beyond the core of my daily get workflow: pull, push, checkout, commit, clone, rebase, stash, & merge are about all I have room for.
+
+- [Calendar Availability](https://chat.openai.com/g/g-0yja9C7Ik-calendar-availability) &middot; A custom GPT that takes a screenshot of a calendar and responds with a text block of your availability. I used to have an entire [side project](https://github.com/wookiehangover/when.works) just for doing this!
