@@ -154,6 +154,9 @@ code {
 
 pre {
   padding: 1rem;
+  border-radius: 0.25rem;
+  max-width: 35rem;
+  box-sizing: border-box;
 }
 
 pre > code {
@@ -192,10 +195,12 @@ figure {
 figure img {
   display: block;
   margin: 1rem auto;
+  border-radius: 0.25rem;
 }
 
 figure video {
   max-width: 100%;
+  border-radius: 0.25rem;
 }
 
 figcaption {
