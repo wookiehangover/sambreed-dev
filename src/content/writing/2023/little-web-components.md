@@ -13,11 +13,11 @@ That's no longer true: Web Components are ready to use.*
 
 Dave Rupert recently [shared a post](https://daverupert.com/2023/10/fitvids-has-a-web-component-now/) about his `<fit-vids>` component that caught my attention. For the first time, Web Components seemed simple and approachable. I didn't have to re-write my entire website to use them! I decided to follow his example of giving Custom Elements a try the next time I need a little DOM thing.
 
-As of today, I have three little components. Two are in active use and one is archived:
+As of today, I have three little components:
 
 * `<share-button>` wraps a standard `<button>` to trigger the [Web Share API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Share_API) if available, otherwise copying the link to the clipboard.
 * `<reply-link>` uses the Shadow DOM to keep my email address out of crawlers.
-* `<code-block>` applys syntax highlighting to a child `<pre>` tag using the [Shiki library](https://shiki.matsu.io/). This is no longer used.
+* `<code-block>` adds a little "copy to clipboard" button to every preformatted code element
 
 \*_More or less._ If you want a full framework, look at something like [Enhance](https://enhance.dev/). My examples are not by any means comprehensive.
 
@@ -146,32 +146,68 @@ customElements.define("reply-link", ReplyLink);
 
 ## CodeBlock
 
-Rest in peace, `<code-block>`, I've already stopped using you.
+`<code-block>` adds a "Copy to Clipboard" button to code blocks. Code highlighting is already done by Astro. An earlier version of this component handled syntax highlighting, but it is only suitable for client-generated text.
 
-It is better to do this at build time rather than on the client. Astro v3 has built-in support for Shiki, making my code embed plugin cool but useless!
+I'm using the "Light DOM" pattern again here. The component simply wraps its children and adds functionality.
+
+```html
+<code-block>
+  <pre>
+    <code>
+      console.log("Wow, look at that copy button up there 👆")
+    </code>
+  </pre>
+</code-block>
+```
+
+<details>
+<summary>Source</summary>
 
 ```js
 class CodeEmbed extends HTMLElement {
   constructor() {
-    super()
+    super();
+  }
 
-    const lang = this.getAttribute('lang') ?? 'javascript'
+  connectedCallback() {
+    const button = document.createElement("button");
+    button.innerHTML = `<svg viewBox="0 0 20 20" width="16" height="16">
+      <use href="/icon-sprite.svg#icon-copy"></use>
+    </svg>`;
 
-    formatCode(this.innerText, lang).then((html) => {
-      this.innerHTML = html
-    }).catch((err) => {
-      console.error(err)
-    })
+    button.addEventListener("click", () => {
+      navigator.clipboard.writeText(this.querySelector("pre")?.textContent ?? "");
+      const span = document.createElement("span");
+      span.innerHTML = "Copied!";
+      button.prepend(span);
+      setTimeout(() => {
+        span.remove();
+      }, 1000);
+    });
+
+    this.append(button);
   }
 }
 
-customElements.define('code-block', CodeEmbed)
+customElements.define("code-block", CodeEmbed);
 ```
+</details>
 
-I've left out the listing for `formatCode()`, but know that initializes Shiki with the correct language bundle and returns a string of highlighted HTML.
+And here's the plugin that adds it to code blocks automatically:
 
-~If code block above has a dark background and syntax highlighting, then you know the Web Component is working 😅~ Astro does this for me now!
+<details>
+<summary>Rehype Plugin</summary>
 
-Going forward I'll only use the `<code-block>` for situations where syntax highlighting needs to happen clientside, like when presenting repsonses from an LLM that contain code. That was the original use-case for this custom element, so back on the shelf it goes.
-
-Or I might bring this back to inject a Copy to clipboard option. It was a feature of the Svelte version that I left out because I wanted to do Light DOM only.
+```ts
+function rehypeCodeWrapperPlugin() {
+  return function transformer(tree) {
+    visit(tree, 'raw', (node) => {
+      if (node.value.startsWith('<pre')) {
+        const rawContent = node.value;
+        node.value = `<code-block>${rawContent}</code-block>`;
+      }
+    });
+    return tree;
+  };
+}
+```

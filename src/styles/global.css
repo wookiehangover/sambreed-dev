@@ -158,8 +158,9 @@ code {
 pre {
   padding: 1rem;
   border-radius: 0.25rem;
-  max-width: 35rem;
+  max-width: 593px;
   box-sizing: border-box;
+  tab-size: 2;
 }
 
 pre > code {
@@ -256,6 +257,10 @@ section > div, section > article {
 @media screen and (max-width: 1440px) {
   :root {
     --grid-columns: [header] 40% [main] 1fr;
+  }
+
+  pre {
+    max-width: 100%;
   }
 }
 

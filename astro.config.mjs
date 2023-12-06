@@ -7,6 +7,18 @@ import { visit } from 'unist-util-visit';
 // https://astro.build/config
 import cloudflare from "@astrojs/cloudflare";
 
+function rehypeCodeWrapperPlugin() {
+  return function transformer(tree) {
+    visit(tree, 'raw', (node) => {
+      if (node.value.startsWith('<pre')) {
+        const rawContent = node.value;
+        node.value = `<code-block>${rawContent}</code-block>`;
+      }
+    });
+    return tree;
+  };
+}
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://sambreed.dev',
@@ -18,6 +30,7 @@ export default defineConfig({
       theme: "one-dark-pro"
     },
     remarkPlugins: [remarkToc],
+    rehypePlugins: [rehypeCodeWrapperPlugin]
   },
   vite: {
     ssr: {

@@ -1,68 +1,58 @@
 <style is:global>
   :root {
-    --code-border-radius: 0.25rem
+    --code-border-radius: 0.25rem;
   }
-  code-block > pre {
+  code-block {
     display: block;
-    border-radius: var(--code-border-radius);
-    tab-size: 2;
+    position: relative;
+
+    & > button {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background-color: transparent;
+      border: none;
+      font-family: var(--font-family-heading);
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      cursor: pointer;
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      height: 16px;
+      box-sizing: border-box;
+
+      &:hover {
+        color: var(--text-color);
+      }
+    }
   }
 </style>
 <script>
-  import { BUNDLED_LANGUAGES, getHighlighter, type Highlighter, type Lang } from 'shiki';
-
-  let highlighter: Highlighter;
-
-  const DEFAULT_LANGS = ['javascript', 'python', 'typescript', 'html', 'jsx', 'bash'] satisfies Lang[];
-
-  async function formatCode(text: string, lang: string) {
-    if (!highlighter) {
-      highlighter = await getHighlighter({
-        theme: 'one-dark-pro',
-        langs: DEFAULT_LANGS,
-        paths: {
-          themes: '/themes',
-          languages: '/languages',
-          wasm: '/dist'
-        }
-      });
-    }
-
-    // Check for the loaded languages, and load the language if it's not loaded yet.
-    if (!highlighter.getLoadedLanguages().includes(lang as Lang)) {
-      // Check if the language is supported by Shiki
-      const bundles = BUNDLED_LANGUAGES.filter((bundle) => {
-        // Languages are specified by their id, they can also have aliases (i. e. "js" and "javascript")
-        return bundle.id === lang || bundle.aliases?.includes(lang);
-      });
-      try {
-        if (bundles.length > 0) {
-          await highlighter.loadLanguage(bundles[0]);
-        } else {
-          // Do some error handling or default to another language or...
-        }
-      } catch (e) {
-        console.error(e);
-      }
-    }
-
-    return highlighter.codeToHtml(text, { lang });
-  }
-
   class CodeEmbed extends HTMLElement {
     constructor() {
-      super()
+      super();
+    }
 
-      const lang = this.getAttribute('lang') ?? 'javascript'
+    connectedCallback() {
+      const button = document.createElement("button");
+      button.innerHTML = `<svg viewBox="0 0 20 20" width="16" height="16">
+        <use href="/icon-sprite.svg#icon-copy"></use>
+      </svg>`;
 
-      formatCode(this.innerText, lang).then((html) => {
-        this.innerHTML = html
-      }).catch((err) => {
-        console.error(err)
-      })
+      button.addEventListener("click", () => {
+        navigator.clipboard.writeText(this.querySelector("pre")?.textContent ?? "");
+        const span = document.createElement("span");
+        span.innerHTML = "Copied!";
+        button.prepend(span);
+        setTimeout(() => {
+          span.remove();
+        }, 1000);
+      });
+
+      this.append(button);
     }
   }
 
-  customElements.define('code-block', CodeEmbed)
-
+  customElements.define("code-block", CodeEmbed);
 </script>
