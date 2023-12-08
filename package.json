@@ -12,12 +12,12 @@
     "deploy": "npm run build && cd dist && npx wrangler pages deploy ."
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^7.5.3",
-    "@astrojs/mdx": "^1.1.2",
-    "@astrojs/rss": "^3.0.0",
-    "@astrojs/sitemap": "^3.0.1",
+    "@astrojs/cloudflare": "^8.0.0",
+    "@astrojs/mdx": "^2.0.0",
+    "@astrojs/rss": "^4.0.1",
+    "@astrojs/sitemap": "^3.0.3",
     "@fontsource/bitter": "^5.0.15",
-    "astro": "^3.3.0",
+    "astro": "^4.0.3",
     "autoprefixer": "^10.4.16",
     "cssnano": "^6.0.1",
     "just-kebab-case": "^4.2.0",

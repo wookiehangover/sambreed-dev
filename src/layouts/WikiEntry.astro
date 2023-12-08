@@ -114,3 +114,51 @@ const {
     position: static;
   }
 </style>
+
+<style is:global>
+/* Generated Table of Contents */
+#table-of-contents {
+  display: none;
+}
+
+#table-of-contents + ul {
+  position: sticky;
+  top: 1rem;
+  transform: translateX(-200%);
+  width: 15rem;
+  font-size: 0.875rem;
+  padding: 0;
+  list-style: none;
+}
+
+#table-of-contents + ul:before {
+  content: "On this page";
+  color: var(--text-dim);
+  font-style: italic;
+  position: relative;
+  top: -0.5rem;
+}
+
+#table-of-contents + ul li > p {
+  margin: 0;
+}
+
+#table-of-contents + ul > li > ul {
+  padding-left: 1.5rem;
+}
+
+@media (max-width: 1168px) or (max-height: 600px) {
+  #table-of-contents {
+    display: block;
+  }
+  #table-of-contents + ul {
+    position: static;
+    width: auto;
+    transform: none;
+  }
+  #table-of-contents + ul:before {
+    content: "";
+    display: none;
+  }
+}
+</style>

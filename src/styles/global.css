@@ -30,7 +30,7 @@
   --font-family-body: "Bitter", serif;
   
   --width:                      66ch;
-  --grid-header-width:          20rem;
+  --grid-header-width:          30rem;
   --grid-header-padding:        5rem;
   --grid-columns:               [header] 1fr [main] 1fr;
 
@@ -73,17 +73,20 @@
   }
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
+  color: var(--text-color);
+  background-color: var(--background-color);
   font-family: var(--font-family-body);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  text-align: left;
   hyphens: auto;
-  background-color: var(--background-color);
   word-wrap: break-word;
   overflow-wrap: break-word;
   line-height: 1.6;
-  color: var(--text-color);
   height: 100dvh;
   margin: 0;
 }
@@ -158,8 +161,7 @@ code {
 pre {
   padding: 1rem;
   border-radius: 0.25rem;
-  max-width: 593px;
-  box-sizing: border-box;
+  max-width: 100%;
   tab-size: 2;
 }
 
@@ -252,6 +254,7 @@ section > header {
 section > div, section > article {
   padding: 5rem;
   max-width: var(--width);
+  width: 100%;
 }
 
 @media screen and (max-width: 1440px) {
@@ -280,7 +283,7 @@ section > div, section > article {
 
   section {
     border-left: 1px solid var(--border-dim);
-    margin-left: 2rem;
+    margin-left: 1rem;
   }
 
   section > header {
@@ -292,7 +295,7 @@ section > div, section > article {
   section > div, section > article {
     padding: 0 2rem 2rem;
     box-sizing: border-box;
-    max-width: calc(100vw - 3rem);
+    max-width: calc(100vw - 1rem);
   }
 }
 
@@ -345,51 +348,4 @@ section > div, section > article {
 }
 .text-very-dim {
   color: var(--text-very-dim);
-}
-
-/* Generated Table of Contents */
-
-#table-of-contents {
-  display: none;
-}
-
-#table-of-contents + ul {
-  position: sticky;
-  top: 1rem;
-  transform: translateX(-200%);
-  width: 15rem;
-  font-size: 0.875rem;
-  padding: 0;
-  list-style: none;
-}
-
-#table-of-contents + ul:before {
-  content: "On this page";
-  color: var(--text-dim);
-  font-style: italic;
-  position: relative;
-  top: -0.5rem;
-}
-
-#table-of-contents + ul li > p {
-  margin: 0;
-}
-
-#table-of-contents + ul > li > ul {
-  padding-left: 1.5rem;
-}
-
-@media (max-width: 1168px) or (max-height: 600px) {
-  #table-of-contents {
-    display: block;
-  }
-  #table-of-contents + ul {
-    position: static;
-    width: auto;
-    transform: none;
-  }
-  #table-of-contents + ul:before {
-    content: "";
-    display: none;
-  }
 }
