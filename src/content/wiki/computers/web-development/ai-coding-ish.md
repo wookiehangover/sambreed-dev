@@ -2,7 +2,7 @@
 title: AI Coding-ish
 description: Thoughts on new tools
 createdAt: 2023-11-20
-updatedAt: 2023-12-04
+updatedAt: 2023-12-10
 categories:
   - Computers
   - Web Development
@@ -32,8 +32,35 @@ Two notable observations:
 2. The search query is a compressed expression of the problem statement in the prompt.
 	- I probably made the prompt a bit more explicative and redundant for the sake of the model, meaning I feel like this is nakedly "prompt language" rather than a "true" expression of the problem statement, but it came out in one fluid motion and I didn't linger on any of the details.
 
-## Chat Recipes
+## Recipes
 
 - [Git Explainer](https://chat.0x01.ai/share/FEuWEKM) &middot; I know that git subcommands exist but I've never been able to keep them straight beyond the core of my daily get workflow: pull, push, checkout, commit, clone, rebase, stash, & merge are about all I have room for.
-
 - [Calendar Availability](https://chat.openai.com/g/g-0yja9C7Ik-calendar-availability) &middot; A custom GPT that takes a screenshot of a calendar and responds with a text block of your availability. I used to have an entire [side project](https://github.com/wookiehangover/when.works) just for doing this!
+
+## Tools
+
+- `chat` command line helper &middot; h/t to [@sampullara](https://twitter.com/sampullara) for sharing this script. If you place this in your shell path, you can ask it for help writing commands.
+  - Despite more than 2 decades as a Linux user, my muscle-memory for shell commands is paltry. I know what I know and, of course, I know how to look things up.
+  - This script skips a bunch of steps and gets right to the answer, showing you a preview of the command and the choice to run it. And the fun part is that ChatGPT also helped write the script itself!
+  - Here are a few examples of how I've called this recently:
+    - `chat show info about my cpu` 
+    - `chat list size of my the current directory in gb`
+    - `chat mount the usb drive sdf1`
+    - `chat "what git branch is this commit in? 2e90fc13..."`
+
+```bash
+#!/bin/bash
+TOKEN=<your open ai token goes here>
+PROMPT="You are the best at writing shell commands. Assume the OS is Ubuntu. I want you to respond with only the shell commands separated by semicolons and no commentary. Here is what I want to do: $@"
+RESULT=`curl -s https://api.openai.com/v1/chat/completions \
+  -H 'Content-Type: application/json' \
+  -H "Authorization: Bearer $TOKEN" \
+  -d "{
+  \"model\": \"gpt-3.5-turbo\",
+  \"messages\": [{\"role\": \"user\", \"content\": \"$PROMPT\"}]
+}" | jq '.choices[] | .message.content' -r`
+echo $RESULT
+read -rp "Execute? [n]: " input_var
+input_var=${input_var:-n}
+[ "$input_var" = "y" ] && bash -c "$RESULT"
+```
