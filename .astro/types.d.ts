@@ -255,6 +255,13 @@ declare module 'astro:content' {
   collection: "wiki";
   data: InferEntrySchema<"wiki">
 } & { render(): Render[".md"] };
+"computers/web-development/python/aws-lambda-python-makefile.md": {
+	id: "computers/web-development/python/aws-lambda-python-makefile.md";
+  slug: "computers/web-development/python/aws-lambda-python-makefile";
+  body: string;
+  collection: "wiki";
+  data: InferEntrySchema<"wiki">
+} & { render(): Render[".md"] };
 "computers/what-I-use.md": {
 	id: "computers/what-I-use.md";
   slug: "computers/what-i-use";
