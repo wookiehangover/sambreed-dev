@@ -14,7 +14,7 @@
       border: none;
       font-family: var(--font-family-heading);
       font-size: 0.8rem;
-      color: var(--text-dim);
+      color: var(--slate-gray-5);
       cursor: pointer;
       display: flex;
       gap: 0.5rem;
@@ -23,7 +23,7 @@
       box-sizing: border-box;
 
       &:hover {
-        color: var(--text-color);
+        color: var(--slate-gray-10);
       }
     }
   }
@@ -36,9 +36,11 @@
 
     connectedCallback() {
       const button = document.createElement("button");
-      button.innerHTML = `<svg viewBox="0 0 20 20" width="16" height="16">
+      button.innerHTML = `<svg role="img" viewBox="0 0 20 20" width="16" height="16">
         <use href="/icon-sprite.svg#icon-copy"></use>
       </svg>`;
+      button.setAttribute("aria-label", "Copy code");
+      button.setAttribute("title", "Copy code");
 
       button.addEventListener("click", () => {
         navigator.clipboard.writeText(this.querySelector("pre")?.textContent ?? "");

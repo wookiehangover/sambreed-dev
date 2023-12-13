@@ -8,7 +8,7 @@ categories:
   - Web Development
 type: note
 ---
-I've been using LLMs for general coding tasks since late 2020. Here are a few examples of novel / interesting workflows. I've included some embeds of chats using one of the tools I maintain for work.
+I've been using LLMs for general coding tasks since late 2020. This is where I've started to corral together thoughts and techniques for "doing computers" with LLMs in the passenger seat.
 
 ## LLM as Search Engines
 
@@ -34,6 +34,9 @@ Two notable observations:
 
 ## Recipes
 
+Here are a few examples of novel / interesting workflows and I've come across and found helpful. I've included some embeds of chats using one of the tools I maintain for work.
+
+- [SQL Query help](https://chat.0x01.ai/share/WkIoArI) &middot; SQL has always been something that I never seem to develop strong muscle memory for. Given the highly structured nature of SQL, it seems immune to good documentation. There are many, many reasonable queries that I can describe in plain english, but then I fail to remember the syntax to get there in the query. Usually there's a lot of trial and error to get working chunks of a query to come together. LLMs significantly tighten the feedback loop.
 - [Git Explainer](https://chat.0x01.ai/share/FEuWEKM) &middot; I know that git subcommands exist but I've never been able to keep them straight beyond the core of my daily get workflow: pull, push, checkout, commit, clone, rebase, stash, & merge are about all I have room for.
 - [Calendar Availability](https://chat.openai.com/g/g-0yja9C7Ik-calendar-availability) &middot; A custom GPT that takes a screenshot of a calendar and responds with a text block of your availability. I used to have an entire [side project](https://github.com/wookiehangover/when.works) just for doing this!
 
