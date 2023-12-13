@@ -1,6 +1,6 @@
 ---
 title: "Building this Wiki"
-description: "The map is the destination"
+description: "The map is not the territory"
 createdAt: 2023-07-18
 categories: ["Computers", "Web Development"]
 type: 'note'
