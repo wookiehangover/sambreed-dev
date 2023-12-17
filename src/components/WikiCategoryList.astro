@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import getAllCategories from "../utils/get-all-categories";
 import Category from "./Category.astro";
 import Icon from "./Icon.astro";
+import SearchForm from "./search/SearchForm.astro";
 
 const wikiEntries = await getCollection("wiki");
 const { tree } = getAllCategories(wikiEntries);
@@ -13,7 +14,7 @@ const { tree } = getAllCategories(wikiEntries);
     <h2>Categories</h2>
   </header>
   <div>
-    <ul class="pt-4 categories">
+    <ul class="categories">
       {tree.map((category) => <Category value={category} />)}
       <li class="flex items-center gap-1 pt-8">
         <Icon name="bulleted-list"/>
@@ -24,6 +25,9 @@ const { tree } = getAllCategories(wikiEntries);
         <a href={`/wiki/about`} title={`About`}>About</a>
       </li>
     </ul>
+
+    <SearchForm action="/wiki/search" />
+    
   </div>
 </section>
 <style is:global>
@@ -39,6 +43,6 @@ const { tree } = getAllCategories(wikiEntries);
   .categories {
     list-style: none;
     padding: 0;
-    margin: 1rem 0;
+    margin: 1rem 0 4rem;
   }
 </style>
