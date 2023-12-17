@@ -1,85 +1,67 @@
 ---
-import BaseHead from '../../components/BaseHead.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../config';
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../config";
 
 import { getCollection } from "astro:content";
-const posts = (await getCollection("writing"))
-  .sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf())
+import BlogCard from "../../components/search/BlogCard.astro";
+import SearchForm from "../../components/search/SearchForm.astro";
+const posts = (await getCollection("writing")).sort(
+  (a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf(),
+);
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<section>
-			<header>
-				<h1>“Blog”</h1>
-			</header>
-			<div>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<h2>
-									<a href={`/writing/${post.slug}`}>{post.data.title}</a>
-								</h2>
-								<p>
-									<time datetime={post.data.pubDate}>
-										{new Date(post.data.pubDate).toLocaleDateString('en-us', {
-											year: 'numeric',
-											month: '2-digit',
-											day: '2-digit',
-										})}
-									</time>
-								</p>
-								{post.data.description && <p>{post.data.description}</p>}
-							</li>
-						))
-					}
-					<li>
-						<h2>
-							<a href="https://medium.com/@sambreed/2015-books-504cb79ac5c0#.f8izs5mpq">2015 reading list</a>
-						</h2>
-						<time>01/01/2016</time>
-					</li>
-				</ul>
-			</div>
-		</section>
-		<Footer />
-	</body>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <section>
+      <header>
+        <h1>“Blog”</h1>
+      </header>
+      <div>
+				<SearchForm action="/writing/search" />
+        <ul>
+          {
+            posts.map((post) => (
+							<BlogCard entry={{ ...post.data, slug: post.slug }} />
+            ))
+          }
+          <li>
+            <h2>
+              <a href="https://medium.com/@sambreed/2015-books-504cb79ac5c0#.f8izs5mpq">2015 reading list</a>
+            </h2>
+            <time>01/01/2016</time>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <Footer />
+  </body>
+	
+	<style>
+    main {
+      max-width: var(--width);
+      margin: auto;
+    }
+
+		ul {
+			display: grid;
+			list-style: none;
+			grid-template-columns: 1fr 1fr;
+			gap: 1rem;
+			margin: 0;
+			padding: 0;
+		}
+
+		@media (max-width: 512px) {
+			ul {
+				grid-template-columns: 1fr;
+			}
+		}
+  </style>
 </html>
-
-<style>
-	main {
-		max-width: var(--width);
-		margin: auto;
-	}
-	ul {
-		list-style-type: none;
-		padding: unset;
-	}
-	ul li {
-		margin: 0 0 5rem;
-
-		& h2 {
-			font-size: 1rem;
-			margin: 0;
-		}
-
-		& p {
-			margin: 0;
-		}
-	}
-	ul li time {
-		font-variant: tabular-nums;
-		color: var(--text-dim);
-	}
-	ul li a:visited {
-		color: var(--link-dim);
-	}
-</style>

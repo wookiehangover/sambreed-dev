@@ -7,18 +7,22 @@ import { findSimilarEmbeddings, type Embedding, type Score, type Vector } from "
 const client = new OpenAI({ apiKey: import.meta.env.OPENAI_API_KEY });
 
 async function runSimilaritySearch(query: Vector, data: Embedding[]): Promise<Score[]> {
-  const topK = 5;
+  const topK = 6;
   const similarEmbeddings = findSimilarEmbeddings(query, data, topK);
   return similarEmbeddings;
 }
 
 const searchVectors = new Map<string, Vector>();
 
+const ALL = [
+  ...blogData.map((e) => ({ ...e, type: "blog" })),
+  ...wikiData.map((e) => ({ ...e, type: "wiki" })),
+]
+
 export const GET: APIRoute = async function GET({ request }) {
   const url = new URL(request.url);
   const q = url.searchParams.get("q") as string;
   const type = url.searchParams.get("type") as string;
-
 
   let data: Embedding[];
   if (type === "blog") {
@@ -26,10 +30,7 @@ export const GET: APIRoute = async function GET({ request }) {
   } else if (type === "wiki") {
     data = wikiData;
   } else if (type === "all") {
-    data = [
-      ...blogData.map((e) => ({ ...e, type: "blog" })),
-      ...wikiData.map((e) => ({ ...e, type: "wiki" })),
-    ]
+    data = ALL;
   } else {
     return new Response(JSON.stringify({ message: "Missing type parameter" }), {
       status: 400,

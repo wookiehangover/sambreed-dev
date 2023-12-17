@@ -1,0 +1,50 @@
+---
+export interface Props {
+  action?: string;
+  value?: string;
+}
+
+const { action = "/search", value } = Astro.props
+---
+<form action={action}>
+  <input
+    type="search"
+    autocomplete="off"
+    autocapitalize="off"
+    autocorrect="off"
+    placeholder="Search"
+    name="q"
+    value={value ?? ""}
+  />
+  <button>Go</button>
+</form>
+
+<style>
+  form {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0 2rem;
+  }
+
+  input {
+    flex-grow: 1;
+    padding: 0.5rem;
+    border: 1px solid var(--border-dim);
+    border-radius: 4px;
+    font-size: 1rem;
+    line-height: 1.3;
+    background: transparent;
+    color: var(--text-color);
+    outline: none;
+  }
+
+  button {
+    background-color: var(--border-dim);
+    color: var(--text-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+</style>
