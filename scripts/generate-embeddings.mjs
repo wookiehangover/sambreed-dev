@@ -16,25 +16,47 @@ async function generateEmbeddings(src, dest) {
   const files = await globby(src)
 
   const entries = []
-
-  let existingEntries = []
+  let existingEntries = new Map()
   
   try { 
     const data = await fs.readFile(dest, 'utf8')
 
     if (data) {
-      entries.push(...JSON.parse(data))
+      const json = JSON.parse(data)
+      for (const entry of json) {
+        existingEntries.set(entry.slug, entry)
+      }
     }
   } catch (error) {
     console.log('no existing entries')
   }
 
-
-
   for (const file of files) {
     const content = await fs.readFile(file, 'utf8')
     const slug = file.replace('./src/content/wiki/', '').replace('./src/content/writing/', '').replace('.md', '')
     const { data } = matter(content)
+
+    const existingEntry = existingEntries.get(slug)
+
+    if (existingEntry) {
+      if (existingEntries.updatedAt === data.updatedAt) {
+        console.log(`skipping ${slug}`)
+        entries.push(existingEntry)
+        continue
+      }
+
+      if (existingEntries.createdAt === data.createdAt) {
+        console.log(`skipping ${slug}`)
+        entries.push(existingEntry)
+        continue
+      }
+
+      if (existingEntries.pubDate === data.pubDate) {
+        console.log(`skipping ${slug}`)
+        entries.push(existingEntry)
+        continue
+      }
+    }
 
     console.log(`creating embedding for ${slug}`)
     const response = await client.embeddings.create({
@@ -50,8 +72,9 @@ async function generateEmbeddings(src, dest) {
     entries.push(entry)
   }
 
+  console.log(`writing ${entries.length} entries to ${dest}`)
   await fs.writeFile(dest, JSON.stringify(entries))
 }
 
-// generateEmbeddings('./src/content/wiki/**/*.md', './src/data/wiki.json')
-generateEmbeddings('./src/content/writing/**/*.md', './src/data/writing.json')
+await generateEmbeddings('./src/content/wiki/**/*.md', './src/data/wiki.json')
+await generateEmbeddings('./src/content/writing/**/*.md', './src/data/writing.json')
