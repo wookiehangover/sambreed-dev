@@ -21,6 +21,7 @@
     "autoprefixer": "^10.4.16",
     "cssnano": "^6.0.1",
     "just-kebab-case": "^4.2.0",
+    "openai": "^4.23.0",
     "rehype-sanitize": "^6.0.0",
     "rehype-stringify": "^10.0.0",
     "remark": "^15.0.1",
@@ -32,5 +33,10 @@
   },
   "prettier": {
     "printWidth": 120
+  },
+  "devDependencies": {
+    "dotenv": "^16.3.1",
+    "globby": "^14.0.0",
+    "gray-matter": "^4.0.3"
   }
 }
