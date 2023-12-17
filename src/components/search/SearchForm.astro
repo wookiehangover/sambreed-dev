@@ -2,9 +2,10 @@
 export interface Props {
   action?: string;
   value?: string;
+  placeholder?: string;
 }
 
-const { action = "/search", value } = Astro.props
+const { action = "/search", value, placeholder = "Search" } = Astro.props
 ---
 <form action={action}>
   <input
@@ -12,7 +13,7 @@ const { action = "/search", value } = Astro.props
     autocomplete="off"
     autocapitalize="off"
     autocorrect="off"
-    placeholder="Search"
+    placeholder={placeholder}
     name="q"
     value={value ?? ""}
   />

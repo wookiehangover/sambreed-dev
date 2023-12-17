@@ -33,8 +33,12 @@ async function generateEmbeddings(src, dest) {
 
   for (const file of files) {
     const content = await fs.readFile(file, 'utf8')
-    const slug = file.replace('./src/content/wiki/', '').replace('./src/content/writing/', '').replace('.md', '')
+    const slug = file.replace('./src/content/wiki/', '').replace('./src/content/writing/', '').replace('.mdx', '').replace('.md', '')
     const { data } = matter(content)
+
+    if (data.title == "2007") {
+      continue
+    }
 
     const existingEntry = existingEntries.get(slug)
 
@@ -77,4 +81,4 @@ async function generateEmbeddings(src, dest) {
 }
 
 await generateEmbeddings('./src/content/wiki/**/*.md', './src/data/wiki.json')
-await generateEmbeddings('./src/content/writing/**/*.md', './src/data/writing.json')
+await generateEmbeddings('./src/content/writing/**/*.md*', './src/data/writing.json')

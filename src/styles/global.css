@@ -331,6 +331,9 @@ section > div, section > article {
 .pt-8 {
   padding-top: 2rem;
 }
+.pb-4 {
+  padding-bottom: 1rem;
+}
 .w-prose {
   max-width: var(--width);
   margin: auto;

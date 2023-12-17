@@ -2,7 +2,6 @@
 title: Links, June 2023
 slug: 2023/links-jun-2023
 description: like a playlist but for my open tabs
-
 heroImage: "/img/2e6dfddd-8124-405f-a98f-09c7c06ca044.png"
 heroAlt: ( A cityscape with a river running through it, highrises and buildings on either side. In the foreground there is a park with people relaxing and children playing. The sky is a deep blue. ) High Detail, Tungsten Color Film. trending on artstation hq deviantart. by artist laurie greasley. — Stable Diffusion v1.5
 pubDate: "June 30 2023"

@@ -1,0 +1,145 @@
+---
+title: Little Vector Search
+slug: 2023/lil-vector-search
+description: "How to build a toy search engine with vector similarity search"
+heroImage: "/img/rabbit-doing-search-2.png"
+heroAlt: "“a rabbit using a computer to do a vector search” - SDXL"
+pubDate: "December 17 2023"
+---
+import SearchForm from "../../../components/search/SearchForm.astro";
+
+You might have noticed that there are now some search boxes on the site. They're powered by a toy vector search that I built. I like to call it _vibe based search_.
+
+Here's one:
+
+<SearchForm placeholder="Try a search term like 'css' or 'running'" />
+
+If you tried it out and came back, welcome back.
+
+If you didn’t try it, it’s pretty standard: enter a term like [“css”](/search?q=css) or [“web components”](/search?q=web%20components) or [“running”](/search?q=running) and it will show you some relevant posts. Pretty neat!
+
+## How it works
+
+The caveman version goes like this:
+
+> put numbers in file and search go brr
+
+The short, non-caveman version goes like this:
+
+1. Encode the content as [embeddings](https://huggingface.co/blog/getting-started-with-embeddings) at build time.
+2. Encode incoming the search query. 
+3. Use math to find the embeddings closest to the search query.
+
+That’s it. Step 3 returns a list of content from Step 1. An API endpoint then returns the frontmatter for the top 6 results and I use that to render a list of results.
+
+Going a level deeper, there are 3 main problems to solve to make this work:
+
+- Encoding - create the embeddings correctly
+- Retrieval - do math to find the right embeddings
+- Web glue - render search results
+
+## Encoding
+
+I’m using OpenAI’s API to generate a vector for each blog post and wiki entry. A script runs at build time to retrieve and store all of the embeddings into JSON files, one for blog posts and one for wiki entries.
+
+The script itself is not very interesting.
+
+- globs files to embed
+- find previous embeddings, if any exist
+- iterates through the files
+	- extract frontmatter
+	- check if a previous embedding exists and if needs to be updated
+	- call OpenAI to create an embeddings using `text-embedding-ada-002`
+- write the embeddings to a JSON file
+
+At runtime, an embedding is generated for incoming search queries and are cached in the runtime.
+
+## Retrieval
+
+[Cosine similarity](https://en.m.wikipedia.org/wiki/Cosine_similarity) is used to rank the embeddings. Given the paltry size of my data and the speed of modern programming languages, this can be done with brute force.
+
+<details>
+<summary>vector-search.ts</summary>
+
+```typescript
+export type Vector = number[];
+
+export type Embedding = {
+  slug: string;
+  embedding: Vector;
+};
+
+export type Score = {
+  embedding: Embedding;
+  score: number;
+};
+
+export function cosineSimilarity(a: Vector, b: Vector): number {
+  const dotProduct = a.reduce((acc, val, i) => acc + val * b[i], 0);
+  const magnitudeA = Math.sqrt(a.reduce((acc, val) => acc + val * val, 0));
+  const magnitudeB = Math.sqrt(b.reduce((acc, val) => acc + val * val, 0));
+
+  return dotProduct / (magnitudeA * magnitudeB);
+}
+
+export function findSimilarEmbeddings(query: Vector, embeddings: Embedding[], topK: number): Score[] {
+  const scores: Score[] = embeddings.map((embedding) => ({
+    embedding,
+    score: cosineSimilarity(query, embedding.embedding),
+  }));
+
+  scores.sort((a, b) => b.score - a.score);
+
+  return scores.slice(0, topK);
+}
+```
+
+h/t to the new [mistral-medium model](https://docs.mistral.ai/) for helping author this code. 
+</details>
+
+## Web glue
+
+My website uses [Astro](https://astro.build/) and is deployed to Cloudflare Pages.
+
+The first step was to write an API endpoint. This provided good scaffolding while writing the retrieval code.
+
+Step two was to make a page with the search form that can render results. In the server portion of this page, I call the API endpoint, passing along the query string parameters from the page. This seems to be what [Astro recommends](https://docs.astro.build/en/guides/data-fetching/#fetch-in-astro) for data fetching.
+
+There is no JavaScript on the search page and it is not required to perform a search. After many years using React for everything, it is refreshing to use a framework that supports a JavaScript-free experience out of the box.
+
+Searches are simple GET requests and can be linked directly, e.g.: [marathon](/search?q=marathon).
+
+I considered moving the retrieval code directly into the page, since the API endpoint is otherwise unused.
+
+## Caveats
+
+This is definitely a toy! It will always return results and they will not always be accurate!
+
+But then again, (and here’s the fun of cherry-picking my examples) some results _just work_.
+
+One way to see past the shortcomings are to consider this as _vibe based_ search. Some of the posts have good vibes, so they return often.
+
+Full text search would likely be better overall, but would _not_ be vibe based so I’m not interested.
+
+## Areas for Improvement
+
+- Cache search query embeddings somewhere durable.
+	- Searches are cached in memory in the Cloudflare worker, which has a short and unpredictable lifespan.
+	- These could be stored in one of Cloudflare’s database products. It’s small data but costs money to generate, so durable search embeddings would prevent repeatedly paying to encode the same search terms.
+	- Cloudflare even has [a dedicated product for this](https://developers.cloudflare.com/vectorize/get-started/embeddings/) called Vectorize. Fancy!
+- Increase granularity of embeddings
+	- I’m only generating a single embedding for each piece of content.
+	- This is not ideal, but offered passable results and good performance. I experimented with adding text chunking, but the search felt worse and the JSON payload was much bigger.
+
+
+## Conclusion
+
+Search has long been a default expectation on the web but perilously out of reach for many websites.
+
+Full text search frameworks like Elastic and OpenSearch offer a better out of the box experience than previous generations of search tech, but they do pose a steep learning curve and discrete infrastructure.
+
+Third-party providers like Algolia have long been a common solution, offering robust managed services and well-designed client integrations. Once your data is indexed correctly, it’s mostly hands-off.
+
+I set out to try adding vector search for my content to see where it netted out. I think the results are pretty good, given how dumb and blunt the technique feels: “put numbers in file and search go brrrr.”
+
+I’m excited to see where this goes and it's fun to see how practical a small machine learning task can be.

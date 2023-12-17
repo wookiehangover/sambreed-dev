@@ -357,7 +357,7 @@ declare module 'astro:content' {
 } & { render(): Render[".md"] };
 "2022/links-august-2022.html.md": {
 	id: "2022/links-august-2022.html.md";
-  slug: "2022/links-august-2021.html";
+  slug: "2022/links-august-2022.html";
   body: string;
   collection: "writing";
   data: InferEntrySchema<"writing">
@@ -453,6 +453,13 @@ declare module 'astro:content' {
   collection: "writing";
   data: InferEntrySchema<"writing">
 } & { render(): Render[".md"] };
+"2023/little-vector-search.mdx": {
+	id: "2023/little-vector-search.mdx";
+  slug: "2023/lil-vector-search";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".mdx"] };
 "2023/little-web-components.md": {
 	id: "2023/little-web-components.md";
   slug: "2023/lil-web-components";
