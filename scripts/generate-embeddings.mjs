@@ -47,9 +47,7 @@ async function generateEmbeddings(src, dest) {
         console.log(`skipping ${slug}`)
         entries.push(existingEntry)
         continue
-      }
-
-      if (existingEntries.createdAt === data.createdAt) {
+      } else if (existingEntries.createdAt === data.createdAt) {
         console.log(`skipping ${slug}`)
         entries.push(existingEntry)
         continue
