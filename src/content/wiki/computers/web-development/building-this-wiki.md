@@ -2,6 +2,7 @@
 title: "Building this Wiki"
 description: "The map is not the territory"
 createdAt: 2023-07-18
+updatedAt: 2023-12-17
 categories: ["Computers", "Web Development"]
 type: 'note'
 ---
@@ -62,5 +63,12 @@ In many ways, Astro paved a cowpath that I was already on. In 2017 I used unify,
 
 ### Custom Elements
 
-I hope to make more use of custom elements as time goes on. Here's what's in play:
-- `<code-block>` is a wrapper around the [shiki](https://shiki.matsu.io/) code highlighter. A remark plugin automatically wraps markdown code blocks in wiki posts. The component follows the "light-dom" pattern, adding syntax highlighting to its children. With javascript off, you get a more basic `<pre><code>` without highlighting.
+There are a few Custom Elements floating around the site. I wrote about them in [Little Web Components](/writing/2023/lil-web-components). They are:
+
+* `<share-button>` wraps a standard `<button>` to trigger the [Web Share API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Share_API) if available, otherwise copying the link to the clipboard.
+* `<reply-link>` uses the Shadow DOM to keep my email address out of crawlers.
+* `<code-block>` adds a little "copy to clipboard" button to every preformatted code element
+
+### Search
+
+Below the list of categories at the bottom of the page you'll see a search form. This is my [vibe-based search](/writing/2023/lil-vector-search) and will return similar posts. It's like full text search, but much worse! 
