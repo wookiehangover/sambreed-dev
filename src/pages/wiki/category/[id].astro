@@ -2,11 +2,11 @@
 import { getCollection } from "astro:content"
 import getAllCategories from "../../../utils/get-all-categories";
 import kebabCase from "just-kebab-case"
-import WikiCardList from "../../../components/WikiCardList.astro";
+import WikiCardList from "../../../components/wiki/WikiCardList.astro";
 import BaseHead from "../../../components/BaseHead.astro";
 import Footer from "../../../components/Footer.astro";
 import Header from "../../../components/Header.astro";
-import WikiCategoryList from "../../../components/WikiCategoryList.astro";
+import WikiCategoryList from "../../../components/wiki/WikiCategoryList.astro";
 const { id } = Astro.params;
 
 if (id === undefined) {

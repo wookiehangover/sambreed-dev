@@ -1,9 +1,9 @@
 ---
 import { getCollection } from "astro:content";
-import getAllCategories from "../utils/get-all-categories";
+import getAllCategories from "../../utils/get-all-categories";
 import Category from "./Category.astro";
-import Icon from "./Icon.astro";
-import SearchForm from "./search/SearchForm.astro";
+import Icon from "../Icon.astro";
+import SearchForm from "../search/SearchForm.astro";
 
 const wikiEntries = await getCollection("wiki");
 const { tree } = getAllCategories(wikiEntries);
