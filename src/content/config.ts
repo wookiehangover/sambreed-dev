@@ -1,4 +1,4 @@
-import { z, defineCollection } from "astro:content"
+import { z, defineCollection  } from "astro:content"
 
 const wikiCollection = defineCollection({
   type: 'content',
@@ -14,7 +14,7 @@ const wikiCollection = defineCollection({
 
 const posts = defineCollection({
   type: 'content',
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
     description: z.string().optional(),
     pubDate: z.string(),
@@ -22,6 +22,7 @@ const posts = defineCollection({
     heroVideo: z.string().optional(),
     heroImage: z.string().optional(),
     heroAlt: z.string().optional(),
+    cover: image().optional(),
   })
 })
 

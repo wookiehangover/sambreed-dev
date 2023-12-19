@@ -1,21 +1,22 @@
 ---
+import { Image } from "astro:assets";
 const { entry } = Astro.props;
 ---
 
 <li>
   <h2>
-    <a href={`/writing/${entry.slug}`}>{entry.title}</a>
+    <a href={`/writing/${entry.slug}`}>{entry.data.title}</a>
   </h2>
 
   <figure>
-    {entry.heroImage ? <img src={entry.heroImage} alt={entry.heroAlt} loading="lazy" /> : <div class="aspect-ratio-16/9" />}
+    {entry.data.cover ? <Image src={entry.data.cover} alt={entry.data.heroAlt} /> : (entry.data.heroImage ? <img src={entry.data.heroImage} alt={entry.data.heroAlt} loading="lazy" /> : <div class="aspect-ratio-16/9" />)}
   </figure>
 
-  <p class="text-sm">{entry.description}</p>
+  <p class="text-sm">{entry.data.description}</p>
 
   <p>
-    <time datetime={entry.pubDate}>
-      {new Date(entry.pubDate).toLocaleDateString("en-us", {
+    <time datetime={entry.data.pubDate}>
+      {new Date(entry.data.pubDate).toLocaleDateString("en-us", {
         year: "numeric",
         month: "2-digit",
         day: "2-digit",

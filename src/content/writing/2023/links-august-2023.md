@@ -3,7 +3,7 @@ title: Links, August 2023
 slug: 2023/links-august-2023
 description: shaking out the tabs from the bottom of the bag
 
-heroImage: "/img/967222.jpeg"
+cover: "../../../assets/967222.jpeg"
 heroAlt: "\"to the west the cloudbanks stood above the mountains like the dark warp of the very firmament and the star-sprent reaches of the galaxies hung in a vast aura above the riders' heads\" Cormac McCarthy × Stable Diffusion XL1.0"
 pubDate: "August 31 2023"
 ---

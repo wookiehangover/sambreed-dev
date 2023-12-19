@@ -24,7 +24,9 @@ export default defineConfig({
   site: 'https://sambreed.dev',
   integrations: [mdx(), sitemap()],
   output: "server",
-  adapter: cloudflare(),
+  adapter: cloudflare({
+    imageService: "cloudflare"
+  }),
   markdown: {
     shikiConfig: {
       theme: "one-dark-pro"

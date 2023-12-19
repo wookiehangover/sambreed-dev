@@ -2,8 +2,7 @@
 title: Links, March 2023
 slug: 2023/links-march-2023
 description: The AI Overlords have approved of these links
-
-heroImage: "/img/746fd781-3cbe-4e87-9a8c-4481848b5658.webp"
+cover: "../../../assets/746fd781-3cbe-4e87-9a8c-4481848b5658.webp"
 heroAlt: ( an old couple on a hill watching the sunset ) traditional painting style muted colors by Vincent van Gogh Tilt Shift, Cinestill 800T 35mm. best of flickr. by artist laurie greasley. - Stable Diffusion v1.5
 pubDate: "Mar 31 2023"
 ---

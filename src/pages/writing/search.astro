@@ -1,4 +1,5 @@
 ---
+import { getCollection } from "astro:content";
 import BaseHead from "../../components/BaseHead.astro";
 import Footer from "../../components/Footer.astro";
 import Header from "../../components/Header.astro";
@@ -6,12 +7,16 @@ import BlogCard from "../../components/search/BlogCard.astro"
 import SearchForm from "../../components/search/SearchForm.astro";
 
 const query = Astro.url.searchParams.get("q");
+const blogEntries = await getCollection("writing");
 
 let results = null;
 
 if (query) {
   const response = await fetch(`${Astro.url.origin}/api/search?q=${query}&type=blog`);
-  results = await response.json();
+  const data = await response.json();
+  results = data.map((entry: any) => {
+    return blogEntries.find((e) => e.slug === entry.slug);
+  })
 }
 ---
 

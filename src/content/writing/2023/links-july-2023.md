@@ -2,8 +2,8 @@
 title: Links, July 2023
 slug: 2023/links-july-2023
 description: too many tabs, not enough time
-
-heroImage: "/img/1690248820042-photorealistic-coastal-mountain-range-magic-hour.jpg"
+cover: "../../../assets/1690248820042-photorealistic-coastal-mountain-range-magic-hour.jpg"
+heroAlt: "thinking about running in the mountains this month"
 pubDate: "July 31 2023"
 ---
 

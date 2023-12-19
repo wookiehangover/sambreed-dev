@@ -28,7 +28,7 @@ const posts = (await getCollection("writing")).sort(
         <ul>
           {
             posts.map((post) => (
-							<BlogCard entry={{ ...post.data, slug: post.slug }} />
+							<BlogCard entry={post} />
             ))
           }
           <li>

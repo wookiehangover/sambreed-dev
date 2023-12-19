@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import BlogPosts from '../components/blog/BlogPosts.astro';
 import BlogShare from '../components/blog/BlogShare.astro';
+import { Image } from "astro:assets"
 import "../components/CodeBlock.astro"
 
 export interface Props {
@@ -16,18 +17,19 @@ export interface Props {
 		heroImage?: string;
 		heroAlt?: string;
 		slug: string
+		cover: any
 	};
 }
 
 const {
-	content: { title, description, pubDate, updatedDate, heroImage, heroAlt, slug, heroVideo },
+	content: { title, description, pubDate, updatedDate, heroImage, heroAlt, slug, heroVideo, cover },
 } = Astro.props;
 
 ---
 
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description ?? ""} image={heroImage} />
+		<BaseHead title={title} description={description ?? ""} cover={cover} />
 	</head>
 
 	<body>
@@ -58,6 +60,7 @@ const {
 						</figure>
 					) : (
 						<figure>
+							{cover && <Image src={cover} alt={heroAlt ?? title} width={512}/>}
 							{heroImage && <img src={heroImage} alt={heroAlt} />}
 							{heroAlt && (<figcaption>{heroAlt}</figcaption>)}
 						</figure>
