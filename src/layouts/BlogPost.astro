@@ -29,7 +29,7 @@ const {
 
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description ?? ""} image={heroImage} />
+		<BaseHead title={title} description={description ?? ""} cover={cover} />
 	</head>
 
 	<body>
@@ -60,7 +60,7 @@ const {
 						</figure>
 					) : (
 						<figure>
-							{cover && <Image src={cover} alt={heroAlt} />}
+							{cover && <Image src={cover} alt={heroAlt ?? title} width={512}/>}
 							{heroImage && <img src={heroImage} alt={heroAlt} />}
 							{heroAlt && (<figcaption>{heroAlt}</figcaption>)}
 						</figure>

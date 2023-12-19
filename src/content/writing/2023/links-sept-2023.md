@@ -2,8 +2,7 @@
 title: Links, September 2023
 slug: 2023/links-sept-2023
 description: faintly falling, falling faintly, fall links
-
-heroImage: "/img/IMG_1162.jpeg"
+cover: "../../../assets/IMG_1162.jpeg"
 heroAlt: "Sunset behind the flatirons, Boulder CO"
 pubDate: "September 30 2023"
 ---

@@ -1,6 +1,7 @@
 ---
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
+import { getImage } from 'astro:assets';
 import '../styles/global.css';
 import "@fontsource/bitter"
 
@@ -8,9 +9,17 @@ export interface Props {
 	title: string;
 	description: string;
 	image?: string;
+	cover?: any;
 }
 
-const { title, description, image = '/img/theodore-rex.jpg' } = Astro.props;
+const { title, description, image = '/img/theodore-rex.jpg', cover } = Astro.props;
+
+let img = image
+
+if (cover) {
+	img = (await getImage({ src: cover })).src
+}
+
 ---
 
 <!-- Global Metadata -->
@@ -38,7 +47,7 @@ const { title, description, image = '/img/theodore-rex.jpg' } = Astro.props;
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:image" content={new URL(img, Astro.url)} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />

@@ -2,8 +2,7 @@
 title: Links, May 2023
 slug: 2023/links-may-2023
 description: A bouquet of open tabs
-
-heroImage: "/img/2cec5f5f-86ac-44e6-b236-21c828141ce2.png"
+cover: "../../../assets/2cec5f5f-86ac-44e6-b236-21c828141ce2.png"
 heroAlt: ( a field of tall grass in the middle of a city ) by James Jean People in the distance, looking up at something in the sky. The colors are very muted, and there is a sense of foreboding. High Quality, Heavy Grain. best of flickr. by artist artgerm. Stable Diffusion v1.5
 pubDate: "May 31 2023"
 ---

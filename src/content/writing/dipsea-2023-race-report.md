@@ -2,8 +2,7 @@
 title: Dipsea 2023 Race Report
 slug: dipsea-2023-race-report
 description: Race overview from my very first running of The Dipsea on June 11, 2023
-
-heroImage: "/img/C4F2FB7B-DA17-4F91-BD24-D96D2E0CF1A4_1_105_c.jpeg"
+cover: "../../assets/C4F2FB7B-DA17-4F91-BD24-D96D2E0CF1A4_1_105_c.jpeg"
 heroAlt: me, in my Henry Rollins "Search & Destroy" hoodie at the start line.
 pubDate: "June 12 2023"
 ---

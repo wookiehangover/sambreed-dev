@@ -6,11 +6,11 @@ const { entry, map } = Astro.props;
 
 <li>
   <h2>
-    <a href={`/wiki/${entry.slug}`}>{entry.title}</a>
+    <a href={`/wiki/${entry.slug}`}>{entry.data.title}</a>
   </h2>
-  <p class="text-sm">{entry.description}</p>
+  <p class="text-sm">{entry.data.description}</p>
   <nav class="text-xs flex gap-1 w-full">
-    <CategoryList categories={entry.categories} map={map} />
+    <CategoryList categories={entry.data.categories} map={map} />
   </nav>
 </li>
 <style>

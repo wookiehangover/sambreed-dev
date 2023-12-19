@@ -9,6 +9,7 @@ import getAllCategories from "../utils/get-all-categories";
 import SearchForm from "../components/search/SearchForm.astro";
 
 const wikiEntries = await getCollection("wiki");
+const blogEntries = await getCollection("writing");
 const { map } = getAllCategories(wikiEntries);
 
 const query = Astro.url.searchParams.get("q");
@@ -17,8 +18,15 @@ let results = null;
 
 if (query) {
   const response = await fetch(`${Astro.url.origin}/api/search?q=${query}&type=all`);
-  results = await response.json();
+  const data = await response.json();
 
+  results = data.map((entry: any) => {
+    if (entry.type === "blog") {
+      return { type: "blog", ...blogEntries.find((e) => e.slug === entry.slug) };
+    } else {
+      return { type: "wiki", ...wikiEntries.find((e) => e.slug === entry.slug) };
+    }
+  })
 }
 ---
 

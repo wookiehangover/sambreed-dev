@@ -2,8 +2,7 @@
 title: Links, December 2022
 slug: 2022/links-december-2022
 description: More links to tabs I've kept open for 4 months
-
-heroImage: "/img/f7d62a45-a2c6-48fb-be8a-1735bf3f2d5f.png"
+cover: "../../../assets/f7d62a45-a2c6-48fb-be8a-1735bf3f2d5f.png"
 heroAlt: these four yet crouched at the edge of the firelight among their strange chattels and watched how the ragged flames fled down the wind as if sucked by some maelstrom out there in the void - Stable Diffusion v1.5
 pubDate: "Dec 31 2022"
 ---
