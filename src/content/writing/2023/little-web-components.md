@@ -2,8 +2,8 @@
 title: Little Web Components
 slug: 2023/lil-web-components
 description: "How I use little Web Components (Custom Elements) to improve my website"
-cover: "../../../assets/code-embed.png"
-heroAlt: "The now-unused <code-block> custom element"
+cover: "../../../assets/dalle-cat-making-web-components.png"
+heroAlt: "Little Web Components are serious business"
 pubDate: "December 4 2023"
 ---
 
