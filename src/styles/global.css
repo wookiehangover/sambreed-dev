@@ -356,3 +356,6 @@ section > div, section > article {
 .text-very-dim {
   color: var(--text-very-dim);
 }
+.hidden {
+  display: none;
+}

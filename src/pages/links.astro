@@ -1,0 +1,158 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import allLinks from "../data/links.json";
+
+const query = Astro.url.searchParams.get("q");
+let count = Object.values(allLinks).reduce((acc, links) => acc + links.length, 0);
+
+let hiddenLinks = new Set();
+if (query) {
+  hiddenLinks = new Set(
+    Object.values(allLinks)
+      .flat()
+      .filter(
+        (link) =>
+          !link.title.toLowerCase().includes(query.toLowerCase()) &&
+          !link.url.toLowerCase().includes(query.toLowerCase()),
+      ),
+  );
+
+  count -= hiddenLinks.size;
+}
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title="Links" description="All of the links!" />
+  </head>
+  <body>
+    <Header />
+
+    <section>
+      <header>
+        <h2>Links</h2>
+        <p>All of the links I've posted, stripped of my commentary in a single chaotic list.</p>
+        <p class="pt-4">
+          or try a
+          <a href="#" data-random-link target="_blank" rel="noopener noreferrer">Random Link →</a>
+        </p>
+      </header>
+      <div>
+        <p>
+          Serving up <span data-count>{count}</span> hot links.
+        </p>
+
+        <form>
+          <input
+            data-filter
+            type="search"
+            name="q"
+            value={query ?? ""}
+            autocapitalize="off"
+            autocorrect="off"
+            autocomplete="off"
+            placeholder="Filter by title or url"
+          />
+        </form>
+
+        <nav data-links>
+          {
+            Object.values(allLinks).map((links) =>
+              links.map((link) => (
+                <p>
+                  <a
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class={`${hiddenLinks.has(link) ? "hidden" : ""}`}
+                  >
+                    {link.title}
+                  </a>
+                </p>
+              )),
+            )
+          }
+        </nav>
+      </div>
+    </section>
+
+    <Footer />
+    <script>
+      const filterInput = document.querySelector("[data-filter]") as HTMLInputElement;
+      const countSpan = document.querySelector("[data-count]") as HTMLSpanElement;
+      const links = document.querySelectorAll("nav[data-links] > p > a[href^=http]") as NodeListOf<HTMLAnchorElement>;
+      const randomLink = document.querySelector("[data-random-link]") as HTMLAnchorElement;
+
+      if (filterInput && links && countSpan && randomLink) {
+        randomLink.addEventListener("click", () => {
+          const link = links[Math.floor(Math.random() * links.length)];
+          randomLink.href = link.href; // lol this works
+        });
+
+        filterInput.addEventListener("input", (e) => {
+          const filter = filterInput.value.toLowerCase();
+          let count = 0;
+
+          if (!filter) {
+            for (const link of links) {
+              count++;
+              link.classList.remove("hidden");
+            }
+            countSpan.textContent = count.toString();
+            return;
+          }
+
+          for (const link of links) {
+            const text = link.textContent?.toLowerCase();
+            if (text?.includes(filter) || link.href.includes(filter)) {
+              link.classList.remove("hidden");
+              count++;
+            } else {
+              link.classList.add("hidden");
+            }
+          }
+          countSpan.textContent = count.toString();
+        });
+      }
+    </script>
+
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+
+      section {
+        flex-grow: 1;
+      }
+
+      form {
+        display: flex;
+        gap: 1rem;
+        margin: 1rem 0 2rem;
+      }
+
+      input {
+        flex-grow: 1;
+        padding: 0.5rem;
+        border: 1px solid var(--border-dim);
+        border-radius: 4px;
+        font-size: 1rem;
+        line-height: 1.3;
+        background: transparent;
+        color: var(--text-color);
+        outline: none;
+      }
+
+      a[data-random-link] {
+        text-decoration: none;
+
+        &:hover {
+          color: var(--link-color-hover);
+        }
+      }
+    </style>
+  </body>
+</html>
