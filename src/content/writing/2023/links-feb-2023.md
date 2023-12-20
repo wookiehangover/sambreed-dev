@@ -10,7 +10,7 @@ pubDate: "Feb 28 2023"
 
 Winter. Low light. Short days. Cool weather. And finally, a month so short that it seems to be anticipating Spring waiting around the corner.
 
-For me, this winter has been characterized by [lots for low-effort running](https://www.strava.com/athletes/3256286) to train for my upcoming _first_ marathon at Big Sur in April.
+For me, this winter has been characterized by [lots of low-effort running](https://www.strava.com/athletes/3256286) to train for my upcoming _first_ marathon at Big Sur in April.
 
 I have also been collecting tabs.
 

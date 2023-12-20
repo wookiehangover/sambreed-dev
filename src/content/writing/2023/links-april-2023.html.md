@@ -29,6 +29,6 @@ Free range tabs edition. I was quite busy at the end of this month [running in B
 * [Something Pretty Right: A History of Visual Basic | Retool](https://retool.com/visual-basic/)
 * [Semi-automating a Substack newsletter with an Observable notebook](https://simonwillison.net/2023/Apr/4/substack-observable/)
 * [Pessimism vs Optimism](https://justinjackson.ca/pessimistic)
-* [(12) Cyberpunk 2077 - by Adrian Hon - Have You Played?](https://adrianhon.substack.com/p/cyberpunk-2077)
-* [(12) Unpredictable Black Boxes are Terrible Interfaces](https://magrawala.substack.com/p/unpredictable-black-boxes-are-terrible)
+* [Cyberpunk 2077 - by Adrian Hon - Have You Played?](https://adrianhon.substack.com/p/cyberpunk-2077)
+* [Unpredictable Black Boxes are Terrible Interfaces](https://magrawala.substack.com/p/unpredictable-black-boxes-are-terrible)
 * [Malleable software in the age of LLMs](https://www.geoffreylitt.com/2023/03/25/llm-end-user-programming.html)
