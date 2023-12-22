@@ -7,7 +7,7 @@ heroAlt: "I have been hard at work gathering materials."
 pubDate: "December 21 2023"
 ---
 
-I have a new page that collects [All the Links](/links) from my links blog posts. This is a post about that page and its lofi search.
+I have a new page that collects [All the Links](/links) from my links blog posts. This is about how I made the page and its lofi search experience.
 
 Go to [sambreed.dev/links](/links) or try this rickety old search box:
 
@@ -31,19 +31,21 @@ If you didn’t try that, it’s very simple. Put in a query like [“LLM”](/l
 
 ## Background
 
-In 2022 I started posting all of my stray browser tabs at the end of every month. In 2023 I managed to keep the habit up for the whole year. I wasn’t always on time and I didn’t leave a comment for every link but I did get a modest little pile of links.
+In 2022 I started posting all of my stray browser tabs at the end of every month. In 2023 I managed to keep the habit up for the whole year. I wasn’t always on time and I didn’t always leave a comment for every link, but I did get a modest little pile of links together: 296 at the time of writing.
 
-I’ve never been able to make bookmarks work for me.
+I think this is a response to never quite being able to make bookmarks work for me.
 
-After adding the [embeddings search](../lil-vector-search) I felt that it was missing something. I realized I wanted to see all the of links I’ve posted this year.
+A few weeks back, I added [embeddings search](../lil-vector-search) to my posts, but I felt that it was missing something.  It was really hit-or-miss when it came to actually finding things I had posted. (By design, partially — it’s a toy.)
+
+It hit me that what I wanted was to see all the of links I’ve posted this year in one place. So now I have big list of links. What next?
 
 ## User Experience
 
 There are 3 elements at play:
 
-- big list of all the links
-- search input that updates the list as you type
-- random button
+- Big list of all the links
+- Search input that updates the list as you type
+- Random link button
 
 A big list of links wasn’t entirely satisfying and not a great user experience. I didn’t want to re-create the presentation from the blog posts, where links are loosely categorized and presented with commentary.
 
@@ -51,21 +53,25 @@ The list needed a way to filter it.
 
 I’ve always liked list filtering as a UX pattern and it almost always feels like a useful addition. I chose to have the list update as you type in addition to a working form submission.
 
-Filtering felt like only part of the puzzle. What I really wanted is a random button, aping an idea from [Ryan Broderick’s Garbage Day website](https://random.garbageday.email/). So I added a button that will open a random link from the list in a new tab.
+Filtering felt like only part of the puzzle.
+
+What I really wanted is a random button, an idea borrowed from [Ryan Broderick’s excellent Garbage Day random section](https://random.garbageday.email/). There’s a link in the header that will open a random link from the list in a new tab.
 
 ## How it works
 
 ### Aggregation
 
-Astro provides great hooks for working with content collections, but I found that this use-case was a little bit outside the boundaries painted by their APIs.
+[Astro](https://astro.build) provides great hooks for working with content collections, but I found that this use-case was a little bit outside the boundaries painted by their APIs.
 
-The easiest thing I could think of was to copy the pattern I established with the search embeddings: a script to look through my content, grab the links, and output a JSON file.
+The easiest thing I could think of was to copy the pattern I established with the search embeddings: a script to look through my content at build time, grab the links, and output them in a JSON file.
 
 Armed with a JSON file of all the links, building a page to display them was trivial with Astro.
 
 ### Inline Search
 
-For the search, I started with JavaScript first. I felt that seeing the list update as you type would be a better experience. Instead of doing math-y vibe based search with embeddings, I opted to check the title and url for the search term. 
+For the search, I started with JavaScript first. I felt that seeing the list update as you type would be a better experience.
+
+Instead of doing math-y vibe based search with embeddings, I opted to check the title and url for the search term. 
 
 ```typescript
 const filterInput = document.querySelector("[data-filter]");
@@ -92,17 +98,21 @@ filterInput.addEventListener("input", () => {
 });
 ```
 
-This pattern is pretty dumb but it works. You wouldn’t want to do this with a large dataset, but it works just fine for a few hundred links.
+This pattern is pretty dumb but it works. You wouldn’t want to do this with a large dataset, but it fits just fine for a few hundred links.
+
+JavaScript is at its best when it is enhancing HTML to provide a more dynamic user experience.
 
 ### Form Submission
 
 With inline search working, I figured that I might as well make the form capable of submitting like an honest, old-fashioned web-site would have.
 
-Again, Astro makes this simple. I’m deployed to Cloudflare Pages and therefore have SSR. I modified the page to check for an incoming query parameter in the url and then perform a search, hiding any links that don’t match.
+Again, Astro makes this simple. The site is deployed to Cloudflare Pages and has SSR on every page.
+
+When the links page is requested, it checks for an query string in the url and then filters the links list by hiding any links that don’t match the incoming query.
 
 The JavaScript search picks up seamlessly, restoring the full list when you clear the input without having to submit the form to refresh the page. Best of both worlds!
 
-### Random Button
+### Random Links
 
 An API endpoint with an HTTP redirect did the trick here, and can be linked to from anywhere. Give it a try:
 
@@ -118,7 +128,7 @@ It even works with search queries!
 
 The next step is to use the Internet Archive’s Wayback Machine to make archived versions of each of the links in my trove, and present them as an option to follow.
 
-This is already something I do on my resume for the Quick Left website, which is now long gone from the web but still alive and well in the Wayback machine.
+This is already a convention I use in my [résumé](/cv.html) for the Quick Left website, which is now long gone from the web but still alive and well in the Wayback machine.
 
 Or maybe something more ambitious, like scraping the content (for research purposes, not to re-publish) and splitting it into embeddings or a full-text search, and build a proper little micro-search engine for the content I post about.
 
