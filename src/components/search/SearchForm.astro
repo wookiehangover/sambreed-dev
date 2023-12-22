@@ -7,7 +7,7 @@ export interface Props {
 
 const { action = "/search", value, placeholder = "Search" } = Astro.props
 ---
-<form action={action}>
+<form action={action} class="search">
   <input
     type="search"
     autocomplete="off"
@@ -19,33 +19,3 @@ const { action = "/search", value, placeholder = "Search" } = Astro.props
   />
   <button>Go</button>
 </form>
-
-<style>
-  form {
-    display: flex;
-    gap: 1rem;
-    margin: 1rem 0 2rem;
-  }
-
-  input {
-    flex-grow: 1;
-    padding: 0.5rem;
-    border: 1px solid var(--border-dim);
-    border-radius: 4px;
-    font-size: 1rem;
-    line-height: 1.3;
-    background: transparent;
-    color: var(--text-color);
-    outline: none;
-  }
-
-  button {
-    background-color: var(--border-dim);
-    color: var(--text-color);
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    font-size: 1rem;
-    line-height: 1.3;
-  }
-</style>
