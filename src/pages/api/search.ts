@@ -6,8 +6,7 @@ import { findSimilarEmbeddings, type Embedding, type Score, type Vector } from "
 
 const client = new OpenAI({ apiKey: import.meta.env.OPENAI_API_KEY });
 
-async function runSimilaritySearch(query: Vector, data: Embedding[]): Promise<Score[]> {
-  const topK = 6;
+async function runSimilaritySearch(query: Vector, data: Embedding[], topK = 6): Promise<Score[]> {
   const similarEmbeddings = findSimilarEmbeddings(query, data, topK);
   return similarEmbeddings;
 }
@@ -66,7 +65,7 @@ export const GET: APIRoute = async function GET({ request }) {
       searchVectors.set(q, vector);
     }
 
-    const results = await runSimilaritySearch(vector, data);
+    const results = await runSimilaritySearch(vector, data, 10);
 
     const resp = Array.from(
       results
@@ -80,7 +79,7 @@ export const GET: APIRoute = async function GET({ request }) {
           return acc;
         }, new Map())
         .values()
-    );
+    ).slice(0, 6);
 
     return new Response(JSON.stringify(resp), {
       headers: {
