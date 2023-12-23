@@ -36,8 +36,11 @@ if (query) {
           <h2>Links</h2>
           <p>All of the links I've posted, stripped of my commentary in a single chaotic list.</p>
           <p class="pt-4">
-            or try a
-            <a href={`/api/random-link${query ? `?q=${query}` : ""}`} data-random-link target="_blank" rel="noopener noreferrer">Random Link →</a>
+            Try a
+            <a href={`/api/random-link${query ? `?q=${query}` : ""}`} title="Take me to a random link" data-random-link target="_blank" rel="noopener noreferrer">Random Link →</a>
+          </p>
+          <p class="pt-4">
+            Read about <a href="/writing/2023/an-even-worse-search" title="An Even Worse Search">what the heck this list is and how I made it</a>.
           </p>
         </div>
       </header>
