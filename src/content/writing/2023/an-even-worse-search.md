@@ -25,7 +25,7 @@ Go to [sambreed.dev/links](/links) or try this rickety old search box:
 
 If you tried that, welcome back.
 
-If you didn’t try that, it’s very simple. Put in a query like [“LLM”](/links?q=llm) (9 links) or [“javascript”](/links?q=javascript) (5 links) or [“pdf”](/links?q=pdf) and you’ll see some matching links.
+If you didn’t try that, it’s very simple. Put in a query like [“LLM”](/links?q=llm) (9 links) or [“javascript”](/links?q=javascript) (5 links) or [“pdf”](/links?q=pdf) (8 links) and you’ll see some matching links.
 
 ## Table of Contents
 

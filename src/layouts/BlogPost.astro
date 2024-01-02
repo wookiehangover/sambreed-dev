@@ -60,7 +60,7 @@ const {
 						</figure>
 					) : (
 						<figure>
-							{cover && <Image src={cover} alt={heroAlt ?? title} width={512}/>}
+							{cover && <Image src={cover} alt={heroAlt ?? title} />}
 							{heroImage && <img src={heroImage} alt={heroAlt} />}
 							{heroAlt && (<figcaption>{heroAlt}</figcaption>)}
 						</figure>
