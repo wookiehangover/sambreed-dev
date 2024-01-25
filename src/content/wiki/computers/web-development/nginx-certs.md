@@ -12,14 +12,14 @@ For posterity, this is how I set up the certs for dev sites that need them. I've
 
 Install Nginx and Certbot
 
-```
+```bash
 sudo apt-get install nginx certbot python3-certbot-nginx
 sudo certbot --nginx -d <domain-name-here>
 ```
 
 Then add the following config to the `https server` directive in `/etc/nginx/sites-available/default`. The http server is automatically redirected by certbot.
 
-```
+```nginx
 location / {
 	proxy_set_header Host $host;
 	proxy_pass http://localhost:8080;
@@ -34,7 +34,7 @@ location / {
 
 Check Nginx config and reload
 
-```
+```bash
 sudo nginx -t
 sudo nginx -s reload
 ```

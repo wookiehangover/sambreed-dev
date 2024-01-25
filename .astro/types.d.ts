@@ -248,6 +248,13 @@ declare module 'astro:content' {
   collection: "wiki";
   data: InferEntrySchema<"wiki">
 } & { render(): Render[".md"] };
+"computers/web-development/nginx-certs.md": {
+	id: "computers/web-development/nginx-certs.md";
+  slug: "computers/web-development/nginx-certs";
+  body: string;
+  collection: "wiki";
+  data: InferEntrySchema<"wiki">
+} & { render(): Render[".md"] };
 "computers/web-development/product-tracking.md": {
 	id: "computers/web-development/product-tracking.md";
   slug: "computers/web-development/product-tracking";
