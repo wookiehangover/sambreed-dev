@@ -53,6 +53,3 @@ Here's what I got.
 * [APOD: 2024 January 20 - Falcon Heavy Boostback Burn](https://apod.nasa.gov/apod/ap240120.html)
 * [The One with Christopher Nolan](https://johnaugust.com/2023/the-one-with-christopher-nolan)
 - [Unicode Fraction Creator](https://lights0123.com/fractions/) &middot; The web is so, so good for single use tools it's ridiculous. Sometimes you just need a fraction! Like when I wanted to specify my preferred hat size, 7⅞.
-
-
-

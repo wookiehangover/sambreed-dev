@@ -51,6 +51,6 @@ const processDirectory = async (directory) => {
   }
 };
 
-await processDirectory('./src/content/writing/2023/**/links*.md*');
+await processDirectory('./src/content/writing/202*/**/links*.md*');
 await fs.writeFile('./src/data/links.json', JSON.stringify(all_links), 'utf-8')
 console.log(`Extracted ${Object.values(all_links).reduce((acc, links) => acc + links.length, 0)} links from ${Object.keys(all_links).length} files`)
