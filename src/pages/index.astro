@@ -5,135 +5,149 @@ import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 import BlogPosts from "../components/blog/BlogPosts.astro";
 import SearchForm from "../components/search/SearchForm.astro";
-
+import { getThemeClass } from "../utils/get-theme-class";
+const theme = Astro.cookies.get("dark");
+const themeClass = getThemeClass(theme);
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body>
-    <Header />
+<!doctype html>
+<html lang="en" class={themeClass}>
+    <head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
+    <body>
+        <Header />
 
-    <section>
-      <header>
-        <h2>Now</h2>
-      </header>
-      <div>
-        <p>
-          I'm a partner at <a href="https://shv.com" title="Sutter Hill Ventures">SHV</a>, working on prototypes and helping build new companies.
-        </p>
+        <section>
+            <header>
+                <h2>Now</h2>
+            </header>
+            <div>
+                <p>
+                    I'm a partner at <a href="https://shv.com" title="Sutter Hill Ventures">SHV</a>, working on
+                    prototypes and helping build new companies.
+                </p>
 
-        <p>
-          When I'm not doing that, you can usually find me trail running somewhere around <a
-            href="https://ops.alertcalifornia.org/cam-console/2192"
-            title="Mt Tam Trail Camera">Mt Tam</a
-          >. I also collect records, enjoy riding motorcycles, and like to build things in my shop.
-        </p>
-      </div>
-    </section>
+                <p>
+                    When I'm not doing that, you can usually find me trail running somewhere around <a
+                        href="https://ops.alertcalifornia.org/cam-console/2192"
+                        title="Mt Tam Trail Camera">Mt Tam</a
+                    >. I also collect records, enjoy riding motorcycles, and like to build things in my shop.
+                </p>
+            </div>
+        </section>
 
-    <section>
-      <header>
-        <h2>Previously</h2>
-      </header>
-      <div>
-        <p>At <a href="/cv.html#credit-karma">Credit Karma</a>, I built and scaled the front-end and web platform teams from 2015-2020.</p>
-        <p>I founded <a href="/cv.html#quick-left">Quick Left</a> in 2009 to build apps for startups. Sold to Cognizant in 2016.</p>
-      </div>
-    </section>
+        <section>
+            <header>
+                <h2>Previously</h2>
+            </header>
+            <div>
+                <p>
+                    At <a href="/cv.html#credit-karma">Credit Karma</a>, I built and scaled the front-end and web
+                    platform teams from 2015-2020.
+                </p>
+                <p>
+                    I founded <a href="/cv.html#quick-left">Quick Left</a> in 2009 to build apps for startups. Sold to Cognizant
+                    in 2016.
+                </p>
+            </div>
+        </section>
 
-    <BlogPosts />
+        <BlogPosts />
 
-    <section>
-      <header>
-        <h2>Elsewhere On-line</h2>
-      </header>
-      <div>
-        <ul>
-          <li>
-            <a href="https://twitter.com/sambreed">Twitter</a>
-          </li>
-          <li>
-            <a href="https://www.strava.com/athletes/3256286">Strava</a>
-          </li>
-          <li>
-            <a href="https://github.com/wookiehangover">GitHub</a>
-          </li>
-          <li>
-            <a href="https://instagram.com/wookiehangover">Instagram</a>
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/samuel-breed/">LinkedIn</a>
-          </li>
-          <!-- <li>
+        <section>
+            <header>
+                <h2>Elsewhere On-line</h2>
+            </header>
+            <div>
+                <ul>
+                    <li>
+                        <a href="https://twitter.com/sambreed">Twitter</a>
+                    </li>
+                    <li>
+                        <a href="https://www.strava.com/athletes/3256286">Strava</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/wookiehangover">GitHub</a>
+                    </li>
+                    <li>
+                        <a href="https://instagram.com/wookiehangover">Instagram</a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/samuel-breed/">LinkedIn</a>
+                    </li>
+                    <!-- <li>
             <a href="https://hellsite.sambreed.dev">Twitter Archive</a> 🪦
           </li> -->
-        </ul>
-      </div>
-    </section>
+                </ul>
+            </div>
+        </section>
 
-    <section>
-      <header>
-        <h2>Side Projects</h2>
-      </header>
-      <div>
-        <ul>
-          <li>
-            <a href="/links" title="">Links</a> - a list of all the links I've posted, stripped of my commentary in a single chaotic list.
-          </li>
-          <li>
-            <a href="/wiki" title="Personal Wiki">Personal Wiki</a> - an experimental personal wiki to hold more free-form writing that grows over time.
-          </li>
-          <li>
-            <a href="https://0x01.ai" title="0x01 AI">0x01.ai</a> - a flow builder for LLMs. Like Yahoo Pipes, but for AI.
-          </li>
-          <li>
-            <a href="https://twitter.com/pantone_colors">Every Pantone Color</a> 🪦
-          </li>
-          <li>
-            <a href="https://obliquestrategies.website/"> obliquestrategies.website</a>
-            <ul>
-              <li>
-                <a
-                  href="https://chrome.google.com/webstore/detail/oblique-strategies-tab/mgmdhihgmkhangpfokjdhfhjaiadpopd"
-                  >Chrome Extension</a
-                >
-              </li>
-              <li>
-                <a href="https://twitter.com/ObliqueBot/status/886236405118062592">Twitter Bot</a> 🪦
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </section>
+        <section>
+            <header>
+                <h2>Side Projects</h2>
+            </header>
+            <div>
+                <ul>
+                    <li>
+                        <a href="/links" title="">Links</a> - a list of all the links I've posted, stripped of my commentary
+                        in a single chaotic list.
+                    </li>
+                    <li>
+                        <a href="/wiki" title="Personal Wiki">Personal Wiki</a> - an experimental personal wiki to hold more
+                        free-form writing that grows over time.
+                    </li>
+                    <li>
+                        <a href="https://0x01.ai" title="0x01 AI">0x01.ai</a> - a flow builder for LLMs. Like Yahoo Pipes,
+                        but for AI.
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/pantone_colors">Every Pantone Color</a> 🪦
+                    </li>
+                    <li>
+                        <a href="https://obliquestrategies.website/"> obliquestrategies.website</a>
+                        <ul>
+                            <li>
+                                <a
+                                    href="https://chrome.google.com/webstore/detail/oblique-strategies-tab/mgmdhihgmkhangpfokjdhfhjaiadpopd"
+                                    >Chrome Extension</a
+                                >
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/ObliqueBot/status/886236405118062592">Twitter Bot</a> 🪦
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
 
-    <section>
-      <header>
-        <h2>Addendum</h2>
-      </header>
-      <div>
-        <p>
-          If none of that is enough (word, really?) or you have some other unanswered questions, <a
-            href="mailto:sam@destroy.email">send me an email</a
-          > or use one of the links above.
-        </p>
+        <section>
+            <header>
+                <h2>Addendum</h2>
+            </header>
+            <div>
+                <p>
+                    If none of that is enough (word, really?) or you have some other unanswered questions, <a
+                        href="mailto:sam@destroy.email">send me an email</a
+                    > or use one of the links above.
+                </p>
 
-        <p>Or if you are a computer, please try my <a href="/rss.xml">RSS feed</a>. I also have a feed of <a
-          href="/starred.xml">starred articles</a> from Feedbin.</p>
-      </div>
-    </section>
+                <p>
+                    Or if you are a computer, please try my <a href="/rss.xml">RSS feed</a>. I also have a feed of <a
+                        href="/starred.xml">starred articles</a
+                    > from Feedbin.
+                </p>
+            </div>
+        </section>
 
-    <section>
-      <header>
-      </header>
-      <div>
-        <SearchForm />
-      </div>
-    </section>
+        <section>
+            <header></header>
+            <div>
+                <SearchForm />
+            </div>
+        </section>
 
-    <Footer />
-  </body>
+        <Footer />
+    </body>
 </html>

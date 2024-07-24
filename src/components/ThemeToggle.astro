@@ -1,0 +1,108 @@
+---
+const theme = Astro.cookies.get("dark");
+const checked = { checked: true };
+const isLight = theme?.value === "0" ? checked : {};
+const isSystem = theme?.value === undefined || theme.value === "2" ? checked : {};
+const isDark = theme?.value === "1" ? checked : {};
+---
+
+<fieldset data-theme-toggle>
+    <input type="radio" name="theme" value="light" {...isLight} />
+    <input type="radio" name="theme" value="system" {...isSystem} />
+    <input type="radio" name="theme" value="dark" {...isDark} />
+</fieldset>
+
+<script>
+    const elem = document.querySelector("[data-theme-toggle]");
+    const $doc = document.documentElement;
+    const themeValues = {
+        light: 0,
+        dark: 1,
+        system: 2,
+    };
+    const themeActions = {
+        light: () => {
+            $doc.classList.add("light");
+            $doc.classList.remove("dark");
+        },
+        dark: () => {
+            $doc.classList.add("dark");
+            $doc.classList.remove("light");
+        },
+        system: () => {
+            $doc.classList.remove("light", "dark");
+        },
+    };
+    elem.addEventListener("change", (event) => {
+        const { value } = event.target;
+        themeActions[value]();
+        document.cookie = `dark=${themeValue[value]}`;
+    });
+</script>
+
+<style>
+    :root {
+        --toggle-width: 2.5rem;
+        --toggle-height: 1rem;
+        --toggle-segment: 33.3333%;
+        --toggle-fill: 66.6666%;
+    }
+    fieldset {
+        border: none;
+        display: flex;
+        padding: 0;
+        background-color: var(--card-bg-hover);
+        border: 2px solid var(--border-dim);
+        border-radius: 9999px;
+        position: relative;
+        width: var(--toggle-width);
+        height: var(--toggle-height);
+
+        & > input {
+            padding: 0;
+            margin: 0;
+            width: var(--toggle-segment);
+            appearance: none;
+
+            &:focus {
+                outline-width: 1px;
+            }
+
+            &:checked::after {
+                content: attr(value);
+                color: var(--text-dim);
+                text-transform: capitalize;
+                font-size: 0.75rem;
+                position: absolute;
+                right: -0.5rem;
+                top: 50%;
+                transform: translate(100%, -50%);
+            }
+        }
+
+        &::after {
+            content: "";
+            background: var(--text-dim);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transition: clip-path 0.2s ease-out;
+            clip-path: inset(0px var(--left) 0px var(--right) round 9999px);
+        }
+
+        &:has(input:nth-of-type(1):checked)::after {
+            --left: var(--toggle-fill);
+            --right: 0%;
+        }
+
+        &:has(input:nth-of-type(2):checked)::after {
+            --left: var(--toggle-segment);
+            --right: var(--toggle-segment);
+        }
+
+        &:has(input:nth-of-type(3):checked)::after {
+            --left: 0%;
+            --right: var(--toggle-fill);
+        }
+    }
+</style>

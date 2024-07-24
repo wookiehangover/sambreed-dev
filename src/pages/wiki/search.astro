@@ -6,7 +6,9 @@ import { getCollection } from "astro:content";
 import getAllCategories from "../../utils/get-all-categories";
 import WikiCard from "../../components/search/WikiCard.astro";
 import SearchForm from "../../components/search/SearchForm.astro";
-
+import { getThemeClass } from "../utils/get-theme-class";
+const theme = Astro.cookies.get("dark");
+const themeClass = getThemeClass(theme);
 const wikiEntries = await getCollection("wiki");
 const { map } = getAllCategories(wikiEntries);
 
@@ -15,64 +17,65 @@ const query = Astro.url.searchParams.get("q");
 let results = null;
 
 if (query) {
-  const response = await fetch(`${Astro.url.origin}/api/search?q=${query}&type=wiki`);
-  const data = await response.json();
-  results = data.map((entry: any) => {
-    return wikiEntries.find((e) => e.slug === entry.slug);
-  })
+    const response = await fetch(`${Astro.url.origin}/api/search?q=${query}&type=wiki`);
+    const data = await response.json();
+    results = data.map((entry: any) => {
+        return wikiEntries.find((e) => e.slug === entry.slug);
+    });
 }
 ---
 
-<html lang="en">
-  <head>
-    <BaseHead title="Wiki Search" description="Wiki Search" />
-  </head>
-  <body>
-    <Header />
+<!doctype html>
+<html lang="en" class={themeClass}>
+    <head>
+        <BaseHead title="Wiki Search" description="Wiki Search" />
+    </head>
+    <body>
+        <Header />
 
-    <section>
-      <header>
-        <h2>Wiki Search</h2>
-      </header>
-      <div>
-        <SearchForm action="/wiki/search" value={query ?? ""} />
+        <section>
+            <header>
+                <h2>Wiki Search</h2>
+            </header>
+            <div>
+                <SearchForm action="/wiki/search" value={query ?? ""} />
 
-        {
-          results && (
-            <ul>
-              {results.map((entry: any) => (
-                <WikiCard entry={entry} map={map} />
-              ))}
-            </ul>
-          )
+                {
+                    results && (
+                        <ul>
+                            {results.map((entry: any) => (
+                                <WikiCard entry={entry} map={map} />
+                            ))}
+                        </ul>
+                    )
+                }
+            </div>
+        </section>
+
+        <Footer />
+    </body><style>
+        body {
+            display: flex;
+            flex-direction: column;
         }
-      </div>
-    </section>
 
-    <Footer />
-  </body><style>
-    body {
-      display: flex;
-      flex-direction: column;
-    }
+        section {
+            flex-grow: 1;
+        }
 
-    section {
-      flex-grow: 1;
-    }
+        ul {
+            display: grid;
+            list-style: none;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 0;
+            padding: 0;
+        }
 
-    ul {
-      display: grid;
-      list-style: none;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin: 0;
-      padding: 0;
-    }
-
-    @media (max-width: 512px) {
-      ul {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+        @media (max-width: 512px) {
+            ul {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </html>

@@ -4,28 +4,31 @@ import BlogPosts from "../components/blog/BlogPosts.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
-
+import { getThemeClass } from "../utils/get-theme-class";
+const theme = Astro.cookies.get("dark");
+const themeClass = getThemeClass(theme);
 ---
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body>
-    <Header />
 
-    <section>
-      <header>
-        <h1>404</h1>
-      </header>
-      <div>
-        <p>Don't know how you got here, but there's not much to look at.</p>
-        <p>Try one of the links below.</p>
-      </div>
-    </section>
+<!doctype html>
+<html lang="en" class={themeClass}>
+    <head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
+    <body>
+        <Header />
 
-    <BlogPosts />
+        <section>
+            <header>
+                <h1>404</h1>
+            </header>
+            <div>
+                <p>Don't know how you got here, but there's not much to look at.</p>
+                <p>Try one of the links below.</p>
+            </div>
+        </section>
 
-    <Footer />
-  </body>
+        <BlogPosts />
+
+        <Footer />
+    </body>
 </html>

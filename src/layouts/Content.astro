@@ -1,34 +1,37 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { getThemeClass } from "../utils/get-theme-class";
+const theme = Astro.cookies.get("dark");
+const themeClass = getThemeClass(theme);
 export interface Props {
-	content: {
-		title: string;
-	};
+    content: {
+        title: string;
+    };
 }
 
 const {
-	content: { title },
+    content: { title },
 } = Astro.props;
 ---
 
-<html lang="en">
-	<head>
-		<BaseHead title="Samuel Breed Resume" description="" />
-	</head>
+<!doctype html>
+<html lang="en" class={themeClass}>
+    <head>
+        <BaseHead title="Samuel Breed Resume" description="" />
+    </head>
 
-	<body>
-		<Header />
-		<section>
-			<header>
-				<h1>{title}</h1>
-			</header>
-			<article class="w-prose">
-				<slot />
-			</article>
-		</section>
-		<Footer />
-	</body>
+    <body>
+        <Header />
+        <section>
+            <header>
+                <h1>{title}</h1>
+            </header>
+            <article class="w-prose">
+                <slot />
+            </article>
+        </section>
+        <Footer />
+    </body>
 </html>

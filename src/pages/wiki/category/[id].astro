@@ -1,39 +1,42 @@
 ---
-import { getCollection } from "astro:content"
+import { getCollection } from "astro:content";
 import getAllCategories from "../../../utils/get-all-categories";
-import kebabCase from "just-kebab-case"
+import kebabCase from "just-kebab-case";
 import WikiCardList from "../../../components/wiki/WikiCardList.astro";
 import BaseHead from "../../../components/BaseHead.astro";
 import Footer from "../../../components/Footer.astro";
 import Header from "../../../components/Header.astro";
 import WikiCategoryList from "../../../components/wiki/WikiCategoryList.astro";
 const { id } = Astro.params;
+import { getThemeClass } from "../../../utils/get-theme-class";
+const theme = Astro.cookies.get("dark");
+const themeClass = getThemeClass(theme);
 
 if (id === undefined) {
-  throw new Error("Slug is required");
+    throw new Error("Slug is required");
 }
 
 const entries = await getCollection("wiki", ({ data }) => {
-  return data.categories.find((category) => kebabCase(category) === id)
-})
+    return data.categories.find((category) => kebabCase(category) === id);
+});
 
-const { map } = getAllCategories(entries)
-const title = map.get(id)?.label ?? id
+const { map } = getAllCategories(entries);
+const title = map.get(id)?.label ?? id;
 ---
 
-<html lang="en">
-  <head>
-    <BaseHead title={title} description={`Wiki Category: ${title}`} />
-  </head>
+<!doctype html>
+<html lang="en" class={themeClass}>
+    <head>
+        <BaseHead title={title} description={`Wiki Category: ${title}`} />
+    </head>
 
-  <body>
-    <Header label="wiki" />
+    <body>
+        <Header label="wiki" />
 
-    <WikiCardList entries={entries} map={map} />
+        <WikiCardList entries={entries} map={map} />
 
-    <WikiCategoryList />
+        <WikiCategoryList />
 
-    <Footer />
-  </body>
+        <Footer />
+    </body>
 </html>
-

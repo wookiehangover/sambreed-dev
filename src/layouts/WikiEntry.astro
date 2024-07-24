@@ -7,158 +7,162 @@ import getAllCategories from "../utils/get-all-categories";
 import CategoryList from "../components/wiki/CategoryList.astro";
 import { type IconName } from "../components/Icon.astro";
 import WikiCategoryList from "../components/wiki/WikiCategoryList.astro";
-import "../components/CodeBlock.astro"
+import "../components/CodeBlock.astro";
+import { getThemeClass } from "../utils/get-theme-class";
+const theme = Astro.cookies.get("dark");
+const themeClass = getThemeClass(theme);
 
 export interface Props {
-  content: {
-    title: string;
-    description?: string;
-    createdAt?: Date;
-    updatedAt?: Date;
-    categories?: string[];
-    tags?: string[];
-    all_categories?: string[];
-		type?: IconName;
-  };
-  size?: "prose" | "full"
+    content: {
+        title: string;
+        description?: string;
+        createdAt?: Date;
+        updatedAt?: Date;
+        categories?: string[];
+        tags?: string[];
+        all_categories?: string[];
+        type?: IconName;
+    };
+    size?: "prose" | "full";
 }
 
 const wikiEntries = await getCollection("wiki");
 const { tree, map } = getAllCategories(wikiEntries);
 
 const {
-  size,
-  content: { title, description, createdAt, updatedAt, categories, type },
+    size,
+    content: { title, description, createdAt, updatedAt, categories, type },
 } = Astro.props;
 ---
 
-<html lang="en">
-  <head>
-    <BaseHead title={`${title} - Wiki`} description={description ?? `Wiki Entry for ${title}`} />
-  </head>
+<!doctype html>
+<html lang="en" class={themeClass}>
+    <head>
+        <BaseHead title={`${title} - Wiki`} description={description ?? `Wiki Entry for ${title}`} />
+    </head>
 
-  <body>
-    <Header label="wiki" />
+    <body>
+        <Header label="wiki" />
 
-    <section>
-      <header>
-        <div>
-          <h1 class="title">{title}</h1>
-          {description && <p class="pt-2">{description}</p>}
-          <div class="pt-2">
-            {
-              createdAt && (
-                <p class="text-dim">
-                  First posted on <time>{createdAt.toLocaleDateString()}</time>
-                </p>
-              )
-            }
-            {
-              updatedAt && (
-                <p class="text-dim">
-                  Last updated on <time>{updatedAt.toLocaleDateString()}</time>
-                </p>
-              )
-            }
-          </div>
-          <nav class="text-xs flex flex-col pt-2">
-            <CategoryList categories={categories ?? []} map={map} />
-          </nav>
-        </div>
-      </header>
+        <section>
+            <header>
+                <div>
+                    <h1 class="title">{title}</h1>
+                    {description && <p class="pt-2">{description}</p>}
+                    <div class="pt-2">
+                        {
+                            createdAt && (
+                                <p class="text-dim">
+                                    First posted on <time>{createdAt.toLocaleDateString()}</time>
+                                </p>
+                            )
+                        }
+                        {
+                            updatedAt && (
+                                <p class="text-dim">
+                                    Last updated on <time>{updatedAt.toLocaleDateString()}</time>
+                                </p>
+                            )
+                        }
+                    </div>
+                    <nav class="text-xs flex flex-col pt-2">
+                        <CategoryList categories={categories ?? []} map={map} />
+                    </nav>
+                </div>
+            </header>
 
-      <article>
-        <slot />
-      </article>
-    </section>
+            <article>
+                <slot />
+            </article>
+        </section>
 
-    <WikiCategoryList />
+        <WikiCategoryList />
 
-    <Footer />
-  </body>
+        <Footer />
+    </body>
 </html>
 
 <script>
-  // external links should open in a new tab
-  document.addEventListener("DOMContentLoaded", function () {
-    const links = document.querySelectorAll("a");
+    // external links should open in a new tab
+    document.addEventListener("DOMContentLoaded", function () {
+        const links = document.querySelectorAll("a");
 
-    links.forEach((link) => {
-      const href = link.getAttribute("href");
-      const isExternal = href?.startsWith("http") && !location.hostname.includes(href);
+        links.forEach((link) => {
+            const href = link.getAttribute("href");
+            const isExternal = href?.startsWith("http") && !location.hostname.includes(href);
 
-      if (isExternal) {
-        link.setAttribute("target", "_blank");
-        link.setAttribute("rel", "noopener noreferrer");
-      }
+            if (isExternal) {
+                link.setAttribute("target", "_blank");
+                link.setAttribute("rel", "noopener noreferrer");
+            }
+        });
     });
-  });
 </script>
 
 <style>
-  .title {
-    font-size: 1.825em;
-    line-height: 1.2;
-  }
+    .title {
+        font-size: 1.825em;
+        line-height: 1.2;
+    }
 
-  header > div {
-    position: sticky;
-    top: 0;
-  }
+    header > div {
+        position: sticky;
+        top: 0;
+    }
 
-  time { 
-    color: var(--text-color);
-  }
+    time {
+        color: var(--text-color);
+    }
 
-  header:has(+ article > #table-of-contents) > div {
-    position: static;
-  }
+    header:has(+ article > #table-of-contents) > div {
+        position: static;
+    }
 </style>
 
 <style is:global>
-/* Generated Table of Contents */
-#table-of-contents {
-  display: none;
-}
+    /* Generated Table of Contents */
+    #table-of-contents {
+        display: none;
+    }
 
-#table-of-contents + ul {
-  position: sticky;
-  top: 1rem;
-  transform: translateX(-200%);
-  width: 15rem;
-  font-size: 0.875rem;
-  padding: 0;
-  list-style: none;
-}
+    #table-of-contents + ul {
+        position: sticky;
+        top: 1rem;
+        transform: translateX(-200%);
+        width: 15rem;
+        font-size: 0.875rem;
+        padding: 0;
+        list-style: none;
+    }
 
-#table-of-contents + ul:before {
-  content: "On this page";
-  color: var(--text-dim);
-  font-style: italic;
-  position: relative;
-  top: -0.5rem;
-}
+    #table-of-contents + ul:before {
+        content: "On this page";
+        color: var(--text-dim);
+        font-style: italic;
+        position: relative;
+        top: -0.5rem;
+    }
 
-#table-of-contents + ul li > p {
-  margin: 0;
-}
+    #table-of-contents + ul li > p {
+        margin: 0;
+    }
 
-#table-of-contents + ul > li > ul {
-  padding-left: 1.5rem;
-}
+    #table-of-contents + ul > li > ul {
+        padding-left: 1.5rem;
+    }
 
-@media (max-width: 1168px) or (max-height: 600px) {
-  #table-of-contents {
-    display: block;
-  }
-  #table-of-contents + ul {
-    position: static;
-    width: auto;
-    transform: none;
-  }
-  #table-of-contents + ul:before {
-    content: "";
-    display: none;
-  }
-}
+    @media (max-width: 1168px) or (max-height: 600px) {
+        #table-of-contents {
+            display: block;
+        }
+        #table-of-contents + ul {
+            position: static;
+            width: auto;
+            transform: none;
+        }
+        #table-of-contents + ul:before {
+            content: "";
+            display: none;
+        }
+    }
 </style>

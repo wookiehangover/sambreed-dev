@@ -439,6 +439,13 @@ declare module 'astro:content' {
   collection: "writing";
   data: InferEntrySchema<"writing">
 } & { render(): Render[".md"] };
+"2024/great-link-drought.md": {
+	id: "2024/great-link-drought.md";
+  slug: "2024/great-link-drought";
+  body: string;
+  collection: "writing";
+  data: InferEntrySchema<"writing">
+} & { render(): Render[".md"] };
 "2024/links-february.md": {
 	id: "2024/links-february.md";
   slug: "2024/links-february";

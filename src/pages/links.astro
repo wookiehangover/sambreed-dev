@@ -3,139 +3,150 @@ import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import allLinks from "../data/links.json";
+import { getThemeClass } from "../utils/get-theme-class";
+const theme = Astro.cookies.get("dark");
+const themeClass = getThemeClass(theme);
 
 const query = Astro.url.searchParams.get("q");
 let count = Object.values(allLinks).reduce((acc, links) => acc + links.length, 0);
 
 let hiddenLinks = new Set();
 if (query) {
-  hiddenLinks = new Set(
-    Object.values(allLinks)
-      .flat()
-      .filter(
-        (link) =>
-          !link.title.toLowerCase().includes(query.toLowerCase()) &&
-          !link.url.toLowerCase().includes(query.toLowerCase()),
-      ),
-  );
+    hiddenLinks = new Set(
+        Object.values(allLinks)
+            .flat()
+            .filter(
+                (link) =>
+                    !link.title.toLowerCase().includes(query.toLowerCase()) &&
+                    !link.url.toLowerCase().includes(query.toLowerCase()),
+            ),
+    );
 
-  count -= hiddenLinks.size;
+    count -= hiddenLinks.size;
 }
 ---
 
-<html lang="en">
-  <head>
-    <BaseHead title="Links" description="All of the links!" />
-  </head>
-  <body>
-    <Header />
+<html lang="en" class={themeClass}>
+    <head>
+        <BaseHead title="Links" description="All of the links!" />
+    </head>
+    <body>
+        <Header />
 
-    <section>
-      <header>
-        <div class="sticky top-1">
-          <h2>Links</h2>
-          <p>All of the links I've posted, stripped of my commentary in a single chaotic list.</p>
-          <p class="pt-4">
-            Try a
-            <a href={`/api/random-link${query ? `?q=${query}` : ""}`} title="Take me to a random link" data-random-link target="_blank" rel="noopener noreferrer">Random Link →</a>
-          </p>
-          <p class="pt-4">
-            Read about <a href="/writing/2023/an-even-worse-search" title="An Even Worse Search">what the heck this list is and how I made it</a>.
-          </p>
-        </div>
-      </header>
-      <div>
-        <p>
-          Serving up <span data-count>{count}</span> hot links.
-        </p>
-
-        <form class="search">
-          <input
-            data-filter
-            type="search"
-            name="q"
-            value={query ?? ""}
-            autocapitalize="off"
-            autocorrect="off"
-            autocomplete="off"
-            placeholder="Filter by title or url"
-          />
-        </form>
-
-        <nav data-links>
-          {
-            Object.values(allLinks).map((links) =>
-              links.map((link) => (
+        <section>
+            <header>
+                <div class="sticky top-1">
+                    <h2>Links</h2>
+                    <p>All of the links I've posted, stripped of my commentary in a single chaotic list.</p>
+                    <p class="pt-4">
+                        Try a
+                        <a
+                            href={`/api/random-link${query ? `?q=${query}` : ""}`}
+                            title="Take me to a random link"
+                            data-random-link
+                            target="_blank"
+                            rel="noopener noreferrer">Random Link →</a
+                        >
+                    </p>
+                    <p class="pt-4">
+                        Read about <a href="/writing/2023/an-even-worse-search" title="An Even Worse Search"
+                            >what the heck this list is and how I made it</a
+                        >.
+                    </p>
+                </div>
+            </header>
+            <div>
                 <p>
-                  <a
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class={`${hiddenLinks.has(link) ? "hidden" : ""}`}
-                  >
-                    {link.title}
-                  </a>
+                    Serving up <span data-count>{count}</span> hot links.
                 </p>
-              )),
-            )
-          }
-        </nav>
-      </div>
-    </section>
 
-    <Footer />
-    <script>
-      const filterInput = document.querySelector("[data-filter]") as HTMLInputElement;
-      const countSpan = document.querySelector("[data-count]") as HTMLSpanElement;
-      const links = document.querySelectorAll("nav[data-links] > p > a") as NodeListOf<HTMLAnchorElement>;
-      const randomLink = document.querySelector("[data-random-link]") as HTMLAnchorElement;
+                <form class="search">
+                    <input
+                        data-filter
+                        type="search"
+                        name="q"
+                        value={query ?? ""}
+                        autocapitalize="off"
+                        autocorrect="off"
+                        autocomplete="off"
+                        placeholder="Filter by title or url"
+                    />
+                </form>
 
-      if (filterInput && links && countSpan && randomLink) {
-        filterInput.addEventListener("input", (e) => {
-          let count = 0;
-          const filter = filterInput.value.toLowerCase();
-          randomLink.setAttribute("href", `/api/random-link?q=${filter}`);
+                <nav data-links>
+                    {
+                        Object.values(allLinks).map((links) =>
+                            links.map((link) => (
+                                <p>
+                                    <a
+                                        href={link.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class={`${hiddenLinks.has(link) ? "hidden" : ""}`}
+                                    >
+                                        {link.title}
+                                    </a>
+                                </p>
+                            )),
+                        )
+                    }
+                </nav>
+            </div>
+        </section>
 
-          if (!filter) {
-            for (const link of links) {
-              count++;
-              link.classList.remove("hidden");
+        <Footer />
+        <script>
+            const filterInput = document.querySelector("[data-filter]") as HTMLInputElement;
+            const countSpan = document.querySelector("[data-count]") as HTMLSpanElement;
+            const links = document.querySelectorAll("nav[data-links] > p > a") as NodeListOf<HTMLAnchorElement>;
+            const randomLink = document.querySelector("[data-random-link]") as HTMLAnchorElement;
+
+            if (filterInput && links && countSpan && randomLink) {
+                filterInput.addEventListener("input", (e) => {
+                    let count = 0;
+                    const filter = filterInput.value.toLowerCase();
+                    randomLink.setAttribute("href", `/api/random-link?q=${filter}`);
+
+                    if (!filter) {
+                        for (const link of links) {
+                            count++;
+                            link.classList.remove("hidden");
+                        }
+                        countSpan.textContent = count.toString();
+                        return;
+                    }
+
+                    for (const link of links) {
+                        const text = link.textContent?.toLowerCase();
+                        if (text?.includes(filter) || link.href.includes(filter)) {
+                            link.classList.remove("hidden");
+                            count++;
+                        } else {
+                            link.classList.add("hidden");
+                        }
+                    }
+                    countSpan.textContent = count.toString();
+                });
             }
-            countSpan.textContent = count.toString();
-            return;
-          }
+        </script>
 
-          for (const link of links) {
-            const text = link.textContent?.toLowerCase();
-            if (text?.includes(filter) || link.href.includes(filter)) {
-              link.classList.remove("hidden");
-              count++;
-            } else {
-              link.classList.add("hidden");
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
             }
-          }
-          countSpan.textContent = count.toString();
-        });
-      }
-    </script>
 
-    <style>
-      body {
-        display: flex;
-        flex-direction: column;
-      }
+            section {
+                flex-grow: 1;
+            }
 
-      section {
-        flex-grow: 1;
-      }
+            a[data-random-link] {
+                text-decoration: none;
 
-      a[data-random-link] {
-        text-decoration: none;
-
-        &:hover {
-          color: var(--link-color-hover);
-        }
-      }
-    </style>
-  </body>
+                &:hover {
+                    color: var(--link-color-hover);
+                }
+            }
+        </style>
+    </body>
 </html>
