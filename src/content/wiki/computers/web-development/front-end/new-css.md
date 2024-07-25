@@ -2,7 +2,7 @@
 title: New CSS
 description: CSS, the good parts
 createdAt: 2023-07-18
-updatedAt: 2023-11-17
+updatedAt: 2024-07-24
 type: list
 categories:
   - Computers
@@ -17,6 +17,8 @@ Consequently, I've been writing more and more custom CSS without Tailwind. I'm s
 ## Table of Contents
 
 ## New New
+
+- `color-scheme` so this is kinda neat, a built-in way to do light/dark theming, but there doesn't seem to be a clear way to allow for user overrides. [mdn](https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme)
 
 - `transition-behavior: allow-discrete` h/t to Shop Talk episode ??? for pointing this one out. It is FINALLY possible to animate to an automatic / default values, and specifically `display: none`. [mdn](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-behavior)
 
@@ -78,10 +80,7 @@ Consequently, I've been writing more and more custom CSS without Tailwind. I'm s
 - `flex` is no longer new and my default mode of thinking for styling. I used to practitioner of the "everything can be done with divs and floats" school, but now I'm all in on train "everything can be done with divs and flex."
 	- I have been using flex for *lots* of common layout patterns for years now. Flex fits well with utility classes and Tailwind, with an API that composes nicely. My codebases are lousy with `flex items-center gap-2`  and `flex items-center justify-between`.
 - `grid` is also no longer new. It solves a lot of layouts but I use it infrequently, in part due to its flawed implementation in Tailwind. On non-Tailwind projects, I've found grid to feel much more intuitive and useful.
-	- A way to do [masonry](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Masonry_Layout) layouts have been proposed but only available in Safari technical preview. This trend was popular 12-13 years ago when I was consulting, and it always needed JavaScript to calculate the layout. Even with open source projects to solve this for you, it was typically a heavy-weight process to read the size of every dom node in the grid to do the math to position each element. Despite being a design edge case, this would be great to have natively. 
+	- A way to do [masonry](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Masonry_Layout) layouts have been proposed but only available in Safari technical preview. This trend was popular 12-13 years ago when I was consulting, and it always needed JavaScript to calculate the layout. Even with open source projects to solve this for you, it was typically a heavy-weight process to read the size of every dom node in the grid to do the math to position each element. Despite being a design edge case, this would be great to have natively.
 	- [Subgrid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Subgrid) is also very cool. I made a little experiement page with it over here: [/experiments/subgrid](/experiments/subgrid)
 - variables. I know, I know, these aren't exactly new either, but the point is that you can finally use them everywhere without hesitation.
 	- Variable are perfect for with responsive design, by using media queries to set variables to override styles without having to repeat selectors.
-
-
-

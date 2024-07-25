@@ -1,34 +1,33 @@
 ---
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
-import { getImage } from 'astro:assets';
-import '../styles/global.css';
-import "@fontsource/bitter"
+import { getImage } from "astro:assets";
+import "../styles/global.css";
+import "@fontsource/inter";
 
 export interface Props {
-	title: string;
-	description: string;
-	image?: string;
-	cover?: any;
+    title: string;
+    description: string;
+    image?: string;
+    cover?: any;
 }
 
-const { title, description, image = '/img/theodore-rex.jpg', cover } = Astro.props;
+const { title, description, image = "/img/theodore-rex.jpg", cover } = Astro.props;
 
-let img = image
+let img = image;
 
 if (cover) {
-	img = (await getImage({ src: cover })).src
+    img = (await getImage({ src: cover })).src;
 }
-
 ---
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+<link rel="manifest" href="/site.webmanifest" />
 <link rel="alternate" type="application/rss+xml" title="RSS feed for sambreed.dev" href="/rss.xml" />
 <link rel="alternate" type="application/rss+xml" title="sambreed.dev Starred Articles" href="/starred.xml" />
 <meta name="generator" content={Astro.generator} />

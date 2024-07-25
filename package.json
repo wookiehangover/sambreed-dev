@@ -17,6 +17,7 @@
     "@astrojs/rss": "^4.0.1",
     "@astrojs/sitemap": "^3.0.3",
     "@fontsource/bitter": "^5.0.15",
+    "@fontsource/inter": "^5.0.19",
     "astro": "^4.0.3",
     "autoprefixer": "^10.4.16",
     "cssnano": "^6.0.1",

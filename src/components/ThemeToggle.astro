@@ -22,21 +22,24 @@ const isDark = theme?.value === "1" ? checked : {};
     };
     const themeActions = {
         light: () => {
+            $doc.style.setProperty("color-scheme", "light");
             $doc.classList.add("light");
             $doc.classList.remove("dark");
         },
         dark: () => {
+            $doc.style.setProperty("color-scheme", "dark");
             $doc.classList.add("dark");
             $doc.classList.remove("light");
         },
         system: () => {
+            $doc.style.setProperty("color-scheme", "light dark");
             $doc.classList.remove("light", "dark");
         },
     };
     elem.addEventListener("change", (event) => {
         const { value } = event.target;
         themeActions[value]();
-        document.cookie = `dark=${themeValue[value]}`;
+        document.cookie = `dark=${themeValues[value]}`;
     });
 </script>
 
