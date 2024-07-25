@@ -39,7 +39,7 @@ const isDark = theme?.value === "1" ? checked : {};
     elem.addEventListener("change", (event) => {
         const { value } = event.target;
         themeActions[value]();
-        document.cookie = `dark=${themeValues[value]}`;
+        document.cookie = `dark=${themeValues[value]}; path=/`;
     });
 </script>
 
