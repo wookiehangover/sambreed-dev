@@ -7,6 +7,8 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build && scripts/fix-routes.sh",
+    "build:links": "node scripts/extract-links.mjs",
+    "build:embeddings": "node scripts/generate-embeddings.mjs",
     "preview": "npx wrangler pages dev ./dist",
     "astro": "astro",
     "deploy": "npm run build && cd dist && npx wrangler pages deploy ."
