@@ -192,6 +192,13 @@ declare module 'astro:content' {
   collection: "wiki";
   data: InferEntrySchema<"wiki">
 } & { render(): Render[".md"] };
+"computers/web-development/front-end/three-way-switch.md": {
+	id: "computers/web-development/front-end/three-way-switch.md";
+  slug: "computers/web-development/front-end/three-way-switch";
+  body: string;
+  collection: "wiki";
+  data: InferEntrySchema<"wiki">
+} & { render(): Render[".md"] };
 "computers/web-development/front-end/what-is-front-end-infra.md": {
 	id: "computers/web-development/front-end/what-is-front-end-infra.md";
   slug: "computers/web-development/front-end/what-is-front-end-infra";
@@ -554,5 +561,5 @@ declare module 'astro:content' {
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
 
-	export type ContentConfig = typeof import("../src/content/config.js");
+	export type ContentConfig = typeof import("./../src/content/config.js");
 }
