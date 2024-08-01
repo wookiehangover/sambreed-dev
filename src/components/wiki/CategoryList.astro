@@ -1,23 +1,26 @@
 ---
-import type { WikiCategory } from '../../types/wiki';
+import type { WikiCategory } from "../../types/wiki";
 
 export interface Props {
-  categories: string[]
-  map: Map<string, WikiCategory>
+  categories: string[];
+  map: Map<string, WikiCategory>;
 }
 
-const { categories, map } = Astro.props
+const { categories, map } = Astro.props;
 ---
 
-{categories?.map((category) => (
-  <a href={`/wiki/category/${map.get(category)?.path}`} title={`Category: ${category}`}>{category}</a>
-))}
-{categories?.length === 0 && (
-  <span>Uncategorized</span>
-)}
+{
+  categories?.map((category) => (
+    <a href={`/wiki/category/${map.get(category)?.path}`} title={`Category: ${category}`}>
+      {category}
+    </a>
+  ))
+}
+{categories?.length === 0 && <span>Uncategorized</span>}
 
 <style>
-  a, span {
+  a,
+  span {
     text-decoration: none;
     color: var(--text-dim);
     font-family: var(--font-family-heading);
