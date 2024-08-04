@@ -18,7 +18,7 @@ if (query) {
 		`${Astro.url.origin}/api/search?q=${query}&type=blog`,
 	);
 	const data = await response.json();
-	results = data.map((entry: any) => {
+	results = data.map((entry: { slug: string }) => {
 		return blogEntries.find((e) => e.slug === entry.slug);
 	});
 }

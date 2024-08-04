@@ -23,7 +23,7 @@ export default function getAllCategories(
 			map.set(root.label, root);
 			acc.push(root);
 		}
-		let previousRoot;
+		let previousRoot: { label: string; path: string; children: WikiCategory[] } | undefined;
 
 		for (let index = 1; index < entry.data.categories.length; index++) {
 			const label = entry.data.categories[index];

@@ -24,18 +24,18 @@ if (query) {
 	);
 	const data = await response.json();
 
-	results = data.map((entry: any) => {
+	results = data.map((entry: { slug: string; type: string }) => {
 		if (entry.type === "blog") {
 			return {
 				type: "blog",
 				...blogEntries.find((e) => e.slug === entry.slug),
 			};
-		} else {
-			return {
-				type: "wiki",
-				...wikiEntries.find((e) => e.slug === entry.slug),
-			};
 		}
+
+		return {
+			type: "wiki",
+			...wikiEntries.find((e) => e.slug === entry.slug),
+		};
 	});
 }
 ---

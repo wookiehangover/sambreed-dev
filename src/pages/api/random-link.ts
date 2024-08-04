@@ -1,7 +1,7 @@
 import type { APIRoute } from "astro";
 import links from "../../data/links.json";
 
-export const GET: APIRoute = async function ({ request }) {
+export const GET: APIRoute = async ({ request }) => {
 	const url = new URL(request.url);
 	const query = url.searchParams.get("q") as string;
 
