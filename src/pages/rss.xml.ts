@@ -1,5 +1,5 @@
 import rss from "@astrojs/rss";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import { SITE_TITLE, SITE_DESCRIPTION } from "~/config";
 import { getCollection } from "astro:content";
 import { unified } from "unified";
 import rehypeSanitize from "rehype-sanitize";

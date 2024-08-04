@@ -1,13 +1,13 @@
 import type { APIRoute } from "astro";
-import blogData from "../../data/writing.json";
-import wikiData from "../../data/wiki.json";
+import blogData from "~/data/writing.json";
+import wikiData from "~/data/wiki.json";
 import OpenAI from "openai";
 import {
 	findSimilarEmbeddings,
 	type Embedding,
 	type Score,
 	type Vector,
-} from "../../utils/vector-search";
+} from "~/utils/vector-search";
 
 const client = new OpenAI({ apiKey: import.meta.env.OPENAI_API_KEY });
 

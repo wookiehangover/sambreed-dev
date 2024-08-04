@@ -1,5 +1,5 @@
 import type { CollectionEntry } from "astro:content";
-import type { WikiCategory } from "../types/wiki";
+import type { WikiCategory } from "~/types/wiki";
 import kebabCase from "just-kebab-case";
 
 export default function getAllCategories(

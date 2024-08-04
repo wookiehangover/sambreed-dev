@@ -1,13 +1,13 @@
 ---
-import BaseHead from "../../components/BaseHead.astro";
-import Footer from "../../components/Footer.astro";
-import Header from "../../components/Header.astro";
-import WikiCardList from "../../components/wiki/WikiCardList.astro";
-import WikiCategoryList from "../../components/wiki/WikiCategoryList.astro";
-import SearchForm from "../../components/search/SearchForm.astro";
-import getAllCategories from "../../utils/get-all-categories";
+import BaseHead from "~/components/BaseHead.astro";
+import Footer from "~/components/Footer.astro";
+import Header from "~/components/Header.astro";
+import WikiCardList from "~/components/wiki/WikiCardList.astro";
+import WikiCategoryList from "~/components/wiki/WikiCategoryList.astro";
+import SearchForm from "~/components/search/SearchForm.astro";
+import getAllCategories from "~/utils/get-all-categories";
 import { getCollection } from "astro:content";
-import { getThemeClass } from "../../utils/get-theme-class";
+import { getThemeClass } from "~/utils/get-theme-class";
 const theme = Astro.cookies.get("dark");
 const themeClass = getThemeClass(theme);
 

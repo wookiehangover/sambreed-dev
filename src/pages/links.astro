@@ -1,9 +1,9 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
-import allLinks from "../data/links.json";
-import { getThemeClass } from "../utils/get-theme-class";
+import BaseHead from "~/components/BaseHead.astro";
+import Footer from "~/components/Footer.astro";
+import Header from "~/components/Header.astro";
+import allLinks from "~/data/links.json";
+import { getThemeClass } from "~/utils/get-theme-class";
 const theme = Astro.cookies.get("dark");
 const themeClass = getThemeClass(theme);
 

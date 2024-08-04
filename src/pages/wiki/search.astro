@@ -1,12 +1,12 @@
 ---
-import BaseHead from "../../components/BaseHead.astro";
-import Footer from "../../components/Footer.astro";
-import Header from "../../components/Header.astro";
+import BaseHead from "~/components/BaseHead.astro";
+import Footer from "~/components/Footer.astro";
+import Header from "~/components/Header.astro";
 import { getCollection } from "astro:content";
-import getAllCategories from "../../utils/get-all-categories";
-import WikiCard from "../../components/search/WikiCard.astro";
-import SearchForm from "../../components/search/SearchForm.astro";
-import { getThemeClass } from "../../utils/get-theme-class";
+import getAllCategories from "~/utils/get-all-categories";
+import WikiCard from "~/components/search/WikiCard.astro";
+import SearchForm from "~/components/search/SearchForm.astro";
+import { getThemeClass } from "~/utils/get-theme-class";
 const theme = Astro.cookies.get("dark");
 const themeClass = getThemeClass(theme);
 const wikiEntries = await getCollection("wiki");

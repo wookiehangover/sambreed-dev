@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import links from "../../data/links.json";
+import links from "~/data/links.json";
 
 export const GET: APIRoute = async ({ request }) => {
 	const url = new URL(request.url);

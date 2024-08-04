@@ -1,12 +1,12 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import BlogPosts from "../components/blog/BlogPosts.astro";
-import BlogShare from "../components/blog/BlogShare.astro";
+import BaseHead from "~/components/BaseHead.astro";
+import Header from "~/components/Header.astro";
+import Footer from "~/components/Footer.astro";
+import BlogPosts from "~/components/blog/BlogPosts.astro";
+import BlogShare from "~/components/blog/BlogShare.astro";
 import { Image } from "astro:assets";
 import "../components/CodeBlock.astro";
-import { getThemeClass } from "../utils/get-theme-class";
+import { getThemeClass } from "~/utils/get-theme-class";
 const theme = Astro.cookies.get("dark");
 const themeClass = getThemeClass(theme);
 
