@@ -1,11 +1,11 @@
 ---
 export interface Props {
-	action?: string;
-	value?: string;
-	placeholder?: string;
+  action?: string;
+  value?: string;
+  placeholder?: string;
 }
 
-const { action = "/search", value, placeholder = "Search" } = Astro.props;
+const { action = "/search", value, placeholder = "Search" } = Astro.props
 ---
 <form action={action} class="search">
   <input

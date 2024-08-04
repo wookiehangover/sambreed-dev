@@ -1,5 +1,1 @@
-export type WikiCategory = {
-	label: string;
-	path: string;
-	children: WikiCategory[];
-};
+export type WikiCategory = { label: string; path: string; children: WikiCategory[] }

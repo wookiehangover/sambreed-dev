@@ -6,13 +6,13 @@ import { getThemeClass } from "../utils/get-theme-class";
 const theme = Astro.cookies.get("dark");
 const themeClass = getThemeClass(theme);
 export interface Props {
-	content: {
-		title: string;
-	};
+    content: {
+        title: string;
+    };
 }
 
 const {
-	content: { title },
+    content: { title },
 } = Astro.props;
 ---
 

@@ -7,50 +7,46 @@ import Icon, { type IconName } from "../Icon.astro";
 type WikiEntry = CollectionEntry<"wiki">;
 
 export interface Props {
-	entries: WikiEntry[];
-	map: Map<string, WikiCategory>;
+  entries: WikiEntry[];
+  map: Map<string, WikiCategory>;
 }
 
 const { entries, map } = Astro.props;
 
 const groups = entries.reduce((acc, entry) => {
-	if (acc.has(entry.data.type)) {
-		acc.get(entry.data.type)?.push(entry);
-	} else {
-		acc.set(entry.data.type, [entry]);
-	}
-	return acc;
+  if (acc.has(entry.data.type)) {
+    acc.get(entry.data.type)?.push(entry);
+  } else {
+    acc.set(entry.data.type, [entry]);
+  }
+  return acc;
 }, new Map<WikiEntry["data"]["type"], WikiEntry[]>());
 
-const COPY: Record<
-	WikiEntry["data"]["type"],
-	{ title: string; description: string }
-> = {
-	note: {
-		title: "Notes",
-		description:
-			"Notes are where wiki entries start. They are as simple as a few lines of text and a title. They might be expanded into a full article later, or just be left small.",
-	},
-	quote: {
-		title: "Quotes",
-		description:
-			"Sometimes, someone else has said it better than you ever could. Quotes are wiki entries that capture those ideas.",
-	},
-	list: {
-		title: "Lists",
-		description:
-			"Text without heirarchy is just a blob. Lists are wiki entries that capture a collection of ideas, and their relationships to each other.",
-	},
-	book: {
-		title: "Books",
-		description:
-			"Some people have a dedicated page for /books, but having a little wiki, I figured I'd just put them here.",
-	},
-	essay: {
-		title: "Essays",
-		description:
-			"Once a note has gone through a couple of drafts, it might be expanded into an essay. Consider these the ideas that I have spent significant time thinking about.",
-	},
+const COPY: Record<WikiEntry["data"]["type"], { title: string; description: string }> = {
+  note: {
+    title: "Notes",
+    description:
+      "Notes are where wiki entries start. They are as simple as a few lines of text and a title. They might be expanded into a full article later, or just be left small.",
+  },
+  quote: {
+    title: "Quotes",
+    description:
+      "Sometimes, someone else has said it better than you ever could. Quotes are wiki entries that capture those ideas.",
+  },
+  list: {
+    title: "Lists",
+    description:
+      "Text without heirarchy is just a blob. Lists are wiki entries that capture a collection of ideas, and their relationships to each other.",
+  },
+  book: {
+    title: "Books",
+    description:
+      "Some people have a dedicated page for /books, but having a little wiki, I figured I'd just put them here.",
+  },
+  essay: {
+    title: "Essays",
+    description: "Once a note has gone through a couple of drafts, it might be expanded into an essay. Consider these the ideas that I have spent significant time thinking about.",
+  },
 };
 ---
 

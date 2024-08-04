@@ -13,11 +13,11 @@ const theme = Astro.cookies.get("dark");
 const themeClass = getThemeClass(theme);
 
 if (id === undefined) {
-	throw new Error("Slug is required");
+    throw new Error("Slug is required");
 }
 
 const entries = await getCollection("wiki", ({ data }) => {
-	return data.categories.find((category) => kebabCase(category) === id);
+    return data.categories.find((category) => kebabCase(category) === id);
 });
 
 const { map } = getAllCategories(entries);

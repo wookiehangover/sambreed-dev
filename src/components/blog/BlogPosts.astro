@@ -1,16 +1,14 @@
 ---
 export interface Props {
-	exclude?: string;
+  exclude?: string;
 }
 import { getCollection } from "astro:content";
 const exclude = Astro.props.exclude ?? "";
 const posts = (await getCollection("writing"))
-	.filter((post) => post.slug !== exclude ?? "")
-	.sort(
-		(a, b) =>
-			new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf(),
-	)
-	.slice(0, 6);
+  .filter((post) => post.slug !== exclude ?? "")
+  .sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf())
+  .slice(0, 6);
+
 ---
 
 <section>
