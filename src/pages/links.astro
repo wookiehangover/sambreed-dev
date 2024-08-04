@@ -8,21 +8,24 @@ const theme = Astro.cookies.get("dark");
 const themeClass = getThemeClass(theme);
 
 const query = Astro.url.searchParams.get("q");
-let count = Object.values(allLinks).reduce((acc, links) => acc + links.length, 0);
+let count = Object.values(allLinks).reduce(
+	(acc, links) => acc + links.length,
+	0,
+);
 
 let hiddenLinks = new Set();
 if (query) {
-    hiddenLinks = new Set(
-        Object.values(allLinks)
-            .flat()
-            .filter(
-                (link) =>
-                    !link.title.toLowerCase().includes(query.toLowerCase()) &&
-                    !link.url.toLowerCase().includes(query.toLowerCase()),
-            ),
-    );
+	hiddenLinks = new Set(
+		Object.values(allLinks)
+			.flat()
+			.filter(
+				(link) =>
+					!link.title.toLowerCase().includes(query.toLowerCase()) &&
+					!link.url.toLowerCase().includes(query.toLowerCase()),
+			),
+	);
 
-    count -= hiddenLinks.size;
+	count -= hiddenLinks.size;
 }
 ---
 

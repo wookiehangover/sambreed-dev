@@ -6,18 +6,23 @@ import "../styles/global.css";
 import "@fontsource/inter";
 
 export interface Props {
-    title: string;
-    description: string;
-    image?: string;
-    cover?: any;
+	title: string;
+	description: string;
+	image?: string;
+	cover?: any;
 }
 
-const { title, description, image = "/img/theodore-rex.jpg", cover } = Astro.props;
+const {
+	title,
+	description,
+	image = "/img/theodore-rex.jpg",
+	cover,
+} = Astro.props;
 
 let img = image;
 
 if (cover) {
-    img = (await getImage({ src: cover })).src;
+	img = (await getImage({ src: cover })).src;
 }
 ---
 

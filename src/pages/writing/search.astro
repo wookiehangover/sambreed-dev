@@ -14,11 +14,13 @@ const blogEntries = await getCollection("writing");
 let results = null;
 
 if (query) {
-    const response = await fetch(`${Astro.url.origin}/api/search?q=${query}&type=blog`);
-    const data = await response.json();
-    results = data.map((entry: any) => {
-        return blogEntries.find((e) => e.slug === entry.slug);
-    });
+	const response = await fetch(
+		`${Astro.url.origin}/api/search?q=${query}&type=blog`,
+	);
+	const data = await response.json();
+	results = data.map((entry: any) => {
+		return blogEntries.find((e) => e.slug === entry.slug);
+	});
 }
 ---
 

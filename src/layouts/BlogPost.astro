@@ -11,21 +11,31 @@ const theme = Astro.cookies.get("dark");
 const themeClass = getThemeClass(theme);
 
 export interface Props {
-    content: {
-        title: string;
-        description?: string;
-        pubDate?: string;
-        updatedDate?: string;
-        heroVideo?: string;
-        heroImage?: string;
-        heroAlt?: string;
-        slug: string;
-        cover: any;
-    };
+	content: {
+		title: string;
+		description?: string;
+		pubDate?: string;
+		updatedDate?: string;
+		heroVideo?: string;
+		heroImage?: string;
+		heroAlt?: string;
+		slug: string;
+		cover: any;
+	};
 }
 
 const {
-    content: { title, description, pubDate, updatedDate, heroImage, heroAlt, slug, heroVideo, cover },
+	content: {
+		title,
+		description,
+		pubDate,
+		updatedDate,
+		heroImage,
+		heroAlt,
+		slug,
+		heroVideo,
+		cover,
+	},
 } = Astro.props;
 ---
 

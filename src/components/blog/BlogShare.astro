@@ -1,13 +1,13 @@
 ---
 export interface Props {
-  title: string;
-  slug: string;
-  description?: string;
+	title: string;
+	slug: string;
+	description?: string;
 }
 
 const { title, slug, description = "" } = Astro.props;
 
-const link = `https://sambreed.dev/writing/${slug}`
+const link = `https://sambreed.dev/writing/${slug}`;
 ---
 
 <section>

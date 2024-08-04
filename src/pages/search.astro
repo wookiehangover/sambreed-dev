@@ -19,16 +19,24 @@ const query = Astro.url.searchParams.get("q");
 let results = null;
 
 if (query) {
-    const response = await fetch(`${Astro.url.origin}/api/search?q=${query}&type=all`);
-    const data = await response.json();
+	const response = await fetch(
+		`${Astro.url.origin}/api/search?q=${query}&type=all`,
+	);
+	const data = await response.json();
 
-    results = data.map((entry: any) => {
-        if (entry.type === "blog") {
-            return { type: "blog", ...blogEntries.find((e) => e.slug === entry.slug) };
-        } else {
-            return { type: "wiki", ...wikiEntries.find((e) => e.slug === entry.slug) };
-        }
-    });
+	results = data.map((entry: any) => {
+		if (entry.type === "blog") {
+			return {
+				type: "blog",
+				...blogEntries.find((e) => e.slug === entry.slug),
+			};
+		} else {
+			return {
+				type: "wiki",
+				...wikiEntries.find((e) => e.slug === entry.slug),
+			};
+		}
+	});
 }
 ---
 
