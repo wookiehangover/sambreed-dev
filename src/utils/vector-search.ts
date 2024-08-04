@@ -18,11 +18,7 @@ export function cosineSimilarity(a: Vector, b: Vector): number {
 	return dotProduct / (magnitudeA * magnitudeB);
 }
 
-export function findSimilarEmbeddings(
-	query: Vector,
-	embeddings: Embedding[],
-	topK: number,
-): Score[] {
+export function findSimilarEmbeddings(query: Vector, embeddings: Embedding[], topK: number): Score[] {
 	const scores: Score[] = embeddings.map((embedding) => ({
 		embedding,
 		score: cosineSimilarity(query, embedding.embedding),

@@ -2,30 +2,18 @@ import type { APIRoute } from "astro";
 import blogData from "~/data/writing.json";
 import wikiData from "~/data/wiki.json";
 import OpenAI from "openai";
-import {
-	findSimilarEmbeddings,
-	type Embedding,
-	type Score,
-	type Vector,
-} from "~/utils/vector-search";
+import { findSimilarEmbeddings, type Embedding, type Score, type Vector } from "~/utils/vector-search";
 
 const client = new OpenAI({ apiKey: import.meta.env.OPENAI_API_KEY });
 
-async function runSimilaritySearch(
-	query: Vector,
-	data: Embedding[],
-	topK = 6,
-): Promise<Score[]> {
+async function runSimilaritySearch(query: Vector, data: Embedding[], topK = 6): Promise<Score[]> {
 	const similarEmbeddings = findSimilarEmbeddings(query, data, topK);
 	return similarEmbeddings;
 }
 
 const searchVectors = new Map<string, Vector>();
 
-const ALL = [
-	...blogData.map((e) => ({ ...e, type: "blog" })),
-	...wikiData.map((e) => ({ ...e, type: "wiki" })),
-];
+const ALL = [...blogData.map((e) => ({ ...e, type: "blog" })), ...wikiData.map((e) => ({ ...e, type: "wiki" }))];
 
 export const GET: APIRoute = async function GET({ request }) {
 	const url = new URL(request.url);
@@ -47,13 +35,10 @@ export const GET: APIRoute = async function GET({ request }) {
 	}
 
 	if (!q) {
-		return new Response(
-			JSON.stringify({ message: "Missing query parameter" }),
-			{
-				status: 400,
-				headers: { "content-type": "application/json" },
-			},
-		);
+		return new Response(JSON.stringify({ message: "Missing query parameter" }), {
+			status: 400,
+			headers: { "content-type": "application/json" },
+		});
 	}
 
 	try {

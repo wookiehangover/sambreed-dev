@@ -19,9 +19,7 @@ const query = Astro.url.searchParams.get("q");
 let results = null;
 
 if (query) {
-	const response = await fetch(
-		`${Astro.url.origin}/api/search?q=${query}&type=all`,
-	);
+	const response = await fetch(`${Astro.url.origin}/api/search?q=${query}&type=all`);
 	const data = await response.json();
 
 	results = data.map((entry: { slug: string; type: string }) => {

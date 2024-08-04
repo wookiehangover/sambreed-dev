@@ -22,10 +22,7 @@ const groups = entries.reduce((acc, entry) => {
 	return acc;
 }, new Map<WikiEntry["data"]["type"], WikiEntry[]>());
 
-const COPY: Record<
-	WikiEntry["data"]["type"],
-	{ title: string; description: string }
-> = {
+const COPY: Record<WikiEntry["data"]["type"], { title: string; description: string }> = {
 	note: {
 		title: "Notes",
 		description:

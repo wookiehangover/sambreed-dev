@@ -12,12 +12,7 @@ export interface Props {
 	cover?: string;
 }
 
-const {
-	title,
-	description,
-	image = "/img/theodore-rex.jpg",
-	cover,
-} = Astro.props;
+const { title, description, image = "/img/theodore-rex.jpg", cover } = Astro.props;
 
 let img = image;
 

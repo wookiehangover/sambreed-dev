@@ -10,8 +10,7 @@ export const GET: APIRoute = async ({ request }) => {
 	if (query) {
 		allLinks = allLinks.filter(
 			(link) =>
-				link.title.toLowerCase().includes(query.toLowerCase()) ||
-				link.url.toLowerCase().includes(query.toLowerCase()),
+				link.title.toLowerCase().includes(query.toLowerCase()) || link.url.toLowerCase().includes(query.toLowerCase()),
 		);
 	}
 

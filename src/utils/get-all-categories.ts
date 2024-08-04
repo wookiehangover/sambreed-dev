@@ -2,9 +2,10 @@ import type { CollectionEntry } from "astro:content";
 import type { WikiCategory } from "~/types/wiki";
 import kebabCase from "just-kebab-case";
 
-export default function getAllCategories(
-	wikiEntries: CollectionEntry<"wiki">[],
-): { tree: WikiCategory[]; map: Map<string, WikiCategory> } {
+export default function getAllCategories(wikiEntries: CollectionEntry<"wiki">[]): {
+	tree: WikiCategory[];
+	map: Map<string, WikiCategory>;
+} {
 	const map = new Map<string, WikiCategory>();
 	const tree = wikiEntries.reduce((acc, entry) => {
 		if (entry.data.categories.length === 0) {

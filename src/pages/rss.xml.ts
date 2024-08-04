@@ -10,15 +10,10 @@ import type { APIContext } from "astro";
 
 export async function GET(context: APIContext) {
 	const posts = (await getCollection("writing")).sort(
-		(a, b) =>
-			new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf(),
+		(a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf(),
 	);
 
-	const parser = await unified()
-		.use(remarkParse)
-		.use(remarkRehype)
-		.use(rehypeSanitize)
-		.use(rehypeStringify);
+	const parser = await unified().use(remarkParse).use(remarkRehype).use(rehypeSanitize).use(rehypeStringify);
 
 	return rss({
 		title: SITE_TITLE,
