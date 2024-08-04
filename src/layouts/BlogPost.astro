@@ -11,21 +11,31 @@ const theme = Astro.cookies.get("dark");
 const themeClass = getThemeClass(theme);
 
 export interface Props {
-    content: {
-        title: string;
-        description?: string;
-        pubDate?: string;
-        updatedDate?: string;
-        heroVideo?: string;
-        heroImage?: string;
-        heroAlt?: string;
-        slug: string;
-        cover: any;
-    };
+	content: {
+		title: string;
+		description?: string;
+		pubDate?: string;
+		updatedDate?: string;
+		heroVideo?: string;
+		heroImage?: string;
+		heroAlt?: string;
+		slug: string;
+		cover: string;
+	};
 }
 
 const {
-    content: { title, description, pubDate, updatedDate, heroImage, heroAlt, slug, heroVideo, cover },
+	content: {
+		title,
+		description,
+		pubDate,
+		updatedDate,
+		heroImage,
+		heroAlt,
+		slug,
+		heroVideo,
+		cover,
+	},
 } = Astro.props;
 ---
 
@@ -64,7 +74,7 @@ const {
                         </figure>
                     ) : (
                         <figure>
-                            {cover && <Image src={cover} alt={heroAlt ?? title} />}
+                            {cover && <Image src={cover as any} alt={heroAlt ?? title} />}
                             {heroImage && <img src={heroImage} alt={heroAlt} />}
                             {heroAlt && <figcaption>{heroAlt}</figcaption>}
                         </figure>

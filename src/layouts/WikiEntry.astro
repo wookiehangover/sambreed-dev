@@ -5,7 +5,7 @@ import Footer from "../components/Footer.astro";
 import { getCollection } from "astro:content";
 import getAllCategories from "../utils/get-all-categories";
 import CategoryList from "../components/wiki/CategoryList.astro";
-import { type IconName } from "../components/Icon.astro";
+import type { IconName } from "../components/Icon.astro";
 import WikiCategoryList from "../components/wiki/WikiCategoryList.astro";
 import "../components/CodeBlock.astro";
 import { getThemeClass } from "../utils/get-theme-class";
@@ -13,25 +13,25 @@ const theme = Astro.cookies.get("dark");
 const themeClass = getThemeClass(theme);
 
 export interface Props {
-    content: {
-        title: string;
-        description?: string;
-        createdAt?: Date;
-        updatedAt?: Date;
-        categories?: string[];
-        tags?: string[];
-        all_categories?: string[];
-        type?: IconName;
-    };
-    size?: "prose" | "full";
+	content: {
+		title: string;
+		description?: string;
+		createdAt?: Date;
+		updatedAt?: Date;
+		categories?: string[];
+		tags?: string[];
+		all_categories?: string[];
+		type?: IconName;
+	};
+	size?: "prose" | "full";
 }
 
 const wikiEntries = await getCollection("wiki");
 const { tree, map } = getAllCategories(wikiEntries);
 
 const {
-    size,
-    content: { title, description, createdAt, updatedAt, categories, type },
+	size,
+	content: { title, description, createdAt, updatedAt, categories, type },
 } = Astro.props;
 ---
 

@@ -2,7 +2,8 @@
 const theme = Astro.cookies.get("dark");
 const checked = { checked: true };
 const isLight = theme?.value === "0" ? checked : {};
-const isSystem = theme?.value === undefined || theme.value === "2" ? checked : {};
+const isSystem =
+	theme?.value === undefined || theme.value === "2" ? checked : {};
 const isDark = theme?.value === "1" ? checked : {};
 ---
 

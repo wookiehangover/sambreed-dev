@@ -1,12 +1,47 @@
 ---
-export type IconName = 'copy' | 'annotate' | 'bulleted-list' | 'document' | 'external-link' | 'folder' | 'help' | 'industry' | 'info' | 'quote' | 'journal' | 'chain-link' | 'list' | 'note' | 'notes' | 'opened-folder' | 'person-overview' | 'reference-block' | 'network' | 'search' | 'tag' | 'skills' | 'sources' | 'share' | 'table-view' | 'task' | 'essay' | 'link' | 'back' | 'mention' | 'references' | 'book' | 'tracking-or-journey' | 'email' | 'text-message';
+export type IconName =
+	| "copy"
+	| "annotate"
+	| "bulleted-list"
+	| "document"
+	| "external-link"
+	| "folder"
+	| "help"
+	| "industry"
+	| "info"
+	| "quote"
+	| "journal"
+	| "chain-link"
+	| "list"
+	| "note"
+	| "notes"
+	| "opened-folder"
+	| "person-overview"
+	| "reference-block"
+	| "network"
+	| "search"
+	| "tag"
+	| "skills"
+	| "sources"
+	| "share"
+	| "table-view"
+	| "task"
+	| "essay"
+	| "link"
+	| "back"
+	| "mention"
+	| "references"
+	| "book"
+	| "tracking-or-journey"
+	| "email"
+	| "text-message";
 
-export interface Props { 
-  name: IconName;
-  size?: number | string
+export interface Props {
+	name: IconName;
+	size?: number | string;
 }
 
-const { name, size = 20 } = Astro.props
+const { name, size = 20 } = Astro.props;
 ---
 <svg viewBox="0 0 20 20" width={size} height={size}>
   <use href={`/icon-sprite.svg#icon-${name}`} />
