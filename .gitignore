@@ -21,3 +21,4 @@ pnpm-debug.log*
 .obsidian
 .wrangler
 .venv
+.zed
