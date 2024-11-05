@@ -4,7 +4,7 @@ slug: 2024/web-perf-blah-blah-blah
 description: "what I tell people about web performance in 2024"
 pubDate: "Nov 5 2024"
 cover: "../../../assets/j2LPaGXU8DZj5i5vQReSc.jpeg"
-
+heroAlt: "gotta go real fast"
 ---
 
 Recently an engineer I'm working with hit me up with a broad question about web performance:
