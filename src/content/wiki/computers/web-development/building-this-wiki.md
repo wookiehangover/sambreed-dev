@@ -29,7 +29,7 @@ Conclusion: I'm starting a wiki, [because it's never been done before](https://w
 ## 1. Failing as a blogger
 I have wanted to build a hypertext for a long time. I built my first website around 1996 on Geocities and I have been trying to make [places made of language](../places-made-of-language) ever since.
 
-I blogged for about 6 months in [2008 and 2009](https://samuelbreed.blogspot.com/). From 2011-15, my website was just [animations and ascii art](https://web.archive.org/web/20120122225802/http://wookiehangover.com/). Sometimes [there were even links](https://web.archive.org/web/20150628070525/http://wookiehangover.com/). Since 2016 I've had a version of this website running, with the occasional blog post here and there.
+I blogged for about 6 months in [2008 and 2009](https://samuelbreed.blogspot.com/). From 2011-15, my website was just [animations and ascii art](https://web.archive.org/web/20120122225802/http://wookiehangover.com/). Sometimes [there were even links](https://web.archive.org/web/20150628070525/http://wookiehangover.com/). Since [around 2017](https://web.archive.org/web/20170710224200/https://wookiehangover.com/) I've had a version of this website running, with the occasional blog post here and there.
 
 In the past year, I got inspired to [dump](/writing/links-part-one.html) [my](/writing/links-august-2022.html) [tab](/writing/links-december-2022) [debt](/writing/links-january-2023) (almost) every month. This practice serves two purposes: active, chronological bookmarking; and an opportunity to gather a thought or two around a link. If I want to.
 

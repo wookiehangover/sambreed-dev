@@ -3,6 +3,7 @@
 // all pages through the use of the <BaseHead /> component.
 import { getImage } from "astro:assets";
 import "../styles/global.css";
+import { ViewTransitions } from "astro:transitions";
 import "@fontsource/inter";
 
 export interface Props {
@@ -31,7 +32,6 @@ if (cover) {
 <link rel="alternate" type="application/rss+xml" title="RSS feed for sambreed.dev" href="/rss.xml" />
 <link rel="alternate" type="application/rss+xml" title="sambreed.dev Starred Articles" href="/starred.xml" />
 <meta name="generator" content={Astro.generator} />
-<meta name="view-transition" content="same-origin" />
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#171717" />
 <link rel="sitemap" href="/sitemap-index.xml" />
@@ -40,6 +40,7 @@ if (cover) {
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+<ViewTransitions />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />

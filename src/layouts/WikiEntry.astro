@@ -13,25 +13,25 @@ const theme = Astro.cookies.get("dark");
 const themeClass = getThemeClass(theme);
 
 export interface Props {
-	content: {
-		title: string;
-		description?: string;
-		createdAt?: Date;
-		updatedAt?: Date;
-		categories?: string[];
-		tags?: string[];
-		all_categories?: string[];
-		type?: IconName;
-	};
-	size?: "prose" | "full";
+    content: {
+        title: string;
+        description?: string;
+        createdAt?: Date;
+        updatedAt?: Date;
+        categories?: string[];
+        tags?: string[];
+        all_categories?: string[];
+        type?: IconName;
+    };
+    size?: "prose" | "full";
 }
 
 const wikiEntries = await getCollection("wiki");
 const { tree, map } = getAllCategories(wikiEntries);
 
 const {
-	size,
-	content: { title, description, createdAt, updatedAt, categories, type },
+    size,
+    content: { title, description, createdAt, updatedAt, categories, type },
 } = Astro.props;
 ---
 
@@ -149,6 +149,10 @@ const {
 
     #table-of-contents + ul > li > ul {
         padding-left: 1.5rem;
+    }
+
+    article {
+        margin-top: 1rem;
     }
 
     @media (max-width: 1168px) or (max-height: 600px) {
