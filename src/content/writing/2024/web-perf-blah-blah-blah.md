@@ -27,9 +27,10 @@ tldr, know what you're trying to measure and collect the right data.
 		- If it's slow for you then it's definitely slow for everyone else.
 - So there are limits to what you can do with local tools.
 	- Using a remote performance test like [WebPageTest](https://www.webpagetest.org/) can help identify problems that you might miss with local testing.
-- **Measuring performance from real users on your real infrastructure is the only way to understand the gaps in your performance architecture***, and the only true feedback mechanism to tell you if you're fixing them over time.
+	- External tests offer a point-in-time measurement which might be different than what real-world users see.
+- **Measuring performance from real users on your real infrastructure is the only way to understand the gaps in your performance architecture**, and the only true feedback mechanism to tell you if you're fixing them over time.
 - _HOWEVER_
-	- This is a deep rabbit-hole. Measuring on the client is not free and too much telemetry can adversely tip the scales.
+	- This is a deep rabbit-hole. Measuring on the client is not free and too much telemetry can make performance worse.
 
 ### 2. Cache when possible, but not too much
 
@@ -39,8 +40,8 @@ tldr, cache static requests aggressively, be very careful with dynamic content
 	- Goal is to make the request travel as short a distance as possible.
 - So what is CDN caching?
 	1. Your server responds to an incoming request.
-	2. A proxy between your server and the outside world detects a special header in the response and caches it. 
-		- The cached response is propagated across a globally distributed network of servers.
+	2. A proxy sits between your server and the outside world, listening for a special header and caches the response. 
+		- The cached response is (usually) propagated across a globally distributed network of servers so the next request can be served from the nearest server.
 	3. When the next request comes in, it gets served the cached response instead of hitting your server. 
 - This is great for content that is **exactly the same every time**: your server does less work and your clients get the fastest possible response.
 - _BUT_
