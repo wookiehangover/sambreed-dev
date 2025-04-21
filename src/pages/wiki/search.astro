@@ -20,7 +20,7 @@ if (query) {
 	const response = await fetch(`${Astro.url.origin}/api/search?q=${query}&type=wiki`);
 	const data = await response.json();
 	results = data.map((entry: { slug: string }) => {
-		return wikiEntries.find((e) => e.slug === entry.slug);
+		return wikiEntries.find((e) => e.id === entry.slug);
 	});
 }
 ---

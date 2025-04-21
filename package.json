@@ -16,32 +16,34 @@
     "format": "biome format --write src"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^11.2.0",
-    "@astrojs/mdx": "^3.1.9",
-    "@astrojs/rss": "^4.0.9",
-    "@astrojs/sitemap": "^3.2.1",
-    "@fontsource/bitter": "^5.1.0",
-    "@fontsource/inter": "^5.1.0",
-    "astro": "^4.16.9",
-    "autoprefixer": "^10.4.20",
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/cloudflare": "^12.5.0",
+    "@astrojs/mdx": "^4.2.4",
+    "@astrojs/rss": "^4.0.11",
+    "@astrojs/sitemap": "^3.3.0",
+    "@fontsource/bitter": "^5.2.6",
+    "@fontsource/inter": "^5.2.5",
+    "astro": "^5.7.4",
+    "autoprefixer": "^10.4.21",
     "cssnano": "^7.0.6",
     "just-kebab-case": "^4.2.0",
-    "openai": "^4.71.0",
+    "openai": "^4.95.1",
     "rehype-sanitize": "^6.0.0",
     "rehype-stringify": "^10.0.1",
     "remark": "^15.0.1",
     "remark-parse": "^11.0.0",
-    "remark-rehype": "^11.1.1",
+    "remark-rehype": "^11.1.2",
     "remark-toc": "^9.0.0",
+    "typescript": "^5.8.3",
     "unified": "^11.0.5"
   },
   "prettier": {
     "printWidth": 120
   },
   "devDependencies": {
-    "@biomejs/biome": "1.8.3",
-    "dotenv": "^16.4.5",
-    "globby": "^14.0.2",
+    "@biomejs/biome": "1.9.4",
+    "dotenv": "^16.5.0",
+    "globby": "^14.1.0",
     "gray-matter": "^4.0.3"
   }
 }

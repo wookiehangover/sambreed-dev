@@ -66,7 +66,7 @@ const COPY: Record<WikiEntry["data"]["type"], { title: string; description: stri
           {entries.map((entry) => (
             <li>
               <h2>
-                <a href={`/wiki/${entry.slug}`}>{entry.data.title}</a>
+                <a href={`/wiki/${entry.id}`}>{entry.data.title}</a>
               </h2>
               <p class="text-sm">{entry.data.description}</p>
               <nav class="text-xs flex gap-1 w-full">

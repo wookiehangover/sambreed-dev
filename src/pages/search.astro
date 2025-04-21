@@ -26,13 +26,13 @@ if (query) {
 		if (entry.type === "blog") {
 			return {
 				type: "blog",
-				...blogEntries.find((e) => e.slug === entry.slug),
+				...blogEntries.find((e) => e.id === entry.slug),
 			};
 		}
 
 		return {
 			type: "wiki",
-			...wikiEntries.find((e) => e.slug === entry.slug),
+			...wikiEntries.find((e) => e.id === entry.slug),
 		};
 	});
 }

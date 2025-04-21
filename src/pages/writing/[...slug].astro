@@ -1,5 +1,5 @@
 ---
-import { getEntry } from "astro:content";
+import { getEntry, render } from "astro:content";
 import BlogPost from "~/layouts/BlogPost.astro";
 
 const { slug } = Astro.params;
@@ -12,9 +12,10 @@ if (entry === undefined) {
 	return Astro.redirect("/404");
 }
 
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 ---
 
 <BlogPost content={{ ...entry.data, slug }}>
   <Content />
 </BlogPost>
+
