@@ -25,7 +25,10 @@ export default defineConfig({
   integrations: [mdx(), sitemap()],
   output: "server",
   adapter: cloudflare({
-    imageService: "cloudflare"
+    imageService: "cloudflare",
+    platformProxy: {
+      enabled: true
+    }
   }),
   markdown: {
     shikiConfig: {
