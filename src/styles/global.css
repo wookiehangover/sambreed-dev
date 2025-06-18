@@ -121,6 +121,7 @@ pre {
 
 pre > code {
 	all: unset;
+	white-space: pre-wrap;
 }
 
 blockquote {
