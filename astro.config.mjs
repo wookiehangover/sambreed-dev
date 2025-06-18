@@ -25,11 +25,15 @@ export default defineConfig({
   integrations: [mdx(), sitemap()],
   output: "server",
   adapter: cloudflare({
-    imageService: "cloudflare",
     platformProxy: {
       enabled: true
     }
   }),
+  image: {
+    service: {
+      entrypoint: "astro/assets/services/squoosh"
+    }
+  },
   markdown: {
     shikiConfig: {
       theme: "one-dark-pro"
