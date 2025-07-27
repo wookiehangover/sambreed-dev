@@ -42,7 +42,9 @@ if (query) {
                     results && (
                         <ul>
                             {results.map((entry: any) => (
-                                <BlogCard entry={entry} />
+                                <li>
+                                    <BlogCard entry={entry} />
+                                </li>
                             ))}
                         </ul>
                     )

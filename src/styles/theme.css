@@ -51,22 +51,22 @@
 
 @media (prefers-color-scheme: dark) {
 	:root {
-			--background-color: var(--gray-1);
-			--text-color: var(--slate-gray-7);
-			--text-dim: var(--slate-gray-5);
-			--text-very-dim: var(--tint-2);
-			--bold-color: var(--slate-gray-8);
-			--link-color: var(--cyan-7);
-			--link-color-hover: var(--cyan-10);
-			--code-background-color: var(--gray-3);
-			--hr-border-color: var(--gray-2);
-			--blockquote-color: var(--slate-gray-10);
-			--blockquote-border-color: var(--violet-4);
-			--card-border-color: var(--shade-9);
-			--card-bg-hover: var(--shade-8);
-			--card-bg: var(--shade-10);
-			--border-dim: var(--tint-1);
-			--footer-bg: var(--shade-8);
+		--background-color: var(--gray-1);
+		--text-color: var(--slate-gray-7);
+		--text-dim: var(--slate-gray-5);
+		--text-very-dim: var(--tint-2);
+		--bold-color: var(--slate-gray-8);
+		--link-color: var(--cyan-7);
+		--link-color-hover: var(--cyan-10);
+		--code-background-color: var(--gray-3);
+		--hr-border-color: var(--gray-2);
+		--blockquote-color: var(--slate-gray-10);
+		--blockquote-border-color: var(--violet-4);
+		--card-border-color: var(--shade-9);
+		--card-bg-hover: var(--shade-8);
+		--card-bg: var(--shade-10);
+		--border-dim: var(--tint-1);
+		--footer-bg: var(--shade-8);
 	}
 }
 

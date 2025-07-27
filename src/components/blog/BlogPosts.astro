@@ -3,11 +3,12 @@ export interface Props {
 	exclude?: string;
 }
 import { getCollection } from "astro:content";
+import BlogCard from "../search/BlogCard.astro";
 const exclude = Astro.props.exclude ?? "";
 const posts = (await getCollection("writing"))
 	.filter((post) => post.id !== exclude)
 	.sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf())
-	.slice(0, 6);
+	.slice(0, 4);
 ---
 
 <section>
@@ -19,20 +20,37 @@ const posts = (await getCollection("writing"))
       {
         posts.map((post) => (
           <li>
-            <a href={`/writing/${post.id}`}>{post.data.title}</a>
+            <BlogCard entry={post} />
           </li>
         ))
       }
-      <li><a href="/writing">more...</a></li>
     </ul>
+    <p><a href="/writing">→ more</a></p>
   </div>
 </section>
 
 <style>
+  .recent {
+    display: flex;
+    gap: 2rem;
+    flex-direction: row;
+  }
   ul {
-    list-style-type: number;
-    & li:last-of-type {
-      list-style-type: circle;
+    list-style-type: none;
+    margin: 2rem 0;
+    padding: 0;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+
+    li {
+      display: flex;
     }
+  }
+
+  div > p > a {
+    text-decoration: none;
+    color: var(--text-color);
   }
 </style>

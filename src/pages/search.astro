@@ -58,7 +58,9 @@ if (query) {
                         <ul>
                             {results.map((entry: any) =>
                                 entry.type === "blog" ? (
-                                    <BlogCard entry={entry} />
+                                    <li>
+                                        <BlogCard entry={entry} />
+                                    </li>
                                 ) : (
                                     <WikiCard entry={entry} map={map} />
                                 ),

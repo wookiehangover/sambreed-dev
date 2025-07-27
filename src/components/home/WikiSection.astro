@@ -1,0 +1,51 @@
+---
+import { getCollection } from "astro:content";
+import WikiCard from "~/components/search/WikiCard.astro";
+import getAllCategories from "~/utils/get-all-categories";
+// Get recent wiki entries
+const wikiEntries = await getCollection("wiki");
+const { map } = getAllCategories(wikiEntries);
+
+// Sort by most recent (updatedAt if available, otherwise createdAt) and take first 4
+const recentWikiEntries = wikiEntries
+	.sort((a, b) => {
+		const dateA = a.data.updatedAt || a.data.createdAt;
+		const dateB = b.data.updatedAt || b.data.createdAt;
+		return new Date(dateB).valueOf() - new Date(dateA).valueOf();
+	})
+	.slice(0, 4);
+---
+
+<section>
+	<header>
+		<h2>Wiki</h2>
+	</header>
+
+	<div>
+		<ul class="wiki-cards">
+			{recentWikiEntries.map((entry) => <WikiCard entry={entry} map={map} />)}
+		</ul>
+		<p><a href="/wiki">→ more</a></p>
+	</div>
+</section>
+<style>
+    .wiki-cards {
+        display: grid;
+        list-style: none;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin: 0;
+        padding: 0;
+    }
+
+    @media (max-width: 512px) {
+        .wiki-cards {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    div > p > a {
+        text-decoration: none;
+        color: var(--text-color);
+    }
+</style>

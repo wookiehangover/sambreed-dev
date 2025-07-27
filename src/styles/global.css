@@ -244,7 +244,10 @@ section > header {
 	justify-self: end;
 	border-right: 1px solid var(--border-dim);
 	padding: var(--grid-header-padding);
-	transition: width, border, padding-top 0.2s ease-in-out;
+	transition:
+		width,
+		border,
+		padding-top 0.2s ease-in-out;
 	transition-behavior: allow-discrete;
 
 	& h1,

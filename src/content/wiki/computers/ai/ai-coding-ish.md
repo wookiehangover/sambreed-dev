@@ -1,11 +1,11 @@
 ---
-title: AI Coding-ish
+title: AI Coding circa 2023
 description: Thoughts on new tools
 createdAt: 2023-11-20
 updatedAt: 2023-12-10
 categories:
   - Computers
-  - Web Development
+  - AI
 type: note
 ---
 I've been using LLMs for general coding tasks since late 2020. This is where I've started to corral together thoughts and techniques for "doing computers" with LLMs in the passenger seat.

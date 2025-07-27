@@ -6,6 +6,10 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "~/config";
 import BlogPosts from "~/components/blog/BlogPosts.astro";
 import SearchForm from "~/components/search/SearchForm.astro";
 import { getThemeClass } from "~/utils/get-theme-class";
+
+import Socials from "~/components/home/Socials.astro";
+import WikiSection from "~/components/home/WikiSection.astro";
+
 const theme = Astro.cookies.get("dark");
 const themeClass = getThemeClass(theme);
 ---
@@ -55,35 +59,11 @@ const themeClass = getThemeClass(theme);
 
         <BlogPosts />
 
-        <section>
-            <header>
-                <h2>Elsewhere On-line</h2>
-            </header>
-            <div>
-                <ul>
-                    <li>
-                        <a href="https://twitter.com/intent/follow?screen_name=sambreed">Twitter</a>
-                    </li>
-                    <li>
-                        <a href="https://www.strava.com/athletes/3256286">Strava</a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/wookiehangover">GitHub</a>
-                    </li>
-                    <li>
-                        <a href="https://instagram.com/wookiehangover">Instagram</a>
-                    </li>
-                    <li>
-                        <a href="https://www.linkedin.com/in/samuel-breed/">LinkedIn</a>
-                    </li>
-                    <!-- <li>
-            <a href="https://hellsite.sambreed.dev">Twitter Archive</a> 🪦
-          </li> -->
-                </ul>
-            </div>
-        </section>
+        <WikiSection />
 
-        <section>
+        <Socials />
+
+        <!-- <section>
             <header>
                 <h2>Side Projects</h2>
             </header>
@@ -120,7 +100,7 @@ const themeClass = getThemeClass(theme);
                     </li>
                 </ul>
             </div>
-        </section>
+        </section> -->
 
         <section>
             <header>
@@ -138,6 +118,11 @@ const themeClass = getThemeClass(theme);
                         href="/starred.xml">starred articles</a
                     > from Feedbin.
                 </p>
+
+                <p>
+                    Or here's <a href="/links" title="">a list of all the links</a> I've posted, stripped of my commentary
+                        in a single chaotic list.
+                </p>
             </div>
         </section>
 
@@ -151,3 +136,4 @@ const themeClass = getThemeClass(theme);
         <Footer />
     </body>
 </html>
+

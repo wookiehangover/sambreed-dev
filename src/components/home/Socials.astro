@@ -1,0 +1,64 @@
+---
+
+---
+
+<section>
+	<header>
+		<h2>Online</h2>
+	</header>
+	<div>
+		<ul>
+			<li>
+				<a href="https://twitter.com/intent/follow?screen_name=sambreed">𝕏</a>
+			</li>
+			<li>
+				<a href="https://www.strava.com/athletes/3256286">Strava</a>
+			</li>
+			<li>
+				<a href="https://github.com/wookiehangover">GitHub</a>
+			</li>
+			<li>
+				<a href="https://instagram.com/wookiehangover">Instagram</a>
+			</li>
+			<li>
+				<a href="https://www.linkedin.com/in/samuel-breed/">LinkedIn</a>
+			</li>
+		</ul>
+	</div>
+</section>
+
+<style>
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(4rem, 1fr));
+    gap: 1rem;
+
+    li {
+      margin: 0.5rem 0;
+      border: 1px solid var(--border-dim);
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      transition: background 0.2s ease-in-out;
+      background: var(--card-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        background: var(--card-bg-hover);
+      }
+    }
+
+    li a {
+      text-align: center;
+      text-decoration: none;
+      color: var(--text-color);
+      font-size: 1rem;
+      font-weight: normal;
+      text-wrap: wrap;
+    }
+  }
+</style>
