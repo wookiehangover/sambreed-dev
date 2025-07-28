@@ -38,14 +38,13 @@
 
     li {
       margin: 0.5rem 0;
-      border: 1px solid var(--border-dim);
-      border-radius: 8px;
-      padding: 0.5rem 1rem;
-      transition: background 0.2s ease-in-out;
-      background: var(--card-bg);
       display: flex;
       align-items: center;
       justify-content: center;
+      border: 1px solid var(--border-dim);
+      border-radius: 8px;
+      transition: background 0.2s ease-in-out;
+      background: var(--card-bg);
 
       &:hover {
         background: var(--card-bg-hover);
@@ -56,9 +55,10 @@
       text-align: center;
       text-decoration: none;
       color: var(--text-color);
-      font-size: 1rem;
-      font-weight: normal;
-      text-wrap: wrap;
+      font-size: 0.875rem;
+      flex: 1;
+      padding: 0.5rem 1rem;
+      user-select: none;
     }
   }
 

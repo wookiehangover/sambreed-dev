@@ -11,7 +11,7 @@ categories:
 
 SVGs are pretty cool.
 
-Most applications use a variety of icons. High-quality open source icon sets are widely available. React (and adjacent frameworks) treat SVGs as interchangable with components. The developer ergonomics of these large packages is hard to beat.
+Most applications use a variety of icons. High-quality open source icon sets are widely available. React (and adjacent frameworks) treat SVGs as inter-changable with components. The developer ergonomics of these large packages is hard to beat.
 
 But inlining SVGs in JavaScript is probably the least cool way to deliver static images to your users.
 
