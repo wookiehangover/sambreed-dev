@@ -9,6 +9,7 @@
     "build": "astro build && bash ./scripts/fix-routes.sh",
     "build:links": "node scripts/extract-links.mjs",
     "build:embeddings": "node scripts/generate-embeddings.mjs",
+    "populate:agentdb": "node scripts/populate-agentdb.mjs",
     "preview": "npx wrangler pages dev ./dist",
     "astro": "astro",
     "deploy": "npm run build && cd dist && npx wrangler pages deploy .",
@@ -16,6 +17,7 @@
     "format": "biome format --write src"
   },
   "dependencies": {
+    "@agentdb/sdk": "^1.1.1",
     "@astrojs/check": "^0.9.4",
     "@astrojs/cloudflare": "^12.5.3",
     "@astrojs/mdx": "^4.3.0",
