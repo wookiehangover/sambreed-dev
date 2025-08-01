@@ -1,6 +1,7 @@
 name = "sambreed-dev"
 compatibility_date = "2025-05-25"
 compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = "dist"
 
 [env.production]
 compatibility_date = "2025-05-25"
@@ -9,3 +10,6 @@ compatibility_flags = ["nodejs_compat"]
 [env.preview]
 compatibility_date = "2025-05-25"
 compatibility_flags = ["nodejs_compat"]
+
+[observability]
+enabled = true
