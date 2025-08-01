@@ -10,6 +10,19 @@ type: note
 ---
 I've been using LLMs for general coding tasks since late 2020. This is where I've started to corral together thoughts and techniques for "doing computers" with LLMs in the passenger seat.
 
+## 2025
+
+Enter the vibe coding era.
+
+- LLMs, specifically Anthropic's Claude models, are good enough to do lots of the grunt work of projects, allowing you to surf on pure vibes
+- Agents
+
+## 2024
+
+Code completion gets good enough to go mainstream.
+
+
+## 2023 and earlier
 ## LLM as Search Engines
 
 Plain language questions can be easier to write than good search queries.

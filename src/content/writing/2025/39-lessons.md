@@ -7,7 +7,7 @@ heroAlt: "prompt: A dense redwood forest"
 pubDate: "May 27 2025"
 ---
 
-Today is my birthday, and [Mario Fraioli's newsletter The Morning Shakeout](https://themorningshakeout.com/) had [his list of 43 lessons for his 43rd birthday](https://themorningshakeout.com/43-life-lessons-for-my-43rd-birthday/), a tradition he cribbed from none other than [Kevin Kelly](https://kk.org/thetechnium/68-bits-of-unsolicited-advice/) who posted 68 Bits of Unsolicited Advice for his birthday a few years ago. I remember that post and I got to meet Kevin at his studio in Pacifica last month. I decided to have a crack at my own list.
+Today is my birthday, and [Mario Fraioli's newsletter The Morning Shakeout](https://themorningshakeout.com/) had [his list of 43 lessons for his 43rd birthday](https://themorningshakeout.com/43-life-lessons-for-my-43rd-birthday/), a tradition he cribbed from none other than [Kevin Kelly](https://kk.org/thetechnium/68-bits-of-unsolicited-advice/) who posted 68 Bits of Unsolicited Advice for his birthday a few years ago. I got to meet Kevin at his studio in Pacifica last month, so that post was top of mind. I decided to have a crack at my own list.
 
 1. You get good at the stuff you do all the time.
 2. Feeling bad? You're probably not drinking enough water.
