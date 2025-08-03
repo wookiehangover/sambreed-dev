@@ -102,7 +102,7 @@ if (query) {
             const randomLink = document.querySelector("[data-random-link]") as HTMLAnchorElement;
 
             if (filterInput && links && countSpan && randomLink) {
-                filterInput.addEventListener("input", (e) => {
+                filterInput.addEventListener("input", () => {
                     let count = 0;
                     const filter = filterInput.value.toLowerCase();
                     randomLink.setAttribute("href", `/api/random-link?q=${filter}`);

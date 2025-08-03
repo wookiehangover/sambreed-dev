@@ -13,8 +13,8 @@
     "preview": "npx wrangler pages dev ./dist",
     "astro": "astro",
     "deploy": "npm run build && cd dist && npx wrangler pages deploy .",
-    "lint": "biome lint --write src",
-    "format": "biome format --write src"
+    "lint": "eslint src --fix",
+    "format": "prettier --write src"
   },
   "dependencies": {
     "@agentdb/sdk": "^1.1.1",
@@ -39,14 +39,13 @@
     "typescript": "^5.8.3",
     "unified": "^11.0.5"
   },
-  "prettier": {
-    "printWidth": 120
-  },
   "devDependencies": {
-    "@biomejs/biome": "2.1.2",
     "dotenv": "^16.5.0",
+    "eslint": "^9.0.0",
     "globby": "^14.1.0",
     "gray-matter": "^4.0.3",
+    "prettier": "^3.3.0",
+    "prettier-plugin-astro": "^0.14.0",
     "wrangler": "^4.27.0"
   }
 }
