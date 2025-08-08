@@ -1,0 +1,35 @@
+---
+title: Little Better Vector Search
+pubDate: August 7 2025
+slug: 2025/little-better-vector-search
+description: improvements to my vector search
+---
+
+import SearchForm from '~/components/search/SearchForm.astro';
+
+I recently upgraded the search on my website to use [AgentDB](https://agentdb.dev) instead of a JSON file with the embeddings and vibe-coded dot products.
+
+Try it out:
+
+<SearchForm placeholder="Try a search term like 'css' or 'svg'" />
+
+The search feature had been a broken and unnoticed for a while. I have very little tracking or and zero error monitoring in place, so when the api key to make the embeddings had stopped working I was unaware anything was amiss.
+
+When I eventually noticed and got around to fixing it, I decided that the dead-simple JSON file setup was perhaps a bit too gritty and needed to be brought closer to something I might actually build and tell people about.
+
+Now that it's easier than ever to add low-effort features, it felt like a good time to give the search backend and upgrade.
+
+Enter [AgentDB](https://agentdb.dev).
+
+AgentDB was a good fit for my needs: easy to host, difficult to break, generous free usage limits, and support for vector search.
+
+Since we live in an age of wonders, the migration path was easy. I connected the AgentDB MCP server to [Augment](https://www.augmentcode.com) and asked politely for it to draft a schema and then create the table. Then I had Augment migrate the old embeddings, update the generation script, and change the search implementation to use the new table.
+
+Setup
+
+- create a uuid to namespace the table
+- generate a schema and create tables
+- import existing embeddings into db
+- query the db using `vec_distance_cosine()` to filter results
+
+It was straightforward to replace the crude cosign similarity against the JSON file with a database query that uses a native cosign distance. At the pace I update my website, I'll be able to operate comfortable for decades before I need to worry about storage or compute for similarity searches.
