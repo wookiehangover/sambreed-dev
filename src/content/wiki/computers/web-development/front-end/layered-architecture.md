@@ -22,11 +22,11 @@ The history of computing tracks the accretion of layers of technology: electrica
 
 "Layer 0" is the computer. The definition of the computer changes over time.
 
-| When | Layer 0 |
-|-|-|
-| 60 years ago | assembly language |
-| 30 years ago | operating systems / PCs |
-| Today | web browsers / mobile devices |
+| When         | Layer 0                       |
+| ------------ | ----------------------------- |
+| 60 years ago | assembly language             |
+| 30 years ago | operating systems / PCs       |
+| Today        | web browsers / mobile devices |
 
 ## Table of Contents
 
@@ -41,7 +41,7 @@ Static content, once deployed, doesn't change. The client is the only runtime. W
 Here's a little table to help count the layers. The first layer is obviously simple:
 
 | Layer | Description |
-|-------|-------------|
+| ----- | ----------- | ------------- |
 | 1     | Static      | Fixed content |
 
 ## Layer 2 - Templates
@@ -59,8 +59,8 @@ A runtime that generates content on each request using fixed templates.
 Our little table gets bigger! You can very much think of Templates as an outgrowth of Static content, so a new cell has been added to the right:
 
 | Layer | Description |
-|-------|-------------|
-| 1     | Static      | Fixed content |
+| ----- | ----------- | --------------- |
+| 1     | Static      | Fixed content   |
 | 2     | Templates   | Dynamic content |
 
 ## Layer 3 - Content from a Database
@@ -80,10 +80,10 @@ This is your standard CRUD app.
 
 Another layer added to the table:
 
-| Layer | Description |
-|-------|-------------|
-| 1     | Static      | Fixed content |
-| 2     | Templates   | Dynamic content |
+| Layer | Description     |
+| ----- | --------------- | ----------------- |
+| 1     | Static          | Fixed content     |
+| 2     | Templates       | Dynamic content   |
 | 3     | Content from DB | Users r/w content |
 
 ## Layer 4 - Templates from a DB
@@ -96,11 +96,11 @@ When a CMS allows a user to define both the content and the layout, you enter th
 - With this type of system, a User can build a full application without having to know _more than the system itself_. All the constituent parts are there: storage, conditional branching, and loops. Granted, your templating layer may not allow for any programming logic, limiting the scope of what can be built
 - Standalone e-commerce sites are an example of this: you control inventory, manage templates for how your pages
 
-| Layer | Description |
-|-------|-------------|
-| 1     | Static      | Fixed content |
-| 2     | Templates   | Dynamic content |
-| 3     | Content from DB | Users r/w content |
+| Layer | Description       |
+| ----- | ----------------- | ------------------- |
+| 1     | Static            | Fixed content       |
+| 2     | Templates         | Dynamic content     |
+| 3     | Content from DB   | Users r/w content   |
 | 4     | Templates from DB | Users r/w templates |
 
 ## Layer 5 - Many Instances
@@ -112,13 +112,13 @@ Not only are there users and user-created content, but there are self-administer
 - Reddit and Discord, too.
 - JIRA is an easy-to-think-of example of this
 
-| Layer | Description |
-|-------|-------------|
-| 1     | Static      | Fixed content |
-| 2     | Templates   | Dynamic content |
-| 3     | Content from DB | Users r/w content |
-| 4     | Templates from DB | Users r/w templates |
-| 5     | Many Instances | Groups of users & RBAC |
+| Layer | Description       |
+| ----- | ----------------- | ---------------------- |
+| 1     | Static            | Fixed content          |
+| 2     | Templates         | Dynamic content        |
+| 3     | Content from DB   | Users r/w content      |
+| 4     | Templates from DB | Users r/w templates    |
+| 5     | Many Instances    | Groups of users & RBAC |
 
 ## Layer 6 - User Programmable
 
@@ -133,13 +133,13 @@ It is not enough to merely allow users to manage themselves _and_ the template _
 
 Our humble table needs to pivot in order to fit it all in:
 
-| Layer | Description |
-|-------|-------------|
-| 1     | Static      | Fixed content |
-| 2     | Templates   | Dynamic content |
-| 3     | Content from DB | Users r/w content |
-| 4     | Templates from DB | Users r/w templates |
-| 5     | Many Instances | Groups of users & RBAC |
+| Layer | Description       |
+| ----- | ----------------- | ------------------------ |
+| 1     | Static            | Fixed content            |
+| 2     | Templates         | Dynamic content          |
+| 3     | Content from DB   | Users r/w content        |
+| 4     | Templates from DB | Users r/w templates      |
+| 5     | Many Instances    | Groups of users & RBAC   |
 | 6     | User Programmable | Logic defined externally |
 
 ## Layer 7 - Dynamic Infrastructure
@@ -156,14 +156,14 @@ Kubernetes, the open source ancestor of [Google's Borg cluster management softwa
 
 Vercel is building the Frontend Cloud.
 
-| Layer | Description |
-|-------|-------------|
-| 1     | Static      | Fixed content |
-| 2     | Templates   | Dynamic content |
-| 3     | Content from DB | Users r/w content |
-| 4     | Templates from DB | Users r/w templates |
-| 5     | Many Instances | Groups of users & RBAC |
-| 6     | User Programmable | Logic defined externally |
+| Layer | Description            |
+| ----- | ---------------------- | ------------------------------------------ |
+| 1     | Static                 | Fixed content                              |
+| 2     | Templates              | Dynamic content                            |
+| 3     | Content from DB        | Users r/w content                          |
+| 4     | Templates from DB      | Users r/w templates                        |
+| 5     | Many Instances         | Groups of users & RBAC                     |
+| 6     | User Programmable      | Logic defined externally                   |
 | 7     | Dynamic Infrastructure | Congratulations, you are a hosting company |
 
 ---
@@ -174,17 +174,17 @@ The pattern also reflects the broader principle that architectural decisions sho
 
 ## References
 
-Fowler, M. (2002). *Patterns of Enterprise Application Architecture*. Addison-Wesley.
+Fowler, M. (2002). _Patterns of Enterprise Application Architecture_. Addison-Wesley.
 
-O'Reilly Media. *Software Architecture Patterns*. Chapter 1: Layered Architecture. O'Reilly Media. https://www.oreilly.com/library/view/software-architecture-patterns/9781491971437/ch01.html
+O'Reilly Media. _Software Architecture Patterns_. Chapter 1: Layered Architecture. O'Reilly Media. https://www.oreilly.com/library/view/software-architecture-patterns/9781491971437/ch01.html
 
-Parnas, D. L. (1972). On the criteria to be used in decomposing systems into modules. *Communications of the ACM*, 15(12), 1053-1058.
+Parnas, D. L. (1972). On the criteria to be used in decomposing systems into modules. _Communications of the ACM_, 15(12), 1053-1058.
 
 Reenskaug, T. (1979). The Model-View-Controller (MVC): Its Past and Present. University of Oslo.
 
-ScienceDirect. (2022). Layered Architecture. In *System Assurances*. https://www.sciencedirect.com/topics/computer-science/layered-architecture
+ScienceDirect. (2022). Layered Architecture. In _System Assurances_. https://www.sciencedirect.com/topics/computer-science/layered-architecture
 
-Shaw, M., & Garlan, D. (1996). *Software Architecture: Perspectives on an Emerging Discipline*. Prentice Hall.
+Shaw, M., & Garlan, D. (1996). _Software Architecture: Perspectives on an Emerging Discipline_. Prentice Hall.
 
 https://www.cloudflare.com/learning/ddos/glossary/open-systems-interconnection-model-osi/
 

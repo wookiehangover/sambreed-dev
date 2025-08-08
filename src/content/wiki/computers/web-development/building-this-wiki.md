@@ -4,29 +4,32 @@ description: "The map is not the territory"
 createdAt: 2023-07-18
 updatedAt: 2023-12-17
 categories: ["Computers", "Web Development"]
-type: 'note'
+type: "note"
 ---
 
 Three things were on my mind of late:
+
 1. I don't ever seem to have the patience or wherewithal to write an entire blog post.
 2. I have been getting a lot of use, joy, and mileage out of my personal notebook.
 3. Knowledge graphs and text processing have been frequent themes in my work over the last few years.
 
 Then, I was inspired by:
-* [Maggie Appleton's digital Garden](https://maggieappleton.com/garden)
-	* The idea of sharing little unfinished notes without shame, and then growing them over time
-	* [Work with the garage door up](https://notes.andymatuschak.org/zCMhncA1iSE74MKKYQS5PBZ)
-* Blogs that are websites
-	* [Dave Rupert](https://daverupert.com/)
-	* [Chris Coyier](https://chriscoyier.net/)
-	* [Will Larson](https://lethain.com/)
-	* [Kottke](https://kottke.org/), [Doctorow](https://pluralistic.net/), et al
+
+- [Maggie Appleton's digital Garden](https://maggieappleton.com/garden)
+  - The idea of sharing little unfinished notes without shame, and then growing them over time
+  - [Work with the garage door up](https://notes.andymatuschak.org/zCMhncA1iSE74MKKYQS5PBZ)
+- Blogs that are websites
+  - [Dave Rupert](https://daverupert.com/)
+  - [Chris Coyier](https://chriscoyier.net/)
+  - [Will Larson](https://lethain.com/)
+  - [Kottke](https://kottke.org/), [Doctorow](https://pluralistic.net/), et al
 
 Conclusion: I'm starting a wiki, [because it's never been done before](https://www.youtube.com/watch?v=ga0ksTIagsg).
 
 ## Table of Contents
 
 ## 1. Failing as a blogger
+
 I have wanted to build a hypertext for a long time. I built my first website around 1996 on Geocities and I have been trying to make [places made of language](../places-made-of-language) ever since.
 
 I blogged for about 6 months in [2008 and 2009](https://samuelbreed.blogspot.com/). From 2011-15, my website was just [animations and ascii art](https://web.archive.org/web/20120122225802/http://wookiehangover.com/). Sometimes [there were even links](https://web.archive.org/web/20150628070525/http://wookiehangover.com/). Since [around 2017](https://web.archive.org/web/20170710224200/https://wookiehangover.com/) I've had a version of this website running, with the occasional blog post here and there.
@@ -51,9 +54,9 @@ A brief history of my preferred note-taking apps, 2013-2023:
 
 I've had the tagline "modest personal website" up for a year or two. It means that I want something that's simple, unfancy, and hand built. I strive to make a little website that changes when I want it to change, and that has value to one person: me.
 
-My private notebook has become the main place where I think, document, and plan. Working asynchronously with a small, distributed team means that most of my correspondence with colleagues is in writing, and I don't like making people work hard to get the meaning. Rubber-ducking a message is 
+My private notebook has become the main place where I think, document, and plan. Working asynchronously with a small, distributed team means that most of my correspondence with colleagues is in writing, and I don't like making people work hard to get the meaning. Rubber-ducking a message is
 
-In that spirit, I would like to build and maintain a little knowledge graph in public. 
+In that spirit, I would like to build and maintain a little knowledge graph in public.
 
 ## 4. Build Notes
 
@@ -65,10 +68,10 @@ In many ways, Astro paved a cowpath that I was already on. In 2017 I used unify,
 
 There are a few Custom Elements floating around the site. I wrote about them in [Little Web Components](/writing/2023/lil-web-components). They are:
 
-* `<share-button>` wraps a standard `<button>` to trigger the [Web Share API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Share_API) if available, otherwise copying the link to the clipboard.
-* `<reply-link>` uses the Shadow DOM to keep my email address out of crawlers.
-* `<code-block>` adds a little "copy to clipboard" button to every preformatted code element
+- `<share-button>` wraps a standard `<button>` to trigger the [Web Share API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Share_API) if available, otherwise copying the link to the clipboard.
+- `<reply-link>` uses the Shadow DOM to keep my email address out of crawlers.
+- `<code-block>` adds a little "copy to clipboard" button to every preformatted code element
 
 ### Search
 
-Below the list of categories at the bottom of the page you'll see a search form. This is my [vibe-based search](/writing/2023/lil-vector-search) and will return similar posts. It's like full text search, but much worse! 
+Below the list of categories at the bottom of the page you'll see a search form. This is my [vibe-based search](/writing/2023/lil-vector-search) and will return similar posts. It's like full text search, but much worse!

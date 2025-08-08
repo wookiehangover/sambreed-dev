@@ -8,6 +8,7 @@ categories:
   - AI
 type: note
 ---
+
 I've been using LLMs for general coding tasks since late 2020. This is where I've started to corral together thoughts and techniques for "doing computers" with LLMs in the passenger seat.
 
 ## 2025
@@ -21,8 +22,8 @@ Enter the vibe coding era.
 
 Code completion gets good enough to go mainstream.
 
-
 ## 2023 and earlier
+
 ## LLM as Search Engines
 
 Plain language questions can be easier to write than good search queries.
@@ -40,10 +41,10 @@ The searches led to the same StackOverflow question, and incorporated the meat o
 
 Two notable observations:
 
-1. The LLM returns passable results for both the prompt and the search query. 
-	- In contrast, the search engine only performs well with the search query and delivers lower quality results with the prompt. I actually prefer the LLM's response from the search query, as it leaves out supplementary details about saving and running the bash script in the first prompt.
+1. The LLM returns passable results for both the prompt and the search query.
+   - In contrast, the search engine only performs well with the search query and delivers lower quality results with the prompt. I actually prefer the LLM's response from the search query, as it leaves out supplementary details about saving and running the bash script in the first prompt.
 2. The search query is a compressed expression of the problem statement in the prompt.
-	- I probably made the prompt a bit more explicative and redundant for the sake of the model, meaning I feel like this is nakedly "prompt language" rather than a "true" expression of the problem statement, but it came out in one fluid motion and I didn't linger on any of the details.
+   - I probably made the prompt a bit more explicative and redundant for the sake of the model, meaning I feel like this is nakedly "prompt language" rather than a "true" expression of the problem statement, but it came out in one fluid motion and I didn't linger on any of the details.
 
 ## Recipes
 
@@ -59,7 +60,7 @@ Here are a few examples of novel / interesting workflows and I've come across an
   - Despite more than 2 decades as a Linux user, my muscle-memory for shell commands is paltry. I know what I know and, of course, I know how to look things up.
   - This script skips a bunch of steps and gets right to the answer, showing you a preview of the command and the choice to run it. And the fun part is that ChatGPT also helped write the script itself!
   - Here are a few examples of how I've called this recently:
-    - `chat show info about my cpu` 
+    - `chat show info about my cpu`
     - `chat list size of my the current directory in gb`
     - `chat mount the usb drive sdf1`
     - `chat "what git branch is this commit in? 2e90fc13..."`

@@ -6,6 +6,7 @@ cover: "../../../assets/rabbit-doing-search-2.png"
 heroAlt: "“a rabbit using a computer to do a vector search” - SDXL"
 pubDate: "December 17 2023"
 ---
+
 import SearchForm from "~/components/search/SearchForm.astro";
 
 You might have noticed that there are now some search boxes on the site. They're powered by a toy vector search that I built. I like to call it _vibe based search_.
@@ -27,7 +28,7 @@ The caveman version goes like this:
 The short, non-caveman version goes like this:
 
 1. Encode the content as [embeddings](https://huggingface.co/blog/getting-started-with-embeddings) at build time.
-2. Encode incoming the search query. 
+2. Encode incoming the search query.
 3. Use math to find the embeddings closest to the search query.
 
 That’s it. Step 3 returns a list of content from Step 1. An API endpoint then returns the frontmatter for the top 6 results and I use that to render a list of results.
@@ -47,9 +48,9 @@ The script itself is not very interesting.
 - globs files to embed
 - find previous embeddings, if any exist
 - iterates through the files
-	- extract frontmatter
-	- check if a previous embedding exists and if needs to be updated
-	- call OpenAI to create an embeddings using `text-embedding-ada-002`
+  - extract frontmatter
+  - check if a previous embedding exists and if needs to be updated
+  - call OpenAI to create an embeddings using `text-embedding-ada-002`
 - write the embeddings to a JSON file
 
 At runtime, an embedding is generated for incoming search queries and are cached in the runtime.
@@ -65,36 +66,37 @@ At runtime, an embedding is generated for incoming search queries and are cached
 export type Vector = number[];
 
 export type Embedding = {
-  slug: string;
-  embedding: Vector;
+	slug: string;
+	embedding: Vector;
 };
 
 export type Score = {
-  embedding: Embedding;
-  score: number;
+	embedding: Embedding;
+	score: number;
 };
 
 export function cosineSimilarity(a: Vector, b: Vector): number {
-  const dotProduct = a.reduce((acc, val, i) => acc + val * b[i], 0);
-  const magnitudeA = Math.sqrt(a.reduce((acc, val) => acc + val * val, 0));
-  const magnitudeB = Math.sqrt(b.reduce((acc, val) => acc + val * val, 0));
+	const dotProduct = a.reduce((acc, val, i) => acc + val * b[i], 0);
+	const magnitudeA = Math.sqrt(a.reduce((acc, val) => acc + val * val, 0));
+	const magnitudeB = Math.sqrt(b.reduce((acc, val) => acc + val * val, 0));
 
-  return dotProduct / (magnitudeA * magnitudeB);
+	return dotProduct / (magnitudeA * magnitudeB);
 }
 
 export function findSimilarEmbeddings(query: Vector, embeddings: Embedding[], topK: number): Score[] {
-  const scores: Score[] = embeddings.map((embedding) => ({
-    embedding,
-    score: cosineSimilarity(query, embedding.embedding),
-  }));
+	const scores: Score[] = embeddings.map((embedding) => ({
+		embedding,
+		score: cosineSimilarity(query, embedding.embedding),
+	}));
 
-  scores.sort((a, b) => b.score - a.score);
+	scores.sort((a, b) => b.score - a.score);
 
-  return scores.slice(0, topK);
+	return scores.slice(0, topK);
 }
 ```
 
-h/t to the new [mistral-medium model](https://docs.mistral.ai/) for helping author this code. 
+h/t to the new [mistral-medium model](https://docs.mistral.ai/) for helping author this code.
+
 </details>
 
 ## Web glue
@@ -124,13 +126,12 @@ Full text search would likely be better overall, but would _not_ be vibe based s
 ## Areas for Improvement
 
 - Cache search query embeddings somewhere durable.
-	- Searches are cached in memory in the Cloudflare worker, which has a short and unpredictable lifespan.
-	- These could be stored in one of Cloudflare’s database products. It’s small data but costs money to generate, so durable search embeddings would prevent repeatedly paying to encode the same search terms.
-	- Cloudflare even has [a dedicated product for this](https://developers.cloudflare.com/vectorize/get-started/embeddings/) called Vectorize. Fancy!
+  - Searches are cached in memory in the Cloudflare worker, which has a short and unpredictable lifespan.
+  - These could be stored in one of Cloudflare’s database products. It’s small data but costs money to generate, so durable search embeddings would prevent repeatedly paying to encode the same search terms.
+  - Cloudflare even has [a dedicated product for this](https://developers.cloudflare.com/vectorize/get-started/embeddings/) called Vectorize. Fancy!
 - Increase granularity of embeddings
-	- I’m only generating a single embedding for each piece of content.
-	- This is not ideal, but offered passable results and good performance. I experimented with adding text chunking, but the search felt worse and the JSON payload was much bigger.
-
+  - I’m only generating a single embedding for each piece of content.
+  - This is not ideal, but offered passable results and good performance. I experimented with adding text chunking, but the search felt worse and the JSON payload was much bigger.
 
 ## Conclusion
 

@@ -7,15 +7,16 @@ export interface Props {
 
 const { action = "/search", value, placeholder = "Search" } = Astro.props;
 ---
+
 <form action={action} class="search">
-  <input
-    type="search"
-    autocomplete="off"
-    autocapitalize="off"
-    autocorrect="off"
-    placeholder={placeholder}
-    name="q"
-    value={value ?? ""}
-  />
-  <button>Go</button>
+	<input
+		type="search"
+		autocomplete="off"
+		autocapitalize="off"
+		autocorrect="off"
+		placeholder={placeholder}
+		name="q"
+		value={value ?? ""}
+	/>
+	<button>Go</button>
 </form>

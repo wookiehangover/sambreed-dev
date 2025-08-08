@@ -18,20 +18,20 @@ const {
 
 <!doctype html>
 <html lang="en" class={themeClass}>
-    <head>
-        <BaseHead title="Samuel Breed Resume" description="" />
-    </head>
+	<head>
+		<BaseHead title="Samuel Breed Resume" description="" />
+	</head>
 
-    <body>
-        <Header />
-        <section>
-            <header>
-                <h1>{title}</h1>
-            </header>
-            <article class="w-prose">
-                <slot />
-            </article>
-        </section>
-        <Footer />
-    </body>
+	<body>
+		<Header />
+		<section>
+			<header>
+				<h1>{title}</h1>
+			</header>
+			<article class="w-prose">
+				<slot />
+			</article>
+		</section>
+		<Footer />
+	</body>
 </html>

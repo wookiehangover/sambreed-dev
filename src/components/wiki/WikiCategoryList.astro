@@ -8,40 +8,40 @@ import SearchForm from "~/components/search/SearchForm.astro";
 const wikiEntries = await getCollection("wiki");
 const { tree } = getAllCategories(wikiEntries);
 ---
-<section>
-  <header>
-    <h2>Categories</h2>
-  </header>
-  <div>
-    <ul class="categories">
-      {tree.map((category) => <Category value={category} />)}
-      <li class="flex items-center gap-1 pt-8">
-        <Icon name="bulleted-list"/>
-        <a href={`/wiki`} title={`Index`}>Index</a>
-      </li>
-      <li class="flex items-center gap-1 pt-2">
-        <Icon name="info"/>
-        <a href={`/wiki/about`} title={`About`}>About</a>
-      </li>
-    </ul>
 
-    <SearchForm action="/wiki/search" />
-    
-  </div>
+<section>
+	<header>
+		<h2>Categories</h2>
+	</header>
+	<div>
+		<ul class="categories">
+			{tree.map((category) => <Category value={category} />)}
+			<li class="flex items-center gap-1 pt-8">
+				<Icon name="bulleted-list" />
+				<a href={`/wiki`} title={`Index`}>Index</a>
+			</li>
+			<li class="flex items-center gap-1 pt-2">
+				<Icon name="info" />
+				<a href={`/wiki/about`} title={`About`}>About</a>
+			</li>
+		</ul>
+
+		<SearchForm action="/wiki/search" />
+	</div>
 </section>
 <style is:global>
-  .categories a {
-    color: var(--color-text);
-    font-family: var(--font-family-heading);
-    text-decoration: none;
-    &:hover {
-      color: var(--link-color);
-      text-decoration: underline;
-    }
-  }
-  .categories {
-    list-style: none;
-    padding: 0;
-    margin: 1rem 0 4rem;
-  }
+	.categories a {
+		color: var(--color-text);
+		font-family: var(--font-family-heading);
+		text-decoration: none;
+		&:hover {
+			color: var(--link-color);
+			text-decoration: underline;
+		}
+	}
+	.categories {
+		list-style: none;
+		padding: 0;
+		margin: 1rem 0 4rem;
+	}
 </style>

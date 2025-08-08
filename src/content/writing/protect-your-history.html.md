@@ -5,6 +5,7 @@ description: DNSCrypt is a great way to ensure that your browsing history isn't 
 
 pubDate: "Apr 17 2017"
 ---
+
 ## Protect your DNS history with DNSCrypt
 
 In light of the recent rollback(s) of regulations meant to restrict how ISP's share and sell the data they gather about you, I started wondering what I could do to make my internet traffic a bit harder for them to monetize. How would I prevent my ISP from selling details about my shopping habits and personal preferences to the highest bidder?

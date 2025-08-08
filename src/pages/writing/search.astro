@@ -24,86 +24,86 @@ if (query) {
 
 <!doctype html>
 <html lang="en" class={themeClass}>
-    <head>
-        <BaseHead title="Blog Search" description="Blog Search" />
-    </head>
-    <body>
-        <Header />
+	<head>
+		<BaseHead title="Blog Search" description="Blog Search" />
+	</head>
+	<body>
+		<Header />
 
-        <section>
-            <header>
-                <h2>“Blog” Search</h2>
-                <p>It's vibe-based</p>
-            </header>
-            <div>
-                <SearchForm action="/writing/search" value={query ?? ""} />
+		<section>
+			<header>
+				<h2>“Blog” Search</h2>
+				<p>It's vibe-based</p>
+			</header>
+			<div>
+				<SearchForm action="/writing/search" value={query ?? ""} />
 
-                {
-                    results && (
-                        <ul>
-                            {results.map((entry: any) => (
-                                <li>
-                                    <BlogCard entry={entry} />
-                                </li>
-                            ))}
-                        </ul>
-                    )
-                }
-            </div>
-        </section>
+				{
+					results && (
+						<ul>
+							{results.map((entry: any) => (
+								<li>
+									<BlogCard entry={entry} />
+								</li>
+							))}
+						</ul>
+					)
+				}
+			</div>
+		</section>
 
-        <Footer />
-    </body><style>
-        body {
-            display: flex;
-            flex-direction: column;
-        }
+		<Footer />
+	</body><style>
+		body {
+			display: flex;
+			flex-direction: column;
+		}
 
-        section {
-            flex-grow: 1;
-        }
+		section {
+			flex-grow: 1;
+		}
 
-        form {
-            display: flex;
-            gap: 1rem;
-            margin: 1rem 0 2rem;
-        }
+		form {
+			display: flex;
+			gap: 1rem;
+			margin: 1rem 0 2rem;
+		}
 
-        input {
-            flex-grow: 1;
-            padding: 0.5rem;
-            border: 1px solid var(--border-dim);
-            border-radius: 4px;
-            font-size: 1rem;
-            line-height: 1.3;
-            background: transparent;
-            color: var(--text-color);
-            outline: none;
-        }
+		input {
+			flex-grow: 1;
+			padding: 0.5rem;
+			border: 1px solid var(--border-dim);
+			border-radius: 4px;
+			font-size: 1rem;
+			line-height: 1.3;
+			background: transparent;
+			color: var(--text-color);
+			outline: none;
+		}
 
-        button {
-            background-color: var(--border-dim);
-            color: var(--text-color);
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            font-size: 1rem;
-            line-height: 1.3;
-        }
+		button {
+			background-color: var(--border-dim);
+			color: var(--text-color);
+			border: none;
+			padding: 0.5rem 1rem;
+			border-radius: 4px;
+			font-size: 1rem;
+			line-height: 1.3;
+		}
 
-        ul {
-            display: grid;
-            list-style: none;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin: 0;
-            padding: 0;
-        }
+		ul {
+			display: grid;
+			list-style: none;
+			grid-template-columns: 1fr 1fr;
+			gap: 1rem;
+			margin: 0;
+			padding: 0;
+		}
 
-        @media (max-width: 512px) {
-            ul {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+		@media (max-width: 512px) {
+			ul {
+				grid-template-columns: 1fr;
+			}
+		}
+	</style>
 </html>

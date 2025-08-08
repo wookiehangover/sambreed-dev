@@ -15,13 +15,13 @@ For me, this winter has been characterized by [lots of low-effort running](https
 I have also been collecting tabs.
 
 ### AI
+
 - [Introducing the AI Mirror Test, which very smart people keep failing](https://www.theverge.com/23604075/ai-chatbots-bing-chatgpt-intelligent-sentient-mirror-test) - We're in the third month of frenzy following the release of ChatGPT and the hot takes simply will not stop coming. I've been working in-and-around the LLM / transformers / diffusers space since 2020, so finding journalism that resonates with me has been challenging, this piece being a clear exception. Bottom line: it is waaaay easy to oversell or invent capabilities of, or explanations of "how", a model like ChatGPT produces completions. There's definitely something cool and spooky going on here, but it's probably not what you think it is! Developing intuition for how these models behave and how to manipulate their output is challenging. They seem to have net-new qualities but are still very raw, so writing soberly about them seems to be very difficult.
 - [Copilot Internals](https://thakkarparth007.github.io/copilot-explorer/posts/copilot-internals.html) - Impressive piece of reverse engineering! Co-pilot is great and it's nice to think of it as an assemblage of pieces on top of an LLM rather than as something magic or abstruse.
 - [Illustrating Reinforcement Learning from Human Feedback (RLHF)](https://huggingface.co/blog/rlhf) - Staying on the theme of explicating the complex, this is how you grow a _very_ sophisticated model out of a merely sophisticated one.
 - [Storing OpenAI embeddings in Postgres with pgvector](https://supabase.com/blog/openai-embeddings-postgres-vector) - The team at Supabase rocks. I've been a customer of theirs for 2 years and I feel like it's more than paid off with the features that they've added since I started using them. This is a perfect example, where in the same week that I needed do this very task, they release a blog post telling me exactly how to do it. Pretty on point. Gotta appreciate a freebie like that when it comes your way!
-- [PodSearch Reborn](https://www.david-smith.org/blog/2023/02/02/podsearch-reborn/) - Very clever to index podcasts with OpenAI Whisper to make a searchable audio database. 
+- [PodSearch Reborn](https://www.david-smith.org/blog/2023/02/02/podsearch-reborn/) - Very clever to index podcasts with OpenAI Whisper to make a searchable audio database.
 - [Diffusion-based Generation, Optimization, and Planning in 3D Scenes](https://arxiv.org/abs/2301.06015) - The last 5 months since the release of Stable Diffusion have been very exciting. There are papers like this one being published every week, and [new techniques](https://huggingface.co/spaces/kadirnar/stable-diffusion-2-infinite-zoom-out) to [generate](https://huggingface.co/spaces/akhaliq/Analog-Diffusion) [images](https://huggingface.co/lllyasviel/ControlNet), 3D scenes, and animation are coming online as an outcome. It's breathless and no one has time to read and digest everything. It will be great to look back in 5 - 10 years and see where the high water mark left its line.
-
 
 ### Code
 
@@ -39,12 +39,10 @@ I have also been collecting tabs.
 - [Algorithmic Trading: A Practitioner’s Guide](https://henrikwarne.com/2023/02/12/algorithmic-trading-a-practitioners-guide/) - wow, please print a copy of this and send it back to me circa 2016-2017. I read several books on the topic and wrote a bit of automation but ultimately put it aside as a hobby.
 - [Xerox scanners/photocopiers randomly alter numbers in scanned documents](http://www.dkriesel.com/en/blog/2013/0802_xerox-workcentres_are_switching_written_numbers_when_scanning) - yes, you read that correctly. Software in Xerox copy machines could, under certain conditions, scramble numbers in scanned documents. This was a bug in the wild for several **years** before it was fixed!
 
-
 ### Opinion Section
 
 - [Don't be a doomer](https://noahpinion.substack.com/p/dont-be-a-doomer) - Point: modernity and human psychology make it easier and more rewarding to be a pessimist, especially as a reactionary reward-seeking mechanism. Things are pretty good even though they can still get a hell of a lot better. Both can be true at the same time!
 - [Social Media is a Major Cause of the Mental Illness Epidemic in Teen Girls. Here’s the Evidence.](https://jonathanhaidt.substack.com/p/social-media-mental-illness-epidemic) Counter-point: there are big harms that we're self-inflicting and maybe we should cut it out? or at least not deny the mounting piles of evidence? Jonathan Haidt is an author I came across last year while actively seeking out books recommended by people I don't agree with, and his Moral Foundations theory really resonated with me a way to frame contemporary history and political division. I don't agree with everything he has to say, but he's a good and thought-provoking writer.
-
 
 ### Misc.
 

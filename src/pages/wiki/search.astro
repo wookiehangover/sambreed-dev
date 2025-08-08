@@ -27,55 +27,55 @@ if (query) {
 
 <!doctype html>
 <html lang="en" class={themeClass}>
-    <head>
-        <BaseHead title="Wiki Search" description="Wiki Search" />
-    </head>
-    <body>
-        <Header />
+	<head>
+		<BaseHead title="Wiki Search" description="Wiki Search" />
+	</head>
+	<body>
+		<Header />
 
-        <section>
-            <header>
-                <h2>Wiki Search</h2>
-            </header>
-            <div>
-                <SearchForm action="/wiki/search" value={query ?? ""} />
+		<section>
+			<header>
+				<h2>Wiki Search</h2>
+			</header>
+			<div>
+				<SearchForm action="/wiki/search" value={query ?? ""} />
 
-                {
-                    results && (
-                        <ul>
-                            {results.map((entry: any) => (
-                                <WikiCard entry={entry} map={map} />
-                            ))}
-                        </ul>
-                    )
-                }
-            </div>
-        </section>
+				{
+					results && (
+						<ul>
+							{results.map((entry: any) => (
+								<WikiCard entry={entry} map={map} />
+							))}
+						</ul>
+					)
+				}
+			</div>
+		</section>
 
-        <Footer />
-    </body><style>
-        body {
-            display: flex;
-            flex-direction: column;
-        }
+		<Footer />
+	</body><style>
+		body {
+			display: flex;
+			flex-direction: column;
+		}
 
-        section {
-            flex-grow: 1;
-        }
+		section {
+			flex-grow: 1;
+		}
 
-        ul {
-            display: grid;
-            list-style: none;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin: 0;
-            padding: 0;
-        }
+		ul {
+			display: grid;
+			list-style: none;
+			grid-template-columns: 1fr 1fr;
+			gap: 1rem;
+			margin: 0;
+			padding: 0;
+		}
 
-        @media (max-width: 512px) {
-            ul {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+		@media (max-width: 512px) {
+			ul {
+				grid-template-columns: 1fr;
+			}
+		}
+	</style>
 </html>

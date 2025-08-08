@@ -10,14 +10,12 @@ const { value } = Astro.props;
 ---
 
 <ul>
-  {value.children.map((child) => (
-    <Category value={child} />
-  ))}
+	{value.children.map((child) => <Category value={child} />)}
 </ul>
 <style>
-  ul {
-    list-style: none;
-    padding: 0 0 0 1em;
-    margin: 0;
-  }
+	ul {
+		list-style: none;
+		padding: 0 0 0 1em;
+		margin: 0;
+	}
 </style>

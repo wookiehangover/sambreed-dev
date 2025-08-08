@@ -3,7 +3,7 @@ title: "Places made of language"
 description: "from Jorge Arango"
 createdAt: 2023-07-21
 categories: ["Computers"]
-type: 'quote'
+type: "quote"
 ---
 
 from [Jorge Arango's blog](https://jarango.com/)

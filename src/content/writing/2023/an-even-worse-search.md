@@ -35,7 +35,7 @@ In 2022 I started posting all of my stray browser tabs at the end of every month
 
 I think this is a response to never quite being able to make bookmarks work for me.
 
-A few weeks back, I added [embeddings search](../lil-vector-search) to my posts, but I felt that it was missing something.  It was really hit-or-miss when it came to actually finding things I had posted. (By design, partially — it’s a toy.)
+A few weeks back, I added [embeddings search](../lil-vector-search) to my posts, but I felt that it was missing something. It was really hit-or-miss when it came to actually finding things I had posted. (By design, partially — it’s a toy.)
 
 It hit me that what I wanted was to see all the of links I’ve posted this year in one place. So now I have big list of links. What next?
 
@@ -71,7 +71,7 @@ Armed with a JSON file of all the links, building a page to display them was tri
 
 For the search, I started with JavaScript first. I felt that seeing the list update as you type would be a better experience.
 
-Instead of doing math-y vibe based search with embeddings, I opted to check the title and url for the search term. 
+Instead of doing math-y vibe based search with embeddings, I opted to check the title and url for the search term.
 
 ```typescript
 const filterInput = document.querySelector("[data-filter]");
@@ -81,19 +81,19 @@ filterInput.addEventListener("input", () => {
 	const filter = filterInput.value.toLowerCase();
 
 	if (!filter) {
-	  for (const link of links) {
-	    link.classList.remove("hidden");
-	  }
-	  return;
+		for (const link of links) {
+			link.classList.remove("hidden");
+		}
+		return;
 	}
-	
+
 	for (const link of links) {
-	  const text = link.textContent?.toLowerCase();
-	  if (text?.includes(filter) || link.href.includes(filter)) {
-	    link.classList.remove("hidden");
-	  } else {
-	    link.classList.add("hidden");
-	  }
+		const text = link.textContent?.toLowerCase();
+		if (text?.includes(filter) || link.href.includes(filter)) {
+			link.classList.remove("hidden");
+		} else {
+			link.classList.add("hidden");
+		}
 	}
 });
 ```

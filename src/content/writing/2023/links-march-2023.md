@@ -31,9 +31,8 @@ Yes, I had all of these tabs open.
 
 [microsoft/X-Decoder](https://github.com/microsoft/X-Decoder) and [unum-cloud/uform](https://github.com/unum-cloud/uform) On that same note, progress towards collapsing the world into a single, interchangable latent space of patterns continues apace.
 
-
-
 #### Stable Diffusion
+
 - [MagicPrompt StableDiffusion](https://huggingface.co/Gustavosta/MagicPrompt-Stable-Diffusion?text=Portrait+of)
 - [ControlNet in 🧨 Diffusers](https://huggingface.co/blog/controlnet)
 - [HuggingFace Publishes LoRA Scripts For Efficient Stable Diffusion Fine-Tuning - MarkTechPost](https://www.marktechpost.com/2023/02/18/huggingface-publishes-lora-scripts-for-efficient-stable-diffusion-fine-tuning/)
@@ -45,37 +44,39 @@ Yes, I had all of these tabs open.
 - [ChatGPT search engine - Chrome Web Store](https://chrome.google.com/webstore/detail/chatgpt-search-engine/copaigionceiijiolkfnbgpcnkeclhhd/related)
 - [Use this command to get suggestions on how to do things on the command line.](https://gist.github.com/spullara/0fc3e88150f66179017b9aa1758d49d2)
 
-
 ## Computer Chronicles
-* [Something Pretty Right: A History of Visual Basic | Retool](https://retool.com/visual-basic/)
-* [50 Years Later, We’re Still Living in the Xerox Alto’s World - IEEE Spectrum](https://spectrum.ieee.org/xerox-alto)
-* [Architects, Anti-Patterns, and Organizational Fuckery](https://charity.wtf/2023/03/09/architects-anti-patterns-and-organizational-fuckery/)
-* [Systems design explains the world: volume 1 - apenwarr](https://apenwarr.ca/log/20201227)
-* [Looking Back at Postgres [pdf]](https://arxiv.org/pdf/1901.01973.pdf)
+
+- [Something Pretty Right: A History of Visual Basic | Retool](https://retool.com/visual-basic/)
+- [50 Years Later, We’re Still Living in the Xerox Alto’s World - IEEE Spectrum](https://spectrum.ieee.org/xerox-alto)
+- [Architects, Anti-Patterns, and Organizational Fuckery](https://charity.wtf/2023/03/09/architects-anti-patterns-and-organizational-fuckery/)
+- [Systems design explains the world: volume 1 - apenwarr](https://apenwarr.ca/log/20201227)
+- [Looking Back at Postgres [pdf]](https://arxiv.org/pdf/1901.01973.pdf)
 
 ## Tech
-* [You're Missing the Point of Promises](https://blog.domenic.me/youre-missing-the-point-of-promises/)
-* [The Missing Semester of Your CS Education](https://missing.csail.mit.edu/)
-* [Sentry’s Frontend Tests: Migrating from Enzyme to React Testing Library](https://blog.sentry.io/2023/02/23/sentrys-frontend-tests-migrating-from-enzyme-to-react-testing-library/)
-* [Defer: Zero infrastructure Node.js background jobs.](https://docs.defer.run/platform/executions/)
-* [TypeScript's Migration to Modules - TypeScript](https://devblogs.microsoft.com/typescript/typescripts-migration-to-modules/)
-* [Reflecting on my first failed product](https://mcarter.me/posts/my-first-failed-product)
-* [You Broke Reddit: The Pi-Day Outage](https://www.reddit.com/r/RedditEng/comments/11xx5o0/you_broke_reddit_the_piday_outage/)
 
+- [You're Missing the Point of Promises](https://blog.domenic.me/youre-missing-the-point-of-promises/)
+- [The Missing Semester of Your CS Education](https://missing.csail.mit.edu/)
+- [Sentry’s Frontend Tests: Migrating from Enzyme to React Testing Library](https://blog.sentry.io/2023/02/23/sentrys-frontend-tests-migrating-from-enzyme-to-react-testing-library/)
+- [Defer: Zero infrastructure Node.js background jobs.](https://docs.defer.run/platform/executions/)
+- [TypeScript's Migration to Modules - TypeScript](https://devblogs.microsoft.com/typescript/typescripts-migration-to-modules/)
+- [Reflecting on my first failed product](https://mcarter.me/posts/my-first-failed-product)
+- [You Broke Reddit: The Pi-Day Outage](https://www.reddit.com/r/RedditEng/comments/11xx5o0/you_broke_reddit_the_piday_outage/)
 
 ## Blogs & Newsletters
 
-* [Writing – Eric Bailey](https://ericwbailey.design/published/)
-  * Specifically [I doubled-down on RSS](https://ericwbailey.website/published/i-doubled-down-on-rss/). Me too! This was really helpful. [(See below)](#rss)
-  * And also [[SC 2.4.4] If you are so inclined • Buttondown](https://buttondown.email/ericwbailey/archive/sc-244/). Favorite new extremely online person to read.
-* [The End of the English Major | The New Yorker](https://www.newyorker.com/magazine/2023/03/06/the-end-of-the-english-major)
-* [Pentiment - by Adrian Hon - Have You Played?](https://adrianhon.substack.com/p/pentiment)
+- [Writing – Eric Bailey](https://ericwbailey.design/published/)
+  - Specifically [I doubled-down on RSS](https://ericwbailey.website/published/i-doubled-down-on-rss/). Me too! This was really helpful. [(See below)](#rss)
+  - And also [[SC 2.4.4] If you are so inclined • Buttondown](https://buttondown.email/ericwbailey/archive/sc-244/). Favorite new extremely online person to read.
+- [The End of the English Major | The New Yorker](https://www.newyorker.com/magazine/2023/03/06/the-end-of-the-english-major)
+- [Pentiment - by Adrian Hon - Have You Played?](https://adrianhon.substack.com/p/pentiment)
 
 ## Misc
-* [How to use the en dash, em dash and hyphen (also ndash, mdash)](https://www.punctuationmatters.com/en-dash-em-dash-hyphen/)
-* [Whom to Follow | Find New Fediverse Accounts](https://whomtofollow.com/?account=sambreed%40mastodon.social)
+
+- [How to use the en dash, em dash and hyphen (also ndash, mdash)](https://www.punctuationmatters.com/en-dash-em-dash-hyphen/)
+- [Whom to Follow | Find New Fediverse Accounts](https://whomtofollow.com/?account=sambreed%40mastodon.social)
 
 <a name="rss"></a>
+
 ## RSS
 
 Much has been written about the resurgence of RSS. Here's my story:
@@ -86,15 +87,15 @@ But time passes and seasons change, and in 2022 my media habits were shifting ye
 
 Here's the shotgun-blast of one tool and all of the things I starred in feedbin. RIP to the ability to follow twitter feeds there.
 
-* [Twitter OPML Export](https://opml.glitch.me/) - Recommended by Eric Bailey in the posts linked above, this is a tool for helping shake the good RSS feeds out of your twitter follows.
-* https://twitter.com/cramforce/status/1640820365378338816
-* https://stratechery.com/2023/chatgpt-learns-computing/
-* https://www.jarretthousenorth.com/2023/03/21/old-mix-faith-and-blues/
-* https://twitter.com/wesbos/status/998993638578376709
-* https://kottke.org/23/03/kottke-is-25-years-old-today
-* https://twitter.com/cramforce/status/1633140273885872128
-* https://lethain.com/engineering-onboarding-programs/
+- [Twitter OPML Export](https://opml.glitch.me/) - Recommended by Eric Bailey in the posts linked above, this is a tool for helping shake the good RSS feeds out of your twitter follows.
+- https://twitter.com/cramforce/status/1640820365378338816
+- https://stratechery.com/2023/chatgpt-learns-computing/
+- https://www.jarretthousenorth.com/2023/03/21/old-mix-faith-and-blues/
+- https://twitter.com/wesbos/status/998993638578376709
+- https://kottke.org/23/03/kottke-is-25-years-old-today
+- https://twitter.com/cramforce/status/1633140273885872128
+- https://lethain.com/engineering-onboarding-programs/
 
 ## YouTube
-* [The Future is a Dead Mall - Decentraland and the Metaverse - YouTube](https://www.youtube.com/watch?v=EiZhdpLXZ8Q)
 
+- [The Future is a Dead Mall - Decentraland and the Metaverse - YouTube](https://www.youtube.com/watch?v=EiZhdpLXZ8Q)

@@ -10,7 +10,7 @@ categories:
   - Front-End
 ---
 
-The death of Internet Explorer in 2022 finally opened the doors to a new era of web development.  The Year of the Evergreen browser, where we still have a lowest common denominator (hint: it's Safari) but it's a lot less-low than it used to be. This is a list where I'll collect list notes to remember what I'm missing using Tailwind.
+The death of Internet Explorer in 2022 finally opened the doors to a new era of web development. The Year of the Evergreen browser, where we still have a lowest common denominator (hint: it's Safari) but it's a lot less-low than it used to be. This is a list where I'll collect list notes to remember what I'm missing using Tailwind.
 
 Consequently, I've been writing more and more custom CSS without Tailwind. I'm still a big fan of Tailwind, but the web platform keeps getting better and better.
 
@@ -23,8 +23,8 @@ Consequently, I've been writing more and more custom CSS without Tailwind. I'm s
 - `transition-behavior: allow-discrete` h/t to Shop Talk episode ??? for pointing this one out. It is FINALLY possible to animate to an automatic / default values, and specifically `display: none`. [mdn](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-behavior)
 
 - `nesting` came from out of nowhere to be completely usable if you only care about targeting modern browsers.
-	- After years of using nesting in Sass and Less but then drifting away when authoring formats moved away from all-in-one preprocessors, it feels like returning to a familiar place.
-	- Nesting makes so sense in practice that it's hard to imagine not using it frequently from now on.
+  - After years of using nesting in Sass and Less but then drifting away when authoring formats moved away from all-in-one preprocessors, it feels like returning to a familiar place.
+  - Nesting makes so sense in practice that it's hard to imagine not using it frequently from now on.
 
 ```css
 .nesting {
@@ -35,7 +35,7 @@ Consequently, I've been writing more and more custom CSS without Tailwind. I'm s
 ```
 
 - container queries make things responsive based on the parent container's size instead of the viewport.
-	- 2023-09-05: Finally got around to using container queries on a project, they rock. Of course, I used the [Tailwind](./zen-of-tailwind) flavor in the form a plugin that adds the `@container` class, then a range of modifiers, `@xs:` through `@7xl:`, and the ability to declare your own custom stops (`@[21.5rem]:`).  Styling based on the parent container size is honestly more intuitive, and obviously more expressive, than using the browser viewport.
+  - 2023-09-05: Finally got around to using container queries on a project, they rock. Of course, I used the [Tailwind](./zen-of-tailwind) flavor in the form a plugin that adds the `@container` class, then a range of modifiers, `@xs:` through `@7xl:`, and the ability to declare your own custom stops (`@[21.5rem]:`). Styling based on the parent container size is honestly more intuitive, and obviously more expressive, than using the browser viewport.
 
 ```css
 .post {
@@ -55,32 +55,32 @@ Consequently, I've been writing more and more custom CSS without Tailwind. I'm s
 - spaces over commas in CSS colors. `rgb(255 255 255)` instead of `rgb(255, 255, 255)`. also `rgba` and pals are deprecated
 - layers. I hadn't encountered these until [shadcn](https://ui.shadcn.com/) pulled added them to a stylesheet. Definitely another good abstraction to have in the platform, paving a world where interoperability between off-the-shelf web things could be much, much easier than it was in the past.
 - there's a [big list of functions](https://twitter.com/argyleink/status/1684579433821372418?s=20), a bunch of which I've never used
-	- `env()`
-	- `clamp(min, preferred, max)` - make a value change dynamically with container size
-	- `attr()` ‡
-	- `invert()`
-	- Grid sizing
-		- `fit-content()` `repeat()`
-	- Color stuff:
-		- `color-mix()`
-		- `rgb()` ‡ `hsl()` ‡ `oklch()`
-	- Clip Path
-		- `circle()` `polygon()` `path()`
-	- Maths
-		- `sin()` `cos()` `tan()` `pow()` `hypot()` `log()`
-		- `min()` `max()` `round()`
-		- `calc()` ‡
-	- Easing
-		- `steps()` `linear()` `cubic-bezier()`
+  - `env()`
+  - `clamp(min, preferred, max)` - make a value change dynamically with container size
+  - `attr()` ‡
+  - `invert()`
+  - Grid sizing
+    - `fit-content()` `repeat()`
+  - Color stuff:
+    - `color-mix()`
+    - `rgb()` ‡ `hsl()` ‡ `oklch()`
+  - Clip Path
+    - `circle()` `polygon()` `path()`
+  - Maths
+    - `sin()` `cos()` `tan()` `pow()` `hypot()` `log()`
+    - `min()` `max()` `round()`
+    - `calc()` ‡
+  - Easing
+    - `steps()` `linear()` `cubic-bezier()`
 
 ‡ These have been around for long enough that I no longer consider them new, but still make life much, much better so I'll include them here anyway.
 
 ## Old New
 
 - `flex` is no longer new and my default mode of thinking for styling. I used to practitioner of the "everything can be done with divs and floats" school, but now I'm all in on train "everything can be done with divs and flex."
-	- I have been using flex for *lots* of common layout patterns for years now. Flex fits well with utility classes and Tailwind, with an API that composes nicely. My codebases are lousy with `flex items-center gap-2`  and `flex items-center justify-between`.
+  - I have been using flex for _lots_ of common layout patterns for years now. Flex fits well with utility classes and Tailwind, with an API that composes nicely. My codebases are lousy with `flex items-center gap-2` and `flex items-center justify-between`.
 - `grid` is also no longer new. It solves a lot of layouts but I use it infrequently, in part due to its flawed implementation in Tailwind. On non-Tailwind projects, I've found grid to feel much more intuitive and useful.
-	- A way to do [masonry](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Masonry_Layout) layouts have been proposed but only available in Safari technical preview. This trend was popular 12-13 years ago when I was consulting, and it always needed JavaScript to calculate the layout. Even with open source projects to solve this for you, it was typically a heavy-weight process to read the size of every dom node in the grid to do the math to position each element. Despite being a design edge case, this would be great to have natively.
-	- [Subgrid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Subgrid) is also very cool. I made a little experiement page with it over here: [/experiments/subgrid](/experiments/subgrid)
+  - A way to do [masonry](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Masonry_Layout) layouts have been proposed but only available in Safari technical preview. This trend was popular 12-13 years ago when I was consulting, and it always needed JavaScript to calculate the layout. Even with open source projects to solve this for you, it was typically a heavy-weight process to read the size of every dom node in the grid to do the math to position each element. Despite being a design edge case, this would be great to have natively.
+  - [Subgrid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Subgrid) is also very cool. I made a little experiement page with it over here: [/experiments/subgrid](/experiments/subgrid)
 - variables. I know, I know, these aren't exactly new either, but the point is that you can finally use them everywhere without hesitation.
-	- Variable are perfect for with responsive design, by using media queries to set variables to override styles without having to repeat selectors.
+  - Variable are perfect for with responsive design, by using media queries to set variables to override styles without having to repeat selectors.

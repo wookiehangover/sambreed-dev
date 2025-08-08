@@ -4,11 +4,12 @@ slug: 2023/links-august-2023
 description: shaking out the tabs from the bottom of the bag
 
 cover: "../../../assets/967222.jpeg"
-heroAlt: "\"to the west the cloudbanks stood above the mountains like the dark warp of the very firmament and the star-sprent reaches of the galaxies hung in a vast aura above the riders' heads\" Cormac McCarthy × Stable Diffusion XL1.0"
+heroAlt: '"to the west the cloudbanks stood above the mountains like the dark warp of the very firmament and the star-sprent reaches of the galaxies hung in a vast aura above the riders'' heads" Cormac McCarthy × Stable Diffusion XL1.0'
 pubDate: "August 31 2023"
 ---
 
 ## Tech
+
 - [How Google made the world go viral - The Verge](https://www.theverge.com/23846048/google-search-memes-images-pagerank-altavista-seo-keywords?utm_source=substack&utm_medium=email)
 - [Building and operating a pretty big storage system called S3](https://www.allthingsdistributed.com/2023/07/building-and-operating-a-pretty-big-storage-system.html)
 - [Why Open Source Matters](https://redmonk.com/sogrady/2023/08/03/why-opensource-matters/)
@@ -20,6 +21,7 @@ pubDate: "August 31 2023"
 - [FFmpeg Explorer!](https://ffmpeg.lav.io/)
 
 ## AI
+
 - [Fine-Tuning Llama-2: A Comprehensive Case Study for Tailoring Models to Unique Applications](https://www.anyscale.com/blog/fine-tuning-llama-2-a-comprehensive-case-study-for-tailoring-models-to-unique-applications)
 - [The Annotated S4](https://srush.github.io/annotated-s4/)
 - [steven2358/awesome-generative-ai: A curated list of modern Generative Artificial Intelligence projects and services](https://github.com/steven2358/awesome-generative-ai)
@@ -29,6 +31,7 @@ pubDate: "August 31 2023"
 - [Break-A-Scene: Extracting Multiple Concepts from a Single Image](https://huggingface.co/papers/2305.16311)
 
 ## Fontend
+
 - [Flying Toasters Screensaver | After Dark in CSS](https://www.bryanbraun.com/after-dark-css/all/flying-toasters.html) - I remember buying the After Dark screensavers in the 90s. I liked this one and the dog that dug up holes on your desktop.
 - [Why Does Email Development Have to Suck?](https://dodov.dev/blog/why-does-email-development-have-to-suck)
 - [Axiomatic CSS and Lobotomized Owls – A List Apart](https://alistapart.com/article/axiomatic-css-and-lobotomized-owls/)
@@ -42,6 +45,7 @@ pubDate: "August 31 2023"
 - [Introduction to USD — Universal Scene Description 23.08 documentation](https://openusd.org/release/intro.html)
 
 ## This is neat
+
 - [Rewriting Wipeout](https://phoboslab.org/log/2023/08/rewriting-wipeout)
   - and [Commander Keen's Adaptive Tile Refresh](https://fabiensanglard.net/ega/)
     - and [Loki: A Unified Multiphysics Simulation Framework for Production (pdf)](http://alexey.stomakhin.com/research/siggraph2022_loki.pdf)

@@ -19,36 +19,36 @@ tldr, know what you're trying to measure and collect the right data.
 
 - The performance tab in Chrome dev tools is still the best tool for diagnosing and debugging performance issues.
 - Performance is not a single number.
-	- Users will have slow devices, bad networks, memory pressure, etc. Assume the worst.
-	- **Performance is a statistical distribution of response times across a population of users with different devices and networks.**
-	- Remember that "fast for me" != "fast for everyone"
-		- _BUT_
-		- Making it fast on your device and your connection is the best place to start.
-		- If it's slow for you then it's definitely slow for everyone else.
+  - Users will have slow devices, bad networks, memory pressure, etc. Assume the worst.
+  - **Performance is a statistical distribution of response times across a population of users with different devices and networks.**
+  - Remember that "fast for me" != "fast for everyone"
+    - _BUT_
+    - Making it fast on your device and your connection is the best place to start.
+    - If it's slow for you then it's definitely slow for everyone else.
 - So there are limits to what you can do with local tools.
-	- Using a remote performance test like [WebPageTest](https://www.webpagetest.org/) can help identify problems that you might miss with local testing.
-	- External tests offer a point-in-time measurement which might be different than what real-world users see.
+  - Using a remote performance test like [WebPageTest](https://www.webpagetest.org/) can help identify problems that you might miss with local testing.
+  - External tests offer a point-in-time measurement which might be different than what real-world users see.
 - **Measuring performance from real users on your real infrastructure is the only way to understand the gaps in your performance architecture**, and the only true feedback mechanism to tell you if you're fixing them over time.
 - _HOWEVER_
-	- This is a deep rabbit-hole. Measuring on the client is not free and too much telemetry can make performance worse.
+  - This is a deep rabbit-hole. Measuring on the client is not free and too much telemetry can make performance worse.
 
 ### 2. Cache when possible, but not too much
 
 tldr, cache static requests aggressively, be very careful with dynamic content
 
 - Physical distance between your servers and users is a large source of latency in any web request.
-	- Goal is to make the request travel as short a distance as possible.
+  - Goal is to make the request travel as short a distance as possible.
 - So what is CDN caching?
-	1. Your server responds to an incoming request.
-	2. A proxy sits between your server and the outside world, listening for a special header and caches the response. 
-		- The cached response is (usually) propagated across a globally distributed network of servers so the next request can be served from the nearest server.
-	3. When the next request comes in, it gets served the cached response instead of hitting your server. 
+  1.  Your server responds to an incoming request.
+  2.  A proxy sits between your server and the outside world, listening for a special header and caches the response.
+      - The cached response is (usually) propagated across a globally distributed network of servers so the next request can be served from the nearest server.
+  3.  When the next request comes in, it gets served the cached response instead of hitting your server.
 - This is great for content that is **exactly the same every time**: your server does less work and your clients get the fastest possible response.
 - _BUT_
-	- **You should never CDN cache authenticated pages**
-	- There is a huge risk of showing your users someone else's account data 💀
+  - **You should never CDN cache authenticated pages**
+  - There is a huge risk of showing your users someone else's account data 💀
 - Make sure you understand how your CDN is configured and how to flush it.
-	- Common symptom will be the complaint "I can't see my changes," and reply, "Are you seeing cached content?"
+  - Common symptom will be the complaint "I can't see my changes," and reply, "Are you seeing cached content?"
 
 ### 3. Find out what's slow and eliminate bottlenecks
 
@@ -57,32 +57,32 @@ tldr, know your performance floor.
 - How fast is your infra when you're doing zero work?
 - Lots of architectures can go fast. Most of the things I work on follow the "BFF" pattern.
 - "Backend-for-the-frontend" is when your web server makes calls to a separate API server for database access and business logic.
-	- Server A handles html generation, content negotiation, and session handling.
-	- Server B talks to the database and handles the application logic of your API.
+  - Server A handles html generation, content negotiation, and session handling.
+  - Server B talks to the database and handles the application logic of your API.
 - Server A's _minimum_ response time is governed by the _slowest_ response from Server B.
 - To increase performance your best option is to reduce Server A's time spent waiting on Server B as much as possible. That means:
-	- request only the data needed to generate a response
-	- send the fewest requests possible
-	- always send requests in parallel, avoid waterfalls
+  - request only the data needed to generate a response
+  - send the fewest requests possible
+  - always send requests in parallel, avoid waterfalls
 - When the non-rendering, non-request handling parts of your workflow is fast, you can focus on the frontend.
-	- then reduce the frontend payload as much as possible. That means:
-		-	compressing and caching all assets, with content hash fingerprints.
-		- shipping little to no JS, only the CSS you need to render the elements on the page, and optimizing and caching  images and videos.
+  - then reduce the frontend payload as much as possible. That means:
+    - compressing and caching all assets, with content hash fingerprints.
+    - shipping little to no JS, only the CSS you need to render the elements on the page, and optimizing and caching images and videos.
 
 ### 4. Blame the framework, last
 
 tldr, you're probably slower than the framework
 
 - Look, React is fine.
-	- anecdotally, ~100ms is a pretty typical "cost of business" to fetch data + do a react render + stream the results
-		- you can make this a little faster, but if you have sub-100ms p95 then you're doing great tbh.
-	- usually there's lots of headroom even just in sending slimmer payloads from the API server to the client.
+  - anecdotally, ~100ms is a pretty typical "cost of business" to fetch data + do a react render + stream the results
+    - you can make this a little faster, but if you have sub-100ms p95 then you're doing great tbh.
+  - usually there's lots of headroom even just in sending slimmer payloads from the API server to the client.
 - _HOWEVER_
-	- if you have optimized to the point where React is holding you back from silky smooth frame rates and instant loading, congratulations! or if you start with that as an explicit goal, React probably _will_ hold you back.
+  - if you have optimized to the point where React is holding you back from silky smooth frame rates and instant loading, congratulations! or if you start with that as an explicit goal, React probably _will_ hold you back.
 - _BUT_
-	- if you are trying to move quickly with the best developer ergonomics and a decade+ of mass adoption, React is fine.You will not be fired for choosing it.
+  - if you are trying to move quickly with the best developer ergonomics and a decade+ of mass adoption, React is fine.You will not be fired for choosing it.
 - _REMEMBER_
-	- This is an exhaustive topic.
-	- The web platform provides many, many ways to build the same application experiences.
-	- Every interaction can be optimized and tuned to an absurd degree, so you have to pick your battles.
-	- The ideal web site is fast, accessible, and works on every device. Don't lose track of that.
+  - This is an exhaustive topic.
+  - The web platform provides many, many ways to build the same application experiences.
+  - Every interaction can be optimized and tuned to an absurd degree, so you have to pick your battles.
+  - The ideal web site is fast, accessible, and works on every device. Don't lose track of that.

@@ -5,43 +5,55 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "~/config";
 import "../../components/CodeBlock.astro";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body>
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<main>
+			<header>
+				<h1>CSS Subgrid</h1>
+				<div>
+					<p>Published on <time datetime="2023-11-23">November 23, 2023</time></p>
+				</div>
+			</header>
+			<div>
+				<p>I don't know how you got here, but there's not much to look at.</p>
+				<p>
+					This is my main blog layout but using CSS Subgrid. The header over there is it's own named column, along with
+					the main content area. That means content can stretch arbitrarily across the grid without having to break out
+					of it's parent container. Pretty neat!
+				</p>
+				<p>But what does that mean in practice?</p>
+				<p>
+					Let's take an image. Normally, an image inline in a post could only live within its parent container, like
+					this:
+				</p>
+				<img src="/img/572e05d7-c02a-4e21-b7b9-d52984b79a5a.png" />
+				<p>But now, with CSS Subgrid, that same image can span multiple grid columns:</p>
 
-    <main>
-      <header>
-        <h1>CSS Subgrid</h1>
-        <div>
-          <p>Published on <time datetime="2023-11-23">November 23, 2023</time></p>
-        </div>
-      </header>
-      <div>
-        <p>I don't know how you got here, but there's not much to look at.</p>
-        <p>This is my main blog layout but using CSS Subgrid. The header over there is it's own named column, along with the main content area. That means content can stretch arbitrarily across the grid without having to break out of it's parent container. Pretty neat!</p>
-        <p>But what does that mean in practice?</p>
-        <p>Let's take an image. Normally, an image inline in a post could only live within its parent container, like this:</p>
-        <img src="/img/572e05d7-c02a-4e21-b7b9-d52984b79a5a.png" />
-        <p>But now, with CSS Subgrid, that same image can span multiple grid columns:</p>
+				<h2>Subheadings and Images can span multiple columns</h2>
+				<img class="full" src="/img/2e6dfddd-8124-405f-a98f-09c7c06ca044.png" />
+				<p>That's more or less the whole trick. It also can work with other tags:</p>
+				<p>
+					Which is pretty cool, I guess? Anyway it's not easy to do without lots of oddball css. The one thing I feel
+					like this gives up is using block layouts anywhere. Subgrids need to nest, so in order to have an element span
+					multiple columns, it's parent needs to occupy those columns
+				</p>
 
-        <h2>Subheadings and Images can span multiple columns</h2>
-        <img class="full" src="/img/2e6dfddd-8124-405f-a98f-09c7c06ca044.png" />
-        <p>That's more or less the whole trick. It also can work with other tags:</p>
-        <p>Which is pretty cool, I guess? Anyway it's not easy to do without lots of oddball css. The one thing I feel like this gives up is using block layouts anywhere. Subgrids need to nest, so in order to have an element span multiple columns, it's parent needs to occupy those columns</p>
-        
-        <p>Or do like a full width stripe thing:</p>
+				<p>Or do like a full width stripe thing:</p>
 
-        <div class="fullbleed" style="background: var(--shade-10);">
-          <marquee>
-            <h1>It's fun to break the grid</h1>
-          </marquee>
-        </div>
-        <p>I could also do something fun, like having a full-width code block. Here's the relevant CSS for this page:</p>
-        <code-block lang="css">
-          <pre>{`
+				<div class="fullbleed" style="background: var(--shade-10);">
+					<marquee>
+						<h1>It's fun to break the grid</h1>
+					</marquee>
+				</div>
+				<p>
+					I could also do something fun, like having a full-width code block. Here's the relevant CSS for this page:
+				</p>
+				<code-block lang="css">
+					<pre>{`
   main {
     padding: 0;
     display: grid;
@@ -78,89 +90,86 @@ import "../../components/CodeBlock.astro";
     grid-column-start: header;
   }
 `}</pre>
-        </code-block>
+				</code-block>
+			</div>
+		</main>
 
+		<Footer />
 
-      </div>
-    </main>
-
-    <Footer />
-
-    <div class="gridlines">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-
-  </body>
+		<div class="gridlines">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</body>
 </html>
 
 <style>
-  .gridlines {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 9999;
-    display: grid;
-    grid-template-columns: [fullbleed-start] 1fr [header] 16rem [main-start] 66ch [main-end] 1fr [fullbleed-end];
-    gap: 2rem;
+	.gridlines {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
+		z-index: 9999;
+		display: grid;
+		grid-template-columns: [fullbleed-start] 1fr [header] 16rem [main-start] 66ch [main-end] 1fr [fullbleed-end];
+		gap: 2rem;
 
-    & > div {
-      background: rgba(255, 0, 0, 0.10);
-    }
-  }
+		& > div {
+			background: rgba(255, 0, 0, 0.1);
+		}
+	}
 
-  main {
-    padding: 0;
-    display: grid;
-    grid-template-columns: [fullbleed-start] 1fr [header] 16rem [main-start] 66ch [main-end] 1fr [fullbleed-end];
-    column-gap: 2rem;
-  }
+	main {
+		padding: 0;
+		display: grid;
+		grid-template-columns: [fullbleed-start] 1fr [header] 16rem [main-start] 66ch [main-end] 1fr [fullbleed-end];
+		column-gap: 2rem;
+	}
 
-  main > * {
-    box-sizing: border-box;
-    border: 1px dotted var(--border-dim);
-  }
+	main > * {
+		box-sizing: border-box;
+		border: 1px dotted var(--border-dim);
+	}
 
-  main > header {
-    grid-column: header;
-  }
+	main > header {
+		grid-column: header;
+	}
 
-  main > div {
-    display: grid;
-    grid-template-columns: subgrid;
-    grid-area: fullbleed;
-  }
+	main > div {
+		display: grid;
+		grid-template-columns: subgrid;
+		grid-area: fullbleed;
+	}
 
-  main > div > * {
-    grid-column: main;
-  }
+	main > div > * {
+		grid-column: main;
+	}
 
-  img {
-    margin: 2rem 0;
-  }
+	img {
+		margin: 2rem 0;
+	}
 
-  main > div > img.full {
-    block-size: auto;
-    grid-column: header / main-end;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-  }
+	main > div > img.full {
+		block-size: auto;
+		grid-column: header / main-end;
+		width: 100%;
+		aspect-ratio: 16 / 9;
+	}
 
-  main > div > .fullbleed {
-    grid-column: fullbleed-start / fullbleed-end;
-  }
+	main > div > .fullbleed {
+		grid-column: fullbleed-start / fullbleed-end;
+	}
 
-  main > div > h2 {
-    grid-column-start: header;
-  }
+	main > div > h2 {
+		grid-column-start: header;
+	}
 
-  main > div > code-block {
-    grid-column-start: header;
-    grid-column-end: main-end;
-  }
+	main > div > code-block {
+		grid-column-start: header;
+		grid-column-end: main-end;
+	}
 </style>

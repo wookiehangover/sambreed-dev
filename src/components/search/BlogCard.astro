@@ -4,88 +4,97 @@ const { entry } = Astro.props;
 ---
 
 <a href={`/writing/${entry.id}`}>
-  <h2>
-    {entry.data.title}
-  </h2>
+	<h2>
+		{entry.data.title}
+	</h2>
 
-  <figure>
-		{entry.data.heroVideo ? <video src={entry.data.heroVideo} autoplay muted /> : 
-			entry.data.cover ? <Image src={entry.data.cover} alt={entry.data.heroAlt} /> :
-				entry.data.heroImage ? <img src={entry.data.heroImage} alt={entry.data.heroAlt} loading="lazy" /> :
-				<div class="aspect-ratio-16/9" />}
-  </figure>
+	<figure>
+		{
+			entry.data.heroVideo ? (
+				<video src={entry.data.heroVideo} autoplay muted />
+			) : entry.data.cover ? (
+				<Image src={entry.data.cover} alt={entry.data.heroAlt} />
+			) : entry.data.heroImage ? (
+				<img src={entry.data.heroImage} alt={entry.data.heroAlt} loading="lazy" />
+			) : (
+				<div class="aspect-ratio-16/9" />
+			)
+		}
+	</figure>
 
-  <p class="text-sm">{entry.data.description}</p>
+	<p class="text-sm">{entry.data.description}</p>
 
-  <p>
-    <time datetime={entry.data.pubDate}>
-      {new Date(entry.data.pubDate).toLocaleDateString("en-us", {
-        year: "numeric",
-        month: "2-digit",
-        day: "2-digit",
-      })}
-    </time>
-  </p>
+	<p>
+		<time datetime={entry.data.pubDate}>
+			{
+				new Date(entry.data.pubDate).toLocaleDateString("en-us", {
+					year: "numeric",
+					month: "2-digit",
+					day: "2-digit",
+				})
+			}
+		</time>
+	</p>
 </a>
 
 <style>
-  a {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    text-decoration: none;
-    color: var(--text-color);
-    border: 1px solid transparent;
-    border-radius: 4px;
-    padding: 0 1rem;
-    transition: background 0.2s ease-in-out;
-    background: var(--card-bg);
+	a {
+		display: flex;
+		width: 100%;
+		flex-direction: column;
+		text-decoration: none;
+		color: var(--text-color);
+		border: 1px solid transparent;
+		border-radius: 4px;
+		padding: 0 1rem;
+		transition: background 0.2s ease-in-out;
+		background: var(--card-bg);
 
-    &:hover {
-      background: var(--card-bg-hover);
-    }
-  }
+		&:hover {
+			background: var(--card-bg-hover);
+		}
+	}
 
-  h2 {
-    font-family: var(--font-family-body);
-    font-size: 1rem;
-    line-height: 1.3;
-    font-weight: normal;
-    text-wrap: wrap;
-  }
+	h2 {
+		font-family: var(--font-family-body);
+		font-size: 1rem;
+		line-height: 1.3;
+		font-weight: normal;
+		text-wrap: wrap;
+	}
 
-  a > p {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    margin-block: 0;
-    margin: 1rem 0;
-    color: var(--text-dim);
-  }
+	a > p {
+		overflow: hidden;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		margin-block: 0;
+		margin: 1rem 0;
+		color: var(--text-dim);
+	}
 
-  a > p:has(time) {
-    margin-top: auto;
-  }
+	a > p:has(time) {
+		margin-top: auto;
+	}
 
-  time {
-    font-size: 0.8em;
-    color: var(--text-dim);
-  }
+	time {
+		font-size: 0.8em;
+		color: var(--text-dim);
+	}
 
-  figure {
-    margin-block: 0;
-    overflow: hidden;
-    border-radius: 4px;
+	figure {
+		margin-block: 0;
+		overflow: hidden;
+		border-radius: 4px;
 		position: relative;
-  }
+	}
 
-  figure img {
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    object-position: top;
-    margin: 0;
-  }
+	figure img {
+		aspect-ratio: 16 / 9;
+		object-fit: cover;
+		object-position: top;
+		margin: 0;
+	}
 
 	figure video {
 		aspect-ratio: 16 / 9;
@@ -94,15 +103,15 @@ const { entry } = Astro.props;
 		margin: 0;
 	}
 
-  .aspect-ratio-16\/9 {
-    aspect-ratio: 16 / 9;
-  }
+	.aspect-ratio-16\/9 {
+		aspect-ratio: 16 / 9;
+	}
 
-  /* random gradient */
+	/* random gradient */
 
-  figure > div {
-    background: linear-gradient(to bottom, var(--blue-5), var(--violet-4));
-    width: 100%;
-    height: 100%;
-  }
+	figure > div {
+		background: linear-gradient(to bottom, var(--blue-5), var(--violet-4));
+		width: 100%;
+		height: 100%;
+	}
 </style>

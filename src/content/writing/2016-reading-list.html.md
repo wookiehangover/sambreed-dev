@@ -11,7 +11,7 @@ pubDate: "Dec 31 2016"
 1. [x] How to Make Sense of Any Mess — Abby Covert
 1. [x] Daemon — Daniel Suarez†
 1. [x] Burr – Gore Vidal <sup>&dagger;</sup>
-1. [x] Fire in the Valley – Michael Swaine and Paul Freiberger 
+1. [x] Fire in the Valley – Michael Swaine and Paul Freiberger
 1. [x] Antifragile – Nassim Nicholas Taleb
 1. [x] The Ascent of Money – Niall Feguson
 1. [x] The (Mis)Behavior of Markets – Beniot Mandelbrot
@@ -46,7 +46,6 @@ pubDate: "Dec 31 2016"
 - <input type="checkbox" checked="checked" disabled /> Finished! 💁‍
 
 </small>
-
 
 ### Addendum
 

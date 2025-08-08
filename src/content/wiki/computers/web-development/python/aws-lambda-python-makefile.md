@@ -15,7 +15,7 @@ AWS Lambda has been around since 2015 and I've been using it in some form or fas
 
 Over the years, I’ve tried many different open source projects to deploy lambdas, like [Serverless](https://www.serverless.com/), [Architect](https://arc.codes/docs/en/get-started/quickstart), and most recently [AWS Sam](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html).
 
-These tools are great and all but I use them infrequently enough so that every time I come back I feel like I have to either re-learn a tool I’ve used before or figure out a new way to do it. Last time out was AWS Sam, which again is great, but I have no memory for yaml configuration. 
+These tools are great and all but I use them infrequently enough so that every time I come back I feel like I have to either re-learn a tool I’ve used before or figure out a new way to do it. Last time out was AWS Sam, which again is great, but I have no memory for yaml configuration.
 
 This week when I needed to deploy some Python code for running a custom embeddings search, I decided to go with the vanilla AWS docs and see where it got me. The results are two files, which now that I’ve done it, are pretty easy (for me) to understand.
 
@@ -30,7 +30,7 @@ I put this together by scouring [my bash history](https://atuin.sh/) for the [aw
 There are a few steps:
 
 1. Create the ECR registry
-	- authenticate the docker-cli so it canpublish
+   - authenticate the docker-cli so it canpublish
 2. Build the docker container for lambda
 3. Create the lambda function
 4. Update the lambda code with the latest container image
@@ -64,6 +64,7 @@ I’m writing this down so that the next time I need to do this, I can copy thes
 ## Source
 
 Makefile
+
 ```makefile
 CONTAINER_NAME=
 FN_NAME=
@@ -104,12 +105,13 @@ registry:
 		--repository-name reticle_similar_profiles \
 		--region $(REGION) \
 		--image-scanning-configuration scanOnPush=true \
-		--image-tag-mutability MUTABLE	
+		--image-tag-mutability MUTABLE
 
 .PHONY: all build push update create registry
 ```
 
 Dockerfile
+
 ```dockerfile
 FROM public.ecr.aws/lambda/python:3.11
 

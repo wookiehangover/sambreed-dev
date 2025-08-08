@@ -24,6 +24,7 @@ I passed the half marathon mark around 1:48:00 so I felt like I was in pretty go
 I felt ok but not great when I passed the 20 mile mark. I knew that it would be very challenging to step on the gas for the next 10km. I did my best to maintain pace, trying to maintain speed coming downhill and keeping my arms moving as my legs were starting to get heavy. At the very end, I had enough in the tank to sprint the last 1/10th of a mile. Maybe I could have done more, but I'm glad that I finished strong. I did not stop and I did not walk.
 
 Stats
+
 - Final time: 3:40:37
 - 306 of 5089. Top 10%.
 - 250 of 2559 men, also top 10%.

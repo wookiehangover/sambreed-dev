@@ -4,12 +4,12 @@ description: "Jeff Hawkins"
 createdAt: 2023-07-20
 updatedAt: 2023-07-21
 categories: ["Library", "Non-Fiction"]
-type: 'book'
+type: "book"
 ---
 
 - "In 2016 [...] we deduced that the neocortex stores everything we know, all our knowledge, using something called reference frames. [...] A reference frame tells you where things are located relative to each other, and it can tell you how to achieve goals."
-	- Compares them to grid lines on a map being used to determine distances. Reference frames are how our brain relates and contrasts concepts and organizes disparate inputs into a cohesive whole.
-	- "Most of the cells in your neocortex are dedicated to creating and manipulating reference frames, which the brain uses to plan and think."
+  - Compares them to grid lines on a map being used to determine distances. Reference frames are how our brain relates and contrasts concepts and organizes disparate inputs into a cohesive whole.
+  - "Most of the cells in your neocortex are dedicated to creating and manipulating reference frames, which the brain uses to plan and think."
 - "Intelligence is the ability of a system to learn a model of the world." p168
 
 "What kind of function, or algorithm, can create all aspects of human intelligence?"

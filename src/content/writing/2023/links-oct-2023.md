@@ -48,12 +48,12 @@ I've been reading [Vineland](https://en.m.wikipedia.org/wiki/Vineland) by Thomas
 
 ## Misc
 
-
 - https://www.youtube.com/watch?v=Gk-9Fd2mEnI
-	- Look, I'm not in the Steve Jobs cult. But it's hard to deny the impact his work has had on the world. I'm typing this into a Macbook. And the content on display in this MIT Lecture he gave in 1992 is first rate.
-		- hardware churns every 18 months
-		- software churns much more slowly. 9 years for Microsoft to ape the Mac.
-			- going further: 20 years for NEXT to become the default OS for most software dev (1990-2010), 10 years for Microsoft to flip the dev market back to them by giving up on Windows hegemony (2012-2022)
+  - Look, I'm not in the Steve Jobs cult. But it's hard to deny the impact his work has had on the world. I'm typing this into a Macbook. And the content on display in this MIT Lecture he gave in 1992 is first rate.
+    - hardware churns every 18 months
+    - software churns much more slowly. 9 years for Microsoft to ape the Mac.
+      - going further: 20 years for NEXT to become the default OS for most software dev (1990-2010), 10 years for Microsoft to flip the dev market back to them by giving up on Windows hegemony (2012-2022)
+
 * [Moral luck - Wikipedia](https://en.m.wikipedia.org/wiki/Moral_luck)
 * [HiResSprites_Escurat_3000.jpg (3000×2000)](https://apod.nasa.gov/apod/image/2310/HiResSprites_Escurat_3000.jpg)
 * [Posters - Humming-Birds](https://www.c82.net/hummingbirds/posters)

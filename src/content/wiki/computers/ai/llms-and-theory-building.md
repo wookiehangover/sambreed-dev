@@ -27,4 +27,3 @@ You see this lack of a coherent theory frequently whenever you correct the model
 It can know which abstractions are present, but not which are the most appropriate; another way of saying its solutions are often inelegant.
 
 But what about when humans program? Most code is sloppy, barely working, and riddled with vulnerabilities. Flaws are flaws, right? Is an uncaring programmer worse than a sycophantic agent?
-

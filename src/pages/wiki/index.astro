@@ -17,17 +17,17 @@ const { map } = getAllCategories(wikiEntries);
 
 <!doctype html>
 <html lang="en" class={themeClass}>
-    <head>
-        <BaseHead title="Wiki" description="Wiki Categories" />
-    </head>
+	<head>
+		<BaseHead title="Wiki" description="Wiki Categories" />
+	</head>
 
-    <body>
-        <Header label="wiki" />
+	<body>
+		<Header label="wiki" />
 
-        <WikiCardList map={map} entries={wikiEntries} />
+		<WikiCardList map={map} entries={wikiEntries} />
 
-        <WikiCategoryList />
+		<WikiCategoryList />
 
-        <Footer />
-    </body>
+		<Footer />
+	</body>
 </html>

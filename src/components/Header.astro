@@ -7,32 +7,32 @@ const showWiki = Astro.url.pathname.startsWith("/wiki/");
 ---
 
 <section>
-    <header>
-        <h1>
-            <a href="/">Sam Breed</a>
-        </h1>
-        <p>Product Developer, Investor</p>
-        {
-            showWiki && (
-                <a class="wiki" href="/wiki">
-                    ← wiki
-                </a>
-            )
-        }
-    </header>
+	<header>
+		<h1>
+			<a href="/">Sam Breed</a>
+		</h1>
+		<p>Product Developer, Investor</p>
+		{
+			showWiki && (
+				<a class="wiki" href="/wiki">
+					← wiki
+				</a>
+			)
+		}
+	</header>
 </section>
 
 <style>
-    a {
-        text-decoration: none;
-        color: var(--color-text);
-        transition: color 0.2s ease-in-out;
+	a {
+		text-decoration: none;
+		color: var(--color-text);
+		transition: color 0.2s ease-in-out;
 
-        &:hover {
-            color: var(--text-dim);
-        }
-    }
-    .wiki {
-        font-size: 0.75rem;
-    }
+		&:hover {
+			color: var(--text-dim);
+		}
+	}
+	.wiki {
+		font-size: 0.75rem;
+	}
 </style>

@@ -28,43 +28,43 @@
 </section>
 
 <style>
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(4rem, 1fr));
-    gap: 1rem;
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(4rem, 1fr));
+		gap: 1rem;
 
-    li {
-      margin: 0.5rem 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--border-dim);
-      border-radius: 8px;
-      transition: background 0.2s ease-in-out;
-      background: var(--card-bg);
+		li {
+			margin: 0.5rem 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border: 1px solid var(--border-dim);
+			border-radius: 8px;
+			transition: background 0.2s ease-in-out;
+			background: var(--card-bg);
 
-      &:hover {
-        background: var(--card-bg-hover);
-      }
-    }
+			&:hover {
+				background: var(--card-bg-hover);
+			}
+		}
 
-    li a {
-      text-align: center;
-      text-decoration: none;
-      color: var(--text-color);
-      font-size: 0.875rem;
-      flex: 1;
-      padding: 0.5rem 1rem;
-      user-select: none;
-    }
-  }
+		li a {
+			text-align: center;
+			text-decoration: none;
+			color: var(--text-color);
+			font-size: 0.875rem;
+			flex: 1;
+			padding: 0.5rem 1rem;
+			user-select: none;
+		}
+	}
 
-  @media screen and (max-width: 512px) {
-    ul {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
+	@media screen and (max-width: 512px) {
+		ul {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
 </style>

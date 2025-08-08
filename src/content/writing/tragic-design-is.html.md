@@ -40,7 +40,7 @@ For _Twitter_, this is a case of wanting to optimize sharing over saving and rep
 
 For one, [Tragic Design](http://a.co/eP48MQx) is a book by Jonathan Shariat & Cynthia Savard Saucier that made it's way onto my [2017 Reading List](https://wookiehangover.com/writing/2017-reading-list.html). Go figure. It's a clever title and describes an obvious-yet-undescribed idea: design that's harmful to users can cause a disproportionate amount of trouble, beyond just looking bad. For all the talk about the human element being paramount in the thoughts of designers, it's surprisingly easy for this to be the first thing that's lost when software developers (or even worse, bureaucrats) get involved.
 
-*Footnotes*
+_Footnotes_
 
 1. https://twitter.com/sambreed/status/885339779943944193
 2. https://twitter.com/sambreed/status/885340468485120000

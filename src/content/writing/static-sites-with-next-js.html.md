@@ -10,7 +10,7 @@ pubDate: "Aug 15 2017"
 
 ![make a static next.js blog](/img/next-blog-1.gif)
 
-👋  Hey, so I recently figured out how to upgrade _this very website_ to use [Next.js 3][next] as a static blog engine. No longer is my corner of the internet a cobbled-together mess of node and of shell scripts. No, now it's a fully-fledged modern JavaScript app with [Next.js 3][next]!
+👋 Hey, so I recently figured out how to upgrade _this very website_ to use [Next.js 3][next] as a static blog engine. No longer is my corner of the internet a cobbled-together mess of node and of shell scripts. No, now it's a fully-fledged modern JavaScript app with [Next.js 3][next]!
 
 Now I can write and edit posts in Markdown and can even drop in custom HTML if I need to (I mean how else am I gonna incorporate `<marquee>` tags into my writing?). With [Next.js][next], I get all sorts of fancy features like service worker prefetch, code splitting, and SPA style route changes–all for free. _Here's how I did it._
 
@@ -20,10 +20,10 @@ As soon as the Zeit team announced plans to support serverless static exports, I
 
 Here were my requirements for my humble website:
 
-* Fully static and deployable on Github pages.
-* Author posts in Markdown, with support for HTML things like `<details>` tags.
-* _Fast._ Nobody's got time for slow websites.
-* Support my CSS preferences: [Tachyons](http://tachyons.io/) and some custom CSS compiled with [postcss](http://postcss.org/)
+- Fully static and deployable on Github pages.
+- Author posts in Markdown, with support for HTML things like `<details>` tags.
+- _Fast._ Nobody's got time for slow websites.
+- Support my CSS preferences: [Tachyons](http://tachyons.io/) and some custom CSS compiled with [postcss](http://postcss.org/)
 
 Next.js seems to have checked off all my boxes, so I dug in and started prototyping.
 
@@ -37,7 +37,7 @@ Next.js seems to have checked off all my boxes, so I dug in and started prototyp
 
 Too bad I wasn't very happy with my first pass. I added a necessary-but-clunky build step to convert my old posts to Next's routing model. The plan was to compile my markdown posts and write out files to the `pages/` directory. Next.js would pick them up whenever they changed, but I didn't like having to run two build scripts.
 
-*Next's biggest selling point is having live reloading figured out already!* Having to run more than one script felt wrong, so I abandoned the prototype.
+_Next's biggest selling point is having live reloading figured out already!_ Having to run more than one script felt wrong, so I abandoned the prototype.
 
 <details class="pa4 ba b--rainbows mv4">
 <summary>
@@ -63,21 +63,21 @@ There was even a [ready-made solution for my exact gripe about `__dangerouslySet
 Here's what the code ended up looking like:
 
 ```js
-const unified = require('unified')
+const unified = require("unified");
 
 unified()
-  .use(require('remark-parse'), {
-    gfm: true,
-    footnotes: true
-  })
-  .use(require('remark-rehype'), {
-    allowDangerousHTML: true
-  })
-  .use(require('rehype-raw'))
-  .use(require('rehype-react'))
+	.use(require("remark-parse"), {
+		gfm: true,
+		footnotes: true,
+	})
+	.use(require("remark-rehype"), {
+		allowDangerousHTML: true,
+	})
+	.use(require("rehype-raw"))
+	.use(require("rehype-react"));
 ```
 
-To my surprise and delight, that process pipeline resulted in a totally usable React component! But it still would require some redundant processing on the client since the React component was being generated dynamically from a string of markdown. 
+To my surprise and delight, that process pipeline resulted in a totally usable React component! But it still would require some redundant processing on the client since the React component was being generated dynamically from a string of markdown.
 
 So how do you _cache_ a React component? Like, a whole component, not just the serialization of it's virtual dom. React provides tools to server render components in multiple ways, but you can't easily generate _jsx_ from a dynamically generated components. But there _is_ a technique for dealing with a React as a compile output of an AST, evidenced by [react-rehype](https://github.com/rhysd/rehype-react) at the end of that Unified markdown pipeline.
 
@@ -85,8 +85,8 @@ React has a dead simple API for creating components without JSX in `React.create
 
 ```js
 remarkPipeline().use(rehypeReact, {
-  createElement: (type, props, children) => ({ type, props, children })
-})
+	createElement: (type, props, children) => ({ type, props, children }),
+});
 ```
 
 From there, I made a [simple component](https://github.com/wookiehangover/wookiehangover.com/blob/master/src/components/component-tree.js) to transform the result from [`rehype-react`](https://github.com/rhysd/rehype-react) back into a React component:
@@ -99,9 +99,9 @@ Now I have an pipeline where you can put markdown with crazy embedded HTML in on
 
 There are a couple of benefits from going through all that trouble:
 
-* [remark plugins](https://github.com/wooorm/remark/blob/master/doc/plugins.md) can do just about anything. Seriously. I was able to add code highlighting _while I was writing this post_ with 1 npm install, 1 line of JavaScript, and 1 line of CSS!
-* Unified's [vfile](https://github.com/vfile/vfile) format makes adding post metadata easy.
-* No format lock in. When the wind blows a differnt direction and React falls out of favor, outputting to a different format will be easy.
+- [remark plugins](https://github.com/wooorm/remark/blob/master/doc/plugins.md) can do just about anything. Seriously. I was able to add code highlighting _while I was writing this post_ with 1 npm install, 1 line of JavaScript, and 1 line of CSS!
+- Unified's [vfile](https://github.com/vfile/vfile) format makes adding post metadata easy.
+- No format lock in. When the wind blows a differnt direction and React falls out of favor, outputting to a different format will be easy.
 </details>
 
 ## Markdown ➡️ Webpack ➡️ Next.js
@@ -112,15 +112,16 @@ By default, next will use any JavaScript modules that export a React component i
 
 💡 The light bulb moment came when I realized the power of Next's support for custom Webpack configuration.
 
-A  [webpack loader](https://webpack.js.org/concepts/loaders/) can transform markdown source files into modules on the spot! And better yet, I already had a build script from my prototype that was doing most of what I needed to do in the loader. I needed to change was how my build script found out about files (reading them from disk vs. passed in by webpack) and how it output the results (again, writing to disk vs. passing the result back to webpack). The loader plugin interface was dead simple:
+A [webpack loader](https://webpack.js.org/concepts/loaders/) can transform markdown source files into modules on the spot! And better yet, I already had a build script from my prototype that was doing most of what I needed to do in the loader. I needed to change was how my build script found out about files (reading them from disk vs. passed in by webpack) and how it output the results (again, writing to disk vs. passing the result back to webpack). The loader plugin interface was dead simple:
 
 ```js
-module.exports = function(source) {
-  const done = this.async()
+module.exports = function (source) {
+	const done = this.async();
 
-  renderPost(source, this.resourcePath)
-    .catch(done).then(post => done(null, post))
-}
+	renderPost(source, this.resourcePath)
+		.catch(done)
+		.then((post) => done(null, post));
+};
 ```
 
 Where `renderPost(source, resourcePath)` was the middle bit of my prototyped static rendering pipeline, refactored to only need a string of the file content and the path of the file being rendered. This is one of the easiest changes to make, since it took a method formerly reliant on _side effects_, namely reading and writing to disk, and made it a pure function. Any time you can make a method that's passed an input and return a result, you should. Decomposing your assumptions about side effects will almost always save time. I learned this from Gary Bernhardt's talk _[Boundaries](https://www.destroyallsoftware.com/talks/boundaries)_, and I remember it every time I see it.
@@ -129,15 +130,15 @@ The last step was to add it to the webpack extension point in `next.config.js`:
 
 ```js
 module.exports = {
-  webpack(config) {
-    config.module.rules.push({
-      test: /\.html\.js$/,
-      include: './pages/writing',
-      loader: './src/post-loader'
-    })
-    return config
-  }
-}
+	webpack(config) {
+		config.module.rules.push({
+			test: /\.html\.js$/,
+			include: "./pages/writing",
+			loader: "./src/post-loader",
+		});
+		return config;
+	},
+};
 ```
 
 ## Building and Deploying
@@ -146,16 +147,16 @@ Unlike in my earlier versions, Next.js 3 supports creating a complete static sit
 
 ```js
 module.exports = {
-  exportPathMap() {
-    return {
-      "/": { page: "/" },
-      "/cv.html": { page: "/cv.html" },
-      "/writing/2016-reading-list.html": { page: "/writing/2016-reading-list.html" },
-      "/writing/2017-reading-list.html": { page: "/writing/2017-reading-list.html" },
-      // ...
-    }
-  }
-}
+	exportPathMap() {
+		return {
+			"/": { page: "/" },
+			"/cv.html": { page: "/cv.html" },
+			"/writing/2016-reading-list.html": { page: "/writing/2016-reading-list.html" },
+			"/writing/2017-reading-list.html": { page: "/writing/2017-reading-list.html" },
+			// ...
+		};
+	},
+};
 ```
 
 Then I changed my build step to run `next build && next export --docs` and I with surprisingly little drama was ready to deploy to Github pages!
@@ -166,21 +167,21 @@ Normally I'd be worried that I'd have missed some minor detail in a major change
 
 Here are the relevant parts of the app:
 
-* **post-loader.js** – [webpack loader](https://github.com/wookiehangover/wookiehangover.com/blob/master/src/post-loader.js)
-* **static-sites-with-next-js.html.js** – [a markdown post with embedded HTML](https://github.com/wookiehangover/wookiehangover.com/blob/master/pages/writing/static-sites-with-next-js.html.js)
-* **react-to-hast.js** – [markdown compiler with Unified.js](https://github.com/wookiehangover/wookiehangover.com/blob/master/src/react-to-hast.js)
-* **component-tree.js** – [React component for rendering JSON AST](https://github.com/wookiehangover/wookiehangover.com/blob/master/src/components/component-tree.js)
+- **post-loader.js** – [webpack loader](https://github.com/wookiehangover/wookiehangover.com/blob/master/src/post-loader.js)
+- **static-sites-with-next-js.html.js** – [a markdown post with embedded HTML](https://github.com/wookiehangover/wookiehangover.com/blob/master/pages/writing/static-sites-with-next-js.html.js)
+- **react-to-hast.js** – [markdown compiler with Unified.js](https://github.com/wookiehangover/wookiehangover.com/blob/master/src/react-to-hast.js)
+- **component-tree.js** – [React component for rendering JSON AST](https://github.com/wookiehangover/wookiehangover.com/blob/master/src/components/component-tree.js)
 
 ### Gotcha's! 😝
 
 A few snags I ran into:
 
-* Github pages still perversely retains some of it's Jekyll roots, and ignores file and directory names that start with an underscore 🙄
-  * **Fix:** add `.nojekyll` to your `docs/` directory (or whatever is configured in the "Pages" portion of your repo config in Github)
-* The `.html.js` file extension on the posts was because I wanted backwards compatibilty with my static html version, which used plain old html files
-  * _Minor annoyance:_ `next export` adds directories for every static file to avoid the .html extension showing up in the path, but now I have urls with trailing slashes.
-  * If I ever want to change a URL (like to drop the `.html` extension because it's not 1998), I'll need to figure out how to manage the redirects.
-* I need to remember to add new posts to `next.config.js`, which I seem pathologically incapable of. I'll probably make the webpack plugin emit a JSON file with all the post metadata, but I haven't done that yet.
+- Github pages still perversely retains some of it's Jekyll roots, and ignores file and directory names that start with an underscore 🙄
+  - **Fix:** add `.nojekyll` to your `docs/` directory (or whatever is configured in the "Pages" portion of your repo config in Github)
+- The `.html.js` file extension on the posts was because I wanted backwards compatibilty with my static html version, which used plain old html files
+  - _Minor annoyance:_ `next export` adds directories for every static file to avoid the .html extension showing up in the path, but now I have urls with trailing slashes.
+  - If I ever want to change a URL (like to drop the `.html` extension because it's not 1998), I'll need to figure out how to manage the redirects.
+- I need to remember to add new posts to `next.config.js`, which I seem pathologically incapable of. I'll probably make the webpack plugin emit a JSON file with all the post metadata, but I haven't done that yet.
 
 <marquee>And here's that `<marquee>` tag to prove I wasn't joking about supporting arbitraty HTML in posts. And thanks [@ddtrejo](https://twitter.com/ddtrejo) for feedback and edits!</marquee>
 

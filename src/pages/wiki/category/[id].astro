@@ -26,17 +26,17 @@ const title = map.get(id)?.label ?? id;
 
 <!doctype html>
 <html lang="en" class={themeClass}>
-    <head>
-        <BaseHead title={title} description={`Wiki Category: ${title}`} />
-    </head>
+	<head>
+		<BaseHead title={title} description={`Wiki Category: ${title}`} />
+	</head>
 
-    <body>
-        <Header label="wiki" />
+	<body>
+		<Header label="wiki" />
 
-        <WikiCardList entries={entries} map={map} />
+		<WikiCardList entries={entries} map={map} />
 
-        <WikiCategoryList />
+		<WikiCategoryList />
 
-        <Footer />
-    </body>
+		<Footer />
+	</body>
 </html>

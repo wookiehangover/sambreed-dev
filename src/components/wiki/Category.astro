@@ -10,14 +10,12 @@ const { value } = Astro.props;
 ---
 
 <li>
-  <a href={`/wiki/category/${value.path}`} title={`Category: ${value.label}`}>{value.label}</a>
-  {value.children.length > 0 && (
-    <CategoryChildren value={value} />
-  )}
+	<a href={`/wiki/category/${value.path}`} title={`Category: ${value.label}`}>{value.label}</a>
+	{value.children.length > 0 && <CategoryChildren value={value} />}
 </li>
 <style>
-  li::before {
-    content: '⌙';
-    color: var(--text-very-dim);
-  }
+	li::before {
+		content: "⌙";
+		color: var(--text-very-dim);
+	}
 </style>

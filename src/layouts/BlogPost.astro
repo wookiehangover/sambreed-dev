@@ -31,95 +31,95 @@ const {
 
 <!doctype html>
 <html lang="en" class={themeClass}>
-    <head>
-        <BaseHead title={title} description={description ?? ""} cover={cover} />
-    </head>
+	<head>
+		<BaseHead title={title} description={description ?? ""} cover={cover} />
+	</head>
 
-    <body>
-        <Header />
+	<body>
+		<Header />
 
-        <section>
-            <header>
-                <div class="sticky top-1">
-                    <h1>{title}</h1>
-                    <p class="text-dim">
-                        {pubDate && <time>{pubDate}</time>}
-                    </p>
-                    {
-                        updatedDate && (
-                            <p>
-                                Last updated on <time>{updatedDate}</time>
-                            </p>
-                        )
-                    }
-                    {description && <p class="pt-2">{description}</p>}
-                </div>
-            </header>
-            <article>
-                {
-                    heroVideo ? (
-                        <figure>
-                            <video src={heroVideo} autoplay muted loop />
-                            {heroAlt && <figcaption>{heroAlt}</figcaption>}
-                        </figure>
-                    ) : (
-                        <figure>
-                            {cover && <Image src={cover} alt={heroAlt ?? title} />}
-                            {heroImage && <img src={heroImage} alt={heroAlt} />}
-                            {heroAlt && <figcaption>{heroAlt}</figcaption>}
-                        </figure>
-                    )
-                }
-                <slot />
-            </article>
-        </section>
+		<section>
+			<header>
+				<div class="sticky top-1">
+					<h1>{title}</h1>
+					<p class="text-dim">
+						{pubDate && <time>{pubDate}</time>}
+					</p>
+					{
+						updatedDate && (
+							<p>
+								Last updated on <time>{updatedDate}</time>
+							</p>
+						)
+					}
+					{description && <p class="pt-2">{description}</p>}
+				</div>
+			</header>
+			<article>
+				{
+					heroVideo ? (
+						<figure>
+							<video src={heroVideo} autoplay muted loop />
+							{heroAlt && <figcaption>{heroAlt}</figcaption>}
+						</figure>
+					) : (
+						<figure>
+							{cover && <Image src={cover} alt={heroAlt ?? title} />}
+							{heroImage && <img src={heroImage} alt={heroAlt} />}
+							{heroAlt && <figcaption>{heroAlt}</figcaption>}
+						</figure>
+					)
+				}
+				<slot />
+			</article>
+		</section>
 
-        <BlogShare title={title} slug={slug} description={description} />
+		<BlogShare title={title} slug={slug} description={description} />
 
-        <BlogPosts exclude={slug} />
+		<BlogPosts exclude={slug} />
 
-        <Footer />
-    </body>
+		<Footer />
+	</body>
 </html>
 
 <script>
-    // external links should open in a new tab
-    document.addEventListener("DOMContentLoaded", function () {
-        const links = document.querySelectorAll("a");
+	// external links should open in a new tab
+	document.addEventListener("DOMContentLoaded", function () {
+		const links = document.querySelectorAll("a");
 
-        links.forEach((link) => {
-            const href = link.getAttribute("href");
-            const isExternal = href?.startsWith("http") && !location.hostname.includes(href);
+		links.forEach((link) => {
+			const href = link.getAttribute("href");
+			const isExternal = href?.startsWith("http") && !location.hostname.includes(href);
 
-            if (isExternal) {
-                link.setAttribute("target", "_blank");
-                link.setAttribute("rel", "noopener noreferrer");
-            }
-        });
-    });
+			if (isExternal) {
+				link.setAttribute("target", "_blank");
+				link.setAttribute("rel", "noopener noreferrer");
+			}
+		});
+	});
 </script>
 
 <style is:global>
-    #table-of-contents {
-        display: none;
-    }
+	#table-of-contents {
+		display: none;
+	}
 
-    #table-of-contents + ul {
-        list-style: none;
-        padding: 0;
-        margin: 2rem 0;
+	#table-of-contents + ul {
+		list-style: none;
+		padding: 0;
+		margin: 2rem 0;
 
-        & ul {
-            list-style: none;
-            padding-left: 1.5rem;
-        }
+		& ul {
+			list-style: none;
+			padding-left: 1.5rem;
+		}
 
-        & a {
-            text-decoration: none;
+		& a {
+			text-decoration: none;
 
-            &:hover {
-                text-decoration: underline;
-            }
-        }
-    }
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
 </style>

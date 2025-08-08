@@ -7,157 +7,157 @@ const isDark = theme?.value === "1" ? checked : {};
 ---
 
 <fieldset data-theme-toggle>
-    <div>
-        <input type="radio" id="theme-light" name="theme" value="light" {...isLight} />
-        <label for="theme-light">Light</label>
-    </div>
-    <div>
-        <input type="radio" id="theme-system" name="theme" value="system" {...isSystem} />
-        <label for="theme-system">System</label>
-    </div>
-    <div>
-        <input type="radio" id="theme-dark" name="theme" value="dark" {...isDark} />
-        <label for="theme-dark">Dark</label>
-    </div>
+	<div>
+		<input type="radio" id="theme-light" name="theme" value="light" {...isLight} />
+		<label for="theme-light">Light</label>
+	</div>
+	<div>
+		<input type="radio" id="theme-system" name="theme" value="system" {...isSystem} />
+		<label for="theme-system">System</label>
+	</div>
+	<div>
+		<input type="radio" id="theme-dark" name="theme" value="dark" {...isDark} />
+		<label for="theme-dark">Dark</label>
+	</div>
 </fieldset>
 
 <script>
-    const elem = document.querySelector("[data-theme-toggle]");
-    const $doc = document.documentElement;
-    const themeValues = {
-        light: 0,
-        dark: 1,
-        system: 2,
-    };
-    const themeActions = {
-        light: () => {
-            $doc.style.setProperty("color-scheme", "light");
-            $doc.classList.add("light");
-            $doc.classList.remove("dark");
-        },
-        dark: () => {
-            $doc.style.setProperty("color-scheme", "dark");
-            $doc.classList.add("dark");
-            $doc.classList.remove("light");
-        },
-        system: () => {
-            $doc.style.setProperty("color-scheme", "light dark");
-            $doc.classList.remove("light", "dark");
-        },
-    };
-    elem?.addEventListener("change", (event) => {
-        const target = event.target as HTMLInputElement;
-        const value = target.value as keyof typeof themeValues;
-        themeActions[value]();
-        document.cookie = `dark=${themeValues[value]}; path=/`;
-    });
+	const elem = document.querySelector("[data-theme-toggle]");
+	const $doc = document.documentElement;
+	const themeValues = {
+		light: 0,
+		dark: 1,
+		system: 2,
+	};
+	const themeActions = {
+		light: () => {
+			$doc.style.setProperty("color-scheme", "light");
+			$doc.classList.add("light");
+			$doc.classList.remove("dark");
+		},
+		dark: () => {
+			$doc.style.setProperty("color-scheme", "dark");
+			$doc.classList.add("dark");
+			$doc.classList.remove("light");
+		},
+		system: () => {
+			$doc.style.setProperty("color-scheme", "light dark");
+			$doc.classList.remove("light", "dark");
+		},
+	};
+	elem?.addEventListener("change", (event) => {
+		const target = event.target as HTMLInputElement;
+		const value = target.value as keyof typeof themeValues;
+		themeActions[value]();
+		document.cookie = `dark=${themeValues[value]}; path=/`;
+	});
 </script>
 
 <style>
-    :root {
-        --toggle-width: 2.5rem;
-        --toggle-height: 1rem;
-        --toggle-segment: 33.3333%;
-        --toggle-fill: 66.6666%;
-        --switch-color: var(--text-dim);
-        --br-cirle: 9999px;
-        --ease: linear(
-            0 0%,
-            0.6832 7%,
-            0.9171 11%,
-            1.0251 12%,
-            1.1058 14%,
-            1.1619 16%,
-            1.1945 18%,
-            1.2024 20%,
-            1.2043 21%,
-            1.1907 23%,
-            1.1598 26%,
-            1.0604 32%,
-            1.0172 35%,
-            0.9839 39%,
-            0.967 43%,
-            0.9639 45%,
-            0.9661 48%,
-            0.9963 60%,
-            1 67.42%,
-            1 100%
-        );
-    }
+	:root {
+		--toggle-width: 2.5rem;
+		--toggle-height: 1rem;
+		--toggle-segment: 33.3333%;
+		--toggle-fill: 66.6666%;
+		--switch-color: var(--text-dim);
+		--br-cirle: 9999px;
+		--ease: linear(
+			0 0%,
+			0.6832 7%,
+			0.9171 11%,
+			1.0251 12%,
+			1.1058 14%,
+			1.1619 16%,
+			1.1945 18%,
+			1.2024 20%,
+			1.2043 21%,
+			1.1907 23%,
+			1.1598 26%,
+			1.0604 32%,
+			1.0172 35%,
+			0.9839 39%,
+			0.967 43%,
+			0.9639 45%,
+			0.9661 48%,
+			0.9963 60%,
+			1 67.42%,
+			1 100%
+		);
+	}
 
-    fieldset[data-theme-toggle] {
-        display: flex;
-        padding: 0;
-        position: relative;
-        width: var(--toggle-width);
-        height: var(--toggle-height);
-        background-color: var(--card-bg-hover);
-        border: 2px solid var(--border-dim);
-        border-radius: var(--br-cirle);
+	fieldset[data-theme-toggle] {
+		display: flex;
+		padding: 0;
+		position: relative;
+		width: var(--toggle-width);
+		height: var(--toggle-height);
+		background-color: var(--card-bg-hover);
+		border: 2px solid var(--border-dim);
+		border-radius: var(--br-cirle);
 
-        /* Switch */
-        &::after {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 9999px;
-            background: var(--switch-color);
-            clip-path: inset(0px var(--left) 0px var(--right) round 9999px);
-            transition: clip-path 0.875s var(--ease);
-            will-change: clip-path;
-        }
+		/* Switch */
+		&::after {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			border-radius: 9999px;
+			background: var(--switch-color);
+			clip-path: inset(0px var(--left) 0px var(--right) round 9999px);
+			transition: clip-path 0.875s var(--ease);
+			will-change: clip-path;
+		}
 
-        /* Input container */
-        & > div {
-            flex-grow: 1;
-            display: flex;
-        }
+		/* Input container */
+		& > div {
+			flex-grow: 1;
+			display: flex;
+		}
 
-        /* Input */
-        & > div > input {
-            padding: 0;
-            margin: 0;
-            width: 100%;
-            height: 100%;
-            appearance: none;
-            border-radius: var(--br-circle);
+		/* Input */
+		& > div > input {
+			padding: 0;
+			margin: 0;
+			width: 100%;
+			height: 100%;
+			appearance: none;
+			border-radius: var(--br-circle);
 
-            &:focus {
-            outline-width: 1px;
-            }
-        }
+			&:focus {
+				outline-width: 1px;
+			}
+		}
 
-        /*  Label  */
-        & > div > label {
-            position: absolute;
-            right: -0.5rem;
-            top: 50%;
-            transform: translate(100%, -50%);
-            opacity: 0;
-            color: var(--text-dim);
-            transition: color 0.2s;
-            font-size: 0.75rem;
-        }
+		/*  Label  */
+		& > div > label {
+			position: absolute;
+			right: -0.5rem;
+			top: 50%;
+			transform: translate(100%, -50%);
+			opacity: 0;
+			color: var(--text-dim);
+			transition: color 0.2s;
+			font-size: 0.75rem;
+		}
 
-        & > div:has(input:checked) > label {
-            opacity: 1;
-        }
+		& > div:has(input:checked) > label {
+			opacity: 1;
+		}
 
-        /* Switch positions */
-        &:has(div:nth-of-type(1) input:checked)::after {
-            --left: var(--toggle-fill);
-            --right: 0%;
-        }
+		/* Switch positions */
+		&:has(div:nth-of-type(1) input:checked)::after {
+			--left: var(--toggle-fill);
+			--right: 0%;
+		}
 
-        &:has(div:nth-of-type(2) input:checked)::after {
-            --left: var(--toggle-segment);
-            --right: var(--toggle-segment);
-        }
+		&:has(div:nth-of-type(2) input:checked)::after {
+			--left: var(--toggle-segment);
+			--right: var(--toggle-segment);
+		}
 
-        &:has(div:nth-of-type(3) input:checked)::after {
-            --left: 0%;
-            --right: var(--toggle-fill);
-        }
-    }
+		&:has(div:nth-of-type(3) input:checked)::after {
+			--left: 0%;
+			--right: var(--toggle-fill);
+		}
+	}
 </style>

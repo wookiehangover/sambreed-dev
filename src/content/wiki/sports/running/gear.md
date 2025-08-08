@@ -53,4 +53,4 @@ Salomon Adv Skin 12 backpack. I had the medium version for several years and the
 
 Recovery kit: Normatec therabody recovery legs, Hoka recovery sandals, lacrosse ball, anti-fatigue mat + [standing desk](/wiki/computers/what-i-use#desk), theracane, Yeti 32oz Rambler
 
-[Stuart and Lau Regiment Gym Bag](https://stuartandlau.com/products/the-regimen-gym-bag). I found this using [Bench](https://bench.io) in one of our earliest demos agentic search -> browse -> summarize loops. The high level query was "find me a gym bag" and with a little refinement over price range, size, and other requirements I was lead to this brand. After a year, the bag has zero signs for wear despite almost daily use. 
+[Stuart and Lau Regiment Gym Bag](https://stuartandlau.com/products/the-regimen-gym-bag). I found this using [Bench](https://bench.io) in one of our earliest demos agentic search -> browse -> summarize loops. The high level query was "find me a gym bag" and with a little refinement over price range, size, and other requirements I was lead to this brand. After a year, the bag has zero signs for wear despite almost daily use.
