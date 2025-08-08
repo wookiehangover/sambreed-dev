@@ -1,10 +1,7 @@
 name = "sambreed-dev"
-main = "dist/_worker.js/index.js"
 compatibility_date = "2025-05-25"
 compatibility_flags = ["nodejs_compat"]
-
-[assets]
-directory = "dist"
+pages_build_output_dir = "dist"
 
 [env.production]
 compatibility_date = "2025-05-25"

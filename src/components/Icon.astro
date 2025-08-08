@@ -1,44 +1,41 @@
 ---
 // biome-ignore format: biome breaks this file
-const iconNames = [
-	"copy",
-	"annotate",
-	"bulleted-list",
-	"document",
-	"external-link",
-	"folder",
-	"help",
-	"industry",
-	"info",
-	"quote",
-	"journal",
-	"chain-link",
-	"list",
-	"note",
-	"notes",
-	"opened-folder",
-	"person-overview",
-	"reference-block",
-	"network",
-	"search",
-	"tag",
-	"skills",
-	"sources",
-	"share",
-	"table-view",
-	"task",
-	"essay",
-	"link",
-	"back",
-	"mention",
-	"references",
-	"book",
-	"tracking-or-journey",
-	"email",
-	"text-message"
-] as const;
-
-export type IconName = typeof iconNames[number];
+export type IconName =
+	| "copy"
+	| "annotate"
+	| "bulleted-list"
+	| "document"
+	| "external-link"
+	| "folder"
+	| "help"
+	| "industry"
+	| "info"
+	| "quote"
+	| "journal"
+	| "chain-link"
+	| "list"
+	| "note"
+	| "notes"
+	| "opened-folder"
+	| "person-overview"
+	| "reference-block"
+	| "network"
+	| "search"
+	| "tag"
+	| "skills"
+	| "sources"
+	| "share"
+	| "table-view"
+	| "task"
+	| "essay"
+	| "link"
+	| "back"
+	| "mention"
+	| "references"
+	| "book"
+	| "tracking-or-journey"
+	| "email"
+	| "text-message";
 
 export interface Props {
 	name: IconName;
