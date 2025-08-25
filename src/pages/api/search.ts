@@ -113,7 +113,7 @@ export const GET: APIRoute = async function GET({ request }) {
 				heroVideo: row.hero_video,
 				cover: row.cover,
 				categories,
-				score: row.similarity_score, // Use the similarity score from AgentDB
+				score: row.similarity_score,
 			};
 		});
 

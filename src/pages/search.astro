@@ -22,17 +22,16 @@ if (query) {
 	const response = await fetch(`${Astro.url.origin}/api/search?q=${query}&type=all`);
 	const data = await response.json();
 
-	results = data.map((entry: { slug: string; type: string }) => {
-		if (entry.type === "blog") {
-			return {
-				type: "blog",
-				...blogEntries.find((e) => e.id === entry.slug),
-			};
-		}
+	results = data.flatMap((entry: { slug: string; type: string }) => {
+		let { type } = entry;
+		let content =
+			type === "blog" ? blogEntries.find((e) => e.id === entry.slug) : wikiEntries.find((e) => e.id === entry.slug);
+
+		if (!content) return [];
 
 		return {
-			type: "wiki",
-			...wikiEntries.find((e) => e.id === entry.slug),
+			type,
+			...content,
 		};
 	});
 }
