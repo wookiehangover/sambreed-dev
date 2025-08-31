@@ -40,7 +40,7 @@ Static content, once deployed, doesn't change. The client is the only runtime. W
 
 Here's a little table to help count the layers. The first layer is obviously simple:
 
-| Layer | Description |
+| Layer | Description | Details       |
 | ----- | ----------- | ------------- |
 | 1     | Static      | Fixed content |
 
@@ -58,7 +58,7 @@ A runtime that generates content on each request using fixed templates.
 
 Our little table gets bigger! You can very much think of Templates as an outgrowth of Static content, so a new cell has been added to the right:
 
-| Layer | Description |
+| Layer | Description | Details         |
 | ----- | ----------- | --------------- |
 | 1     | Static      | Fixed content   |
 | 2     | Templates   | Dynamic content |
@@ -80,7 +80,7 @@ This is your standard CRUD app.
 
 Another layer added to the table:
 
-| Layer | Description     |
+| Layer | Description     | Details           |
 | ----- | --------------- | ----------------- |
 | 1     | Static          | Fixed content     |
 | 2     | Templates       | Dynamic content   |
@@ -96,7 +96,7 @@ When a CMS allows a user to define both the content and the layout, you enter th
 - With this type of system, a User can build a full application without having to know _more than the system itself_. All the constituent parts are there: storage, conditional branching, and loops. Granted, your templating layer may not allow for any programming logic, limiting the scope of what can be built
 - Standalone e-commerce sites are an example of this: you control inventory, manage templates for how your pages
 
-| Layer | Description       |
+| Layer | Description       | Details             |
 | ----- | ----------------- | ------------------- |
 | 1     | Static            | Fixed content       |
 | 2     | Templates         | Dynamic content     |
@@ -112,7 +112,7 @@ Not only are there users and user-created content, but there are self-administer
 - Reddit and Discord, too.
 - JIRA is an easy-to-think-of example of this
 
-| Layer | Description       |
+| Layer | Description       | Details                |
 | ----- | ----------------- | ---------------------- |
 | 1     | Static            | Fixed content          |
 | 2     | Templates         | Dynamic content        |
@@ -133,7 +133,7 @@ It is not enough to merely allow users to manage themselves _and_ the template _
 
 Our humble table needs to pivot in order to fit it all in:
 
-| Layer | Description       |
+| Layer | Description       | Details                  |
 | ----- | ----------------- | ------------------------ |
 | 1     | Static            | Fixed content            |
 | 2     | Templates         | Dynamic content          |
@@ -156,7 +156,7 @@ Kubernetes, the open source ancestor of [Google's Borg cluster management softwa
 
 Vercel is building the Frontend Cloud.
 
-| Layer | Description            |
+| Layer | Description            | Details                                    |
 | ----- | ---------------------- | ------------------------------------------ |
 | 1     | Static                 | Fixed content                              |
 | 2     | Templates              | Dynamic content                            |

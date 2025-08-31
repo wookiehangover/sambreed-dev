@@ -2,7 +2,7 @@
 title: "Training Plans"
 description: "What I've learned so far about training"
 createdAt: 2023-07-17
-categories: ["Sports", "Trail Running"]
+categories: ["Sports", "Running"]
 type: "note"
 ---
 
