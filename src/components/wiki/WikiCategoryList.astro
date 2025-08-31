@@ -29,6 +29,31 @@ const { tree } = getAllCategories(wikiEntries);
 		<SearchForm action="/wiki/search" />
 	</div>
 </section>
+<style>
+	section > header {
+		background: var(--background-color);
+		z-index: 10;
+		position: relative;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: -8rem;
+			left: 0; right: 0;
+			height: 8rem;
+			background: linear-gradient(to bottom, transparent 0%, var(--background-color) 100%);
+		}
+	}
+
+	@media (max-width: 512px) {
+		section > header {
+			&::before {
+				display: none;
+			}
+		}
+	}
+
+</style>
 <style is:global>
 	.categories a {
 		color: var(--color-text);

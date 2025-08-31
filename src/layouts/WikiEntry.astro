@@ -65,7 +65,7 @@ const {
 							)
 						}
 					</div>
-					<nav class="text-xs flex flex-col pt-2">
+					<nav class="text-xs flex flex-wrap gap-2 pt-2">
 						<CategoryList categories={categories ?? []} map={map} />
 					</nav>
 				</div>
@@ -83,8 +83,7 @@ const {
 </html>
 
 <script>
-	// external links should open in a new tab
-	document.addEventListener("DOMContentLoaded", function () {
+	document.addEventListener("DOMContentLoaded", function ready() {
 		const links = document.querySelectorAll("a");
 
 		links.forEach((link) => {
@@ -96,6 +95,14 @@ const {
 				link.setAttribute("rel", "noopener noreferrer");
 			}
 		});
+
+		const toc = document.querySelector("#table-of-contents + ul");
+
+		if (toc) {
+			const rect = toc.getBoundingClientRect();
+			// set --height css variable on toc
+			(toc as HTMLElement).style.setProperty("--height", `${rect.height}px`);
+		}
 	});
 </script>
 
@@ -133,10 +140,12 @@ const {
 		font-size: 0.875rem;
 		padding: 0;
 		list-style: none;
+		height: fit-content;
+		margin-bottom: calc(var(--height, 0) * -1);
 	}
 
 	#table-of-contents + ul:before {
-		content: "On this page";
+		content: "Outline";
 		color: var(--text-dim);
 		font-style: italic;
 		position: relative;
@@ -157,16 +166,17 @@ const {
 
 	@media (max-width: 1168px) or (max-height: 600px) {
 		#table-of-contents {
-			display: block;
+			/* display: block; */
 		}
 		#table-of-contents + ul {
 			position: static;
 			width: auto;
 			transform: none;
+			margin-bottom: 1lh;
 		}
 		#table-of-contents + ul:before {
-			content: "";
-			display: none;
+			/* content: ""; */
+			/* display: none; */
 		}
 	}
 </style>

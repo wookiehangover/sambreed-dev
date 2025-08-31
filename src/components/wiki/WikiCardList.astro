@@ -117,11 +117,17 @@ const COPY: Record<WikiEntry["data"]["type"], { title: string; description: stri
 		padding: 0.5rem 0;
 		margin-top: auto;
 		flex-wrap: wrap;
+		height: 40px;
+		overflow: hidden;
 	}
 
 	@media (max-width: 512px) {
 		ul {
 			grid-template-columns: 1fr;
+		}
+		nav { 
+			height: auto;
+			overflow: auto;
 		}
 	}
 </style>
