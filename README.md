@@ -2,7 +2,7 @@
 
 My modest personal website.
 
-It uses [Astro](https://astro.build/) and is hosted on Cloudflare.
+It uses [Astro](https://astro.build/) and is hosted on Vercel.
 
 ## License
 

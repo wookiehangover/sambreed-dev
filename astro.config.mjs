@@ -5,7 +5,7 @@ import remarkToc from 'remark-toc'
 import { visit } from 'unist-util-visit';
 
 // https://astro.build/config
-import cloudflare from "@astrojs/cloudflare";
+import vercel from "@astrojs/vercel";
 
 function rehypeCodeWrapperPlugin() {
   return function transformer(tree) {
@@ -24,16 +24,7 @@ export default defineConfig({
   site: 'https://sambreed.dev',
   integrations: [mdx(), sitemap()],
   output: "server",
-  adapter: cloudflare({
-    platformProxy: {
-      enabled: true
-    }
-  }),
-  image: {
-    service: {
-      entrypoint: "astro/assets/services/squoosh"
-    }
-  },
+  adapter: vercel(),
   markdown: {
     shikiConfig: {
       theme: "one-dark-pro"

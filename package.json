@@ -6,23 +6,21 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build && bash ./scripts/fix-routes.sh",
+    "build": "astro build",
     "build:links": "node scripts/extract-links.mjs",
     "build:embeddings": "node scripts/generate-embeddings.mjs",
     "populate:agentdb": "node scripts/populate-agentdb.mjs",
-    "preview": "npx wrangler pages dev ./dist",
     "astro": "astro",
-    "deploy": "npm run build && cd dist && npx wrangler pages deploy .",
     "lint": "eslint src --fix",
     "format": "prettier --write src"
   },
   "dependencies": {
     "@agentdb/sdk": "^1.1.1",
     "@astrojs/check": "^0.9.4",
-    "@astrojs/cloudflare": "^12.5.3",
     "@astrojs/mdx": "^4.3.0",
     "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.4.0",
+    "@astrojs/vercel": "^8.2.7",
     "@fontsource/bitter": "^5.2.6",
     "@fontsource/inter": "^5.2.5",
     "astro": "^5.8.1",
@@ -48,7 +46,6 @@
     "globby": "^14.1.0",
     "gray-matter": "^4.0.3",
     "prettier": "^3.3.0",
-    "prettier-plugin-astro": "^0.14.0",
-    "wrangler": "^4.27.0"
+    "prettier-plugin-astro": "^0.14.0"
   }
 }
