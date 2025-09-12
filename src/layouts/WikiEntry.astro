@@ -46,7 +46,7 @@ const {
 
 		<section>
 			<header>
-				<div>
+				<div class="sidebar-header">
 					<h1 class="title">{title}</h1>
 					{description && <p class="pt-2">{description}</p>}
 					<div class="pt-2">
@@ -200,7 +200,7 @@ const {
 		color: var(--text-color);
 	}
 
-	header:has(+ article > #table-of-contents) > div {
+	header:has(+ article > #table-of-contents) .sidebar-header {
 		position: static;
 	}
 </style>

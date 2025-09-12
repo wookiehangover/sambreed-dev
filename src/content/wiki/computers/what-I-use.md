@@ -7,6 +7,12 @@ categories: ["Computers"]
 type: "list"
 ---
 
+One of the best things I did early in my career was to make sure I always had a dedicated workspace at home. It meant that I could work on projects, study, and experiment on my own equipment.
+
+Over the years my setup has evolved as pieces of kit have been swapped in an out, but the core is that I have a standing desk, a good chair, and plenty of screen real estate. The lower-tech aspects of my workspace are equally important, shelving for books and records that have now followed me around for two decades of adulthood.
+
+## Table of Contents
+
 ## Video
 
 - Canon Rebel SL3, 18-55mm f1.4-5.6
