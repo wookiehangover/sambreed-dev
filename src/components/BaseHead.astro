@@ -5,6 +5,7 @@ import { getImage } from "astro:assets";
 import "../styles/global.css";
 import { ClientRouter } from "astro:transitions";
 import "@fontsource/inter";
+import interWoff2 from '@fontsource/inter/files/inter-latin-400-normal.woff2?url';
 
 export interface Props {
 	title: string;
@@ -35,6 +36,8 @@ if (cover) {
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#171717" />
 <link rel="sitemap" href="/sitemap-index.xml" />
+<link rel="preload" as="font" type="font/woff2" href={interWoff2} crossorigin="anonymous" />
+
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>

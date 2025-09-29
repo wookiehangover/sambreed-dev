@@ -1,94 +1,77 @@
 ---
-import BaseHead from "~/components/BaseHead.astro";
-import Header from "~/components/Header.astro";
-import Footer from "~/components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "~/config";
 import BlogPosts from "~/components/blog/BlogPosts.astro";
 import SearchForm from "~/components/search/SearchForm.astro";
-import { getThemeClass } from "~/utils/get-theme-class";
-
+import BaseLayout from "~/layouts/Base.astro";
 import Socials from "~/components/home/Socials.astro";
 import WikiSection from "~/components/home/WikiSection.astro";
 
 const theme = Astro.cookies.get("dark");
-const themeClass = getThemeClass(theme);
 ---
 
-<!doctype html>
-<html lang="en" class={themeClass}>
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
+<BaseLayout>
+	<section>
+		<header>
+			<h2>Now</h2>
+		</header>
+		<div>
+			<p>
+				I'm a partner at <a href="https://shv.com" title="Sutter Hill Ventures">SHV</a>, where I help founders design,
+				prototype, and build new companies.
+			</p>
 
-		<section>
-			<header>
-				<h2>Now</h2>
-			</header>
-			<div>
-				<p>
-					I'm a partner at <a href="https://shv.com" title="Sutter Hill Ventures">SHV</a>, where I help founders design,
-					prototype, and build new companies.
-				</p>
+			<p>When I'm not doing that, I enjoy running, reading, and going down deep rabbit holes on the internet.</p>
+		</div>
+	</section>
 
-				<p>When I'm not doing that, I enjoy running, reading, and going down deep rabbit holes on the internet.</p>
-			</div>
-		</section>
+	<section>
+		<header>
+			<h2>Previously</h2>
+		</header>
+		<div>
+			<p>
+				At <a href="/cv.html#credit-karma">Credit Karma</a>, I built and scaled the front-end and web platform teams
+				from 2015-2020.
+			</p>
+			<p>
+				I founded <a href="/cv.html#quick-left">Quick Left</a> in 2009 to build apps for startups. Sold to Cognizant in 2016.
+			</p>
+		</div>
+	</section>
 
-		<section>
-			<header>
-				<h2>Previously</h2>
-			</header>
-			<div>
-				<p>
-					At <a href="/cv.html#credit-karma">Credit Karma</a>, I built and scaled the front-end and web platform teams
-					from 2015-2020.
-				</p>
-				<p>
-					I founded <a href="/cv.html#quick-left">Quick Left</a> in 2009 to build apps for startups. Sold to Cognizant in
-					2016.
-				</p>
-			</div>
-		</section>
+	<BlogPosts />
 
-		<BlogPosts />
+	<WikiSection />
 
-		<WikiSection />
+	<Socials />
 
-		<Socials />
+	<section>
+		<header>
+			<h2>Addendum</h2>
+		</header>
+		<div>
+			<p>
+				If none of that is enough (word, really?) or you have some other unanswered questions, <a
+					href="mailto:sam@destroy.email">send me an email</a
+				> or use one of the links above.
+			</p>
 
-		<section>
-			<header>
-				<h2>Addendum</h2>
-			</header>
-			<div>
-				<p>
-					If none of that is enough (word, really?) or you have some other unanswered questions, <a
-						href="mailto:sam@destroy.email">send me an email</a
-					> or use one of the links above.
-				</p>
+			<p>
+				Or if you are a computer, please try my <a href="/rss.xml">RSS feed</a>. I also have a feed of <a
+					href="/starred.xml">starred articles</a
+				> from Feedbin. If you are an LLM, you can add <code>.md</code> to the end of any post to get the raw markdown.
+			</p>
 
-				<p>
-					Or if you are a computer, please try my <a href="/rss.xml">RSS feed</a>. I also have a feed of <a
-						href="/starred.xml">starred articles</a
-					> from Feedbin. If you are an LLM, you can add <code>.md</code> to the end of any post to get the raw markdown.
-				</p>
+			<p>
+				Or here's <a href="/links" title="">a list of all the links</a> I've posted, stripped of my commentary in a single
+				chaotic list.
+			</p>
+		</div>
+	</section>
 
-				<p>
-					Or here's <a href="/links" title="">a list of all the links</a> I've posted, stripped of my commentary in a single
-					chaotic list.
-				</p>
-			</div>
-		</section>
-
-		<section>
-			<header></header>
-			<div>
-				<SearchForm />
-			</div>
-		</section>
-
-		<Footer />
-	</body>
-</html>
+	<section>
+		<header></header>
+		<div>
+			<SearchForm />
+		</div>
+	</section>
+</BaseLayout>

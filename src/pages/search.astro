@@ -1,15 +1,10 @@
 ---
 import { getCollection } from "astro:content";
-import BaseHead from "~/components/BaseHead.astro";
-import Footer from "~/components/Footer.astro";
-import Header from "~/components/Header.astro";
 import BlogCard from "~/components/search/BlogCard.astro";
 import WikiCard from "~/components/search/WikiCard.astro";
 import getAllCategories from "~/utils/get-all-categories";
 import SearchForm from "~/components/search/SearchForm.astro";
-import { getThemeClass } from "~/utils/get-theme-class";
-const theme = Astro.cookies.get("dark");
-const themeClass = getThemeClass(theme);
+import BaseLayout from "~/layouts/Base.astro";
 const wikiEntries = await getCollection("wiki");
 const blogEntries = await getCollection("writing");
 const { map } = getAllCategories(wikiEntries);
@@ -37,42 +32,33 @@ if (query) {
 }
 ---
 
-<html lang="en" class={themeClass}>
-	<head>
-		<BaseHead title="Search" description="Search" />
-	</head>
-	<body>
-		<Header />
+<BaseLayout title="Search" description="Search">
+	<section>
+		<header>
+			<h2>Search</h2>
+			<p>It's vibe-based</p>
+		</header>
+		<div>
+			<SearchForm value={query ?? ""} />
 
-		<section>
-			<header>
-				<h2>Search</h2>
-				<p>It's vibe-based</p>
-			</header>
-			<div>
-				<SearchForm value={query ?? ""} />
-
-				{
-					results && (
-						<ul>
-							{results.map((entry: any) =>
-								entry.type === "blog" ? (
-									<li>
-										<BlogCard entry={entry} />
-									</li>
-								) : (
-									<WikiCard entry={entry} map={map} />
-								),
-							)}
-						</ul>
-					)
-				}
-			</div>
-		</section>
-
-		<Footer />
-	</body>
-</html>
+			{
+				results && (
+					<ul>
+						{results.map((entry: any) =>
+							entry.type === "blog" ? (
+								<li>
+									<BlogCard entry={entry} />
+								</li>
+							) : (
+								<WikiCard entry={entry} map={map} />
+							),
+						)}
+					</ul>
+				)
+			}
+		</div>
+	</section>
+</BaseLayout>
 
 <style>
 	body {
