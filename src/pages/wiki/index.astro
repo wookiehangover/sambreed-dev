@@ -24,7 +24,7 @@ const { map } = getAllCategories(wikiEntries);
 	<body>
 		<Header label="wiki" />
 
-		<WikiCardList map={map} entries={wikiEntries} />
+		<WikiCardList map={map} entries={wikiEntries} client:load />
 
 		<WikiCategoryList />
 

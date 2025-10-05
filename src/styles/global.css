@@ -321,10 +321,10 @@
 			--grid-header-padding: 2rem;
 		}
 
-		section {
+		/* section {
 			border-left: 1px solid var(--border-dim);
 			margin-left: 1rem;
-		}
+		} */
 
 		section > header {
 			border-right: none;
@@ -410,5 +410,8 @@
 	/* Display utilities */
 	.hidden {
 		display: none;
+	}
+	.contents {
+		display: contents;
 	}
 }

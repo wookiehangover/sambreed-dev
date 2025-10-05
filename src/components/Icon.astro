@@ -41,12 +41,14 @@ export type IconName = (typeof icons)[number];
 export interface Props {
 	name: IconName;
 	size?: number | string;
+	title?: string;
 }
 
-const { name, size = 20 } = Astro.props;
+const { name, size = 20, title } = Astro.props;
 ---
 
 <svg viewBox="0 0 20 20" width={size} height={size}>
+	{title && <title>{title}</title>}
 	<use href={`/icon-sprite.svg#icon-${name}`}></use>
 </svg>
 
