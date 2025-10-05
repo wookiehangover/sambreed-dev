@@ -51,46 +51,25 @@ const icons = [
 	<body>
 		<Header />
 		<main>
-
-
 			<section class="icon-grid">
-				{icons.map((iconName) => (
-					<div class="icon-card">
-						<div class="icon-display">
-							<Icon name={iconName as IconName} size={32} />
-						</div>
-						<div class="icon-info">
-							<code class="icon-name">{iconName}</code>
-							<!--
-							 <div class="usage-examples">
-								<details>
-									<summary>Usage</summary>
-									<div class="code-examples">
-										<div>
-											<strong>Astro component:</strong>
-											<code>&lt;Icon name="{iconName}" /&gt;</code>
-										</div>
-										<div>
-											<strong>Direct SVG:</strong>
-											<code>&lt;svg viewBox="0 0 20 20"&gt;&lt;use href="/icon-sprite.svg#icon-{iconName}"&gt;&lt;/use&gt;&lt;/svg&gt;</code>
-										</div>
-									</div>
-								</details>
+				{
+					icons.map((iconName) => (
+						<div class="icon-card">
+							<div class="icon-display">
+								<Icon name={iconName as IconName} size={32} />
 							</div>
-							 -->
+							<div class="icon-info">
+								<code class="icon-name">{iconName}</code>
+							</div>
 						</div>
-					</div>
-				))}
+					))
+				}
 			</section>
 		</main>
 	</body>
 </html>
 
 <style>
-
-
-
-
 	.icon-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
@@ -130,7 +109,7 @@ const icons = [
 
 	.icon-name {
 		display: block;
-		font-family: var(--font-family-mono, 'Courier New', monospace);
+		font-family: var(--font-family-mono, "Courier New", monospace);
 		font-size: 0.75rem;
 		color: var(--color-text);
 		background: var(--shade-10);
@@ -184,7 +163,7 @@ const icons = [
 		background: var(--shade-10);
 		padding: 0.5rem;
 		border-radius: 4px;
-		font-family: var(--font-family-mono, 'Courier New', monospace);
+		font-family: var(--font-family-mono, "Courier New", monospace);
 		font-size: 0.75rem;
 		line-height: 1.4;
 		word-break: break-all;
@@ -206,4 +185,3 @@ const icons = [
 		}
 	}
 </style>
-

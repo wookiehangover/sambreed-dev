@@ -65,29 +65,49 @@ Consequently, I've been writing more and more custom CSS without Tailwind. I'm s
 @layer reset, base, components, layout, utilities;
 
 @layer reset {
-  * { box-sizing: border-box; }
-  body { margin: 0; }
+	* {
+		box-sizing: border-box;
+	}
+	body {
+		margin: 0;
+	}
 }
 
 @layer base {
-  body {
-    font-family: var(--font-family-body);
-    color: var(--text-color);
-  }
-  h1, h2, h3 { font-weight: 600; }
+	body {
+		font-family: var(--font-family-body);
+		color: var(--text-color);
+	}
+	h1,
+	h2,
+	h3 {
+		font-weight: 600;
+	}
 }
 
 @layer components {
-  .search-form { display: flex; gap: 1rem; }
-  article > p { margin-block: 1lh; }
+	.search-form {
+		display: flex;
+		gap: 1rem;
+	}
+	article > p {
+		margin-block: 1lh;
+	}
 }
 
 @layer utilities {
-  .text-sm { font-size: 0.875rem; }
-  .flex { display: flex; }
-  .hidden { display: none; }
+	.text-sm {
+		font-size: 0.875rem;
+	}
+	.flex {
+		display: flex;
+	}
+	.hidden {
+		display: none;
+	}
 }
 ```
+
 - there's a [big list of functions](https://twitter.com/argyleink/status/1684579433821372418?s=20), a bunch of which I've never used
   - `env()`
   - `clamp(min, preferred, max)` - make a value change dynamically with container size
