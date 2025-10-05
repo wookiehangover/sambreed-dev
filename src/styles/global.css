@@ -318,7 +318,8 @@
 	@media screen and (max-width: 796px) {
 		:root {
 			--grid-columns: [main] 1fr;
-			--grid-header-padding: 2rem;
+			--grid-header-padding: 1.5rem;
+			--grid-header-width: 100%;
 		}
 
 		/* section {
@@ -334,9 +335,9 @@
 
 		section > div,
 		section > article {
-			padding: 0 2rem 2rem;
+			padding: 0 1.5rem 2rem;
 			box-sizing: border-box;
-			max-width: calc(100vw - 1rem);
+			max-width: 100vw;
 		}
 	}
 }
