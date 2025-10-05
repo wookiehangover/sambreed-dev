@@ -5,6 +5,14 @@ import eslintPluginAstro from 'eslint-plugin-astro';
 export default [
   {
     files: ['**/*.{js,mjs,cjs}'],
+		ignores: [
+			'dist/**',
+			'node_modules/**',
+			'.astro/**',
+			'functions/**',
+			'public/**',
+			'src/content/wiki/.obsidian/**',
+		],
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
