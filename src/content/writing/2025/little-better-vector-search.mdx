@@ -27,13 +27,11 @@ AgentDB was a good fit for my needs: easy to host, difficult to break, generous 
 
 Since we live in an age of wonders, the migration path was easy. I connected the AgentDB MCP server to [Augment](https://www.augmentcode.com) and asked politely for it to draft a schema and then create the table. Then I had Augment migrate the old embeddings, update the generation script, and change the search implementation to use the new table.
 
-Setup
+## Setup
 
 - create a uuid to namespace the table
 - generate a schema and create tables
-- import existing embeddings into d
-
-  b
+- import existing embeddings into the db
 - query the db using `vec_distance_cosine()` to filter results
 
 It was straightforward to replace the crude cosign similarity against the JSON file with a database query that uses a native cosign distance. At the pace I update my website, I'll be able to operate comfortable for decades before I need to worry about storage or compute for similarity searches.
