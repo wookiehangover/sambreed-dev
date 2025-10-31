@@ -59,7 +59,7 @@ const {
 				{
 					heroVideo ? (
 						<figure>
-							<video src={heroVideo} autoplay muted loop />
+							<video src={heroVideo} autoplay muted loop preload="auto" disablepictureinpicture playsinline webkit-playsinline />
 							{heroAlt && <figcaption>{heroAlt}</figcaption>}
 						</figure>
 					) : (

@@ -19,7 +19,7 @@ The ChatGPT-4V lineage of models successfully interpret and produce images, whic
 How to draw an owl with @tldraw
 
 <figure>
-	<video src="/img/how-to-draw-an-owl.mp4" muted controls></video>
+	<video src="/img/how-to-draw-an-owl.mp4" muted controls preload="auto" disablepictureinpicture playsinline webkit-playsinline loop></video>
 </figure>
 
 https://twitter.com/tazsingh/status/1729578330200891552
