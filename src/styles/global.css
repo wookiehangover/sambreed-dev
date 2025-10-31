@@ -41,7 +41,6 @@
 		text-wrap: balance;
 		font-family: var(--font-family-heading);
 		font-weight: 600;
-		letter-spacing: 0.03em;
 		color: var(--bold-color);
 	}
 
@@ -119,10 +118,10 @@
 	blockquote {
 		border-left: 2px solid var(--blockquote-border-color);
 		color: var(--blockquote-color);
-		padding-left: 1.875rem;
+		padding-left: 23px;
 		margin-inline-start: 0;
-		margin-inline-end: 1.875rem;
-		line-height: 1.875;
+		margin-inline-end: 1.5rem;
+		line-height: 1.4;
 		font-size: 1.125rem;
 	}
 
@@ -195,6 +194,17 @@
 		text-align: justify;
 	}
 
+	article {
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			letter-spacing: -3%;
+		}
+	}
+
 	li > p:only-child {
 		margin-block: 0;
 	}
@@ -235,7 +245,7 @@
 		}
 
 		blockquote {
-			margin-left: calc(-2rem - 1px);
+			margin-left: -1.5rem;
 		}
 	}
 }
