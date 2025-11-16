@@ -22,35 +22,45 @@ const isDark = theme?.value === "1" ? checked : {};
 </fieldset>
 
 <script>
-	const elem = document.querySelector("[data-theme-toggle]");
-	const $doc = document.documentElement;
-	const themeValues = {
-		light: 0,
-		dark: 1,
-		system: 2,
-	};
-	const themeActions = {
-		light: () => {
-			$doc.style.setProperty("color-scheme", "light");
-			$doc.classList.add("light");
-			$doc.classList.remove("dark");
-		},
-		dark: () => {
-			$doc.style.setProperty("color-scheme", "dark");
-			$doc.classList.add("dark");
-			$doc.classList.remove("light");
-		},
-		system: () => {
-			$doc.style.setProperty("color-scheme", "light dark");
-			$doc.classList.remove("light", "dark");
-		},
-	};
-	elem?.addEventListener("change", (event) => {
-		const target = event.target as HTMLInputElement;
-		const value = target.value as keyof typeof themeValues;
-		themeActions[value]();
-		document.cookie = `dark=${themeValues[value]}; path=/`;
-	});
+	function initThemeToggle() {
+		const elem = document.querySelector("[data-theme-toggle]");
+		if (!elem) return;
+		
+		const $doc = document.documentElement;
+		const themeValues = {
+			light: 0,
+			dark: 1,
+			system: 2,
+		};
+		const themeActions = {
+			light: () => {
+				$doc.style.setProperty("color-scheme", "light");
+				$doc.classList.add("light");
+				$doc.classList.remove("dark");
+			},
+			dark: () => {
+				$doc.style.setProperty("color-scheme", "dark");
+				$doc.classList.add("dark");
+				$doc.classList.remove("light");
+			},
+			system: () => {
+				$doc.style.setProperty("color-scheme", "light dark");
+				$doc.classList.remove("light", "dark");
+			},
+		};
+		elem.addEventListener("change", (event) => {
+			const target = event.target as HTMLInputElement;
+			const value = target.value as keyof typeof themeValues;
+			themeActions[value]();
+			document.cookie = `dark=${themeValues[value]}; path=/`;
+		});
+	}
+
+	if (document.readyState === "loading") {
+		document.addEventListener("DOMContentLoaded", initThemeToggle);
+	} else {
+		initThemeToggle();
+	}
 </script>
 
 <style>
