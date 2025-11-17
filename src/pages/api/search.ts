@@ -14,6 +14,8 @@ export const GET: APIRoute = async function GET({ request }) {
 	const url = new URL(request.url);
 	const q = url.searchParams.get("q") as string;
 	const type = url.searchParams.get("type") as string;
+	const thresholdParam = url.searchParams.get("threshold");
+	const threshold = thresholdParam ? parseFloat(thresholdParam) : 0.5;
 
 	if (!q) {
 		return new Response(JSON.stringify({ message: "Missing query parameter" }), {
@@ -29,6 +31,13 @@ export const GET: APIRoute = async function GET({ request }) {
 		});
 	}
 
+	if (isNaN(threshold) || threshold < 0 || threshold > 1) {
+		return new Response(JSON.stringify({ message: "Invalid threshold parameter (must be between 0 and 1)" }), {
+			status: 400,
+			headers: { "content-type": "application/json" },
+		});
+	}
+
 	try {
 		// Generate embedding for the search query
 		let vector = searchVectors.get(q);
@@ -36,7 +45,7 @@ export const GET: APIRoute = async function GET({ request }) {
 		if (!vector) {
 			const response = await client.embeddings.create({
 				input: q,
-				model: "text-embedding-ada-002",
+				model: "text-embedding-3-small",
 			});
 
 			vector = response.data[0].embedding;
@@ -65,8 +74,27 @@ export const GET: APIRoute = async function GET({ request }) {
 		// For "all", no WHERE clause needed
 
 		// Use AgentDB's native vector search with cosine distance
+		// Query chunks table and deduplicate by slug (keep best matching chunk per document)
 		const vectorBuffer = createVectorBuffer(vector);
 		const searchQuery = `
+			WITH ranked_chunks AS (
+				SELECT
+					slug,
+					title,
+					description,
+					content_type,
+					type,
+					pub_date,
+					hero_image,
+					hero_video,
+					cover,
+					categories,
+					vec_distance_cosine(embedding_vector, ?) as cosine_distance,
+					(1 - vec_distance_cosine(embedding_vector, ?)) as similarity_score,
+					ROW_NUMBER() OVER (PARTITION BY slug ORDER BY vec_distance_cosine(embedding_vector, ?) ASC) as rn
+				FROM content_embeddings_chunks
+				${whereClause}
+			)
 			SELECT
 				slug,
 				title,
@@ -78,15 +106,15 @@ export const GET: APIRoute = async function GET({ request }) {
 				hero_video,
 				cover,
 				categories,
-				vec_distance_cosine(embedding_vector, ?) as cosine_distance,
-				(1 - vec_distance_cosine(embedding_vector, ?)) as similarity_score
-			FROM content_embeddings
-			${whereClause}
+				cosine_distance,
+				similarity_score
+			FROM ranked_chunks
+			WHERE rn = 1
 			ORDER BY cosine_distance ASC
 			LIMIT 10
 		`;
 
-		const queryParams = [vectorBuffer, vectorBuffer, ...params];
+		const queryParams = [vectorBuffer, vectorBuffer, vectorBuffer, ...params];
 		const result = await connection.execute([{ sql: searchQuery, params: queryParams }]);
 
 		if (result.results?.[0]?.error) {
@@ -100,22 +128,26 @@ export const GET: APIRoute = async function GET({ request }) {
 		const rows = result.results?.[0]?.rows || [];
 
 		// Transform the results (already sorted by cosine distance from AgentDB)
-		const resp = rows.slice(0, 6).map((row: any) => {
-			const categories = row.categories ? JSON.parse(row.categories) : null;
+		// Filter out results below the similarity threshold
+		const resp = rows
+			.filter((row: any) => row.similarity_score >= threshold)
+			.slice(0, 6)
+			.map((row: any) => {
+				const categories = row.categories ? JSON.parse(row.categories) : null;
 
-			return {
-				slug: row.slug,
-				title: row.title,
-				description: row.description,
-				type: row.content_type === "writing" ? "blog" : row.content_type,
-				pubDate: row.pub_date,
-				heroImage: row.hero_image,
-				heroVideo: row.hero_video,
-				cover: row.cover,
-				categories,
-				score: row.similarity_score,
-			};
-		});
+				return {
+					slug: row.slug,
+					title: row.title,
+					description: row.description,
+					type: row.content_type === "writing" ? "blog" : row.content_type,
+					pubDate: row.pub_date,
+					heroImage: row.hero_image,
+					heroVideo: row.hero_video,
+					cover: row.cover,
+					categories,
+					score: row.similarity_score,
+				};
+			});
 
 		return new Response(JSON.stringify(resp), {
 			headers: {

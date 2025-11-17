@@ -366,6 +366,9 @@
 	.text-very-dim {
 		color: var(--text-very-dim);
 	}
+	.font-mono {
+		font-family: var(--font-family-mono);
+	}
 
 	/* Layout utilities */
 	.flex {

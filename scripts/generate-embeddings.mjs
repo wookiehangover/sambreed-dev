@@ -93,7 +93,7 @@ async function getExistingEntries(contentType) {
 
     console.log(`📋 Found ${existingEntries.size} existing ${contentType} entries`)
   } catch (error) {
-    console.log(`📋 No existing ${contentType} entries found`)
+    console.error(`📋 No existing ${contentType} entries found`, error)
   }
 
   return existingEntries
