@@ -3,7 +3,7 @@ import { globby } from 'globby'
 import OpenAI from 'openai'
 import fs from 'fs/promises'
 import matter from 'gray-matter'
-import { DatabaseService } from '@agentdb/sdk'
+import { DatabaseService, createVectorBuffer } from '@agentdb/sdk'
 import cliProgress from 'cli-progress'
 import pLimit from 'p-limit'
 
@@ -43,7 +43,7 @@ async function ensureSchema() {
         hero_video TEXT,
         cover TEXT,
         categories TEXT,
-        embedding_vector TEXT NOT NULL,
+        embedding_vector BLOB NOT NULL,
         embedding_model TEXT DEFAULT 'text-embedding-3-small',
         created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -195,7 +195,7 @@ async function getExistingChunkEntries(contentType) {
     }
 
     console.log(`📋 Found ${existingEntries.size} existing ${contentType} entries with chunks`)
-  } catch (error) {
+  } catch (_error) {
     console.log(`📋 No existing ${contentType} chunk entries found`)
   }
 
@@ -217,7 +217,7 @@ async function getChunkCount(slug, contentType) {
 
     const rows = result.results?.[0]?.rows || []
     return rows[0]?.count || 0
-  } catch (error) {
+  } catch (_error) {
     return 0
   }
 }
@@ -365,7 +365,7 @@ async function generateChunkedEmbeddings(src, contentType) {
           data.heroVideo || null,
           data.cover || null,
           categories,
-          JSON.stringify(embedding),
+          createVectorBuffer(embedding),
           EMBEDDING_MODEL
         ]
       }))

@@ -15,7 +15,7 @@ export const GET: APIRoute = async function GET({ request }) {
 	const q = url.searchParams.get("q") as string;
 	const type = url.searchParams.get("type") as string;
 	const thresholdParam = url.searchParams.get("threshold");
-	const threshold = thresholdParam ? parseFloat(thresholdParam) : 0.5;
+	const threshold = thresholdParam ? parseFloat(thresholdParam) : 0.3;
 
 	if (!q) {
 		return new Response(JSON.stringify({ message: "Missing query parameter" }), {
@@ -111,27 +111,65 @@ export const GET: APIRoute = async function GET({ request }) {
 			FROM ranked_chunks
 			WHERE rn = 1
 			ORDER BY cosine_distance ASC
-			LIMIT 10
+			LIMIT 30
 		`;
 
 		const queryParams = [vectorBuffer, vectorBuffer, vectorBuffer, ...params];
+		
+		// First, check if the table exists and has data
+		const countResult = await connection.execute([{
+			sql: `SELECT COUNT(*) as count FROM content_embeddings_chunks${whereClause ? ` ${whereClause}` : ''}`,
+			params: params
+		}]);
+		
+		if (countResult.results?.[0]?.error) {
+			console.error("AgentDB Count Error:", countResult.results[0].error);
+			return new Response(JSON.stringify({ 
+				message: "Database error", 
+				error: countResult.results[0].error 
+			}), {
+				status: 500,
+				headers: { "content-type": "application/json" },
+			});
+		}
+		
+		const totalCount = countResult.results?.[0]?.rows?.[0]?.count || 0;
+		console.log(`Found ${totalCount} chunks in database for type: ${type}`);
+		
+		if (totalCount === 0) {
+			return new Response(JSON.stringify({ 
+				message: "No content found in database",
+				count: 0
+			}), {
+				status: 200,
+				headers: { "content-type": "application/json" },
+			});
+		}
+		
 		const result = await connection.execute([{ sql: searchQuery, params: queryParams }]);
 
 		if (result.results?.[0]?.error) {
-			console.error("AgentDB Error:", result.results[0].error);
-			return new Response(JSON.stringify({ message: "Search error" }), {
+			console.error("AgentDB Search Error:", result.results[0].error);
+			console.error("Query:", searchQuery);
+			console.error("Params count:", queryParams.length);
+			return new Response(JSON.stringify({ 
+				message: "Search error",
+				error: result.results[0].error,
+				query: searchQuery.substring(0, 200) // First 200 chars for debugging
+			}), {
 				status: 500,
 				headers: { "content-type": "application/json" },
 			});
 		}
 
 		const rows = result.results?.[0]?.rows || [];
+		console.log(`Search returned ${rows.length} rows before filtering`);
 
 		// Transform the results (already sorted by cosine distance from AgentDB)
 		// Filter out results below the similarity threshold
 		const resp = rows
 			.filter((row: any) => row.similarity_score >= threshold)
-			.slice(0, 6)
+			.slice(0, 9)
 			.map((row: any) => {
 				const categories = row.categories ? JSON.parse(row.categories) : null;
 
