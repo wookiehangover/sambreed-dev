@@ -18,27 +18,22 @@ When you need a layout with a fixed header, a scrollable content area, and a fix
 
 ```tsx
 export default function ScrollSandwich() {
-  return (
-    <div className="grid h-screen grid-rows-[auto_1fr_auto]">
-      <header className="h-40">
-        {/* Fixed header content */}
-      </header>
+	return (
+		<div className="grid h-screen grid-rows-[auto_1fr_auto]">
+			<header className="h-40">{/* Fixed header content */}</header>
 
-      <div className="overflow-y-scroll">
-        {/* Scrollable content area */}
-      </div>
+			<div className="overflow-y-scroll">{/* Scrollable content area */}</div>
 
-      <footer className="h-40">
-        {/* Fixed footer/prompt area */}
-      </footer>
-    </div>
-  );
+			<footer className="h-40">{/* Fixed footer/prompt area */}</footer>
+		</div>
+	);
 }
 ```
 
 ## When to use this pattern
 
 This layout shines when:
+
 - `position: sticky` isn't sufficient or becomes too complex
 - You want to avoid `position: fixed` and its z-index/stacking context headaches
 - You need a predictable, maintainable scrolling layout
@@ -74,25 +69,25 @@ This creates a "scroll-sandwich" layout:
 
 ## A note on Tailwind
 
-Tailwind's built-in grid utilities are a throwback to the Bootstrap 12-column grid days. The real zen of using grids with Tailwind is found in the ad-hoc syntax escape hatch: `grid-rows-[auto_1fr_auto]`. 
+Tailwind's built-in grid utilities are a throwback to the Bootstrap 12-column grid days. The real zen of using grids with Tailwind is found in the ad-hoc syntax escape hatch: `grid-rows-[auto_1fr_auto]`.
 
 The CSS equivalent is often easier to read:
 
 ```css
 .container {
-  display: grid;
-  height: 100vh;
-  grid-template-rows: auto 1fr auto;
+	display: grid;
+	height: 100vh;
+	grid-template-rows: auto 1fr auto;
 }
 
 .scroll-area {
-  overflow-y: scroll;
+	overflow-y: scroll;
 }
 ```
 
 ## Why not flexbox?
 
-There's always more than one way to do it. Flexbox is completely capable of achieving the same layout—just set `flex-direction: column` and `flex-grow: 1` on the scroll container. 
+There's always more than one way to do it. Flexbox is completely capable of achieving the same layout—just set `flex-direction: column` and `flex-grow: 1` on the scroll container.
 
 Maybe that's better, maybe it's worse. I prefer using Grid for page-level layouts because it doesn't require setting properties on the scroll container itself; the layout is defined entirely at the parent level, which feels more declarative.
 

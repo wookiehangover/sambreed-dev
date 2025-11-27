@@ -32,8 +32,7 @@ There's a [great technique](https://codepen.io/jh3y/pen/zYQxKjx) lifted from [jh
 		mask:
 			linear-gradient(white, transparent) 0 0 / 100% 0 no-repeat,
 			linear-gradient(white, white) 0 50% / 100% 100% no-repeat,
-			linear-gradient(transparent, white) 0 100% / 100%
-				calc(var(--scroll-fog-size) * 1px) no-repeat;
+			linear-gradient(transparent, white) 0 100% / 100% calc(var(--scroll-fog-size) * 1px) no-repeat;
 		mask-composite: exclude;
 	}
 
