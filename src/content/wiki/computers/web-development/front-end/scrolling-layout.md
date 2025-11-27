@@ -2,7 +2,7 @@
 title: Scroll Sandwich Layout
 description: A clean CSS Grid pattern for creating scrollable layouts with fixed headers and footers.
 createdAt: 2025-11-14
-updatedAt: 2025-11-14
+updatedAt: 2025-11-26
 categories:
   - Computers
   - Web Development
@@ -100,3 +100,7 @@ Maybe that's better, maybe it's worse. I prefer using Grid for page-level layout
 
 - Works great with Radix UI's `<ScrollArea>` component for enhanced scrollbar styling
 - The footer/prompt area can vary its height dynamically, and the scroll area will automatically resize to fill the remaining space
+
+Here's a live example using the [Scroll Fog](/wiki/computers/web-development/front-end/scroll-fog) technique:
+
+<iframe src="/experiments/scroll-layout" width="100%" height="500px" style="border: none; border-radius: 4px;" />
