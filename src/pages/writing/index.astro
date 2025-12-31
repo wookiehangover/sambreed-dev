@@ -28,7 +28,7 @@ const themeClass = getThemeClass(theme);
 			</header>
 			<div>
 				<SearchForm action="/writing/search" />
-				<ul>
+				<ul class="card-grid">
 					{
 						posts.map((post) => (
 							<li>
@@ -52,23 +52,8 @@ const themeClass = getThemeClass(theme);
 			margin: auto;
 		}
 
-		ul {
-			display: grid;
-			list-style: none;
-			grid-template-columns: 1fr 1fr;
-			gap: 1rem;
-			margin: 0;
-			padding: 0;
-
-			li {
-				display: flex;
-			}
-		}
-
-		@media (max-width: 512px) {
-			ul {
-				grid-template-columns: 1fr;
-			}
+		ul li {
+			display: flex;
 		}
 	</style>
 </html>

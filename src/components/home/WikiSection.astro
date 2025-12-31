@@ -22,28 +22,13 @@ const recentWikiEntries = wikiEntries
 	</header>
 
 	<div>
-		<ul class="wiki-cards">
+		<ul class="card-grid">
 			{recentWikiEntries.map((entry) => <WikiCard entry={entry} map={map} />)}
 		</ul>
 		<p><a href="/wiki" class="text-sm">→ more</a></p>
 	</div>
 </section>
 <style>
-	.wiki-cards {
-		display: grid;
-		list-style: none;
-		grid-template-columns: 1fr 1fr;
-		gap: 1rem;
-		margin: 0;
-		padding: 0;
-	}
-
-	@media (max-width: 512px) {
-		.wiki-cards {
-			grid-template-columns: 1fr;
-		}
-	}
-
 	div > p > a {
 		text-decoration: none;
 		color: var(--text-color);

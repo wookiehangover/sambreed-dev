@@ -238,6 +238,44 @@
 		line-height: 1.3;
 	}
 
+	/* Card component */
+	.card {
+		border: 1px solid transparent;
+		border-radius: 0.25rem;
+		padding: 0 1rem;
+		display: flex;
+		flex-direction: column;
+		transition: background 0.2s ease-in-out;
+		background: var(--card-bg);
+
+		&:hover {
+			background: var(--card-bg-hover);
+		}
+	}
+
+	/* Card grid layout */
+	.card-grid {
+		display: grid;
+		list-style: none;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1rem;
+		margin: 0;
+		padding: 0;
+
+		@media (max-width: 512px) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	/* Card title (looks like body text) */
+	.card-title {
+		font-family: var(--font-family-body);
+		font-size: 1rem;
+		line-height: 1.3;
+		font-weight: normal;
+		text-wrap: wrap;
+	}
+
 	/* Responsive adjustments for components */
 	@media (max-width: 500px) {
 		article ol > li {
@@ -257,6 +295,13 @@
 		--grid-header-width: 30rem;
 		--grid-header-padding: 5rem;
 		--grid-columns: [header] minmax(16rem, 40rem) [main] minmax(66ch, 1fr);
+
+		/* Breakpoint variables */
+		--bp-sm: 512px;
+		--bp-md: 796px;
+		--bp-lg: 1168px;
+		--bp-xl: 1440px;
+		--bp-2xl: 1536px;
 	}
 
 	/* Main grid layout */
@@ -427,5 +472,42 @@
 	}
 	.contents {
 		display: contents;
+	}
+
+	/* List utilities */
+	.list-none {
+		list-style: none;
+	}
+
+	/* Margin utilities */
+	.m-0 {
+		margin: 0;
+	}
+	.mt-auto {
+		margin-top: auto;
+	}
+	.mb-0 {
+		margin-bottom: 0;
+	}
+
+	/* Padding utilities */
+	.p-0 {
+		padding: 0;
+	}
+	.px-4 {
+		padding-inline: 1rem;
+	}
+
+	/* Border utilities */
+	.rounded-sm {
+		border-radius: 0.25rem;
+	}
+
+	/* Layout utilities */
+	.grid {
+		display: grid;
+	}
+	.grid-cols-2 {
+		grid-template-columns: repeat(2, 1fr);
 	}
 }

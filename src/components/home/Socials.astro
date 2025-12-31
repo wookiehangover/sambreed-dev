@@ -8,19 +8,19 @@
 	</header>
 	<div>
 		<ul>
-			<li>
+			<li class="card">
 				<a href="https://twitter.com/intent/follow?screen_name=sambreed">𝕏</a>
 			</li>
-			<li>
+			<li class="card">
 				<a href="https://www.strava.com/athletes/3256286">Strava</a>
 			</li>
-			<li>
+			<li class="card">
 				<a href="https://github.com/wookiehangover">GitHub</a>
 			</li>
-			<li>
+			<li class="card">
 				<a href="https://instagram.com/wookiehangover">Instagram</a>
 			</li>
-			<li>
+			<li class="card">
 				<a href="https://www.linkedin.com/in/samuel-breed/">LinkedIn</a>
 			</li>
 		</ul>
@@ -41,14 +41,9 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			/* Override .card class for Socials styling */
 			border: 1px solid var(--border-dim);
 			border-radius: 8px;
-			transition: background 0.2s ease-in-out;
-			background: var(--card-bg);
-
-			&:hover {
-				background: var(--card-bg-hover);
-			}
 		}
 
 		li a {
