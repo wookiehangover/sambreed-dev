@@ -83,18 +83,10 @@ const {
 </html>
 
 <script>
+	import { setupExternalLinks } from "~/utils/external-links";
+
 	document.addEventListener("astro:page-load", function ready() {
-		const links = document.querySelectorAll("a");
-
-		links.forEach((link) => {
-			const href = link.getAttribute("href");
-			const isExternal = href?.startsWith("http") && !location.hostname.includes(href);
-
-			if (isExternal) {
-				link.setAttribute("target", "_blank");
-				link.setAttribute("rel", "noopener noreferrer");
-			}
-		});
+		setupExternalLinks();
 
 		const toc = document.querySelector("#table-of-contents + ul");
 
