@@ -2,6 +2,41 @@ import type { APIRoute } from "astro";
 import OpenAI from "openai";
 import { DatabaseService, createVectorBuffer } from "@agentdb/sdk";
 
+/** Database row returned from the vector search query */
+interface ContentSearchRow {
+	slug: string;
+	title: string;
+	description: string | null;
+	content_type: string;
+	type: string | null;
+	pub_date: string | null;
+	hero_image: string | null;
+	hero_video: string | null;
+	cover: string | null;
+	categories: string | null;
+	cosine_distance: number;
+	similarity_score: number;
+}
+
+/** Database row returned from the count query */
+interface CountRow {
+	count: number;
+}
+
+/** Response item returned by the search API */
+interface SearchResultItem {
+	slug: string;
+	title: string;
+	description: string | null;
+	type: string;
+	pubDate: string | null;
+	heroImage: string | null;
+	heroVideo: string | null;
+	cover: string | null;
+	categories: string[] | null;
+	score: number;
+}
+
 const client = new OpenAI({ apiKey: import.meta.env.OPENAI_API_KEY });
 
 // Initialize AgentDB connection
@@ -62,7 +97,7 @@ export const GET: APIRoute = async function GET({ request }) {
 
 		// Build the WHERE clause based on type
 		let whereClause = "";
-		const params: any[] = [];
+		const params: string[] = [];
 
 		if (type === "blog") {
 			whereClause = "WHERE content_type = ?";
@@ -133,7 +168,7 @@ export const GET: APIRoute = async function GET({ request }) {
 			});
 		}
 		
-		const totalCount = countResult.results?.[0]?.rows?.[0]?.count || 0;
+		const totalCount = (countResult.results?.[0]?.rows?.[0] as CountRow | undefined)?.count ?? 0;
 		console.log(`Found ${totalCount} chunks in database for type: ${type}`);
 		
 		if (totalCount === 0) {
@@ -162,16 +197,16 @@ export const GET: APIRoute = async function GET({ request }) {
 			});
 		}
 
-		const rows = result.results?.[0]?.rows || [];
+		const rows = (result.results?.[0]?.rows ?? []) as ContentSearchRow[];
 		console.log(`Search returned ${rows.length} rows before filtering`);
 
 		// Transform the results (already sorted by cosine distance from AgentDB)
 		// Filter out results below the similarity threshold
-		const resp = rows
-			.filter((row: any) => row.similarity_score >= threshold)
+		const resp: SearchResultItem[] = rows
+			.filter((row) => row.similarity_score >= threshold)
 			.slice(0, 9)
-			.map((row: any) => {
-				const categories = row.categories ? JSON.parse(row.categories) : null;
+			.map((row) => {
+				const categories: string[] | null = row.categories ? JSON.parse(row.categories) : null;
 
 				return {
 					slug: row.slug,
