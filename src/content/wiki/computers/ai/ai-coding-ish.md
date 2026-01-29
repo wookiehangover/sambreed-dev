@@ -16,7 +16,8 @@ I've been using LLMs for general coding tasks since late 2020. This is where I'v
 Enter the vibe coding era.
 
 - LLMs, specifically Anthropic's Claude models, are good enough to do lots of the grunt work of projects, allowing you to surf on pure vibes
-- Agents
+- Agents started to come online in the first half of the year. By December, everyone was talking about Claude Code and the ungodly ability of their Opus 4.5 model. If there was a shift from zero → completions in 2024
+- Agents + CLI supersedes MCP 
 
 ## 2024
 
