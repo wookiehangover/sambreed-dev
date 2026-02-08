@@ -2,7 +2,7 @@
 title: Links, April 2025
 slug: 2025/links-april
 description: automated link harvesting
-cover: "../../../assets/links-april-2025-reve.png"
+cover: "./links-april-2025-reve.png"
 heroAlt: "prompt: 'A stylized, digital illustration of a cherry blossom tree with code snippets and web elements falling instead of petals. The background should have a subtle tech aesthetic with faint circuit patterns. The overall mood should be spring-like and optimistic, with soft colors that blend technology and nature. Photorealistic, detailed.' model: Reve preview"
 pubDate: "Apr 10 2025"
 ---

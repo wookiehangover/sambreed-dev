@@ -4,7 +4,7 @@ pubDate: July 31 2025
 slug: 2025/links-july
 description: refreshingly hand-curated links, zero AI this month
 heroVideo: "/img/b310cc4a-ff4e-48e7-b67d-d4a9bf19c96e.mp4"
-cover: "../../../assets/b310cc4a-ff4e-48e7-b67d-d4a9bf19c96e.png"
+cover: "./b310cc4a-ff4e-48e7-b67d-d4a9bf19c96e.png"
 heroAlt: "a lone figure silhouetted against an enormous western desert sky full of clouds, standing in front of a distant futuristic door made of glass. Fujifilm Provia 100F"
 ---
 

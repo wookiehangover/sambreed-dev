@@ -2,7 +2,7 @@
 title: Links, December 2023
 slug: 2023/links-december-2023
 description: Every month I turn my open browser tabs into a blog post.
-cover: "../../../assets/lofi_garden.png"
+cover: "./lofi_garden.png"
 heroAlt: "“lofi garden” Steps: 1, Sampler: DPM++ 2M Karras, CFG scale: 1, Seed: 1435965077, Size: 1024x512, Model hash: 2e58e3704b, Model: sdxlTurbo_fullVersion, Version: v1.7.0 Time taken: 0.6 sec."
 pubDate: "December 31 2023"
 ---

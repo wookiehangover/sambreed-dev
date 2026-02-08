@@ -2,7 +2,7 @@
 title: Links, late summer 2025
 slug: 2025/links-august-sept
 description: links and commentary
-cover: ../../../assets/4c7b2d61-538d-4538-81f6-081f5e2dcb80.png
+cover: ./4c7b2d61-538d-4538-81f6-081f5e2dcb80.png
 heroAlt: "prompt: 'a bob ross style painting of a sea otter' model: Reve"
 pubDate: Sept 30 2025
 ---

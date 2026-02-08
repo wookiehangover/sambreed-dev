@@ -2,7 +2,7 @@
 title: Links, January 2024
 slug: 2024/links-january
 description: what's happening in the world of links
-cover: "../../../assets/skate-dawg.png"
+cover: "./skate-dawg.png"
 heroAlt: A skateboarding dog but make it cooler. Dalle-3 + SAM + Grounding DINO + SDXL Inpainting
 pubDate: "Jan 31 2024"
 ---

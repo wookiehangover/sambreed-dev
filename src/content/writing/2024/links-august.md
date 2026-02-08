@@ -2,7 +2,7 @@
 title: Links, August 2024
 slug: 2024/links-august
 description: what's happening in the world of links
-cover: "../../../assets/skate-dog-aug-2024.png"
+cover: "./skate-dog-aug-2024.png"
 heroAlt: "prompt: 'a skateboarding dog' model: flux.dev"
 pubDate: "Aug 31 2024"
 ---
