@@ -2,10 +2,12 @@
 title: Dipsea 2023 Race Report
 slug: dipsea-2023-race-report
 description: Race overview from my very first running of The Dipsea on June 11, 2023
-cover: "../../assets/C4F2FB7B-DA17-4F91-BD24-D96D2E0CF1A4_1_105_c.jpeg"
+cover: "./C4F2FB7B-DA17-4F91-BD24-D96D2E0CF1A4_1_105_c.jpeg"
 heroAlt: me, in my Henry Rollins "Search & Destroy" hoodie at the start line.
 pubDate: "June 12 2023"
 ---
+import { Image } from 'astro:assets';
+import finishLineImage from './1B9CED58-0ECD-47B3-B640-A1514447C7F5_1_105_c.jpeg';
 
 > [The Dipsea Race](https://www.dipsea.org) is a 7.4 mile trail race from Mill Valley to Stinson Beach. It was first run in 1905 and has a unique handicapping system that makes it competative for runners of all ages. 2023 was my first year participating, after almost 9 years of living in Mill Valley and 4 years of running.
 
@@ -39,6 +41,6 @@ Result
 |1:21:04.86|905 / 1364|309 / 756|
 
 <figure>
-  <img src="/img/1B9CED58-0ECD-47B3-B640-A1514447C7F5_1_105_c.jpeg" alt="me, crossing the finish line at full effort" />
+  <Image src={finishLineImage} alt="me, crossing the finish line at full effort" />
   <figcaption>me, crossing the finish line at full effort</figcaption>
 </figure>

@@ -2,7 +2,7 @@
 title: An Even Worse Search
 slug: 2023/an-even-worse-search
 description: "Making my links posts searchable"
-cover: "../../../assets/squirrel-working.png"
+cover: "./squirrel-working.png"
 heroAlt: "I have been hard at work gathering materials."
 pubDate: "December 21 2023"
 ---

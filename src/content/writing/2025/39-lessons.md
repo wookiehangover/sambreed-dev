@@ -2,7 +2,7 @@
 title: 39 Lessons
 slug: 39-lessons
 description: 39 lessons to live by
-cover: "../../../assets/1eb81b18-a73d-4b18-a407-ccf244dba240.jpg"
+cover: "./1eb81b18-a73d-4b18-a407-ccf244dba240.jpg"
 heroAlt: "prompt: A dense redwood forest"
 pubDate: "May 27 2025"
 ---

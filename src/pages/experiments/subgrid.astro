@@ -3,6 +3,9 @@ import BaseHead from "~/components/BaseHead.astro";
 import Footer from "~/components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "~/config";
 import "../../components/CodeBlock.astro";
+import { Image } from "astro:assets";
+import image1 from "../../content/writing/2023/572e05d7-c02a-4e21-b7b9-d52984b79a5a.png";
+import image2 from "../../content/writing/2023/2e6dfddd-8124-405f-a98f-09c7c06ca044.png";
 ---
 
 <!doctype html>
@@ -30,11 +33,11 @@ import "../../components/CodeBlock.astro";
 					Let's take an image. Normally, an image inline in a post could only live within its parent container, like
 					this:
 				</p>
-				<img src="/img/572e05d7-c02a-4e21-b7b9-d52984b79a5a.png" />
+				<Image src={image1} alt="Example inline image" />
 				<p>But now, with CSS Subgrid, that same image can span multiple grid columns:</p>
 
 				<h2>Subheadings and Images can span multiple columns</h2>
-				<img class="full" src="/img/2e6dfddd-8124-405f-a98f-09c7c06ca044.png" />
+				<Image class="full" src={image2} alt="Example full-width image" />
 				<p>That's more or less the whole trick. It also can work with other tags:</p>
 				<p>
 					Which is pretty cool, I guess? Anyway it's not easy to do without lots of oddball css. The one thing I feel

@@ -2,7 +2,7 @@
 title: Links Blog August 2022
 slug: 2022/links-august-2022.html
 description: Links! more links to things I've had open for most of August 2022
-cover: "../../../assets/0411fe02-021e-4f3a-b45a-591907eea8a9.png"
+cover: "./0411fe02-021e-4f3a-b45a-591907eea8a9.png"
 heroAlt: "Links Blog August 2022"
 pubDate: "Aug 30 2022"
 ---

@@ -92,20 +92,8 @@ const {
 </html>
 
 <script>
-	// external links should open in a new tab
-	document.addEventListener("DOMContentLoaded", function () {
-		const links = document.querySelectorAll("a");
-
-		links.forEach((link) => {
-			const href = link.getAttribute("href");
-			const isExternal = href?.startsWith("http") && !location.hostname.includes(href);
-
-			if (isExternal) {
-				link.setAttribute("target", "_blank");
-				link.setAttribute("rel", "noopener noreferrer");
-			}
-		});
-	});
+	import { initExternalLinks } from "~/utils/external-links";
+	initExternalLinks();
 </script>
 
 <style is:global>

@@ -2,7 +2,7 @@
 title: Links, June 2025
 slug: 2025/links-june
 description: browser archaeology strikes again
-cover: "../../../assets/links-june-2025.png"
+cover: "./links-june-2025.png"
 heroAlt: "prompt: 'dirt bikes for the mind' model: Reve preview"
 pubDate: "Jun 18 2025"
 ---

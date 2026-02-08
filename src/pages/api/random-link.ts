@@ -14,6 +14,15 @@ export const GET: APIRoute = async ({ request }) => {
 		);
 	}
 
+	if (allLinks.length === 0) {
+		return new Response(JSON.stringify({ error: "No links found" }), {
+			status: 404,
+			headers: {
+				"Content-Type": "application/json",
+			},
+		});
+	}
+
 	const randomLink = allLinks[Math.floor(Math.random() * allLinks.length)];
 
 	const destination = randomLink.url;

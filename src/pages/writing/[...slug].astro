@@ -4,7 +4,7 @@ import BlogPost from "~/layouts/BlogPost.astro";
 
 const { slug } = Astro.params;
 if (slug === undefined) {
-	return Astro.redirect("/wiki/about");
+	return Astro.redirect("/writing");
 }
 
 const entry = await getEntry("writing", slug);
