@@ -18,7 +18,7 @@ The Figma MCP server pulls design tokens, spacing, components, all of it directl
 
 A few things I've learned after a few months of daily use:
 
-**Opening moves matter.** I do my own setup before delegating anything. I seed the workspace with my preferences, my opinions about how the code should work. I edit the spec directly rather than letting the coordinator rewrite it — coordinators tend to over-specify, and I'd rather keep things loose.
+**Opening moves matter.** I do my own setup before delegating anything. I seed the workspace with my preferences, my opinions about how the code should work. Then I let the coordinator draft the spec — but because I've already loaded it up with good context, it has a lot to work with. The opening moves are about giving the coordinator the right raw material.
 
 **PR-sized tasks are the sweet spot.** Intent really shines when the work fits in a single pull request. You _can_ go ambitious — hundreds of files, tens of thousands of lines changed — but those need way more planning and are harder to evaluate. When adding to the plan would invalidate 40% of what's already there, it's time to merge what you have and start a new workspace.
 
