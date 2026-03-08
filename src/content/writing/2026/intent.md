@@ -1,6 +1,6 @@
 ---
-title: Writing This From Inside the Machine
-description: What it's like to use Augment Intent as my daily driver
+title: Building With Intent
+description: Figma comp to working site in 45 minutes, and other workflow notes
 pubDate: "Mar 8 2026"
 ---
 
@@ -13,8 +13,6 @@ We had a full Figma design for a marketing site. Ten pages, a design system with
 Intent has a Figma MCP integration. The MCP server pulls the design tokens, spacing values, and component structure directly into the workspace context, so the agents aren't guessing at the design. They're reading it. Fonts, colors, breakpoints, layer hierarchy. It all comes in as structured data the agents can actually use.
 
 I opened a workspace, pointed it at the Figma file, and let the agents scaffold the pages. Forty-five minutes later I had a working build that matched the comp most of the way there. Not pixel-perfect, but close enough that the remaining work was tweaking, not rebuilding.
-
-The interesting part: our designer, who had never touched Git, opened a workspace and started iterating on the CSS herself. Intent made that possible because she could describe what she wanted changed and the agents would make the edits. She didn't need to know the toolchain.
 
 ## What I've learned about using it well
 
