@@ -6,6 +6,8 @@ pubDate: "Mar 8 2026"
 
 I'm writing this from inside [Augment Intent](https://www.augmentcode.com/intent). I've mentioned it before ([Chrome Cool Copy](/writing/2026/chrome-cool-copy), [AgentDB search migration](/writing/2025/little-better-vector-search)) but I did a [livestream](https://www.youtube.com/watch?v=Ednpn1mjKiY) recently and wanted to get into the actual workflow.
 
+<iframe width="100%" style="aspect-ratio: 16/9; border: none; border-radius: 10px;" src="https://www.youtube.com/embed/Ednpn1mjKiY" title="Augment Intent Livestream" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Figma comp, 45 minutes
 
 We had a full Figma design for a marketing site. Ten pages, a design system with custom fonts and gradients, responsive layouts, the works. The kind of thing where you'd normally spend a day or two squinting at the inspector panel, copying hex codes, and nudging padding values until it looks right.
