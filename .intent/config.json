@@ -1,0 +1,64 @@
+{
+  "scripts": [
+    {
+      "name": "dev",
+      "command": "pnpm dev",
+      "mode": "service",
+      "category": "dev"
+    },
+    {
+      "name": "start",
+      "command": "pnpm start",
+      "mode": "service",
+      "category": "dev"
+    },
+    {
+      "name": "build",
+      "command": "pnpm build",
+      "mode": "command",
+      "category": "build"
+    },
+    {
+      "name": "build:links",
+      "command": "pnpm build:links",
+      "mode": "command",
+      "category": "build"
+    },
+    {
+      "name": "build:embeddings",
+      "command": "pnpm build:embeddings",
+      "mode": "command",
+      "category": "build"
+    },
+    {
+      "name": "build:embeddings:chunks",
+      "command": "pnpm build:embeddings:chunks",
+      "mode": "command",
+      "category": "build"
+    },
+    {
+      "name": "populate:agentdb",
+      "command": "pnpm populate:agentdb",
+      "mode": "command",
+      "category": "other"
+    },
+    {
+      "name": "astro",
+      "command": "pnpm astro",
+      "mode": "command",
+      "category": "other"
+    },
+    {
+      "name": "lint",
+      "command": "pnpm lint",
+      "mode": "command",
+      "category": "lint"
+    },
+    {
+      "name": "format",
+      "command": "pnpm format",
+      "mode": "command",
+      "category": "format"
+    }
+  ]
+}
