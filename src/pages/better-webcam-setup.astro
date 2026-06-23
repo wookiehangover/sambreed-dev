@@ -1,0 +1,162 @@
+---
+import BlogPost from "~/layouts/BlogPost.astro";
+
+const content = {
+	title: "A Better Webcam Setup",
+	description:
+		"How to get a clean, professional video feed for calls using a real camera, a capture card, and a dedicated USB hub.",
+	pubDate: "Jun 16 2026",
+	slug: "good-webcam-setup",
+};
+---
+
+<BlogPost content={content}>
+	<p>
+		It's 2026. Being on video is unavoidable. Even if you prefer being in office
+		and meeting IRL, video call platforms are part of most meeting. So are
+		bad picture quality, flat lighting, and absurd framing.
+	</p>
+	
+	<p>
+		One of the best upgrades I ever made to my home office was upgrading from the built-in Apple Display webcam to a proper prosumer camera rig. 
+	</p>
+
+	<p>
+		The key take-away: use a real camera, get a clean signal off of it with a capture card, and feed
+		that signal through a <em>dedicated</em> USB hub. Each piece matters, and the order you chain them
+		together matters too.
+	</p>
+
+	<h2>1. The camera</h2>
+
+	<ul>
+		<li>
+			<a href="https://www.amazon.com/Canon-EOS-Rebel-SL3-18-55mm/dp/B07PJW1GBZ"
+				>Canon Rebel SL3</a
+			>, with the 18-55mm f4-5.6 kit lens.
+			<ul>
+				<li>
+					There are many digital cameras, but this one is mine. I originally chose it because of its
+					on-board USB output, which means you can skip the capture card entirely and get a clean
+					feed directly from the camera over USB.
+				</li>
+				<li>
+					The only catch is that the USB feed is limited to 576p30, which you don't notice until you
+					take a still photo and view it at 2k or 4k. This is a digital camera with a big sensor that
+					captures enormously large raw photos, so why the low-res video feed? Turns out the on-board
+					USB output is USB 2.0(!) and therefore limited on how much data it can transfer.
+				</li>
+				<li>
+					With the limitations of the on-board USB established, the move is to ignore it and pull a
+					clean signal off the mini HDMI port instead. That's where the capture card comes in.
+				</li>
+			</ul>
+		</li>
+	</ul>
+
+	<h2>2. The capture card</h2>
+
+	<ul>
+		<li>
+			<a href="https://www.elgato.com/us/en/p/game-capture-4k-x">Elgato 4K Capture card</a>
+			<ul>
+				<li>
+					This is plugged into the mini HDMI port on the camera and into a USB 3.0 hub, and from
+					there onto the computer. Elgato makes great stuff. This is the second capture device I've
+					used of theirs and they've both worked flawlessly in both Windows and Mac. I'm sure Linux
+					is its own special hell with these things, but you get what you're paying for.
+				</li>
+				<li>
+					You'll also need a <a
+						href="https://www.amazon.com/AmazonBasics-High-Speed-Mini-HDMI-Cable/dp/B014I8U33A"
+						>mini HDMI to HDMI cable</a
+					> to get the signal from the camera to the card.
+				</li>
+			</ul>
+		</li>
+	</ul>
+
+	<h2>3. The USB hub (this is the important one)</h2>
+
+	<ul>
+		<li>
+			A <em>dedicated</em>
+			<a href="https://www.amazon.com/Anker-Aluminum-Ethernet-MacBook-ChromeBook/dp/B00YULTJ24"
+				>USB 3.0 hub</a
+			> — this is really important. The capture card transfers a lot of data and is picky about what
+			it can be chained through.
+			<ul>
+				<li>
+					In a previous iteration of my setup I had a monitor with an integrated USB 3.0 hub, which
+					I learned didn't have enough bandwidth for 1080p60. So I shopped around until I found a hub
+					that had enough bandwidth and an ethernet port.
+				</li>
+				<li>
+					This hub goes directly to my MacBook Pro for exactly two things: camera signal and
+					ethernet. Because I only need 1080p60, the addition of gigabit ethernet doesn't cut into
+					the bandwidth needed to do video.
+				</li>
+				<li>
+					And wired ethernet makes for more consistent call quality! An absolute must-have if you
+					take lots of calls and want good video <em>and</em> audio.
+				</li>
+				<li>
+					Bonus: a hub with its own power adapter can power the camera rig through a <a
+						href="https://www.amazon.com/dp/B07BNP6PVK">dummy battery / AC adapter</a
+					>, so you never have to think about charging it.
+				</li>
+			</ul>
+		</li>
+	</ul>
+
+	<h2>4. Mounting and placement</h2>
+
+	<p>
+		How the camera is positioned matters as much as the camera itself. Get it stable, get it at the
+		right distance, and get it at eye level.
+	</p>
+
+	<ul>
+		<li>
+			<a href="https://joby.com/global/ballhead-5k-jb01514-bww/">Joby BallHead</a> — a small,
+			solid ball head lets you dial in the exact angle and then forget about it. Pair it with
+			whatever mount makes sense for your desk: a
+			<a href="https://www.amazon.com/dp/B07K7QHZ8F">desk clamp arm</a> keeps the camera off the
+			desktop and out of the way, and the ball head handles the fine adjustments.
+		</li>
+		<li>
+			Position the camera 2-3 feet from your face and at roughly eye level. Closer than that and the
+			lens distorts your features; much farther and you lose the sense of presence that makes a real
+			camera worth the trouble. Eye level is the key part — a camera looking up your nose or down at
+			the top of your head reads as unflattering and slightly off, no matter how good the glass is.
+		</li>
+	</ul>
+
+	<h2>5. Lighting</h2>
+
+	<p>
+		A real camera in a poorly lit room still looks bad. One good key light fixes most of it.
+	</p>
+
+	<ul>
+		<li>
+			<a href="https://www.elgato.com/us/en/p/key-light">Elgato Key Light</a> — bright, dimmable, and
+			adjustable in color temperature, all controllable from software. Set it up off to one side and
+			slightly above eye line and you're done.
+		</li>
+	</ul>
+
+	<h2>Putting it together</h2>
+
+	<ol>
+		<li>Camera → mini HDMI out → capture card.</li>
+		<li>Capture card → dedicated USB 3.0 hub.</li>
+		<li>USB 3.0 hub → computer (carrying camera signal and ethernet).</li>
+		<li>Camera on a ball head, 2-3 feet away at eye level, with a key light off to one side.</li>
+	</ol>
+
+	<p>
+		That's the whole thing. It's more involved than a clip-on webcam, but the payoff is a feed that
+		looks like you put thought into it.
+	</p>
+</BlogPost>
