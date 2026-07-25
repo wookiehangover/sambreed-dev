@@ -317,7 +317,7 @@
 	section > header {
 		width: var(--grid-header-width);
 		justify-self: end;
-		border-right: 1px solid var(--border-dim);
+		/*border-right: 1px solid var(--border-dim);*/
 		padding: var(--grid-header-padding);
 		transition:
 			width,
@@ -329,6 +329,7 @@
 		h2 {
 			font-size: 1rem;
 			margin: 1rem 0 0;
+			color: var(--text-very-dim);
 		}
 
 		& p {
