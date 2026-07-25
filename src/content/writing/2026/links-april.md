@@ -3,6 +3,8 @@ title: Links, Spring 2026
 slug: 2026/links-spring
 description: 4 to 6 months of links
 pubDate: Apr 12 2026
+cover: ./al-gore-triple-monitors.jpg
+heroAlt: 'Al Gore knew how to use 30" Apple Displays properly'
 ---
 
 for as long as I can remember the chunk of the year that I most closely associate with *winter* is actually autumn, and correspondingly the time I most closely associate with *spring* is actually winter. So it is winter/spring 2026, even though it feels like spring. Living in Northern California further confuses things by the year being divided into two co-equal seasons, spring and late spring (offset by two modes, "raining every day" and "no rain for 9 months"). 
