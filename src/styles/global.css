@@ -126,9 +126,13 @@
 	}
 
 	hr {
-		border-top: 1px solid var(--hr-border-color);
-		border-color: var(--hr-border-color);
+		border: none;
+		color: var(--hr-border-color);
 		margin: 1rem 0;
+		text-align: center;
+		&::after {
+			content: '§';
+		}
 	}
 
 	figure {
@@ -201,8 +205,13 @@
 		h4,
 		h5,
 		h6 {
-			letter-spacing: -3%;
+			margin-block: 0;
+			font-weight: 600;
 		}
+
+		h2 { font-size: 1.2rem; }
+		h3 { font-size: 1.1rem; }
+		h4 { font-size: 1rem; }
 	}
 
 	li > p:only-child {
