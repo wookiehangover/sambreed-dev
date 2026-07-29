@@ -24,7 +24,9 @@ export default defineConfig({
   site: 'https://sambreed.dev',
   integrations: [mdx(), sitemap()],
   output: "server",
-  adapter: vercel(),
+  adapter: vercel({
+    webAnalytics: { enabled: true }
+  }),
   markdown: {
     shikiConfig: {
       theme: "one-dark-pro"

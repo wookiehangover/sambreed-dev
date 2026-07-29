@@ -6,6 +6,7 @@ import "../styles/global.css";
 import { ClientRouter } from "astro:transitions";
 import "@fontsource/inter";
 import interWoff2 from "@fontsource/inter/files/inter-latin-400-normal.woff2?url";
+import Analytics from '@vercel/analytics/astro'
 
 export interface Props {
 	title: string;
@@ -57,3 +58,4 @@ if (cover) {
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(img, Astro.url)} />
+<Analytics />
