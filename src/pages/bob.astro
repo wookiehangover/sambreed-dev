@@ -1,0 +1,157 @@
+---
+import { destinations } from "~/components/bob/destinations";
+import { roomSkins } from "~/components/bob/skins";
+import { Image } from "astro:assets";
+import socrates from "~/assets/bob/socrates.png";
+import "~/styles/bob.css";
+import Analytics from "@vercel/analytics/astro";
+
+export const prerender = true;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Sam’s Place — Sam Breed</title>
+		<meta
+			name="description"
+			content="Make yourself at home. Explore Sam Breed’s website through a cozy, interactive 3D living room inspired by Microsoft Bob."
+		/>
+		<meta name="theme-color" content="#ffc94a" />
+		<link rel="icon" href="/favicon.ico" />
+		<link rel="canonical" href={new URL("/bob", Astro.site)} />
+		<meta property="og:title" content="Sam’s Place — Sam Breed" />
+		<meta property="og:description" content="A little home on the internet. Come on in." />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={new URL("/bob", Astro.site)} />
+		<Analytics />
+	</head>
+	<body>
+		<main aria-label="Sam’s Microsoft Bob room">
+			<bob-room>
+				<div class="room-viewport">
+					<div class="room-stage" aria-label="Interactive room. Drag to look around.">
+						<div class="canvas-mount"></div>
+						<div class="loading-room" role="status">
+							<p data-loading-text>Opening the room…</p>
+							<nav aria-label="Website links">{destinations.map((d) => <a href={d.href}>{d.label}</a>)}</nav>
+							<noscript><p>JavaScript is needed for the 3D room. These links still work.</p></noscript>
+						</div>
+						<nav class="object-labels" aria-label="Objects in the room" hidden>
+							{
+								destinations.map((d) => (
+									<a href={d.href} data-object={d.id} title={`${d.object}: ${d.label}`}>
+										{d.label}
+									</a>
+								))
+							}
+						</nav>
+					</div>
+				</div>
+				<aside class="rover" aria-label="Rover, your guide">
+					<div class="speech-bubble">
+						<strong data-guide-title>To visit somewhere, just click on it.</strong>
+						<p data-guide-text>Point to something and I’ll tell you about it. Hold F1 to see all the names.</p>
+						<button type="button" data-help aria-expanded="false" aria-controls="room-help"
+							><span class="option-dot" aria-hidden="true"></span>Other options</button
+						>
+					</div>
+					<button class="dog-button" type="button" data-pet aria-label="Pet Rover">
+						<svg class="guide-classic" viewBox="0 0 160 170" aria-hidden="true">
+							<g stroke="#17120b" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round">
+								<path class="rover-tail" d="M109 129q33 12 31-13t10 3q8 34-44 33" fill="#ffdf22"></path>
+								<path d="M66 77q-14 16-15 40l-14 26q-8 13 14 14h62q18-2 7-15l-14-25-11-41" fill="#ffdf22"></path>
+								<path d="M63 108q-13 12-14 33l-8 7m60-39q10 12 10 31l7 9" fill="none"></path>
+								<path d="m68 110-3 36q-14 13 5 13h13l1-48m13-3 4 37q13 14-5 14H82" fill="#ffe432"></path>
+								<path d="m65 154 1 5m7-6 1 5m22-5 1 5m7-5 1 5" fill="none" stroke-width="2"></path>
+								<path d="M56 30Q28 7 24 53q-3 20 13 18l20-25m42-16q28-23 34 22 4 24-13 18L99 48" fill="#edb920"></path>
+								<path d="M48 37Q49 12 80 13q31-1 32 27l-8 31q-5 17-27 17T50 65Z" fill="#ffe12b"></path>
+								<path d="M50 39q-3-22 19-19l9 17-9 17-19-2m40-31q24-4 22 25l-14 8-12-17" fill="#242016"></path>
+								<ellipse cx="64" cy="37" rx="10" ry="12" fill="#fffef3"></ellipse><ellipse
+									cx="94"
+									cy="37"
+									rx="10"
+									ry="12"
+									fill="#fffef3"></ellipse>
+								<ellipse cx="67" cy="40" rx="3" ry="5" fill="#151515" stroke="none"></ellipse><ellipse
+									cx="91"
+									cy="40"
+									rx="3"
+									ry="5"
+									fill="#151515"
+									stroke="none"></ellipse>
+								<path d="M58 54q22-16 43 0l-7 21q-15 12-28-1z" fill="#18100d"></path>
+								<path d="M69 68q13-8 19 2l-2 12q-11 10-18-2z" fill="#ef5145"></path>
+								<path d="m79 70-1 11" fill="none" stroke-width="2"></path>
+								<ellipse cx="79" cy="52" rx="15" ry="10" fill="#141310"></ellipse><path
+									d="m73 48 7-1"
+									stroke="#fff"
+									stroke-width="3"></path>
+								<path d="m59 83 39-1-1 9-37 1z" fill="#e64737"></path><circle cx="78" cy="94" r="6" fill="#ffc928"
+								></circle>
+							</g>
+						</svg>
+						<svg class="guide-cyberpunk" viewBox="0 0 160 170" aria-hidden="true">
+							<g stroke="#152337" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+								<path class="rover-tail" d="M107 134h18l10-18 13-2v14l-14 21h-26" fill="#849eae"></path>
+								<path d="m61 81-13 29-8 38h81l-11-38-13-29z" fill="#698396"></path>
+								<path d="M58 91h44l4 31H53z" fill="#b9c9cf"></path>
+								<rect x="66" y="98" width="28" height="17" rx="3" fill="#17273d"></rect>
+								<path d="M71 106h17" stroke="#64fff0"></path>
+								<path d="m58 126-3 23-13 3v8h31v-34m18 0v34h31v-8l-13-3-3-23" fill="#b9c9cf"></path>
+								<circle cx="57" cy="125" r="8" fill="#3b546b"></circle>
+								<circle cx="104" cy="125" r="8" fill="#3b546b"></circle>
+								<path d="m45 32-16-9-9 37 12 15 14-20m67-23 16-9 11 37-13 15-15-20" fill="#829dad"></path>
+								<path d="M44 30 57 18h47l13 12v42l-20 17H61L43 72z" fill="#bacdd5"></path>
+								<path d="M51 34h58v24H51z" fill="#111c32"></path>
+								<path d="M59 47h13m17 0h13" stroke="#71fff0" stroke-width="5"></path>
+								<path d="m59 64 10-6h23l10 6-7 15H66z" fill="#668698"></path>
+								<path d="M72 60h16l-3 8H75z" fill="#12283c"></path>
+								<path d="M73 75h14" stroke="#f481d6"></path>
+								<path d="M81 18V7" fill="none"></path>
+								<circle cx="81" cy="6" r="4" fill="#ff81db"></circle>
+								<path d="M62 85h35v8H62z" fill="#f477cf"></path>
+							</g>
+						</svg>
+						<Image class="guide-greek" src={socrates} width={300} alt="" aria-hidden="true" format="webp" />
+					</button>
+				</aside>
+				<div class="room-help" id="room-help" hidden>
+					<strong>What would you like to do?</strong>
+					<nav aria-label="Website shortcuts">
+						{
+							destinations.map((d) => (
+								<a href={d.href} data-shortcut={d.id}>
+									{d.label}
+								</a>
+							))
+						}
+					</nav>
+					<p>
+						Click an object to open it. Drag to look around, or swipe sideways on a small screen. You can also use Tab
+						and Enter.
+					</p>
+					<label class="skin-picker">
+						Room skin
+						<select data-room-skin disabled>
+							{roomSkins.map((skin) => <option value={skin.id}>{skin.label}</option>)}
+						</select>
+					</label>
+					<div class="room-actions">
+						<button type="button" data-labels aria-pressed="false" disabled>Show names</button>
+						<button type="button" data-motion aria-pressed="true" disabled>Animation</button>
+						<button type="button" data-sound aria-pressed="true" disabled>Sound</button>
+						<button type="button" data-reset disabled>Reset view</button>
+					</div>
+					<button type="button" data-close-help>OK</button>
+				</div>
+				<a class="exit" href="/" aria-label="Exit to Sam Breed’s website">EXIT</a>
+			</bob-room>
+		</main>
+		<script>
+			import "~/components/bob/room";
+		</script>
+	</body>
+</html>
