@@ -1,0 +1,57 @@
+---
+export const prerender = true;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Water — Sam Breed</title>
+		<meta
+			name="description"
+			content="A quiet ocean, a silver reflection, and a hazy sky. An animated study of water and light."
+		/>
+		<meta name="theme-color" content="#555858" />
+		<link rel="icon" href="/favicon.ico" />
+		<link rel="canonical" href={new URL("/water", Astro.site)} />
+	</head>
+	<body>
+		<main>
+			<water-scene>
+				<canvas
+					role="img"
+					aria-label="Dark ocean ripples beneath a hazy gray sky, with silver sunlight shimmering across the right side of the water."
+				></canvas>
+			</water-scene>
+		</main>
+		<script>
+			import "~/components/water/scene";
+		</script>
+	</body>
+</html>
+
+<style>
+	:global(html) {
+		background: #555858;
+		color-scheme: dark;
+	}
+	:global(body) {
+		margin: 0;
+	}
+	water-scene {
+		display: block;
+		position: fixed;
+		inset: 0;
+		overflow: hidden;
+		background: linear-gradient(180deg, #505558 0%, #77786e 45%, #a19e87 55.5%, #424440 56%, #161c1d 100%);
+	}
+	canvas {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+	canvas[hidden] {
+		display: none;
+	}
+</style>
