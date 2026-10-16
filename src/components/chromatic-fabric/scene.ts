@@ -95,6 +95,7 @@ class ChromaticFabric extends HTMLElement {
 				chroma: { value: 4 },
 				time: { value: 0 },
 				aspect: { value: HEIGHT / WIDTH },
+				fabricWidth: { value: WIDTH },
 				ripples: { value: ripples },
 			},
 			blending: THREE.CustomBlending,
@@ -127,21 +128,31 @@ class ChromaticFabric extends HTMLElement {
 			const ratio = Math.min(devicePixelRatio || 1, 2);
 			renderer.setPixelRatio(ratio);
 			renderer.setSize(width, height, false);
-			camera.aspect = width / height;
-			const fov = THREE.MathUtils.degToRad(camera.fov);
-			const fitHeight = (HEIGHT * 1.3) / 2 / Math.tan(fov / 2);
-			const fitWidth = (WIDTH * 1.3) / 2 / Math.tan(fov / 2) / camera.aspect;
-			const distance = Math.max(fitHeight, fitWidth);
-			camera.position.set(0, -0.05, distance);
-			camera.lookAt(0, -0.05, 0);
+			const buffer = renderer.getDrawingBufferSize(new THREE.Vector2());
+			camera.aspect = buffer.x / buffer.y;
+			const tan = Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2);
+			const fitHeight = (HEIGHT * 1.3) / 2 / tan;
+			const fitWidth = (WIDTH * 1.3) / 2 / tan / camera.aspect;
+			// Whole-pixel thread spacing and line width, with thread centres on the pixel grid, keep the
+			// resting sheet free of aliasing moiré.
+			const spacing = Math.max(2, Math.round(3.8 * ratio));
+			const lineWidth = Math.max(1, Math.round(1.15 * ratio));
+			const fitPx = (WIDTH * buffer.y) / (2 * Math.max(fitHeight, fitWidth) * tan);
+			const lines = THREE.MathUtils.clamp(Math.round(fitPx / spacing) + 1, 60, MAX_LINES);
+			const fabricPx = spacing * (lines - 1);
+			const pxPerUnit = fabricPx / WIDTH;
+			const left = buffer.x / 2 - fabricPx / 2;
+			const shift = ((((lineWidth % 2) * 0.5 - left) % 1) + 1) % 1;
+			const x = -shift / pxPerUnit;
+			camera.position.set(x, -0.05, buffer.y / (2 * pxPerUnit * tan));
+			camera.lookAt(x, -0.05, 0);
 			camera.updateProjectionMatrix();
 			camera.updateMatrixWorld();
-			const fabricPx = (WIDTH / (2 * camera.position.z * Math.tan(fov / 2) * camera.aspect)) * width;
-			cellPx = fabricPx / (COLS - 1);
-			uniforms.resolution.value.set(width * ratio, height * ratio);
-			uniforms.lineWidth.value = 1.15 * ratio;
-			uniforms.lines.value = Math.round(THREE.MathUtils.clamp(fabricPx / 3.8, 90, MAX_LINES));
-			uniforms.chroma.value = Math.max(4, fabricPx * 0.017) * ratio;
+			cellPx = fabricPx / ratio / (COLS - 1);
+			uniforms.resolution.value.copy(buffer);
+			uniforms.lineWidth.value = lineWidth;
+			uniforms.lines.value = lines;
+			uniforms.chroma.value = Math.max(4 * ratio, fabricPx * 0.017);
 			geometry.setDrawRange(0, uniforms.lines.value * SEGMENTS * 6);
 			render();
 		};

@@ -22,6 +22,7 @@ uniform float lineWidth;
 uniform float chroma;
 uniform float time;
 uniform float aspect;
+uniform float fabricWidth;
 uniform vec4 ripples[${MAX_RIPPLES}];
 
 out vec3 vColor;
@@ -100,7 +101,12 @@ void main() {
   vec3 p = surface(positions, uv) + vec3(0.0, 0.0, wave * 0.035 * lift);
   vec3 q = surface(positions, uvNext) + vec3(0.0, 0.0, ripple(uvNext) * 0.035 * lift);
   vec3 v = bilinear(velocities, uv);
-  float displaced = length(p - surface(home, uv));
+  vec3 homeP = surface(home, uv);
+  float displaced = length(p - homeP);
+  // Draw the resting drape as an even, upright grid so threads land on whole pixels.
+  float restX = (uv.x - 0.5) * fabricWidth;
+  p.x += restX - homeP.x;
+  q.x += restX - surface(home, uvNext).x;
 
   mat4 mvp = projectionMatrix * modelViewMatrix;
   vec4 clip = mvp * vec4(p, 1.0);
