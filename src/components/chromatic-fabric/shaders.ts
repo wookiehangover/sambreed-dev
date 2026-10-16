@@ -13,6 +13,7 @@ uniform mat4 projectionMatrix;
 uniform mat4 modelViewMatrix;
 uniform sampler2D positions;
 uniform sampler2D velocities;
+uniform sampler2D home;
 uniform vec2 grid;
 uniform float lines;
 uniform float segments;
@@ -40,7 +41,7 @@ vec4 catmullRom(float t) {
   );
 }
 
-vec3 surface(vec2 uv) {
+vec3 surface(sampler2D map, vec2 uv) {
   vec2 g = uv * (grid - 1.0);
   vec2 i = floor(g);
   vec2 f = g - i;
@@ -49,22 +50,22 @@ vec3 surface(vec2 uv) {
   ivec2 base = ivec2(i) - 1;
   vec3 sum = vec3(0.0);
   for (int y = 0; y < 4; y++) {
-    vec3 row = texel(positions, base + ivec2(0, y)) * wx.x
-      + texel(positions, base + ivec2(1, y)) * wx.y
-      + texel(positions, base + ivec2(2, y)) * wx.z
-      + texel(positions, base + ivec2(3, y)) * wx.w;
+    vec3 row = texel(map, base + ivec2(0, y)) * wx.x
+      + texel(map, base + ivec2(1, y)) * wx.y
+      + texel(map, base + ivec2(2, y)) * wx.z
+      + texel(map, base + ivec2(3, y)) * wx.w;
     sum += row * wy[y];
   }
   return sum;
 }
 
-vec3 velocity(vec2 uv) {
+vec3 bilinear(sampler2D map, vec2 uv) {
   vec2 g = uv * (grid - 1.0);
   ivec2 i = ivec2(floor(g));
   vec2 f = fract(g);
   return mix(
-    mix(texel(velocities, i), texel(velocities, i + ivec2(1, 0)), f.x),
-    mix(texel(velocities, i + ivec2(0, 1)), texel(velocities, i + ivec2(1, 1)), f.x),
+    mix(texel(map, i), texel(map, i + ivec2(1, 0)), f.x),
+    mix(texel(map, i + ivec2(0, 1)), texel(map, i + ivec2(1, 1)), f.x),
     f.y
   );
 }
@@ -83,15 +84,6 @@ float ripple(vec2 uv) {
   return sum;
 }
 
-// Resting drape folds, too fine for the cloth grid to carry.
-float folds(vec2 uv) {
-  float hang = uv.y * uv.y;
-  return hang * (
-    sin(uv.y * 17.0 + uv.x * 2.2 - 0.6) * 0.055 +
-    sin(uv.y * 9.0 - uv.x * 3.4 + 1.9) * 0.07
-  );
-}
-
 vec2 screen(vec4 clip) {
   return clip.xy / clip.w * 0.5 * resolution;
 }
@@ -105,9 +97,10 @@ void main() {
   float wave = ripple(uv);
   // Ripples lift the cloth only away from the pinned edge.
   float lift = smoothstep(0.0, 0.12, along);
-  vec3 p = surface(uv) + vec3(0.0, 0.0, wave * 0.035 * lift + folds(uv));
-  vec3 q = surface(uvNext) + vec3(0.0, 0.0, ripple(uvNext) * 0.035 * lift + folds(uvNext));
-  vec3 v = velocity(uv);
+  vec3 p = surface(positions, uv) + vec3(0.0, 0.0, wave * 0.035 * lift);
+  vec3 q = surface(positions, uvNext) + vec3(0.0, 0.0, ripple(uvNext) * 0.035 * lift);
+  vec3 v = bilinear(velocities, uv);
+  float displaced = length(p - surface(home, uv));
 
   mat4 mvp = projectionMatrix * modelViewMatrix;
   vec4 clip = mvp * vec4(p, 1.0);
@@ -118,7 +111,8 @@ void main() {
   vec2 motion = screen(mvp * vec4(p + v * 0.035, 1.0)) - s;
 
   vec2 dir = normalize(vec2(1.0, -0.22));
-  vec2 split = dir * chroma * (1.0 + abs(wave) * 3.5 + abs(p.z) * 3.0) + motion * 0.9;
+  // Channels only separate where the cloth moves, ripples, or leaves its resting drape.
+  vec2 split = dir * chroma * (abs(wave) * 4.5 + displaced * 2.6) + motion * 0.9;
   float limit = chroma * 9.0;
   if (length(split) > limit) split = normalize(split) * limit;
 

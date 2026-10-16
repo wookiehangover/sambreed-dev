@@ -71,8 +71,11 @@ class ChromaticFabric extends HTMLElement {
 		renderer.setClearColor(0x000000, 1);
 
 		const cloth = new Cloth();
+		// Let the cloth settle into its drape before the first frame.
+		cloth.settle(100);
 		const positions = texture(cloth.posTexels);
 		const velocities = texture(cloth.velTexels);
+		const home = texture(Float32Array.from(cloth.posTexels));
 		const ripples = Array.from({ length: MAX_RIPPLES }, () => new THREE.Vector4(0, 0, 0, 0));
 		let nextRipple = 0;
 
@@ -83,6 +86,7 @@ class ChromaticFabric extends HTMLElement {
 			uniforms: {
 				positions: { value: positions },
 				velocities: { value: velocities },
+				home: { value: home },
 				grid: { value: new THREE.Vector2(COLS, ROWS) },
 				lines: { value: 180 },
 				segments: { value: SEGMENTS },
@@ -128,7 +132,7 @@ class ChromaticFabric extends HTMLElement {
 			const fitHeight = (HEIGHT * 1.3) / 2 / Math.tan(fov / 2);
 			const fitWidth = (WIDTH * 1.3) / 2 / Math.tan(fov / 2) / camera.aspect;
 			const distance = Math.max(fitHeight, fitWidth);
-			camera.position.set(Math.sin(0.42) * distance, 0.35, Math.cos(0.42) * distance);
+			camera.position.set(0, -0.05, distance);
 			camera.lookAt(0, -0.05, 0);
 			camera.updateProjectionMatrix();
 			camera.updateMatrixWorld();
@@ -203,6 +207,7 @@ class ChromaticFabric extends HTMLElement {
 		let awake = false;
 		let grab: Grab | null = null;
 		let grabDepth = 0;
+		const grabPointer = { x: 0, y: 0 };
 		let target: [number, number, number] | null = null;
 		let pointerId = -1;
 		let last: { x: number; y: number; t: number } | null = null;
@@ -216,6 +221,8 @@ class ChromaticFabric extends HTMLElement {
 				awake = true;
 				grab = cloth.grab(point.u, point.v, point.x, point.y, point.z);
 				grabDepth = point.z;
+				grabPointer.x = event.clientX;
+				grabPointer.y = event.clientY;
 				target = [point.x, point.y, point.z];
 				pointerId = event.pointerId;
 				canvas.setPointerCapture(event.pointerId);
@@ -235,7 +242,8 @@ class ChromaticFabric extends HTMLElement {
 				last = { x: event.clientX, y: event.clientY, t: now };
 
 				if (grab && event.pointerId === pointerId) {
-					target = toWorld(event.clientX, event.clientY, grabDepth) ?? target;
+					grabPointer.x = event.clientX;
+					grabPointer.y = event.clientY;
 					return;
 				}
 				const point = pick(event.clientX, event.clientY);
@@ -286,6 +294,11 @@ class ChromaticFabric extends HTMLElement {
 			accumulator += delta;
 			let steps = 0;
 			while (accumulator >= STEP && steps < 4) {
+				if (grab) {
+					// Held cloth lifts toward the viewer so it bunches in depth, not flat in its plane.
+					const lift = 0.45 * Math.min(1, grab.held / 0.6);
+					target = toWorld(grabPointer.x, grabPointer.y, grabDepth + lift) ?? target;
+				}
 				if (awake) cloth.step(STEP, grab, target);
 				clock += STEP;
 				accumulator -= STEP;
@@ -318,8 +331,6 @@ class ChromaticFabric extends HTMLElement {
 			{ signal },
 		);
 
-		// Let the cloth settle into its drape before the first frame.
-		cloth.settle(100);
 		resize();
 		syncVisibility();
 
@@ -331,6 +342,7 @@ class ChromaticFabric extends HTMLElement {
 			material.dispose();
 			positions.dispose();
 			velocities.dispose();
+			home.dispose();
 			renderer.dispose();
 		};
 	}
