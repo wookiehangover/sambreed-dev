@@ -20,6 +20,7 @@ uniform float segments;
 uniform vec2 resolution;
 uniform float lineWidth;
 uniform float chroma;
+uniform float intensity;
 uniform float time;
 uniform float aspect;
 uniform float fabricWidth;
@@ -118,9 +119,10 @@ void main() {
 
   vec2 dir = normalize(vec2(1.0, -0.22));
   // Channels only separate where the cloth moves, ripples, or leaves its resting drape.
-  vec2 split = dir * chroma * (abs(wave) * 4.5 + displaced * 2.6) + motion * 0.9;
-  float limit = chroma * 9.0;
-  if (length(split) > limit) split = normalize(split) * limit;
+  vec2 split = dir * chroma * (abs(wave) * 3.4 + displaced * 2.6) + motion * 0.9;
+  split *= intensity;
+  float limit = chroma * 9.0 * intensity;
+  if (length(split) > limit) split *= limit / length(split);
 
   float halfWidth = lineWidth * 0.5;
   vec2 offset = normal * side * (halfWidth + 1.0) + split * channel;

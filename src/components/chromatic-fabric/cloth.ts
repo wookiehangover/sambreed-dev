@@ -3,8 +3,6 @@ export const ROWS = 56;
 export const WIDTH = 2;
 export const HEIGHT = 2.6;
 
-const GRAVITY = -5.2;
-const DAMPING = 0.988;
 const ITERATIONS = 14;
 const MAX_STEP = 0.1;
 
@@ -26,6 +24,8 @@ export class Cloth {
 	readonly posTexels = new Float32Array(this.count * 4);
 	readonly velTexels = new Float32Array(this.count * 4);
 	private readonly constraints: Constraint[] = [];
+	gravity = 5.2;
+	damping = 0.988;
 
 	constructor() {
 		const dx = WIDTH / (COLS - 1);
@@ -105,22 +105,14 @@ export class Cloth {
 		};
 	}
 
-	/** Relax into the resting drape without carrying momentum, so the first frame is still. */
-	settle(steps: number) {
-		for (let n = 0; n < steps; n++) {
-			this.step(1 / 60, null, null);
-			this.prev.set(this.pos);
-		}
-		this.writeTexels(1 / 60);
-	}
-
 	step(dt: number, grab: Grab | null, target: [number, number, number] | null) {
-		const g = GRAVITY * dt * dt;
+		const g = -this.gravity * dt * dt;
+		const damping = this.damping;
 		const { pos, prev } = this;
 
 		for (let i = COLS * 3; i < pos.length; i++) {
 			const p = pos[i];
-			let vel = (p - prev[i]) * DAMPING;
+			let vel = (p - prev[i]) * damping;
 			if (vel > MAX_STEP) vel = MAX_STEP;
 			else if (vel < -MAX_STEP) vel = -MAX_STEP;
 			prev[i] = p;
@@ -163,6 +155,27 @@ export class Cloth {
 				pos[ib] -= dx * diff * sb;
 				pos[ib + 1] -= dy * diff * sb;
 				pos[ib + 2] -= dz * diff * sb;
+			}
+		}
+
+		// Tethers to each column's pin stop the sheet sagging past its rest length, so a settled
+		// cloth returns exactly to its starting drape.
+		const { rest } = this;
+		for (let r = 1; r < ROWS; r++) {
+			for (let c = 0; c < COLS; c++) {
+				const i = (r * COLS + c) * 3;
+				const ax = rest[c * 3];
+				const ay = rest[c * 3 + 1];
+				const dx = pos[i] - ax;
+				const dy = pos[i + 1] - ay;
+				const dz = pos[i + 2];
+				const d = Math.sqrt(dx * dx + dy * dy + dz * dz);
+				const max = ay - rest[i + 1];
+				if (d <= max) continue;
+				const k = max / d;
+				pos[i] = ax + dx * k;
+				pos[i + 1] = ay + dy * k;
+				pos[i + 2] = dz * k;
 			}
 		}
 

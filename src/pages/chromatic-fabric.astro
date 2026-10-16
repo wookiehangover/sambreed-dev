@@ -5,6 +5,14 @@ const title = "Chromatic Fabric — Sam Breed";
 const description =
 	"A hanging sheet of chromatic threads. Hover to ripple it, drag to bunch it up and throw it around.";
 const pageUrl = new URL("/chromatic-fabric", Astro.site);
+
+const settings = [
+	{ key: "chroma", label: "Chroma", min: 0, max: 2.5, step: 0.01 },
+	{ key: "ripples", label: "Ripples", min: 0, max: 2.5, step: 0.01 },
+	{ key: "spacing", label: "Spacing", min: 2.5, max: 10, step: 0.5 },
+	{ key: "weight", label: "Weight", min: 0.2, max: 2.5, step: 0.01 },
+	{ key: "air", label: "Air", min: 0, max: 1, step: 0.01 },
+];
 ---
 
 <!doctype html>
@@ -30,8 +38,27 @@ const pageUrl = new URL("/chromatic-fabric", Astro.site);
 			<chromatic-fabric>
 				<canvas
 					role="img"
-					aria-label="A sheet of fine red, green, and blue threads hangs from its top edge against black, splitting into rainbow fringes where it folds. Hover to ripple it; drag to bunch it up and throw it."
+					aria-label="A sheet of fine white threads hangs still from its top edge against black. Hover to send chromatic ripples through it; drag to bunch it up and throw it, splitting the threads into red, green, and blue."
 				></canvas>
+				<details class="controls">
+					<summary aria-label="Effect controls">
+						<svg viewBox="0 0 24 24" aria-hidden="true">
+							<path d="M4 7h10M18 7h2M4 17h4M12 17h8"></path>
+							<circle cx="16" cy="7" r="2"></circle>
+							<circle cx="10" cy="17" r="2"></circle>
+						</svg>
+					</summary>
+					<div class="panel">
+						{
+							settings.map((s) => (
+								<label>
+									<span>{s.label}</span>
+									<input type="range" data-setting={s.key} min={s.min} max={s.max} step={s.step} />
+								</label>
+							))
+						}
+					</div>
+				</details>
 			</chromatic-fabric>
 		</main>
 		<script>
@@ -71,5 +98,132 @@ const pageUrl = new URL("/chromatic-fabric", Astro.site);
 	}
 	canvas[hidden] {
 		display: none;
+	}
+
+	.controls {
+		position: absolute;
+		right: 16px;
+		bottom: 16px;
+		display: flex;
+		flex-direction: column-reverse;
+		align-items: flex-end;
+		gap: 8px;
+		font:
+			500 12px/1.2 system-ui,
+			-apple-system,
+			sans-serif;
+		color: rgb(255 255 255 / 0.62);
+		-webkit-tap-highlight-color: transparent;
+	}
+	summary,
+	.panel {
+		background: rgb(22 22 22 / 0.72);
+		border: 1px solid rgb(255 255 255 / 0.08);
+		backdrop-filter: blur(16px);
+		-webkit-backdrop-filter: blur(16px);
+	}
+	summary {
+		display: grid;
+		place-items: center;
+		width: 36px;
+		height: 36px;
+		border-radius: 50%;
+		list-style: none;
+		cursor: pointer;
+		color: rgb(255 255 255 / 0.62);
+		transition:
+			color 150ms ease,
+			background-color 150ms ease;
+	}
+	summary::-webkit-details-marker {
+		display: none;
+	}
+	summary:hover,
+	.controls[open] summary {
+		color: #fff;
+		background: rgb(40 40 40 / 0.8);
+	}
+	summary:focus-visible {
+		outline: 2px solid rgb(255 255 255 / 0.7);
+		outline-offset: 2px;
+	}
+	summary svg {
+		width: 18px;
+		height: 18px;
+		fill: none;
+		stroke: currentColor;
+		stroke-width: 1.75;
+		stroke-linecap: round;
+	}
+	.panel {
+		display: grid;
+		gap: 12px;
+		width: 224px;
+		padding: 14px 16px;
+		border-radius: 14px;
+		animation: rise 180ms cubic-bezier(0.2, 0.8, 0.2, 1);
+	}
+	@keyframes rise {
+		from {
+			opacity: 0;
+			transform: translateY(6px);
+		}
+	}
+	label {
+		display: grid;
+		grid-template-columns: 56px 1fr;
+		align-items: center;
+		gap: 12px;
+	}
+	input[type="range"] {
+		width: 100%;
+		height: 16px;
+		margin: 0;
+		background: transparent;
+		cursor: pointer;
+		appearance: none;
+		-webkit-appearance: none;
+	}
+	input[type="range"]::-webkit-slider-runnable-track {
+		height: 2px;
+		border-radius: 1px;
+		background: rgb(255 255 255 / 0.18);
+	}
+	input[type="range"]::-moz-range-track {
+		height: 2px;
+		border-radius: 1px;
+		background: rgb(255 255 255 / 0.18);
+	}
+	input[type="range"]::-webkit-slider-thumb {
+		width: 12px;
+		height: 12px;
+		margin-top: -5px;
+		border: 0;
+		border-radius: 50%;
+		background: #fff;
+		appearance: none;
+		-webkit-appearance: none;
+		transition: transform 120ms ease;
+	}
+	input[type="range"]::-moz-range-thumb {
+		width: 12px;
+		height: 12px;
+		border: 0;
+		border-radius: 50%;
+		background: #fff;
+	}
+	input[type="range"]:active::-webkit-slider-thumb {
+		transform: scale(1.2);
+	}
+	input[type="range"]:focus-visible {
+		outline: none;
+	}
+	input[type="range"]:focus-visible::-webkit-slider-thumb {
+		box-shadow: 0 0 0 3px rgb(255 255 255 / 0.3);
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.panel {
+			animation: none;
+		}
 	}
 </style>

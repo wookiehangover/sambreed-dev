@@ -2,7 +2,7 @@ import * as THREE from "three";
 import { Cloth, COLS, HEIGHT, ROWS, WIDTH, type Grab } from "./cloth";
 import { fragmentShader, MAX_RIPPLES, vertexShader } from "./shaders";
 
-const MAX_LINES = 240;
+const MAX_LINES = 360;
 const SEGMENTS = 280;
 const STEP = 1 / 60;
 
@@ -71,8 +71,6 @@ class ChromaticFabric extends HTMLElement {
 		renderer.setClearColor(0x000000, 1);
 
 		const cloth = new Cloth();
-		// Let the cloth settle into its drape before the first frame.
-		cloth.settle(100);
 		const positions = texture(cloth.posTexels);
 		const velocities = texture(cloth.velTexels);
 		const home = texture(Float32Array.from(cloth.posTexels));
@@ -93,6 +91,7 @@ class ChromaticFabric extends HTMLElement {
 				resolution: { value: new THREE.Vector2(1, 1) },
 				lineWidth: { value: 1.2 },
 				chroma: { value: 4 },
+				intensity: { value: 1 },
 				time: { value: 0 },
 				aspect: { value: HEIGHT / WIDTH },
 				fabricWidth: { value: WIDTH },
@@ -115,6 +114,13 @@ class ChromaticFabric extends HTMLElement {
 		const camera = new THREE.PerspectiveCamera(30, 1, 0.1, 100);
 
 		const uniforms = material.uniforms;
+		const settings = { chroma: 1, ripples: 1, spacing: 3.8, weight: 1, air: 0.5 };
+		const apply = () => {
+			uniforms.intensity.value = settings.chroma;
+			cloth.gravity = 5.2 * settings.weight;
+			cloth.damping = 0.998 - 0.02 * settings.air;
+		};
+		apply();
 		const events = new AbortController();
 		const { signal } = events;
 		let width = 1;
@@ -135,10 +141,10 @@ class ChromaticFabric extends HTMLElement {
 			const fitWidth = (WIDTH * 1.3) / 2 / tan / camera.aspect;
 			// Whole-pixel thread spacing and line width, with thread centres on the pixel grid, keep the
 			// resting sheet free of aliasing moiré.
-			const spacing = Math.max(2, Math.round(3.8 * ratio));
+			const spacing = Math.max(2, Math.round(settings.spacing * ratio));
 			const lineWidth = Math.max(1, Math.round(1.15 * ratio));
 			const fitPx = (WIDTH * buffer.y) / (2 * Math.max(fitHeight, fitWidth) * tan);
-			const lines = THREE.MathUtils.clamp(Math.round(fitPx / spacing) + 1, 60, MAX_LINES);
+			const lines = THREE.MathUtils.clamp(Math.round(fitPx / spacing) + 1, 24, MAX_LINES);
 			const fabricPx = spacing * (lines - 1);
 			const pxPerUnit = fabricPx / WIDTH;
 			const left = buffer.x / 2 - fabricPx / 2;
@@ -238,7 +244,7 @@ class ChromaticFabric extends HTMLElement {
 				pointerId = event.pointerId;
 				canvas.setPointerCapture(event.pointerId);
 				canvas.dataset.grabbing = "";
-				addRipple(point.u, point.v, 1.4);
+				addRipple(point.u, point.v, 1.4 * settings.ripples);
 			},
 			{ signal },
 		);
@@ -268,12 +274,12 @@ class ChromaticFabric extends HTMLElement {
 				travelled += Math.hypot(dx, dy);
 				if (travelled > cellPx * 0.9) {
 					travelled = 0;
-					addRipple(point.u, point.v, 0.35 + speed * 0.3);
+					addRipple(point.u, point.v, (0.2 + speed * 0.18) * settings.ripples);
 				}
-				const k = 0.0016 * speed;
-				const scale = WIDTH / (cellPx * (COLS - 1));
+				const k = 0.0016 * speed * settings.ripples;
+				const scale = (WIDTH / (cellPx * (COLS - 1))) * 0.012 * settings.ripples;
 				if (speed > 0) awake = true;
-				cloth.push(point.u, point.v, 0.07, (dx / dt) * scale * 0.012, (-dy / dt) * scale * 0.012, -k);
+				cloth.push(point.u, point.v, 0.07, (dx / dt) * scale, (-dy / dt) * scale, -k);
 			},
 			{ signal },
 		);
@@ -328,6 +334,20 @@ class ChromaticFabric extends HTMLElement {
 			previous = 0;
 			if (!document.hidden) frame = requestAnimationFrame(animate);
 		};
+
+		for (const input of this.querySelectorAll<HTMLInputElement>("input[data-setting]")) {
+			const key = input.dataset.setting as keyof typeof settings;
+			input.value = String(settings[key]);
+			input.addEventListener(
+				"input",
+				() => {
+					settings[key] = input.valueAsNumber;
+					apply();
+					if (key === "spacing") resize();
+				},
+				{ signal },
+			);
+		}
 
 		const observer = new ResizeObserver(resize);
 		observer.observe(this);
