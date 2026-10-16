@@ -91,7 +91,6 @@ class ChromaticFabric extends HTMLElement {
 				chroma: { value: 4 },
 				time: { value: 0 },
 				aspect: { value: HEIGHT / WIDTH },
-				breeze: { value: 1 },
 				ripples: { value: ripples },
 			},
 			blending: THREE.CustomBlending,
@@ -111,7 +110,6 @@ class ChromaticFabric extends HTMLElement {
 		const camera = new THREE.PerspectiveCamera(30, 1, 0.1, 100);
 
 		const uniforms = material.uniforms;
-		const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
 		const events = new AbortController();
 		const { signal } = events;
 		let width = 1;
@@ -146,7 +144,6 @@ class ChromaticFabric extends HTMLElement {
 
 		const render = () => {
 			uniforms.time.value = clock;
-			uniforms.breeze.value = reducedMotion.matches ? 0 : 1;
 			renderer.render(scene, camera);
 		};
 
@@ -202,6 +199,8 @@ class ChromaticFabric extends HTMLElement {
 			nextRipple = (nextRipple + 1) % MAX_RIPPLES;
 		};
 
+		// The cloth holds still until it is first touched.
+		let awake = false;
 		let grab: Grab | null = null;
 		let grabDepth = 0;
 		let target: [number, number, number] | null = null;
@@ -214,6 +213,7 @@ class ChromaticFabric extends HTMLElement {
 			(event) => {
 				const point = pick(event.clientX, event.clientY);
 				if (!point) return;
+				awake = true;
 				grab = cloth.grab(point.u, point.v, point.x, point.y, point.z);
 				grabDepth = point.z;
 				target = [point.x, point.y, point.z];
@@ -253,6 +253,7 @@ class ChromaticFabric extends HTMLElement {
 				}
 				const k = 0.0016 * speed;
 				const scale = WIDTH / (cellPx * (COLS - 1));
+				if (speed > 0) awake = true;
 				cloth.push(point.u, point.v, 0.07, (dx / dt) * scale * 0.012, (-dy / dt) * scale * 0.012, -k);
 			},
 			{ signal },
@@ -285,13 +286,13 @@ class ChromaticFabric extends HTMLElement {
 			accumulator += delta;
 			let steps = 0;
 			while (accumulator >= STEP && steps < 4) {
-				cloth.step(STEP, reducedMotion.matches ? 0 : 1, grab, target);
+				if (awake) cloth.step(STEP, grab, target);
 				clock += STEP;
 				accumulator -= STEP;
 				steps++;
 			}
 			if (steps === 4) accumulator = 0;
-			if (steps) {
+			if (steps && awake) {
 				positions.needsUpdate = true;
 				velocities.needsUpdate = true;
 			}
@@ -318,7 +319,7 @@ class ChromaticFabric extends HTMLElement {
 		);
 
 		// Let the cloth settle into its drape before the first frame.
-		for (let i = 0; i < 90; i++) cloth.step(STEP, reducedMotion.matches ? 0 : 1, null, null);
+		cloth.settle(100);
 		resize();
 		syncVisibility();
 

@@ -26,7 +26,6 @@ export class Cloth {
 	readonly posTexels = new Float32Array(this.count * 4);
 	readonly velTexels = new Float32Array(this.count * 4);
 	private readonly constraints: Constraint[] = [];
-	time = 0;
 
 	constructor() {
 		const dx = WIDTH / (COLS - 1);
@@ -106,32 +105,26 @@ export class Cloth {
 		};
 	}
 
-	step(dt: number, wind: number, grab: Grab | null, target: [number, number, number] | null) {
-		this.time += dt;
-		const t = this.time;
+	/** Relax into the resting drape without carrying momentum, so the first frame is still. */
+	settle(steps: number) {
+		for (let n = 0; n < steps; n++) {
+			this.step(1 / 60, null, null);
+			this.prev.set(this.pos);
+		}
+		this.writeTexels(1 / 60);
+	}
+
+	step(dt: number, grab: Grab | null, target: [number, number, number] | null) {
 		const g = GRAVITY * dt * dt;
 		const { pos, prev } = this;
 
-		for (let r = 1; r < ROWS; r++) {
-			const v = r / (ROWS - 1);
-			for (let c = 0; c < COLS; c++) {
-				const u = c / (COLS - 1);
-				const i = (r * COLS + c) * 3;
-				const gust =
-					wind *
-					v *
-					(Math.sin(t * 0.9 - v * 6.5 + u * 2.4) * 1.6 +
-						Math.sin(t * 1.43 - u * 5.3 + v * 3.1) * 0.8 +
-						Math.sin(t * 0.37 + u * 1.3) * 1.1);
-				for (let k = 0; k < 3; k++) {
-					const p = pos[i + k];
-					let vel = (p - prev[i + k]) * DAMPING;
-					if (vel > MAX_STEP) vel = MAX_STEP;
-					else if (vel < -MAX_STEP) vel = -MAX_STEP;
-					prev[i + k] = p;
-					pos[i + k] = p + vel + (k === 1 ? g : k === 2 ? gust * dt * dt : gust * 0.45 * dt * dt);
-				}
-			}
+		for (let i = COLS * 3; i < pos.length; i++) {
+			const p = pos[i];
+			let vel = (p - prev[i]) * DAMPING;
+			if (vel > MAX_STEP) vel = MAX_STEP;
+			else if (vel < -MAX_STEP) vel = -MAX_STEP;
+			prev[i] = p;
+			pos[i] = p + vel + (i % 3 === 1 ? g : 0);
 		}
 
 		if (grab && target) {

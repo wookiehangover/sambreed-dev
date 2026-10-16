@@ -21,7 +21,6 @@ uniform float lineWidth;
 uniform float chroma;
 uniform float time;
 uniform float aspect;
-uniform float breeze;
 uniform vec4 ripples[${MAX_RIPPLES}];
 
 out vec3 vColor;
@@ -84,12 +83,12 @@ float ripple(vec2 uv) {
   return sum;
 }
 
-// Slow folds rolling down the sheet, too fine for the cloth grid to carry.
+// Resting drape folds, too fine for the cloth grid to carry.
 float folds(vec2 uv) {
   float hang = uv.y * uv.y;
-  return breeze * hang * (
-    sin(uv.y * 17.0 - time * 1.3 + uv.x * 2.2) * 0.055 +
-    sin(uv.y * 9.0 - time * 0.8 - uv.x * 3.4) * 0.07
+  return hang * (
+    sin(uv.y * 17.0 + uv.x * 2.2 - 0.6) * 0.055 +
+    sin(uv.y * 9.0 - uv.x * 3.4 + 1.9) * 0.07
   );
 }
 
