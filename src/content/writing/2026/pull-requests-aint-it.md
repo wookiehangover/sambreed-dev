@@ -8,8 +8,8 @@ people have been talking about this: are pull requests dead? so it got me thinki
 ## what are pull requests for?
 
 - establish chain-of-custody for code changes
-		- this is important for compliance, the ability to link a commit to an author in a way that's reasonably tamper-proof
-		- what happens when approvals become perfunctory? agents write the code, other agents review the code
+	- this is important for compliance, the ability to link a commit to an author in a way that's reasonably tamper-proof
+	- what happens when approvals become perfunctory? agents write the code, other agents review the code
 	- a place for CI to run
 		- what artifacts are really left anyway? and does anyone really check if CI passed or failed on historical commits?
 	- a place for merges to be queued
@@ -18,22 +18,22 @@ people have been talking about this: are pull requests dead? so it got me thinki
 ## github actions are bad
 
 - litany of complaints
-		- uptime
-		- yaml
-		- not portable
-		- supply chain sus
-		- can't run them locally
+	- uptime
+	- yaml
+	- not portable
+	- supply chain sus
+	- can't run them locally
 
 ## can we replace it all with agents?
 
 -  github works because it's centralized. lots of jobs to be done:
-		- validate author identity
-		- keep track of proposed changes
-			- run tests
-			- review code
-			- merge when ready
-		- trigger events in external environments
-			- deploy hooks, etc
+	- validate author identity
+	- keep track of proposed changes
+		- run tests
+		- review code
+		- merge when ready
+	- trigger events in external environments
+		- deploy hooks, etc
 	- it's a decently big system!
 		- the agentic version might look a bit different — a agent learns about your branch, runs checks, evaluates code quality, discusses the changes, creates build artifacts, deploys to preview environments, and finally merges into main
 		- centralization no longer a strict requirement, but you'll need to figure out attestation
