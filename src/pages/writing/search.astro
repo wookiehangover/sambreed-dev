@@ -20,7 +20,7 @@ if (query) {
 		.map((entry: { slug: string }) => {
 			return blogEntries.find((e) => e.id === entry.slug);
 		})
-		.filter((entry) => entry !== undefined);
+		.filter((entry: any) => entry !== undefined);
 }
 ---
 
