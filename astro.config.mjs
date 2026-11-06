@@ -68,8 +68,7 @@ export default defineConfig({
     "/writing/2007.html": "/writing/2007",
     "/writing/books.html": "/writing/books",
     "/writing/twitter.html": "/writing/twitter",
-    // Missing slug redirects
-    "/writing/lil-vector-search": "/writing/2023/little-vector-search",
-    "/writing/2025/39-lessons": "/writing/2025/39-lessons",
+    // Slug frontmatter overrides - these files are in year directories but route differently
+    "/writing/2025/39-lessons": "/writing/39-lessons",
   }
 });

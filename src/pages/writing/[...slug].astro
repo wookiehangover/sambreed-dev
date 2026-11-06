@@ -7,7 +7,14 @@ if (slug === undefined) {
 	return Astro.redirect("/writing");
 }
 
-const entry = await getEntry("writing", slug);
+// Try to find entry - some legacy files have .html in their collection ID
+// even though the route doesn't include .html
+let entry = await getEntry("writing", slug);
+if (entry === undefined) {
+	// Try with .html suffix for legacy .html.md files
+	entry = await getEntry("writing", `${slug}.html`);
+}
+
 if (entry === undefined) {
 	return Astro.redirect("/404");
 }
