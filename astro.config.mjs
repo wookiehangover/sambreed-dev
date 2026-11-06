@@ -40,9 +40,9 @@ export default defineConfig({
     }
   },
   redirects: {
-    "/writing/links-part-one": "/writing/2022/links-part-one.html",
-    "/writing/links-part-one.html": "/writing/2022/links-part-one.html",
-    "/writing/links-august-2022.html": "/writing/2022/links-august-2022.html",
+    "/writing/links-part-one": "/writing/2022/links-part-one",
+    "/writing/links-part-one.html": "/writing/2022/links-part-one",
+    "/writing/links-august-2022.html": "/writing/2022/links-august-2022",
     "/writing/links-december-2022": "/writing/2022/links-december-2022",
     "/writing/links-april-2023.html": "/writing/2023/links-april-2023",
     "/writing/links-august-2023": "/writing/2023/links-august-2023",
@@ -54,5 +54,22 @@ export default defineConfig({
     "/writing/links-may-2023": "/writing/2023/links-may-2023",
     "/writing/links-oct-2023": "/writing/2023/links-oct-2023",
     "/writing/links-sept-2023": "/writing/2023/links-sept-2023",
+    // Legacy .html URLs for posts with .html.md files
+    "/writing/tragic-design-is.html": "/writing/tragic-design-is",
+    "/writing/picking-up-the-pieces.html": "/writing/picking-up-the-pieces",
+    "/writing/16-open-tabs.html": "/writing/16-open-tabs",
+    "/writing/2016-reading-list.html": "/writing/2016-reading-list",
+    "/writing/2017-reading-list.html": "/writing/2017-reading-list",
+    "/writing/lessons-from-the-jerk.html": "/writing/lessons-from-the-jerk",
+    "/writing/making-things-for-fun.html": "/writing/making-things-for-fun",
+    "/writing/protect-your-history.html": "/writing/protect-your-history",
+    "/writing/static-sites-with-next-js.html": "/writing/static-sites-with-next-js",
+    "/writing/why-I-read-what-I-read-in-2016.html": "/writing/what-I-read-in-2016",
+    "/writing/2007.html": "/writing/2007",
+    "/writing/books.html": "/writing/books",
+    "/writing/twitter.html": "/writing/twitter",
+    // Missing slug redirects
+    "/writing/lil-vector-search": "/writing/2023/little-vector-search",
+    "/writing/2025/39-lessons": "/writing/2025/39-lessons",
   }
 });

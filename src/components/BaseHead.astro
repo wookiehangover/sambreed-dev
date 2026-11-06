@@ -20,7 +20,14 @@ const { title, description, image = "/img/theodore-rex.jpg", cover } = Astro.pro
 let img = image;
 
 if (cover) {
-	img = (await getImage({ src: cover })).src;
+	const optimizedImage = await getImage({ src: cover });
+	// Ensure the image path is absolute and properly formatted
+	const imgSrc = optimizedImage.src.startsWith('/') ? optimizedImage.src : `/${optimizedImage.src}`;
+	// Convert to full URL to avoid relative path issues
+	img = new URL(imgSrc, Astro.url.origin).href;
+} else {
+	// Convert default image to full URL as well
+	img = new URL(img, Astro.url.origin).href;
 }
 ---
 
@@ -50,12 +57,12 @@ if (cover) {
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(img, Astro.url)} />
+<meta property="og:image" content={img} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(img, Astro.url)} />
+<meta property="twitter:image" content={img} />
 <Analytics />
