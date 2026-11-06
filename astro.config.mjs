@@ -64,10 +64,12 @@ export default defineConfig({
     "/writing/making-things-for-fun.html": "/writing/making-things-for-fun",
     "/writing/protect-your-history.html": "/writing/protect-your-history",
     "/writing/static-sites-with-next-js.html": "/writing/static-sites-with-next-js",
-    "/writing/why-I-read-what-I-read-in-2016.html": "/writing/what-I-read-in-2016",
+    "/writing/why-I-read-what-I-read-in-2016.html": "/writing/why-I-read-what-I-read-in-2016",
     "/writing/2007.html": "/writing/2007",
     "/writing/books.html": "/writing/books",
     "/writing/twitter.html": "/writing/twitter",
+    // Missing slug redirects
+    "/writing/lil-vector-search": "/writing/2023/lil-vector-search",
     // Slug frontmatter overrides - these files are in year directories but route differently
     "/writing/2025/39-lessons": "/writing/39-lessons",
   }
